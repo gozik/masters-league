@@ -10,6 +10,10 @@
     .gridjs-search {
         float: right;
     }
+    .flag-icon {
+        width: 20px;
+        margin-right: 5px;
+    }
 </style>
 {% endblock %}
 
@@ -29,15 +33,49 @@
 {% block scripts %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        const players = {{ players|tojson|safe }};
+
+        const formattedPlayers = players.map(player => {
+            return {
+                rank: player.id,  // Will be updated to actual rank after sorting
+                name: `${player.first_name} ${player.last_name}`,
+                rating: player.current_rating.toFixed(0),
+                country: player.country,
+                age: player.age || 'N/A'
+            };
+        });
+
+        // Sort by rating descending
+        formattedPlayers.sort((a, b) => b.rating - a.rating);
+
+        // Add rank based on sorted position
+        formattedPlayers.forEach((player, index) => {
+            player.rank = index + 1;
+        });
+
         new gridjs.Grid({
             columns: [
                 { id: 'rank', name: 'Rank', width: '80px' },
-                { id: 'name', name: 'Player' },
-                { id: 'rating', name: 'Rating', width: '100px' },
-                { id: 'country', name: 'Country', width: '100px' },
+                {
+                    id: 'name',
+                    name: 'Player',
+                    formatter: (cell) => gridjs.html(`<a href="/player/${players.find(p => `${p.first_name} ${p.last_name}` === cell).id}">${cell}</a>`)
+                },
+                {
+                    id: 'rating',
+                    name: 'Rating',
+                    width: '100px',
+                    formatter: (cell) => gridjs.html(`<strong>${cell}</strong>`)
+                },
+                {
+                    id: 'country',
+                    name: 'Country',
+                    width: '100px',
+                    formatter: (cell) => gridjs.html(`<span class="fi fi-${cell.toLowerCase()} flag-icon"></span> ${cell}`)
+                },
                 { id: 'age', name: 'Age', width: '80px' }
             ],
-            data: {{ players|tojson|safe }},
+            data: formattedPlayers,
             search: true,
             sort: true,
             pagination: {
