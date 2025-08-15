@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Player Ratings - Tennis Ratings{% endblock %}
+
+{% block head %}
+<style>
+    .gridjs-container {
+        margin-bottom: 20px;
+    }
+    .gridjs-search {
+        float: right;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Player Ratings</h1>
+
+<div class="mb-4">
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-outline-primary active">ATP</button>
+        <button type="button" class="btn btn-outline-primary">WTA</button>
+    </div>
+</div>
+
+<div id="players-table"></div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new gridjs.Grid({
+            columns: [
+                { id: 'rank', name: 'Rank', width: '80px' },
+                { id: 'name', name: 'Player' },
+                { id: 'rating', name: 'Rating', width: '100px' },
+                { id: 'country', name: 'Country', width: '100px' },
+                { id: 'age', name: 'Age', width: '80px' }
+            ],
+            data: {{ players|tojson|safe }},
+            search: true,
+            sort: true,
+            pagination: {
+                limit: 10
+            },
+            style: {
+                table: {
+                    'white-space': 'nowrap'
+                }
+            }
+        }).render(document.getElementById('players-table'));
+    });
+</script>
+{% endblock %}

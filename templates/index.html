@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Tennis Ratings{% endblock %}
+
+{% block content %}
+<div class="jumbotron bg-light p-5 rounded-lg">
+    <h1 class="display-4">Welcome to Tennis Ratings</h1>
+    <p class="lead">The most comprehensive tennis player ratings system.</p>
+    <hr class="my-4">
+    <p>View the latest player ratings and statistics.</p>
+    <a class="btn btn-primary btn-lg" href="/ratings" role="button">View Ratings</a>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">ATP Rankings</h5>
+                <p class="card-text">View the official ATP tour rankings.</p>
+                <a href="/ratings" class="btn btn-outline-primary">View ATP</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">WTA Rankings</h5>
+                <p class="card-text">View the official WTA tour rankings.</p>
+                <a href="/ratings" class="btn btn-outline-primary">View WTA</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
