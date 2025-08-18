@@ -33,20 +33,19 @@
 {% block scripts %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const players = {{ players|tojson|safe }};
+        const results = {{ results|tojson|safe }};
 
-        const formattedPlayers = players.map(player => {
+        const formattedPlayers = results.map(player => {
             return {
                 rank: player.id,  // Will be updated to actual rank after sorting
                 name: `${player.first_name} ${player.last_name}`,
-                rating: player.current_rating.toFixed(0),
-                country: player.country,
-                age: player.age || 'N/A'
+                position: `${player.position}`,
+                match_count: `${player.match_count}`,
+                win_count: `${player.win_count}`,
+                relegation: `${player.relegation}`,
             };
-        });
 
-        // Sort by rating descending
-        formattedPlayers.sort((a, b) => b.rating - a.rating);
+        });
 
         // Add rank based on sorted position
         formattedPlayers.forEach((player, index) => {
@@ -59,21 +58,12 @@
                 {
                     id: 'name',
                     name: 'Player',
-                    formatter: (cell) => gridjs.html(`<a href="/player/${players.find(p => `${p.first_name} ${p.last_name}` === cell).id}">${cell}</a>`)
+                    formatter: (cell) => gridjs.html(`<a href="/player/${results.find(p => `${p.first_name} ${p.last_name}` === cell).id}">${cell}</a>`)
                 },
-                {
-                    id: 'rating',
-                    name: 'Rating',
-                    width: '100px',
-                    formatter: (cell) => gridjs.html(`<strong>${cell}</strong>`)
-                },
-                {
-                    id: 'country',
-                    name: 'Country',
-                    width: '100px',
-                    formatter: (cell) => gridjs.html(`<span class="fi fi-${cell.toLowerCase()} flag-icon"></span> ${cell}`)
-                },
-                { id: 'age', name: 'Age', width: '80px' }
+                { id: 'position', name: 'Position', width: '80px' },
+                { id: 'match_count', name: 'Matches', width: '80px' },
+                { id: 'win_count', name: 'Wins', width: '80px' },
+                { id: 'relegation', name: 'Relegation', width: '100px' },
             ],
             data: formattedPlayers,
             search: true,

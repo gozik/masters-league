@@ -1,61 +1,100 @@
+from sqlalchemy import Enum
 from extensions import db
-from datetime import datetime
+
 
 class Player(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(50), nullable=False)
-    last_name = db.Column(db.String(50), nullable=False)
-    country = db.Column(db.String(3), nullable=False)
-    birth_date = db.Column(db.Date)
-    gender = db.Column(db.String(1))  # 'M' or 'F'
-    current_rating = db.Column(db.Float)
-    ratings = db.relationship('Rating', backref='player', lazy=True)
-    matches = db.relationship('Match', foreign_keys='Match.player1_id', backref='player1', lazy=True)
-    matches2 = db.relationship('Match', foreign_keys='Match.player2_id', backref='player2', lazy=True)
+    """Represents a tennis player in the league"""
+    __tablename__ = 'Player'
 
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    first_name = db.Column(db.String(64), nullable=True)
+    last_name = db.Column(db.String(64), nullable=True)
+    gender = db.Column(Enum('male', 'female', name='gender_enum'), nullable=True)
+
+    results = db.relationship('Result', backref='player_ref', lazy=True)
 
     def to_dict(self):
         return {
             'id': self.id,
             'first_name': self.first_name,
             'last_name': self.last_name,
-            'country': self.country,
-            'birth_date': self.birth_date.isoformat() if self.birth_date else None,
-            'current_rating': self.current_rating,
-            'age': self.age
         }
 
-
-    @property
-    def full_name(self):
-        return f"{self.first_name} {self.last_name}"
+    def __repr__(self):
+        return f'<Player {self.first_name} {self.last_name}>'
 
 
-    @property
-    def age(self):
-        if self.birth_date:
-            today = datetime.today()
-            return today.year - self.birth_date.year - (
-                        (today.month, today.day) < (self.birth_date.month, self.birth_date.day))
-        return None
+class League(db.Model):
+    """Represents a tennis league"""
+    __tablename__ = 'League'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(64), nullable=False)
+
+    seasons = db.relationship('Season', backref='league_ref', lazy=True)
+
+    def __repr__(self):
+        return f'<{self.name} League>'
 
 
-class Rating(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    player_id = db.Column(db.Integer, db.ForeignKey('player.id'), nullable=False)
-    rating = db.Column(db.Float, nullable=False)
-    date = db.Column(db.Date, default=datetime.utcnow)
-    tournament = db.Column(db.String(100))
+class Season(db.Model):
+    """Represents a season within a league"""
+    __tablename__ = 'Season'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(64), nullable=True)
+    year = db.Column(db.Integer, nullable=True)
+    date_start = db.Column(db.Date, nullable=True)
+    date_end = db.Column(db.Date, nullable=True)
+    league_id = db.Column(db.Integer, db.ForeignKey('League.id'), nullable=False)
+
+    groups = db.relationship('Group', backref='season_ref', lazy=True)
+
+    def __repr__(self):
+        return f'<Season {self.name} ({self.year})>'
 
 
-class Match(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    player1_id = db.Column(db.Integer, db.ForeignKey('player.id'), nullable=False)
-    player2_id = db.Column(db.Integer, db.ForeignKey('player.id'), nullable=False)
-    winner_id = db.Column(db.Integer, db.ForeignKey('player.id'))
-    score = db.Column(db.String(50))
-    date = db.Column(db.Date, nullable=False)
-    tournament = db.Column(db.String(100))
-    round = db.Column(db.String(50))
+class Group(db.Model):
+    """Represents a group/division within a season"""
+    __tablename__ = 'Group'
 
-    player_winner = db.relationship('Player', foreign_keys=[winner_id])
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(64), nullable=True)
+    priority = db.Column(db.Integer, nullable=True)
+    season_id = db.Column(db.Integer, db.ForeignKey('Season.id'), nullable=False)
+
+    results = db.relationship('Result', backref='group_ref', lazy=True)
+
+    def __repr__(self):
+        return f'<Group {self.name}>'
+
+
+class Result(db.Model):
+    """Represents a player's results in a specific group"""
+    __tablename__ = 'result'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    player_id = db.Column(db.Integer, db.ForeignKey('Player.id'), nullable=True)
+    position = db.Column(db.Integer, nullable=True)
+    match_count = db.Column(db.Integer, nullable=True)
+    win_count = db.Column(db.Integer, nullable=True)
+    tie_win_count = db.Column(db.Integer, nullable=True)
+    set_diff = db.Column(db.Integer, nullable=True)
+    game_diff = db.Column(db.Integer, nullable=True)
+    group_id = db.Column(db.Integer, db.ForeignKey('Group.id'), nullable=True)
+    relegation = db.Column(Enum('promoted', 'relegated', 'unchanged', name='relegation_enum'), nullable=True)
+
+    def __repr__(self):
+        return f'<Result Player {self.player_id} in Group {self.group_id}>'
+
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'first_name': self.player_ref.first_name,
+            'last_name': self.player_ref.last_name,
+            'position': self.position,
+            'match_count': self.match_count,
+            'win_count': self.win_count,
+            'relegation': self.relegation,
+        }

@@ -1,73 +1,80 @@
 from flask import render_template
 from init import create_app
-from models import Player, Rating, Match
+from models import Player, League, Season, Group, Result
 from extensions import db
-from datetime import datetime
-import random
 
 
 app = create_app()
 
 
-def create_sample_data():
+def create_sample_data(force_add=False):
     """Initialize database with sample data"""
     with app.app_context():
         db.create_all()
 
         # Only create sample data if database is empty
-        if Player.query.count() == 0:
+        if force_add or Player.query.count() == 0:
+            # Create sample league
+            league = League(name='Tashkent Masters')
+            db.session.add(league)
+            db.session.commit()
+
+            # Create sample season
+            season = Season(name='1', year=2025, league_id=league.id)
+            db.session.add(season)
+            db.session.commit()
+
+            # Create sample group
+            group = Group(name='M1', priority=10, season_id=season.id)
+            db.session.add(group)
+            db.session.commit()
+
             # Create sample players
             players_data = [
-                {'first_name': 'Novak', 'last_name': 'Djokovic', 'country': 'SRB', 'birth_date': datetime(1987, 5, 22),
-                 'gender': 'M', 'current_rating': 9850},
-                {'first_name': 'Daniil', 'last_name': 'Medvedev', 'country': 'RUS', 'birth_date': datetime(1996, 2, 11),
-                 'gender': 'M', 'current_rating': 8930},
-                {'first_name': 'Rafael', 'last_name': 'Nadal', 'country': 'ESP', 'birth_date': datetime(1986, 6, 3),
-                 'gender': 'M', 'current_rating': 8425},
-                {'first_name': 'Stefanos', 'last_name': 'Tsitsipas', 'country': 'GRE',
-                 'birth_date': datetime(1998, 8, 12), 'gender': 'M', 'current_rating': 7980},
-                {'first_name': 'Alexander', 'last_name': 'Zverev', 'country': 'GER',
-                 'birth_date': datetime(1997, 4, 20), 'gender': 'M', 'current_rating': 7865},
-                {'first_name': 'Iga', 'last_name': 'Świątek', 'country': 'POL', 'birth_date': datetime(2001, 5, 31),
-                 'gender': 'F', 'current_rating': 9230},
-                {'first_name': 'Aryna', 'last_name': 'Sabalenka', 'country': 'BLR', 'birth_date': datetime(1998, 5, 5),
-                 'gender': 'F', 'current_rating': 8765},
+                {'first_name': 'Rogozin', 'last_name': 'Anton', 'gender': 'male'},
+                {'first_name': 'Razzakov', 'last_name': 'Alisher', 'gender': 'male'},
+                {'first_name': 'Larionov', 'last_name': 'Svyatoslav', 'gender': 'male'},
+                {'first_name': 'Shirinov', 'last_name': 'Jahon', 'gender': 'male'},
+                {'first_name': 'Shamuratov', 'last_name': 'Farrukh', 'gender': 'male'},
+                {'first_name': 'Musadjanov', 'last_name': 'Hatam', 'gender': 'male'},
+                {'first_name': 'Malikov', 'last_name': 'Humoyun', 'gender': 'male'},
+                {'first_name': 'Kamilov', 'last_name': 'Baxriddin', 'gender': 'male'},
+                {'first_name': 'Vohidov', 'last_name': 'Nodir', 'gender': 'male'},
             ]
 
             players = []
             for data in players_data:
-                player = Player(**data)
+                player = Player(first_name=data['first_name'], last_name=data['last_name'],
+                                gender=data['gender'])
                 db.session.add(player)
                 players.append(player)
 
             db.session.commit()
 
-            # Create sample ratings
-            for player in players:
-                for i in range(5):
-                    rating = Rating(
-                        player_id=player.id,
-                        rating=player.current_rating - random.randint(0, 200),
-                        date=datetime(2023, 12 - i, 1),
-                        tournament=f"Sample Tournament {i + 1}"
-                    )
-                    db.session.add(rating)
+            result_data = [(8, 7, 0, 11, 46),
+                           (6, 6, 0, 12, 37),
+                           (6, 4, 0, 5, 18),
+                           (5, 4, 0, 3, -1),
+                           (7, 3, 1, -2, -17),
+                           (8, 3, 0, -4, 3),
+                           (6, 2, 0, -3, -11),
+                           (6, 0, 0, -11, -33),
+                           (6, 0, 0, -11, -42)]
 
-            # Create sample matches
-            for i in range(10):
-                player1 = random.choice(players)
-                player2 = random.choice([p for p in players if p.id != player1.id])
-
-                match = Match(
-                    player1_id=player1.id,
-                    player2_id=player2.id,
-                    winner_id=random.choice([player1.id, player2.id]),
-                    score=f"{random.randint(0, 6)}-{random.randint(0, 6)} {random.randint(0, 6)}-{random.randint(0, 6)}",
-                    date=datetime(2023, random.randint(1, 12), random.randint(1, 28)),
-                    tournament=f"Sample Tournament {random.randint(1, 5)}",
-                    round=random.choice(["1st Round", "2nd Round", "QF", "SF", "F"])
-                )
-                db.session.add(match)
+            results = []
+            for i in range(0, len(players)):
+                result = Result(player_id=players[i].id,
+                                position=i+1,
+                                match_count=result_data[i][0],
+                                win_count=result_data[i][1],
+                                tie_win_count=result_data[i][2],
+                                set_diff=result_data[i][3],
+                                game_diff=result_data[i][4],
+                                group_id=group.id,
+                                relegation=('relegated' if i>4 else 'unchanged'),
+                                )
+                db.session.add(result)
+                results.append(result)
 
             db.session.commit()
 
@@ -77,12 +84,12 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/ratings')
+@app.route('/results')
 def show_ratings():
-    players = Player.query.order_by(Player.current_rating.desc()).all()
-    players_data = [p.to_dict() for p in players]
+    results = Result.query.all()
+    results_data = [p.to_dict() for p in results]
 
-    return render_template('ratings.html', players=players_data)
+    return render_template('results.html', results=results_data)
 
 
 if __name__ == '__main__':
