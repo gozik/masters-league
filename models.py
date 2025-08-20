@@ -13,6 +13,8 @@ class Player(db.Model):
 
     results = db.relationship('Result', backref='player_ref', lazy=True)
 
+    __table_args__ = (db.Index('idx_player_name', 'last_name', 'first_name'),)
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -22,6 +24,8 @@ class Player(db.Model):
 
     def __repr__(self):
         return f'<Player {self.first_name} {self.last_name}>'
+
+
 
 
 class League(db.Model):
@@ -48,30 +52,30 @@ class Season(db.Model):
     date_end = db.Column(db.Date, nullable=True)
     league_id = db.Column(db.Integer, db.ForeignKey('League.id'), nullable=False)
 
-    groups = db.relationship('Group', backref='season_ref', lazy=True)
+    divisions = db.relationship('Division', backref='season_ref', lazy=True)
 
     def __repr__(self):
         return f'<Season {self.name} ({self.year})>'
 
 
-class Group(db.Model):
+class Division(db.Model):
     """Represents a group/division within a season"""
-    __tablename__ = 'Group'
+    __tablename__ = 'Division'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(64), nullable=True)
     priority = db.Column(db.Integer, nullable=True)
     season_id = db.Column(db.Integer, db.ForeignKey('Season.id'), nullable=False)
 
-    results = db.relationship('Result', backref='group_ref', lazy=True)
+    results = db.relationship('Result', backref='division_ref', lazy=True)
 
     def __repr__(self):
-        return f'<Group {self.name}>'
+        return f'<Division {self.name}>'
 
 
 class Result(db.Model):
-    """Represents a player's results in a specific group"""
-    __tablename__ = 'result'
+    """Represents a player's results in a specific division"""
+    __tablename__ = 'Result'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     player_id = db.Column(db.Integer, db.ForeignKey('Player.id'), nullable=True)
@@ -81,11 +85,12 @@ class Result(db.Model):
     tie_win_count = db.Column(db.Integer, nullable=True)
     set_diff = db.Column(db.Integer, nullable=True)
     game_diff = db.Column(db.Integer, nullable=True)
-    group_id = db.Column(db.Integer, db.ForeignKey('Group.id'), nullable=True)
-    relegation = db.Column(Enum('promoted', 'relegated', 'unchanged', name='relegation_enum'), nullable=True)
+    division_id = db.Column(db.Integer, db.ForeignKey('Division.id'), nullable=True)
+    relegation = db.Column(Enum('promoted', 'relegated', 'unchanged', 'fast promoted', 'double promoted',
+                                name='relegation_enum'), nullable=True)
 
     def __repr__(self):
-        return f'<Result Player {self.player_id} in Group {self.group_id}>'
+        return f'<Result Player {self.player_id} in Division {self.division_id}>'
 
 
     def to_dict(self):

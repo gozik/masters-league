@@ -1,6 +1,6 @@
 from flask import render_template
 from init import create_app
-from models import Player, League, Season, Group, Result
+from models import Player, League, Season, Division, Result
 from extensions import db
 
 
@@ -24,9 +24,9 @@ def create_sample_data(force_add=False):
             db.session.add(season)
             db.session.commit()
 
-            # Create sample group
-            group = Group(name='M1', priority=10, season_id=season.id)
-            db.session.add(group)
+            # Create sample division
+            division = Division(name='M1', priority=10, season_id=season.id)
+            db.session.add(division)
             db.session.commit()
 
             # Create sample players
@@ -70,7 +70,7 @@ def create_sample_data(force_add=False):
                                 tie_win_count=result_data[i][2],
                                 set_diff=result_data[i][3],
                                 game_diff=result_data[i][4],
-                                group_id=group.id,
+                                division_id=division.id,
                                 relegation=('relegated' if i>4 else 'unchanged'),
                                 )
                 db.session.add(result)
