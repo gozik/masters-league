@@ -104,4 +104,4 @@ if __name__ == '__main__':
         db.create_all()
         with open('misc/results_season12025_1.json') as f:
             input_data_from_json(f)
-    app.run(debug=True, port=int(os.environ.get('PORT', 8080)))
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
