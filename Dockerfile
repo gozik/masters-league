@@ -2,19 +2,19 @@
 FROM python:3.9-slim
 
 # Set the working directory in the container
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copy the current directory contents into the container at /usr/src/app
+# Copy the current directory contents into the container
 COPY . .
 
-# Install any needed dependencies specified in requirements.txt
+# Install any needed dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 
-# Define environment variable for Flask
-ENV FLASK_APP=app.py
+# Define environment variable for Flask app
+ENV FLASK_APP=app.py # Replace with your main Flask app file
 
-# Run app.py when the container launches
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
+# Run the Flask app with Gunicorn (recommended for production)
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 app.py:app
