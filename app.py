@@ -1,82 +1,62 @@
-from flask import render_template
+from flask import render_template, redirect, url_for
 from init import create_app
 from models import Player, League, Season, Division, Result
 from extensions import db
+import json
+from datetime import datetime
+
+
 
 
 app = create_app()
 
 
-def create_sample_data(force_add=False):
+def input_data_from_json(file):
     """Initialize database with sample data"""
     with app.app_context():
-        db.create_all()
-
         # Only create sample data if database is empty
-        if force_add or Player.query.count() == 0:
-            # Create sample league
-            league = League(name='Tashkent Masters')
-            db.session.add(league)
-            db.session.commit()
+        if Player.query.count() == 0:
+            d = json.load(file)
 
             # Create sample season
-            season = Season(name='1', year=2025, league_id=league.id)
-            db.session.add(season)
-            db.session.commit()
+            for name in d:
+                league = League(name=name)
+                db.session.add(league)
+                db.session.commit()
 
-            # Create sample division
-            division = Division(name='M1', priority=10, season_id=season.id)
-            db.session.add(division)
-            db.session.commit()
+                for s in d[name]:
+                    season = Season(name=s['name'], year=s['year'], league_id=league.id,
+                                    date_start=datetime.strptime(s['date_start'], "%Y-%m-%d"),
+                                    date_end=datetime.strptime(s['date_end'], "%Y-%m-%d"))
+                    db.session.add(season)
+                    db.session.commit()
 
-            # Create sample players
-            players_data = [
-                {'first_name': 'Rogozin', 'last_name': 'Anton', 'gender': 'male'},
-                {'first_name': 'Razzakov', 'last_name': 'Alisher', 'gender': 'male'},
-                {'first_name': 'Larionov', 'last_name': 'Svyatoslav', 'gender': 'male'},
-                {'first_name': 'Shirinov', 'last_name': 'Jahon', 'gender': 'male'},
-                {'first_name': 'Shamuratov', 'last_name': 'Farrukh', 'gender': 'male'},
-                {'first_name': 'Musadjanov', 'last_name': 'Hatam', 'gender': 'male'},
-                {'first_name': 'Malikov', 'last_name': 'Humoyun', 'gender': 'male'},
-                {'first_name': 'Kamilov', 'last_name': 'Baxriddin', 'gender': 'male'},
-                {'first_name': 'Vohidov', 'last_name': 'Nodir', 'gender': 'male'},
-            ]
+                    for d in s['divisions']:
+                        division = Division(name=d['name'], priority=d['priority'], season_id=season.id)
+                        db.session.add(division)
+                        db.session.commit()
 
-            players = []
-            for data in players_data:
-                player = Player(first_name=data['first_name'], last_name=data['last_name'],
-                                gender=data['gender'])
-                db.session.add(player)
-                players.append(player)
-
-            db.session.commit()
-
-            result_data = [(8, 7, 0, 11, 46),
-                           (6, 6, 0, 12, 37),
-                           (6, 4, 0, 5, 18),
-                           (5, 4, 0, 3, -1),
-                           (7, 3, 1, -2, -17),
-                           (8, 3, 0, -4, 3),
-                           (6, 2, 0, -3, -11),
-                           (6, 0, 0, -11, -33),
-                           (6, 0, 0, -11, -42)]
-
-            results = []
-            for i in range(0, len(players)):
-                result = Result(player_id=players[i].id,
-                                position=i+1,
-                                match_count=result_data[i][0],
-                                win_count=result_data[i][1],
-                                tie_win_count=result_data[i][2],
-                                set_diff=result_data[i][3],
-                                game_diff=result_data[i][4],
-                                division_id=division.id,
-                                relegation=('relegated' if i>4 else 'unchanged'),
-                                )
-                db.session.add(result)
-                results.append(result)
-
-            db.session.commit()
+                        for r in d['results']:
+                            player = Player.query.filter_by(first_name=r['first_name'],
+                                                            last_name=r['last_name']).first()
+                            if player is None:
+                                player = Player(first_name=r['first_name'],
+                                                last_name=r['last_name'],
+                                                gender=r['gender'])
+                                db.session.add(player)
+                                db.session.commit()
+                            result = Result(player_id=player.id,
+                                            position=r['position'],
+                                            match_count=r['match_count'],
+                                            win_count=r['win_count'],
+                                            tie_win_count=r['tie_win_count'],
+                                            set_diff=r['set_diff'],
+                                            game_diff=r['game_diff'],
+                                            division_id=division.id,
+                                            relegation=r['relegation']
+                                            )
+                            db.session.add(result)
+                            db.session.commit()
 
 
 @app.route('/')
@@ -89,10 +69,38 @@ def show_ratings():
     results = Result.query.all()
     results_data = [p.to_dict() for p in results]
 
-    return render_template('results.html', results=results_data)
+    seasons = Season.query.all()
+    seasons_data = [s.to_dict() for s in seasons]
+
+    return render_template('results.html', results=results_data, all_seasons=seasons_data)
+
+
+@app.route('/results/<season_id>')
+def show_rating_for_season(season_id):
+    results = Result.query.join(Result.division_ref).filter(Division.season_id == season_id).all()
+    results_data = [p.to_dict() for p in results]
+
+    all_seasons = Season.query.all()
+    seasons_data = [s.to_dict() for s in all_seasons]
+
+    selected_season = Season.query.get(season_id)
+
+    if not selected_season:
+        return redirect(url_for('show_ratings'))
+
+    selected_season = selected_season.to_dict()
+
+    return render_template('results.html', results=results_data, all_seasons=seasons_data, selected_season=selected_season)
+
+
+@app.route('/regulations')
+def show_regulations():
+    return render_template('regulations.html')
 
 
 if __name__ == '__main__':
     with app.app_context():
-        create_sample_data()
+        db.create_all()
+        with open('misc/results_season12025_1.json') as f:
+            input_data_from_json(f)
     app.run(debug=True)

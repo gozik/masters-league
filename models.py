@@ -54,8 +54,21 @@ class Season(db.Model):
 
     divisions = db.relationship('Division', backref='season_ref', lazy=True)
 
+
     def __repr__(self):
         return f'<Season {self.name} ({self.year})>'
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'year': self.year,
+            'date_start': self.date_start,
+            'date_end': self.date_end,
+        }
+
+    def get_title(self):
+        return f'{self.year}/{self.name}'
 
 
 class Division(db.Model):
@@ -102,4 +115,6 @@ class Result(db.Model):
             'match_count': self.match_count,
             'win_count': self.win_count,
             'relegation': self.relegation,
+            'season': self.division_ref.season_ref.get_title(),
+            'division': self.division_ref.name
         }

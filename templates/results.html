@@ -22,8 +22,19 @@
 
 <div class="mb-4">
     <div class="btn-group" role="group">
-        <button type="button" class="btn btn-outline-primary active">ATP</button>
-        <button type="button" class="btn btn-outline-primary">WTA</button>
+        {% if selected_season %}
+            <button id="sball" type="button" class="btn btn-outline-primary">All</button>
+        {% else %}
+            <button id="sball" class="btn btn-outline-primary active" type="button">All</button>
+        {% endif %}
+        {% for season in all_seasons %}
+            {% if season == selected_season %}
+                <button id="sb{{season.id}}" type="button" class="btn btn-outline-primary active">{{ season.year }}/{{ season.name }}</button>
+            {% else %}
+                <button id="sb{{season.id}}" type="button" class="btn btn-outline-primary">{{ season.year }}/{{ season.name }}</button>
+            {% endif %}
+
+        {% endfor %}
     </div>
 </div>
 
@@ -43,18 +54,16 @@
                 match_count: `${player.match_count}`,
                 win_count: `${player.win_count}`,
                 relegation: `${player.relegation}`,
+                season: `${player.season}`,
+                division: `${player.division}`,
             };
 
         });
 
-        // Add rank based on sorted position
-        formattedPlayers.forEach((player, index) => {
-            player.rank = index + 1;
-        });
-
         new gridjs.Grid({
             columns: [
-                { id: 'rank', name: 'Rank', width: '80px' },
+                { id: 'season', name: 'Season', width: '100px' },
+                { id: 'division', name: 'Division', width: '80px' },
                 {
                     id: 'name',
                     name: 'Player',
@@ -69,7 +78,7 @@
             search: true,
             sort: true,
             pagination: {
-                limit: 10
+                limit: 15
             },
             style: {
                 table: {
