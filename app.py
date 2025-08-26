@@ -8,7 +8,6 @@ import os
 
 
 
-
 app = create_app()
 
 
@@ -97,6 +96,79 @@ def show_rating_for_season(season_id):
 @app.route('/regulations')
 def show_regulations():
     return render_template('regulations.html')
+
+
+@app.template_filter('to_date')
+def to_date_filter(date_string):
+    try:
+        return datetime.strptime(date_string, '%Y-%m-%d').date()
+    except:
+        return None
+
+
+
+@app.route('/schedule')
+def show_schedule():
+    # Season data - you can also move this to a database later
+    seasons = [
+        {
+            'name': 'PRESEASON',
+            'start_date': '2025-02-22',
+            'end_date': '2025-03-30',
+            'status': 'upcoming',
+            'description': 'Preparation period before the official season starts'
+        },
+        {
+            'name': 'Season 1',
+            'start_date': '2025-04-05',
+            'end_date': '2025-05-18',
+            'status': 'upcoming',
+            'description': 'First official season of the year'
+        },
+        {
+            'name': 'Masters Slam',
+            'start_date': '2025-06-01',
+            'end_date': '2025-06-28',
+            'status': 'upcoming',
+            'description': 'Premium tournament featuring top players'
+        },
+        {
+            'name': 'Season 2',
+            'start_date': '2025-07-06',
+            'end_date': '2025-08-31',
+            'status': 'upcoming',
+            'description': 'Summer season competition'
+        },
+        {
+            'name': 'Season 3',
+            'start_date': '2025-09-15',
+            'end_date': '2025-11-02',
+            'status': 'upcoming',
+            'description': 'Autumn season matches'
+        },
+        {
+            'name': 'Season 4',
+            'start_date': '2025-11-10',
+            'end_date': '2025-12-14',
+            'status': 'upcoming',
+            'description': 'Final season of the year'
+        }
+    ]
+
+    # Calculate current season status
+    current_date = datetime.now().date()
+    for season in seasons:
+        start = datetime.strptime(season['start_date'], '%Y-%m-%d').date()
+        end = datetime.strptime(season['end_date'], '%Y-%m-%d').date()
+
+        if start <= current_date <= end:
+            season['status'] = 'current'
+        elif current_date > end:
+            season['status'] = 'completed'
+        elif current_date < start:
+            season['status'] = 'upcoming'
+
+    return render_template('schedule.html', seasons=seasons, current_year=2025)
 
 
 if __name__ == '__main__':

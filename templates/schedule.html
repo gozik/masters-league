@@ -1,0 +1,295 @@
+{% extends "base.html" %}
+
+{% block title %}Season Schedule - Tennis Ratings{% endblock %}
+
+{% block head %}
+<style>
+    .season-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .season-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .season-header {
+        padding: 1.5rem;
+        color: white;
+        font-weight: 600;
+    }
+
+    .season-status {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .status-upcoming {
+        background-color: #6c757d;
+        color: white;
+    }
+
+    .status-current {
+        background-color: #28a745;
+        color: white;
+        animation: pulse 2s infinite;
+    }
+
+    .status-completed {
+        background-color: #17a2b8;
+        color: white;
+    }
+
+    .season-dates {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #6c757d;
+    }
+
+    .season-duration {
+        background-color: #f8f9fa;
+        padding: 0.5rem;
+        border-radius: 10px;
+        font-size: 0.9rem;
+    }
+
+    .progress-bar {
+        height: 8px;
+        border-radius: 4px;
+        background-color: #e9ecef;
+    }
+
+    .progress-fill {
+        height: 100%;
+        border-radius: 4px;
+        background: linear-gradient(90deg, #007bff, #0056b3);
+    }
+
+    .countdown {
+        background: linear-gradient(135deg, #2c3e50, #4ca1af);
+        color: white;
+        padding: 1rem;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .countdown-number {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .countdown-label {
+        font-size: 0.8rem;
+        opacity: 0.9;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    .calendar-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 0.5rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Page Header -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1 class="display-4 mb-3">2025 Season Schedule</h1>
+            <p class="lead">Complete tournament calendar and important dates for the current year</p>
+        </div>
+    </div>
+
+    <!-- Current Season Highlight -->
+    <div class="row mb-5">
+        <div class="col-12">
+            {% set current_season = seasons|selectattr('status', 'equalto', 'current')|first %}
+            {% if current_season %}
+            <div class="alert alert-success">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h4 class="alert-heading">
+                            <i class="bi bi-star-fill me-2"></i>Current Season: {{ current_season.name }}
+                        </h4>
+                        <p class="mb-0">{{ current_season.description }}</p>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <strong>{{ current_season.start_date }} - {{ current_season.end_date }}</strong>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="alert alert-info">
+                <h4 class="alert-heading">
+                    <i class="bi bi-info-circle me-2"></i>Off-Season
+                </h4>
+                <p class="mb-0">No active season at the moment. Check back soon for upcoming events!</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Seasons Grid -->
+    <div class="row">
+        {% for season in seasons %}
+        <div class="col-lg-6 col-xl-4 mb-4">
+            <div class="card season-card h-100">
+                <div class="season-header
+                    {% if season.status == 'current' %}bg-success
+                    {% elif season.status == 'completed' %}bg-info
+                    {% else %}bg-secondary{% endif %}">
+                    <h5 class="card-title mb-0">{{ season.name }}</h5>
+                    <span class="season-status
+                        {% if season.status == 'current' %}status-current
+                        {% elif season.status == 'completed' %}status-completed
+                        {% else %}status-upcoming{% endif %}">
+                        {{ season.status|upper }}
+                    </span>
+                </div>
+
+                <div class="card-body">
+                    <div class="season-dates mb-3">
+                        <i class="bi bi-calendar-event calendar-icon"></i>
+                        {{ season.start_date }} - {{ season.end_date }}
+                    </div>
+
+                    <p class="card-text">{{ season.description }}</p>
+
+                    {% if season.status == 'current' %}
+                    <div class="progress-bar mb-3">
+                        <div class="progress-fill" style="width: 50%;"></div>
+                    </div>
+                    <small class="text-muted">Season progress: 50% complete</small>
+                    {% endif %}
+
+                    <div class="season-duration mt-3">
+                        <i class="bi bi-clock"></i>
+                        Duration: {{ ((season.end_date|string|to_date - season.start_date|string|to_date).days + 1) }} days
+                    </div>
+                </div>
+
+                <div class="card-footer bg-transparent">
+                    <div class="d-flex justify-content-between">
+                        <span class="badge bg-light text-dark">
+                            <i class="bi bi-trophy"></i> Championship
+                        </span>
+                        <span class="badge bg-light text-dark">
+                            <i class="bi bi-people"></i> All Divisions
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Additional Information -->
+    <div class="row mt-5">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Season Information</h5>
+                </div>
+                <div class="card-body">
+                    <h6>Tournament Structure</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle text-success me-2"></i>Round-robin group stage</li>
+                        <li><i class="bi bi-check-circle text-success me-2"></i>Single elimination playoffs</li>
+                        <li><i class="bi bi-check-circle text-success me-2"></i>Points-based rating system</li>
+                        <li><i class="bi bi-check-circle text-success me-2"></i>All skill divisions included</li>
+                    </ul>
+
+                    <h6 class="mt-4">Registration</h6>
+                    <p>Registration opens 2 weeks before each season. Check our website for announcements.</p>
+
+                    <h6 class="mt-4">Prize Pool</h6>
+                    <p>Each season features a prize pool distributed among top performers in each division.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="countdown mb-4">
+                <h6>Next Season Starts In</h6>
+                <div class="row text-center">
+                    <div class="col-3">
+                        <div class="countdown-number">12</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="countdown-number">08</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="countdown-number">45</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="countdown-number">30</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h6 class="mb-0">Quick Links</h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="/ratings" class="btn btn-outline-primary">
+                            <i class="bi bi-trophy me-2"></i>Current Rankings
+                        </a>
+                        <a href="/regulations" class="btn btn-outline-secondary">
+                            <i class="bi bi-journal-text me-2"></i>Tournament Rules
+                        </a>
+                        <a href="#" class="btn btn-outline-success">
+                            <i class="bi bi-calendar-plus me-2"></i>Register for Season
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Countdown timer functionality
+    function updateCountdown() {
+        // This would normally calculate time until next season
+        // For now, it's a static display
+        console.log("Countdown would update here");
+    }
+
+    // Update countdown every second
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Add click handlers to season cards
+    document.querySelectorAll('.season-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const seasonName = this.querySelector('.card-title').textContent;
+            console.log('Selected season:', seasonName);
+            // You could add a modal or redirect to season details
+        });
+    });
+});
+</script>
+{% endblock %}
