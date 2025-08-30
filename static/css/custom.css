@@ -21,18 +21,17 @@ body {
 
 /* Hero Header with Wide Image */
 .hero-header {
-    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)),
-                url('/static/images/theball.png');
+    background: url('/static/images/theball.png');
     background-size: cover;
-    background-position: center;
+    background-position: 80% 50%;
     background-repeat: no-repeat;
-    height: 300px;
-    position: relative;ç
+    height: 200px;
+    position: relative;
     margin-bottom: 2rem;
 }
 
 .hero-overlay {
-    background: linear-gradient(135deg, rgba(231, 76, 60, 0.8) 0%, rgba(52, 152, 219, 0.8) 100%);
+    background: linear-gradient(100deg, rgba(231, 76, 60, 0.7) -20%, rgba(5, 18, 36, 0.7) 80%);
     height: 100%;
     width: 100%;
     display: flex;

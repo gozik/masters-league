@@ -7,56 +7,55 @@ from datetime import datetime
 import os
 
 
-
 app = create_app()
 
 
 def input_data_from_json(file):
-    """Initialize database with sample data"""
-    with app.app_context():
-        # Only create sample data if database is empty
-        if Player.query.count() == 0:
-            d = json.load(file)
+    """Add all leagues, seasons, divisions, players, results from file.
 
-            # Create sample season
-            for name in d:
-                league = League(name=name)
-                db.session.add(league)
+    Must be invoked within app_context.
+    """
+    d = json.load(file)
+
+    for name in d:
+        league = League(name=name)
+        db.session.add(league)
+        db.session.commit()
+
+        for s in d[name]:
+            season = Season(name=s['name'], year=s['year'], league_id=league.id,
+                            date_start=datetime.strptime(s['date_start'], "%Y-%m-%d"),
+                            date_end=datetime.strptime(s['date_end'], "%Y-%m-%d"))
+            db.session.add(season)
+            db.session.commit()
+
+            for d in s['divisions']:
+                division = Division(name=d['name'], priority=d['priority'], season_id=season.id)
+                db.session.add(division)
                 db.session.commit()
 
-                for s in d[name]:
-                    season = Season(name=s['name'], year=s['year'], league_id=league.id,
-                                    date_start=datetime.strptime(s['date_start'], "%Y-%m-%d"),
-                                    date_end=datetime.strptime(s['date_end'], "%Y-%m-%d"))
-                    db.session.add(season)
-                    db.session.commit()
-
-                    for d in s['divisions']:
-                        division = Division(name=d['name'], priority=d['priority'], season_id=season.id)
-                        db.session.add(division)
+                for r in d['results']:
+                    player = Player.query.filter_by(first_name=r['first_name'],
+                                                    last_name=r['last_name']).first()
+                    if player is None:
+                        player = Player(first_name=r['first_name'],
+                                        last_name=r['last_name'],
+                                        gender=r['gender'])
+                        db.session.add(player)
                         db.session.commit()
 
-                        for r in d['results']:
-                            player = Player.query.filter_by(first_name=r['first_name'],
-                                                            last_name=r['last_name']).first()
-                            if player is None:
-                                player = Player(first_name=r['first_name'],
-                                                last_name=r['last_name'],
-                                                gender=r['gender'])
-                                db.session.add(player)
-                                db.session.commit()
-                            result = Result(player_id=player.id,
-                                            position=r['position'],
-                                            match_count=r['match_count'],
-                                            win_count=r['win_count'],
-                                            tie_win_count=r['tie_win_count'],
-                                            set_diff=r['set_diff'],
-                                            game_diff=r['game_diff'],
-                                            division_id=division.id,
-                                            relegation=r['relegation']
-                                            )
-                            db.session.add(result)
-                            db.session.commit()
+                    result = Result(player_id=player.id,
+                                    position=r['position'],
+                                    match_count=r['match_count'],
+                                    win_count=r['win_count'],
+                                    tie_win_count=r['tie_win_count'],
+                                    set_diff=r['set_diff'],
+                                    game_diff=r['game_diff'],
+                                    division_id=division.id,
+                                    relegation=r['relegation']
+                                    )
+                    db.session.add(result)
+                    db.session.commit()
 
 
 @app.route('/')
@@ -90,7 +89,8 @@ def show_rating_for_season(season_id):
 
     selected_season = selected_season.to_dict()
 
-    return render_template('results.html', results=results_data, all_seasons=seasons_data, selected_season=selected_season)
+    return render_template('results.html', results=results_data,
+                           all_seasons=seasons_data, selected_season=selected_season)
 
 
 @app.route('/regulations')
@@ -104,7 +104,6 @@ def to_date_filter(date_string):
         return datetime.strptime(date_string, '%Y-%m-%d').date()
     except:
         return None
-
 
 
 @app.route('/schedule')
@@ -174,6 +173,8 @@ def show_schedule():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-        with open('misc/results_season12025_1.json') as f:
-            input_data_from_json(f)
+
+        if Player.query.count() == 0:
+            with open('misc/results_season12025_1.json') as f:
+                input_data_from_json(f)
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))

@@ -5,10 +5,10 @@
 {% block head %}
 <style>
     .hero-section {
-        background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+        background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)),
                    url('/static/images/tennis-action.jpg');
         background-size: cover;
-        background-position: center;
+        background-position: 50% 35%;
         padding: 100px 0;
         color: white;
         text-align: center;
@@ -103,17 +103,17 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h1 class="display-3 fw-bold mb-4">Find Your Perfect Match</h1>
-                <p class="lead mb-4">Join the premier tennis league where competition meets convenience. Play when you want, against players at your level.</p>
+                <h1 class="display-3 fw-bold mb-4">Брось вызов лучшим</h1>
+                <p class="lead mb-4">Присоединяйся к лиге, совершенствуйся, играя с игроками своего уровня, и продвигайся по дивизионам вверх! Полноценные трехсетовые матчи в удобном ритме.</p>
                 <div class="d-flex gap-3 justify-content-center flex-wrap">
                     <a href="/ratings" class="btn btn-primary btn-lg px-4">
-                        <i class="bi bi-trophy me-2"></i>View Rankings
+                        <i class="bi bi-trophy me-2"></i>Рейтинг
                     </a>
-                    <a href="/schedule" class="btn btn-outline-light btn-lg px-4">
-                        <i class="bi bi-calendar-event me-2"></i>See Schedule
+                    <a href="/schedule" class="btn btn-primary btn-lg px-4">
+                        <i class="bi bi-calendar-event me-2"></i>Календарь
                     </a>
                     <a href="#join" class="btn btn-success btn-lg px-4">
-                        <i class="bi bi-person-plus me-2"></i>Join Now
+                        <i class="bi bi-person-plus me-2"></i>Присоединиться
                     </a>
                 </div>
             </div>
@@ -126,32 +126,11 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-12 text-center">
-                <h2 class="display-5 fw-bold mb-3">Why Players Love Our League</h2>
-                <p class="lead text-muted">Designed for tennis enthusiasts who value competition and flexibility</p>
+                <h2 class="display-5 fw-bold mb-3">Что игроки ценят в нашей лиге</h2>
             </div>
         </div>
 
         <div class="row g-4">
-            <!-- Flexible Scheduling -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card feature-card">
-                    <div class="card-body text-center p-4">
-                        <div class="feature-icon">
-                            <i class="bi bi-calendar-check"></i>
-                        </div>
-                        <h4 class="card-title mb-3">Flexible Match Schedule</h4>
-                        <p class="card-text">
-                            Play on your own terms. Schedule matches when it works for you - weekdays, weekends, day or evening.
-                        </p>
-                        <ul class="list-unstyled text-start">
-                            <li><i class="bi bi-check-circle text-success me-2"></i>7-day scheduling window</li>
-                            <li><i class="bi bi-check-circle text-success me-2"></i>No fixed time commitments</li>
-                            <li><i class="bi bi-check-circle text-success me-2"></i>Easy rescheduling options</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
             <!-- Skill-Based Matching -->
             <div class="col-md-6 col-lg-3">
                 <div class="card feature-card">
@@ -159,14 +138,14 @@
                         <div class="feature-icon">
                             <i class="bi bi-bar-chart"></i>
                         </div>
-                        <h4 class="card-title mb-3">Opponents at Your Level</h4>
+                        <h4 class="card-title mb-3">Соперники твоего уровня</h4>
                         <p class="card-text">
-                            Our smart rating system ensures you always play against competitors matched to your skill level.
+                            Система дивизионов обеспечивает накал борьбы в каждом матче.
                         </p>
                         <ul class="list-unstyled text-start">
-                            <li><i class="bi bi-check-circle text-success me-2"></i>Precise skill matching</li>
-                            <li><i class="bi bi-check-circle text-success me-2"></i>Fair and competitive games</li>
-                            <li><i class="bi bi-check-circle text-success me-2"></i>Continuous rating updates</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Новые знакомства</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Нет проходных игр</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Борьба до последнего мяча</li>
                         </ul>
                     </div>
                 </div>
@@ -179,14 +158,14 @@
                         <div class="feature-icon">
                             <i class="bi bi-trophy"></i>
                         </div>
-                        <h4 class="card-title mb-3">Thriving Competitive Scene</h4>
+                        <h4 class="card-title mb-3">Соревновновательный дух</h4>
                         <p class="card-text">
-                            Join a vibrant community of passionate players who love competition as much as you do.
+                            Мотивация показывать свой максимум и улучшать свою игру и подготовку.
                         </p>
                         <ul class="list-unstyled text-start">
-                            <li><i class="bi bi-check-circle text-success me-2"></i>Regular tournaments</li>
-                            <li><i class="bi bi-check-circle text-success me-2"></i>Season championships</li>
-                            <li><i class="bi bi-check-circle text-success me-2"></i>Prize pools and recognition</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Регулярные сезоны</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Трехсетовые матчи</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Призы в каждом дивизионе</li>
                         </ul>
                     </div>
                 </div>
@@ -199,14 +178,34 @@
                         <div class="feature-icon">
                             <i class="bi bi-graph-up-arrow"></i>
                         </div>
-                        <h4 class="card-title mb-3">Climb Through Divisions</h4>
+                        <h4 class="card-title mb-3">Прогресс по дивизионам</h4>
                         <p class="card-text">
-                            Start where you belong and progress through our division system as you improve.
+                            Двигайся по спортивной лестнице и играй с игроками лучше и лучше
                         </p>
                         <ul class="list-unstyled text-start">
-                            <li><i class="bi bi-check-circle text-success me-2"></i>Clear promotion path</li>
-                            <li><i class="bi bi-check-circle text-success me-2"></i>Multiple skill divisions</li>
-                            <li><i class="bi bi-check-circle text-success me-2"></i>Season-end promotions</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Быстрое продвижение</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Переходы вверх и вниз</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Возможность пропустить сезон без потери прогресса</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flexible Scheduling -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <h4 class="card-title mb-3">Гибкое расписание</h4>
+                        <p class="card-text">
+                            Играй, когда удобно. <br/> Планируйте матчи с оппонентом в любое время: утром, вечером, или на выходных!
+                        </p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Нет обязательств по датам</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Сезон - от 6 до 8 недель</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Отпуск или командировка? - не проблема, сделай паузу</li>
                         </ul>
                     </div>
                 </div>
@@ -220,20 +219,20 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-md-3 col-6 mb-4">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Active Players</div>
+                <div class="stat-number">100</div>
+                <div class="stat-label">Активных игроков</div>
             </div>
             <div class="col-md-3 col-6 mb-4">
-                <div class="stat-number">95%</div>
-                <div class="stat-label">Match Satisfaction</div>
+                <div class="stat-number">6</div>
+                <div class="stat-label">Дивизионов</div>
             </div>
             <div class="col-md-3 col-6 mb-4">
-                <div class="stat-number">4</div>
-                <div class="stat-label">Skill Divisions</div>
+                <div class="stat-number">300</div>
+                <div class="stat-label">Матчей сыграно</div>
             </div>
             <div class="col-md-3 col-6 mb-4">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Scheduling</div>
+                <div class="stat-number">55%</div>
+                <div class="stat-label">Матчей решаются <br/>на тайбрейке</div>
             </div>
         </div>
     </div>
@@ -244,8 +243,8 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-12 text-center">
-                <h2 class="display-5 fw-bold mb-3">Find Your Division</h2>
-                <p class="lead text-muted">Competitive divisions for every skill level</p>
+                <h2 class="display-5 fw-bold mb-3">Основные моменты</h2>
+                <p class="lead text-muted">Лига состоит из регулярных сезонов длительностью 1-2 месяца</p>
             </div>
         </div>
 
@@ -253,20 +252,20 @@
             <div class="col-lg-6">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h4 class="card-title">Division System</h4>
-                        <p>Our tiered division system ensures you're always competing against players at your level:</p>
+                        <h4 class="card-title">Сезоны</h4>
+                        <p>Присоединиться можно со старта любого сезона.</p>
 
-                        <div class="d-flex flex-wrap mb-3">
-                            <span class="division-badge division-a">Division A (4.5+)</span>
-                            <span class="division-badge division-b">Division B (3.5-4.4)</span>
-                            <span class="division-badge division-c">Division C (2.5-3.4)</span>
-                            <span class="division-badge division-d">Division D (Beginner)</span>
-                        </div>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-calendar-range text-warning me-2"></i>Сезон - ограниченный по времени этап лиги</li>
+                            <li><i class="bi bi-1-circle text-success me-2"></i>За сезон можно сыграть 1 раз c каждым соперником</li>
+                            <li><i class="bi bi-clock text-danger me-2"></i>Могут остаться не сыгранные матчи</li>
+                            <li><i class="bi bi-trophy text-warning me-2"></i>Побеждает игрок с наибольшим количеством побед</li>
+                        </ul>
 
-                        <div class="alert alert-info">
-                            <i class="bi bi-info-circle me-2"></i>
-                            <strong>New players:</strong> Take our quick skill assessment to be placed in the right division.
-                        </div>
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -274,24 +273,38 @@
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Progression Path</h4>
-                        <p>Advance through divisions based on your performance:</p>
-
-                        <div class="progress mb-3" style="height: 30px;">
-                            <div class="progress-bar bg-success" style="width: 25%">Division D</div>
-                            <div class="progress-bar bg-info" style="width: 25%">Division C</div>
-                            <div class="progress-bar bg-warning" style="width: 25%">Division B</div>
-                            <div class="progress-bar bg-danger" style="width: 25%">Division A</div>
-                        </div>
+                        <h4 class="card-title">Дивизионы</h4>
+                        <p>В течение сезона матчи только против оппонентов из своего дивизиона</p>
 
                         <ul class="list-unstyled">
-                            <li><i class="bi bi-arrow-up-circle text-success me-2"></i>Top 3 players promoted each season</li>
-                            <li><i class="bi bi-arrow-down-circle text-danger me-2"></i>Bottom 2 players relegated</li>
-                            <li><i class="bi bi-trophy text-warning me-2"></i>Division champions receive prizes</li>
+                            <li><i class="bi bi-arrow-up-circle text-success me-2"></i>Top 3 выходят в дивизион выше</li>
+                            <li><i class="bi bi-arrow-down-circle text-danger me-2"></i>Худшие 3 понижаются в дивизионе</li>
+                            <li><i class="bi bi-trophy text-warning me-2"></i>1, 2 места получают призы</li>
+                            <li><i class="bi bi-star text-warning me-2"></i>Также призы разыгрываются за активное участие</li>
                         </ul>
+
+
+                        <div class="progress mb-3" style="height: 30px;">
+                            <div class="progress-bar bg-success" style="width: 16%">M1</div>
+                            <div class="progress-bar bg-info" style="width: 17%">M2</div>
+                            <div class="progress-bar bg-warning" style="width: 17%">M3</div>
+                            <div class="progress-bar bg-danger" style="width: 17%">M4</div>
+                            <div class="progress-bar bg-success" style="width: 17%">O1</div>
+                            <div class="progress-bar bg-info" style="width: 17%">O2</div>
+                        </div>
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle me-2"></i>
+                            <strong>Новички:</strong> Для определения стартового дивизиона могут быть использованы результаты любых матчей.
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="row">
+            <a href="/regulations" class="btn btn-primary btn-lg px-4">
+                <i class="bi bi-journal-text me-2"></i>Полный регламент
+            </a>
         </div>
     </div>
 </section>
@@ -301,7 +314,7 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-12 text-center">
-                <h2 class="display-5 fw-bold mb-3">What Players Say</h2>
+                <h2 class="display-5 fw-bold mb-3">Отзывы игроков</h2>
             </div>
         </div>
 
@@ -311,8 +324,8 @@
                     <div class="d-flex align-items-center mb-3">
                         <img src="{{ url_for('static', filename='images/player1.jpg') }}" alt="Player" class="testimonial-avatar">
                         <div>
-                            <h6 class="mb-0">Sarah M.</h6>
-                            <small class="text-muted">Division B Champion</small>
+                            <h6 class="mb-0">Жахонгир</h6>
+                            <small class="text-muted">Дивизион M1</small>
                         </div>
                     </div>
                     <p class="mb-0">"The flexible scheduling allowed me to balance tennis with my busy work schedule. I've found my perfect competitive outlet!"</p>
@@ -324,11 +337,11 @@
                     <div class="d-flex align-items-center mb-3">
                         <img src="{{ url_for('static', filename='images/player2.jpg') }}" alt="Player" class="testimonial-avatar">
                         <div>
-                            <h6 class="mb-0">Mike T.</h6>
-                            <small class="text-muted">Division C → B Promotion</small>
+                            <h6 class="mb-0">Алишер</h6>
+                            <small class="text-muted">Дивизион M4</small>
                         </div>
                     </div>
-                    <p class="mb-0">"Starting in Division C and working my way up has been incredibly rewarding. The matchmaking is always fair and competitive."</p>
+                    <p class="mb-0">"Для меня самое главное — это не победа, а получение опыта от разных игроков и наслаждение теннисом!"</p>
                 </div>
             </div>
 
@@ -337,11 +350,11 @@
                     <div class="d-flex align-items-center mb-3">
                         <img src="{{ url_for('static', filename='images/player3.jpg') }}" alt="Player" class="testimonial-avatar">
                         <div>
-                            <h6 class="mb-0">Jennifer K.</h6>
-                            <small class="text-muted">New Player</small>
+                            <h6 class="mb-0">Егор</h6>
+                            <small class="text-muted">Новый игрок</small>
                         </div>
                     </div>
-                    <p class="mb-0">"As a beginner, I was nervous about joining a league. But the Division system ensured I played against players at my level from day one."</p>
+                    <p class="mb-0">"Я первый раз участвовал, мне все понравилось. Распределение игроков по группам справедливое, не было очевидно слабых и очевидно сильных. Срок для лета тоже комфортный, т.к. есть отпуска и многие разъезжались."</p>
                 </div>
             </div>
         </div>
@@ -353,8 +366,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-                <h2 class="display-5 fw-bold mb-4">Ready to Join the Competition?</h2>
-                <p class="lead mb-4">Sign up today and start your journey through our competitive divisions</p>
+                <h2 class="display-5 fw-bold mb-4">Как вступить в лигу?</h2>
+
 
                 <div class="row g-4">
                     <div class="col-md-6">
@@ -385,7 +398,9 @@
                 </div>
 
                 <div class="mt-5">
-                    <p class="text-muted">Have questions? <a href="#" class="text-decoration-none">Contact our team</a></p>
+                    <a href="https://t.me/tashkent_masters_league" target="_blank" class="btn btn-primary">
+                        <i class="bi bi-telegram me-2"></i> Обязательно присоеденитесь к Telegram группе
+                    </a>
                 </div>
             </div>
         </div>

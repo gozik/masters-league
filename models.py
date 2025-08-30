@@ -1,4 +1,5 @@
-from sqlalchemy import Enum
+from datetime import datetime
+from sqlalchemy import Enum, CheckConstraint
 from extensions import db
 
 
@@ -23,9 +24,7 @@ class Player(db.Model):
         }
 
     def __repr__(self):
-        return f'<Player {self.first_name} {self.last_name}>'
-
-
+        return f'<{self.first_name} {self.last_name}>'
 
 
 class League(db.Model):
@@ -53,7 +52,6 @@ class Season(db.Model):
     league_id = db.Column(db.Integer, db.ForeignKey('League.id'), nullable=False)
 
     divisions = db.relationship('Division', backref='season_ref', lazy=True)
-
 
     def __repr__(self):
         return f'<Season {self.name} ({self.year})>'
@@ -105,7 +103,6 @@ class Result(db.Model):
     def __repr__(self):
         return f'<Result Player {self.player_id} in Division {self.division_id}>'
 
-
     def to_dict(self):
         return {
             'id': self.id,
@@ -118,3 +115,84 @@ class Result(db.Model):
             'season': self.division_ref.season_ref.get_title(),
             'division': self.division_ref.name
         }
+
+
+class Match(db.Model):
+    """Represents result of a tennis match between two players"""
+    __tablename__ = 'match'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    date_played = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    season_id = db.Column(db.Integer, db.ForeignKey('Season.id'), nullable=False)
+    division_id = db.Column(db.Integer, db.ForeignKey('Division.id'), nullable=True)
+    player1_id = db.Column(db.Integer, db.ForeignKey('Player.id'), nullable=False)
+    player2_id = db.Column(db.Integer, db.ForeignKey('Player.id'), nullable=False)
+    winner_id = db.Column(db.Integer, db.ForeignKey('Player.id'), nullable=False)
+
+    is_retired = db.Column(db.Boolean, default=False)
+
+    # Game in sets
+    set1_player1 = db.Column(db.Integer, nullable=True)
+    set1_player2 = db.Column(db.Integer, nullable=True)
+    set2_player1 = db.Column(db.Integer, nullable=True)
+    set2_player2 = db.Column(db.Integer, nullable=True)
+    set3_player1 = db.Column(db.Integer, nullable=True)
+    set3_player2 = db.Column(db.Integer, nullable=True)
+
+    # Tiebreak scores
+    tb1_player1 = db.Column(db.Integer, nullable=True)
+    tb1_player2 = db.Column(db.Integer, nullable=True)
+    tb2_player1 = db.Column(db.Integer, nullable=True)
+    tb2_player2 = db.Column(db.Integer, nullable=True)
+    tb3_player1 = db.Column(db.Integer, nullable=True)
+    tb3_player2 = db.Column(db.Integer, nullable=True)
+
+    # Royal tiebreak (played instead of 3rd set)
+    royal_tiebreak_player1 = db.Column(db.Integer, nullable=True)
+    royal_tiebreak_player2 = db.Column(db.Integer, nullable=True)
+
+    # Relationships
+    season = db.relationship('Season', backref='matches')
+    division = db.relationship('Division', backref='matches')
+    player1 = db.relationship('Player', foreign_keys=[player1_id], backref='matches_as_player1')
+    player2 = db.relationship('Player', foreign_keys=[player2_id], backref='matches_as_player2')
+    winner = db.relationship('Player', foreign_keys=[winner_id], backref='matches_won')
+
+    # Add a constraint to ensure a player doesn't play against themselves
+    __table_args__ = (
+        CheckConstraint('player1_id != player2_id', name='check_different_players'),
+    )
+
+    def __repr__(self):
+        return f'<Match {self.player1_id} vs {self.player2_id} on {self.date_played}>'
+
+    @property
+    def score_summary(self):
+        scores = []
+
+        # Set 1
+        if self.set1_player1 is not None and self.set1_player2 is not None:
+            set1_score = f"{self.set1_player1}-{self.set1_player2}"
+            if self.tb1_player1 and self.tb1_player2:
+                set1_score += f" ({min(self.tb1_player1, self.tb1_player2)})"
+            scores.append(set1_score)
+
+        # Set 2
+        if self.set2_player1 is not None and self.set2_player2 is not None:
+            set2_score = f"{self.set2_player1}-{self.set2_player2}"
+            if self.tb2_player1 and self.tb2_player2:
+                set2_score += f" ({min(self.tb2_player1, self.tb2_player2)})"
+            scores.append(set2_score)
+
+        # Set 3
+        if self.set3_player1 is not None and self.set3_player2 is not None:
+            set3_score = f"{self.set3_player1}-{self.set3_player2}"
+            if self.tb3_player1 and self.tb3_player2:
+                set3_score += f" ({min(self.tb3_player1, self.tb3_player2)})"
+            scores.append(set3_score)
+
+        # Royal Tiebreak
+        if self.royal_tiebreak_player1 is not None and self.royal_tiebreak_player2 is not None:
+            scores.append(f" [{self.royal_tiebreak_player1}-{self.royal_tiebreak_player2}]")
+
+        return " ".join(scores)
