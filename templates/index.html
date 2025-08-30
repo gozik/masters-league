@@ -1,34 +1,452 @@
 {% extends "base.html" %}
 
-{% block title %}Home - Tennis Ratings{% endblock %}
+{% block title %}Home - Tennis Ratings League{% endblock %}
+
+{% block head %}
+<style>
+    .hero-section {
+        background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+                   url('/static/images/tennis-action.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 100px 0;
+        color: white;
+        text-align: center;
+    }
+
+    .feature-card {
+        transition: all 0.3s ease;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 2rem;
+        color: white;
+    }
+
+    .stats-section {
+        background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+        color: white;
+        padding: 60px 0;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .cta-section {
+        background-color: #f8f9fa;
+        padding: 80px 0;
+    }
+
+    .testimonial-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin: 1rem;
+    }
+
+    .testimonial-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 1rem;
+    }
+
+    .division-badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+        margin: 0.25rem;
+    }
+
+    .division-a { background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; }
+    .division-b { background: linear-gradient(135deg, #feca57, #ff9ff3); color: white; }
+    .division-c { background: linear-gradient(135deg, #48dbfb, #0abde3); color: white; }
+    .division-d { background: linear-gradient(135deg, #1dd1a1, #10ac84); color: white; }
+
+    .guarantee-badge {
+        background: #28a745;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        margin-left: 1rem;
+    }
+</style>
+{% endblock %}
 
 {% block content %}
-<div class="jumbotron bg-light p-5 rounded-lg">
-    <h1 class="display-4">Welcome to Tennis Ratings</h1>
-    <p class="lead">The most comprehensive tennis player ratings system.</p>
-    <hr class="my-4">
-    <p>View the latest player ratings and statistics.</p>
-    <a class="btn btn-primary btn-lg" href="/results" role="button">View Ratings</a>
-</div>
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-3 fw-bold mb-4">Find Your Perfect Match</h1>
+                <p class="lead mb-4">Join the premier tennis league where competition meets convenience. Play when you want, against players at your level.</p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="/ratings" class="btn btn-primary btn-lg px-4">
+                        <i class="bi bi-trophy me-2"></i>View Rankings
+                    </a>
+                    <a href="/schedule" class="btn btn-outline-light btn-lg px-4">
+                        <i class="bi bi-calendar-event me-2"></i>See Schedule
+                    </a>
+                    <a href="#join" class="btn btn-success btn-lg px-4">
+                        <i class="bi bi-person-plus me-2"></i>Join Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div class="row mt-4">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">ATP Rankings</h5>
-                <p class="card-text">View the official ATP tour rankings.</p>
-                <a href="/results" class="btn btn-outline-primary">View ATP</a>
+<!-- Key Features Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-3">Why Players Love Our League</h2>
+                <p class="lead text-muted">Designed for tennis enthusiasts who value competition and flexibility</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Flexible Scheduling -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <h4 class="card-title mb-3">Flexible Match Schedule</h4>
+                        <p class="card-text">
+                            Play on your own terms. Schedule matches when it works for you - weekdays, weekends, day or evening.
+                        </p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>7-day scheduling window</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>No fixed time commitments</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Easy rescheduling options</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skill-Based Matching -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-bar-chart"></i>
+                        </div>
+                        <h4 class="card-title mb-3">Opponents at Your Level</h4>
+                        <p class="card-text">
+                            Our smart rating system ensures you always play against competitors matched to your skill level.
+                        </p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Precise skill matching</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Fair and competitive games</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Continuous rating updates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competitive Scene -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-trophy"></i>
+                        </div>
+                        <h4 class="card-title mb-3">Thriving Competitive Scene</h4>
+                        <p class="card-text">
+                            Join a vibrant community of passionate players who love competition as much as you do.
+                        </p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Regular tournaments</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Season championships</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Prize pools and recognition</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Division Progression -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <h4 class="card-title mb-3">Climb Through Divisions</h4>
+                        <p class="card-text">
+                            Start where you belong and progress through our division system as you improve.
+                        </p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Clear promotion path</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Multiple skill divisions</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Season-end promotions</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">WTA Rankings</h5>
-                <p class="card-text">View the official WTA tour rankings.</p>
-                <a href="/results" class="btn btn-outline-primary">View WTA</a>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Active Players</div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Match Satisfaction</div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Skill Divisions</div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Scheduling</div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+<!-- Division System -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-3">Find Your Division</h2>
+                <p class="lead text-muted">Competitive divisions for every skill level</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Division System</h4>
+                        <p>Our tiered division system ensures you're always competing against players at your level:</p>
+
+                        <div class="d-flex flex-wrap mb-3">
+                            <span class="division-badge division-a">Division A (4.5+)</span>
+                            <span class="division-badge division-b">Division B (3.5-4.4)</span>
+                            <span class="division-badge division-c">Division C (2.5-3.4)</span>
+                            <span class="division-badge division-d">Division D (Beginner)</span>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle me-2"></i>
+                            <strong>New players:</strong> Take our quick skill assessment to be placed in the right division.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Progression Path</h4>
+                        <p>Advance through divisions based on your performance:</p>
+
+                        <div class="progress mb-3" style="height: 30px;">
+                            <div class="progress-bar bg-success" style="width: 25%">Division D</div>
+                            <div class="progress-bar bg-info" style="width: 25%">Division C</div>
+                            <div class="progress-bar bg-warning" style="width: 25%">Division B</div>
+                            <div class="progress-bar bg-danger" style="width: 25%">Division A</div>
+                        </div>
+
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-arrow-up-circle text-success me-2"></i>Top 3 players promoted each season</li>
+                            <li><i class="bi bi-arrow-down-circle text-danger me-2"></i>Bottom 2 players relegated</li>
+                            <li><i class="bi bi-trophy text-warning me-2"></i>Division champions receive prizes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-3">What Players Say</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ url_for('static', filename='images/player1.jpg') }}" alt="Player" class="testimonial-avatar">
+                        <div>
+                            <h6 class="mb-0">Sarah M.</h6>
+                            <small class="text-muted">Division B Champion</small>
+                        </div>
+                    </div>
+                    <p class="mb-0">"The flexible scheduling allowed me to balance tennis with my busy work schedule. I've found my perfect competitive outlet!"</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ url_for('static', filename='images/player2.jpg') }}" alt="Player" class="testimonial-avatar">
+                        <div>
+                            <h6 class="mb-0">Mike T.</h6>
+                            <small class="text-muted">Division C → B Promotion</small>
+                        </div>
+                    </div>
+                    <p class="mb-0">"Starting in Division C and working my way up has been incredibly rewarding. The matchmaking is always fair and competitive."</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ url_for('static', filename='images/player3.jpg') }}" alt="Player" class="testimonial-avatar">
+                        <div>
+                            <h6 class="mb-0">Jennifer K.</h6>
+                            <small class="text-muted">New Player</small>
+                        </div>
+                    </div>
+                    <p class="mb-0">"As a beginner, I was nervous about joining a league. But the Division system ensured I played against players at my level from day one."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section" id="join">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Ready to Join the Competition?</h2>
+                <p class="lead mb-4">Sign up today and start your journey through our competitive divisions</p>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Season Registration</h5>
+                                <p class="card-text">Join the upcoming season and compete for division championships</p>
+                                <div class="mb-3">
+                                    <span class="guarantee-badge">$10 Registration</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Register Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Free Trial Match</h5>
+                                <p class="card-text">Not sure yet? Play a trial match to experience the league</p>
+                                <div class="mb-3">
+                                    <span class="guarantee-badge">No Commitment</span>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary">Schedule Trial</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <p class="text-muted">Have questions? <a href="#" class="text-decoration-none">Contact our team</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Animate stats counting
+    const statElements = document.querySelectorAll('.stat-number');
+    const statsSection = document.querySelector('.stats-section');
+
+    function animateStats() {
+        statElements.forEach(stat => {
+            const target = parseInt(stat.textContent);
+            let current = 0;
+            const duration = 2000;
+            const steps = 60;
+            const increment = target / steps;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    stat.textContent = target + (stat.textContent.includes('%') ? '%' : '+');
+                    clearInterval(timer);
+                } else {
+                    stat.textContent = Math.floor(current) + (stat.textContent.includes('%') ? '%' : '+');
+                }
+            }, duration / steps);
+        });
+    }
+
+    // Intersection Observer for stats animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateStats();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    if (statsSection) {
+        observer.observe(statsSection);
+    }
+});
+</script>
 {% endblock %}
