@@ -3,6 +3,7 @@ from sqlalchemy import Enum, CheckConstraint
 from extensions import db
 
 
+
 class Player(db.Model):
     """Represents a tennis player in the league"""
     __tablename__ = 'Player'
@@ -13,6 +14,7 @@ class Player(db.Model):
     gender = db.Column(Enum('male', 'female', name='gender_enum'), nullable=True)
 
     results = db.relationship('Result', backref='player_ref', lazy=True)
+    rankings = db.relationship('Ranking', backref='player_ref', lazy=True)
 
     __table_args__ = (db.Index('idx_player_name', 'last_name', 'first_name'),)
 
@@ -25,6 +27,7 @@ class Player(db.Model):
 
     def __repr__(self):
         return f'<{self.first_name} {self.last_name}>'
+
 
 
 class League(db.Model):
@@ -117,6 +120,36 @@ class Result(db.Model):
         }
 
 
+class Ranking(db.Model):
+    """Represents a player's position in the league"""
+    __tablename__ = 'Ranking'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    player_id = db.Column(db.Integer, db.ForeignKey('Player.id'), nullable=True)
+    position = db.Column(db.Integer, nullable=False)
+    career_high = db.Column(db.Integer, nullable=True)
+
+    actual_date = db.Column(db.Date, nullable=False)
+    actual_season_id = db.Column(db.Integer, db.ForeignKey('Season.id'), nullable=False)
+
+    last_result_id = db.Column(db.Integer, db.ForeignKey('Result.id'), nullable=False)
+
+    def __repr__(self):
+        return f'<{self.position}: {self.player_ref}>'
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'first_name': self.player_ref.first_name,
+            'last_name': self.player_ref.last_name,
+            'position': self.position,
+            'actual_date': self.actual_date,
+        }
+
+
+
+
+
 class Match(db.Model):
     """Represents result of a tennis match between two players"""
     __tablename__ = 'match'
@@ -196,3 +229,16 @@ class Match(db.Model):
             scores.append(f" [{self.royal_tiebreak_player1}-{self.royal_tiebreak_player2}]")
 
         return " ".join(scores)
+
+
+def get_last_result_before_date(player_id, target_date):
+    """Get the latest result for a player before a specific date using season dates"""
+    return Result.query\
+        .join(Division, Result.division_id == Division.id)\
+        .join(Season, Division.season_id == Season.id)\
+        .filter(
+            Result.player_id == player_id,
+            Season.date_end <= target_date  # Season ends before target date
+        )\
+        .order_by(Season.date_end.desc(), Division.priority.desc())\
+        .first()

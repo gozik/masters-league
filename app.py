@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for
 from init import create_app
-from models import Player, League, Season, Division, Result
+from models import Player, League, Season, Division, Result, Ranking, get_last_result_before_date
 from extensions import db
 import json
 from datetime import datetime
@@ -58,6 +58,69 @@ def input_data_from_json(file):
                     db.session.commit()
 
 
+def calculate_rankings(date):
+    """
+    Calculate rankings for given date
+    """
+    results = []
+
+    for player in Player.query.all():
+        last_result = get_last_result_before_date(player.id, date)
+        if last_result:
+            relegation = last_result.relegation
+            prev_priority = last_result.division_ref.priority
+            position = last_result.position
+            result_date = last_result.division_ref.season_ref.date_end
+
+            if relegation == 'promoted' or relegation == 'fast promoted':
+                new_priority = prev_priority - 10
+            elif relegation ==  'relegated':
+                new_priority = prev_priority + 10
+            elif relegation == 'double promoted':
+                new_priority = prev_priority - 20
+            else:
+                new_priority = prev_priority
+
+            results.append({'last_result': last_result,
+                            'new_priority': new_priority,
+                            'prev_priority': prev_priority,
+                            'position': position,
+                            'result_date': result_date,
+                            'player': player})
+
+    sorted_items = sorted(
+        results,
+        key=lambda x: (
+            x['new_priority'], # (ascending)
+            x['prev_priority'],  # (ascending)
+            x['position'],  # (ascending)
+            -(x['result_date'].toordinal())  # (descending)
+        )
+    )
+
+    rankings = []
+    for i, value in enumerate(sorted_items):
+        ranking = Ranking(player_id=value['player'].id ,
+                          position=i+1,
+                          actual_date=value['result_date'],
+                          actual_season_id=value['last_result'].division_ref.season_id,
+                          last_result_id=value['last_result'].id)
+
+        rankings.append(ranking)
+
+        db.session.add(ranking)
+
+    db.session.commit()
+
+    return rankings
+
+
+
+
+
+
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -72,6 +135,15 @@ def show_ratings():
     seasons_data = [s.to_dict() for s in seasons]
 
     return render_template('results.html', results=results_data, all_seasons=seasons_data)
+
+
+@app.route('/rankings')
+def show_rankings():
+    last_date = Season.query.order_by(Season.date_end.desc()).first().date_end
+    rankings = Ranking.query.filter_by(actual_date=last_date).order_by('position').all()
+    rankings_data = [p.to_dict() for p in rankings]
+
+    return render_template('rankings.html', rankings=rankings_data)
 
 
 @app.route('/results/<season_id>')
@@ -177,4 +249,12 @@ if __name__ == '__main__':
         if Player.query.count() == 0:
             with open('misc/results_season12025_1.json') as f:
                 input_data_from_json(f)
+
+        if Ranking.query.count() == 0:
+            seasons = Season.query.order_by('date_end').all()
+            for s in seasons:
+                if s.name == 'Preseason':
+                    pass
+                calculate_rankings(s.date_end)
+
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
