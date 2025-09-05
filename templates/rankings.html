@@ -22,48 +22,87 @@
 
 <div class="mb-4">
     <div class="btn-group" role="group">
-        {% if selected_season %}
-            <button id="sball" type="button" class="btn btn-outline-primary">All</button>
+        {% if selected_season_id %}
+            <a href="/rankings" id="sball" type="button" class="btn btn-outline-primary">Актуальный</a>
         {% else %}
-            <button id="sball" class="btn btn-outline-primary active" type="button">All</button>
+            <a href="/rankings"  id="sball" class="btn btn-outline-primary active" type="button">Актуальный</a>
         {% endif %}
-        {% for season in all_seasons %}
-            {% if season == selected_season %}
-                <button id="sb{{season.id}}" type="button" class="btn btn-outline-primary active">{{ season.year }}/{{ season.name }}</button>
+        {% for season in seasons %}
+            {% if season.id == selected_season_id %}
+                <a href="/rankings?season_id={{season.id}}" id="sb{{season.id}}" type="button" class="btn btn-outline-primary active">{{ season.year }}/{{ season.name }}</a>
             {% else %}
-                <button id="sb{{season.id}}" type="button" class="btn btn-outline-primary">{{ season.year }}/{{ season.name }}</button>
+                <a href="/rankings?season_id={{season.id}}" type="button" class="btn btn-outline-primary">{{ season.year }}/{{ season.name }}</a>
             {% endif %}
 
         {% endfor %}
     </div>
 </div>
 
+<div id="actual-date"><p>Дата актуальности: {{actual_date}}</p></div>
 <div id="players-table"></div>
+
+<div class="faq-card" data-category="ratings">
+    <button class="faq-question">Как считается рейтинг лиги?</button>
+    <div class="faq-answer">
+        <ul>
+            <li>Рейтинг лиги обновляется по итогам рейтинговых сезонов.</li>
+            <li>Учитываются только последний сезон, сыгранный играком, при условии, что с его окончания сезона прошло не более 1 года.</li>
+            <li>Рейтинг определяется сортировкой по следующим параметрам:<ol>
+                <li>Дивизион по итогам переходов.</li>
+                <li>Предыдущий дивизион (игроки перешедшие вверх всегда ниже игроков, удержавшихся в дивизионе)</li>
+                <li>Итоговое место в дивизионе.</li>
+                <li>Давность сезона (более свежие результаты имеют приоритет).</li>
+            </ol>
+            </li>
+        </ul>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const results = {{ rankings|tojson|safe }};
+        const rankings = {{ rankings|tojson|safe }};
 
-        const formattedPlayers = results.map(player => {
+        const formattedRankings = rankings.map(ranking => {
+            let formattedDate = '';
+            if (ranking.last_result_date) {
+                const date = new Date(ranking.last_result_date);
+                if (!isNaN(date)) {
+                    formattedDate = date.toLocaleDateString('en-GB', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: '2-digit'
+                    }).replace(/\//g, '.');
+                }
+            }
+
             return {
-                position: `${player.position}`,
-                name: `${player.first_name} ${player.last_name}`,
+                position: `${ranking.position}`,
+                name: `${ranking.first_name} ${ranking.last_name}`,
+                'last_relegation': `${ranking.last_relegation}`,
+                'last_division': `${ranking.last_division}`,
+                'last_position': `${ranking.last_position}`,
+                'last_result_date': formattedDate,
             };
 
         });
 
         new gridjs.Grid({
             columns: [
+                { id: 'position', name: 'Рейтинг', width: '80px' },
                 {
                     id: 'name',
-                    name: 'Player',
-                    formatter: (cell) => gridjs.html(`<a href="/player/${results.find(p => `${p.first_name} ${p.last_name}` === cell).id}">${cell}</a>`)
+                    name: 'Игрок',
+                    formatter: (cell) => gridjs.html(`<a href="/player/${rankings.find(p => `${p.first_name} ${p.last_name}` === cell).id}">${cell}</a>`)
                 },
-                { id: 'position', name: 'Position', width: '80px' },
+                { id: 'last_result_date', name: 'Дата результата', width: '120px' },
+                { id: 'last_division', name: 'Дивизион', width: '90px' },
+                { id: 'last_relegation', name: 'Переход', width: '80px' },
+                { id: 'last_position', name: 'Место', width: '80px' },
+
             ],
-            data: formattedPlayers,
+            data: formattedRankings,
             search: true,
             sort: true,
             pagination: {
@@ -76,5 +115,93 @@
             }
         }).render(document.getElementById('players-table'));
     });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    // Toggle FAQ answers
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const isActive = question.classList.contains('active');
+
+            // Close all answers
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                ans.classList.remove('show');
+            });
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.classList.remove('active');
+            });
+
+            // Open clicked answer if it wasn't already active
+            if (!isActive) {
+                answer.classList.add('show');
+                question.classList.add('active');
+            }
+        });
+    });
+
+    // FAQ search functionality
+    const searchInput = document.getElementById('faq-search');
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const faqCards = document.querySelectorAll('.faq-card');
+
+        faqCards.forEach(card => {
+            const question = card.querySelector('.faq-question').textContent.toLowerCase();
+            const answer = card.querySelector('.faq-answer').textContent.toLowerCase();
+
+            if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                card.style.display = 'block';
+                // Highlight matching text (you could implement this with a library like Mark.js)
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Show category titles only if they have visible questions
+        document.querySelectorAll('.category-title').forEach(title => {
+            const category = title.getAttribute('data-category');
+            const hasVisible = Array.from(faqCards).some(card => {
+                return card.style.display !== 'none' && card.getAttribute('data-category') === category;
+            });
+
+            title.style.display = hasVisible ? 'block' : 'none';
+        });
+    });
+
+    // Category filter
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+
+            // Update active button
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Show/hide questions based on category
+            const faqCards = document.querySelectorAll('.faq-card');
+            const categoryTitles = document.querySelectorAll('.category-title');
+
+            if (category === 'all') {
+                faqCards.forEach(card => card.style.display = 'block');
+                categoryTitles.forEach(title => title.style.display = 'block');
+            } else {
+                faqCards.forEach(card => {
+                    if (card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                categoryTitles.forEach(title => {
+                    title.style.display = title.getAttribute('data-category') === category ? 'block' : 'none';
+                });
+            }
+        });
+    });
+});
 </script>
 {% endblock %}

@@ -20,23 +20,45 @@
 {% block content %}
 <h1 class="mb-4">Итоги сезонов</h1>
 
-<div class="mb-4">
+    <div class="mb-4 col-6">
+    <h5>Сезоны</h5>
     <div class="btn-group" role="group">
-        {% if selected_season %}
-            <button id="sball" type="button" class="btn btn-outline-primary">All</button>
-        {% else %}
-            <button id="sball" class="btn btn-outline-primary active" type="button">All</button>
-        {% endif %}
-        {% for season in all_seasons %}
-            {% if season == selected_season %}
-                <button id="sb{{season.id}}" type="button" class="btn btn-outline-primary active">{{ season.year }}/{{ season.name }}</button>
-            {% else %}
-                <button id="sb{{season.id}}" type="button" class="btn btn-outline-primary">{{ season.year }}/{{ season.name }}</button>
-            {% endif %}
 
+        {% if selected_season_id %}
+            <a href="/results" id="sball" type="button" class="btn btn-outline-primary">Все</a>
+        {% else %}
+            <a href="/results"  id="sball" type="button" class="btn btn-outline-primary active">Все</a>
+        {% endif %}
+        {% for season in seasons %}
+            {% if season.id == selected_season_id %}
+                <a href="/results?season_id={{season.id}}" id="sb{{season.id}}" type="button" class="btn btn-outline-primary active">{{ season.year }}/{{ season.name }}</a>
+            {% else %}
+                <a href="/results?season_id={{season.id}}" type="button" class="btn btn-outline-primary">{{ season.year }}/{{ season.name }}</a>
+            {% endif %}
         {% endfor %}
     </div>
 </div>
+
+    {% if selected_season_id %}
+    <div class="mb-4 col-6">
+        <h5>Дивизионы</h5>
+        <div class="btn-group" role="group">
+            {% if selected_division_id %}
+                <a href="/results" id="sball" type="button" class="btn btn-outline-primary">Все</a>
+            {% else %}
+                <a href="/results"  id="sball" class="btn btn-outline-primary active" type="button">Все</a>
+            {% endif %}
+            {% for division in divisions %}
+                {% if division.id == selected_division_id %}
+                    <a href="/results?season_id={{selected_season_id}}&division_id={{division.id}}" id="sb{{selected_season_id}}_{{division.id}}" type="button" class="btn btn-outline-primary active">{{ division.name }}</a>
+                {% else %}
+                    <a href="/results?season_id={{selected_season_id}}&division_id={{division.id}}" id="sb{{selected_season_id}}_{{division.id}}" type="button" class="btn btn-outline-primary">{{ division.name }}</a>
+                {% endif %}
+
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
 
 <div id="players-table"></div>
 {% endblock %}
@@ -62,17 +84,17 @@
 
         new gridjs.Grid({
             columns: [
-                { id: 'season', name: 'Season', width: '100px' },
-                { id: 'division', name: 'Division', width: '80px' },
+                { id: 'season', name: 'Сезон', width: '100px' },
+                { id: 'division', name: 'Дивизион', width: '80px' },
                 {
                     id: 'name',
-                    name: 'Player',
+                    name: 'Игрок',
                     formatter: (cell) => gridjs.html(`<a href="/player/${results.find(p => `${p.first_name} ${p.last_name}` === cell).id}">${cell}</a>`)
                 },
-                { id: 'position', name: 'Position', width: '80px' },
-                { id: 'match_count', name: 'Matches', width: '80px' },
-                { id: 'win_count', name: 'Wins', width: '80px' },
-                { id: 'relegation', name: 'Relegation', width: '100px' },
+                { id: 'position', name: 'Место', width: '80px' },
+                { id: 'match_count', name: 'Матчей', width: '80px' },
+                { id: 'win_count', name: 'Побед', width: '80px' },
+                { id: 'relegation', name: 'Переход', width: '100px' },
             ],
             data: formattedPlayers,
             search: true,

@@ -18,7 +18,7 @@ year,season,division,last_name,first_name,position,match_count,win_count,tie_win
 2025,1,M2,Ahrarov,Izzat,8,1,0,0,-2,-5,relegated
 2025,1,M2,Niyazov,Zarrux,9,0,0,0,0,0,relegated
 2025,1,M3,Abdullaev,Sharof,1,10,9,0,16,75,double promoted
-2025,1,M3,Razzoqov,Davron,2,9,7,0,6,12,promoted
+2025,1,M3,Razzogov,Davron,2,9,7,0,6,12,promoted
 2025,1,M3,Alimatov,Burxon,3,7,6,2,9,27,promoted
 2025,1,M3,Beknazarov,Botirbek,4,6,6,1,11,37,promoted
 2025,1,M3,Rashidov,Amirkhan,5,9,6,0,4,29,unchanged
@@ -175,3 +175,57 @@ year,season,division,last_name,first_name,position,match_count,win_count,tie_win
 2024,1,M1b,Logvis,Kirill,6,1,0,0,-1,-4,relegated
 2024,1,M1b,Zakharchenko,Petro,7,1,0,0,-2,-7,relegated
 2024,1,M1b,Xazratov,Akmal,8,0,0,0,0,0,relegated
+2025,2,M1,Larionov,Svyatoslav,1,8,8,2,15,47,unchanged
+2025,2,M1,Razzakov,Alisher,2,9,8,1,14,57,unchanged
+2025,2,M1,Rogozin,Anton,3,10,8,0,11,43,unchanged
+2025,2,M1,Xaleulin,Ruslan,4,8,5,1,5,23,unchanged
+2025,2,M1,Shamuratov,Farrukh,5,10,5,0,-1,-16,unchanged
+2025,2,M1,Shirinov,Jahon,6,7,4,0,2,8,unchanged
+2025,2,M1,Ibragimov,Murod,7,9,3,1,-7,-17,unchanged
+2025,2,M1,Abduvakhidov,Alisher,8,8,3,0,-3,-13,unchanged
+2025,2,M1,Kamilov,Baxriddin,9,8,2,0,-10,-39,relegated
+2025,2,M1,Akhtamov,Farrukh,10,6,1,0,-6,-20,relegated
+2025,2,M1,Ashurmatov,Bakhtiyor,11,5,1,0,-5,-28,relegated
+2025,2,M1,Abdullaev,Sharof,12,8,0,0,-15,-45,relegated
+2025,2,M2,Lim,Mikhail,1,4,3,0,2,-2,promoted
+2025,2,M2,Khaitbaev,Dilshad,2,3,2,0,4,10,promoted
+2025,2,M2,Ahrarov,Izzat,3,4,1,0,-4,-9,promoted
+2025,2,M2,Vohidov,Nodir,4,3,1,0,-4,-15,unchanged
+2025,2,M2,Maxamedkasimov,Rustam,5,3,1,0,-2,-2,unchanged
+2025,2,M2,Isaboev,Sarvar,6,2,0,0,-2,-3,relegated
+2025,2,M2,Payziev,Bakhtiyor,7,1,0,0,-2,-7,relegated
+2025,2,M2,Bukharov,Ulugbek,8,0,0,0,0,0,relegated
+2025,2,M2,Kamilov,Baxriddin,0,4,4,0,8,28,fast promoted
+2025,2,M3,Kurbanov,Zafar,1,9,8,0,13,55,promoted
+2025,2,M3,Mirzoev,Suren,2,9,7,0,9,12,promoted
+2025,2,M3,Akhmadjonov,Olimjon,3,9,6,1,5,18,promoted
+2025,2,M3,Juraev,Mirazim,4,10,6,0,0,0,unchanged
+2025,2,M3,Azimov,Bobur,5,10,4,3,-6,-20,unchanged
+2025,2,M3,Ochildiyev,Husniddin,6,10,4,2,-2,0,unchanged
+2025,2,M3,Usmonov,Nazir,7,10,4,2,-3,-11,unchanged
+2025,2,M3,Khidoyatov,Takhir,8,9,4,2,-1,-5,unchanged
+2025,2,M3,Raimov,Bakhodir,9,8,4,1,2,17,relegated
+2025,2,M3,Fetisov,Artem,10,10,3,0,-7,-23,relegated
+2025,2,M3,Pankratov,Vladimir,11,10,2,0,-10,-43,relegated
+2025,2,M4,Khakimov,Alisher,1,9,7,0,7,10,promoted
+2025,2,M4,Khodyrev,Egor,2,10,6,1,3,5,promoted
+2025,2,M4,Abdurakhmanov,Boburkhan,3,9,6,0,4,18,promoted
+2025,2,M4,Sadibekov,Bulat,4,7,5,0,4,3,unchanged
+2025,2,M4,Shatursunov,Shokhaydar,5,6,4,0,2,10,unchanged
+2025,2,M4,Medvedev,Vladimir,6,7,2,1,-3,-7,unchanged
+2025,2,M4,Karimkhodjaev,Abdulaziz,7,8,2,0,-6,-4,unchanged
+2025,2,M4,Khikmatov,Shukhrat,8,4,2,0,0,3,unchanged
+2025,2,M4,Nurmuratov,Alisher,9,9,1,1,-8,-21,relegated
+2025,2,M4,Bakhromov,Iskandar,10,7,1,0,-9,-33,relegated
+2025,2,M4,Juraev,Mirazim,0,6,5,0,6,16,fast promoted
+2025,2,O1,Neklesov,Igor,1,7,6,0,10,42,promoted
+2025,2,O1,Sagdullayev,Abzal,2,8,5,0,4,10,promoted
+2025,2,O1,Mavlyutov,Kamil,3,5,4,0,3,2,promoted
+2025,2,O1,Hayitov,Olimjon,4,6,3,1,1,16,unchanged
+2025,2,O1,Khon,Victor,5,8,3,0,-4,-13,unchanged
+2025,2,O1,Savlev,Andrey,6,8,2,0,-8,-37,unchanged
+2025,2,O1,Zaretski,Kir,7,5,0,0,-10,-39,unchanged
+2025,2,O1,Pulatov,Timur,8,3,0,0,-4,-10,unchanged
+2025,2,O1,Otabek,T,9,1,0,0,-2,-10,unchanged
+2025,2,O1,Mirkhamidov,Mirkomil,10,0,0,0,0,0,unchanged
+2025,2,O1,Abdurakhmanov,Boburkhan,0,5,5,0,10,39,fast promoted

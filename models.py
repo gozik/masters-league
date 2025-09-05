@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from sqlalchemy import Enum, CheckConstraint
 from extensions import db
 
@@ -50,6 +50,7 @@ class Season(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(64), nullable=True)
     year = db.Column(db.Integer, nullable=True)
+    is_ranked = db.Column(db.Boolean, default=True)
     date_start = db.Column(db.Date, nullable=True)
     date_end = db.Column(db.Date, nullable=True)
     league_id = db.Column(db.Integer, db.ForeignKey('League.id'), nullable=False)
@@ -103,6 +104,8 @@ class Result(db.Model):
     relegation = db.Column(Enum('promoted', 'relegated', 'unchanged', 'fast promoted', 'double promoted',
                                 name='relegation_enum'), nullable=True)
 
+    ranking = db.relationship('Ranking', backref='last_result_ref', lazy=True)
+
     def __repr__(self):
         return f'<Result Player {self.player_id} in Division {self.division_id}>'
 
@@ -144,6 +147,10 @@ class Ranking(db.Model):
             'last_name': self.player_ref.last_name,
             'position': self.position,
             'actual_date': self.actual_date,
+            'last_relegation': self.last_result_ref.relegation,
+            'last_division': self.last_result_ref.division_ref.name,
+            'last_position': self.last_result_ref.position,
+            'last_result_date': self.last_result_ref.division_ref.season_ref.date_end,
         }
 
 
@@ -231,14 +238,20 @@ class Match(db.Model):
         return " ".join(scores)
 
 
-def get_last_result_before_date(player_id, target_date):
+def get_last_result_before_date(player_id, target_date, filter_seasons, expire_days):
     """Get the latest result for a player before a specific date using season dates"""
-    return Result.query\
+    r = Result.query\
         .join(Division, Result.division_id == Division.id)\
         .join(Season, Division.season_id == Season.id)\
         .filter(
             Result.player_id == player_id,
-            Season.date_end <= target_date  # Season ends before target date
-        )\
-        .order_by(Season.date_end.desc(), Division.priority.desc())\
-        .first()
+            Season.date_end <= target_date)  # Season ends before target date
+
+    if filter_seasons == 'ranked':
+        r = r.filter(Season.is_ranked == True)
+
+    if expire_days:
+        cutoff_date = target_date - timedelta(days=expire_days)
+        r = r.filter(Season.date_end >= cutoff_date)
+
+    return r.order_by(Season.date_end.desc(), Division.priority).first()
