@@ -1,0 +1,400 @@
+{% extends "base.html" %}
+
+{% block title %}Frequently Asked Questions - Tennis Ratings{% endblock %}
+
+{% block head %}
+<style>
+    .faq-header {
+        background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+        color: white;
+        padding: 80px 0;
+        margin-bottom: 40px;
+    }
+
+    .faq-card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        background: white;
+        padding: 20px;
+        border: none;
+        width: 100%;
+        text-align: left;
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+        background-color: #f8f9fa;
+    }
+
+    .faq-question:after {
+        content: '\f4fe'; /* Bootstrap plus icon */
+        font-family: 'bootstrap-icons';
+        transition: transform 0.3s ease;
+    }
+
+    .faq-question.active:after {
+        content: '\f2ea'; /* Bootstrap minus icon */
+        transform: rotate(180deg);
+    }
+
+    .faq-answer {
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        background: white;
+    }
+
+    .faq-answer.show {
+        padding: 20px;
+        max-height: 300px;
+    }
+
+    .search-box {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    .search-box input {
+        border-radius: 50px;
+        padding: 15px 20px;
+        border: 2px solid #e9ecef;
+        width: 100%;
+        transition: all 0.3s ease;
+    }
+
+    .search-box input:focus {
+        border-color: #4ca1af;
+        box-shadow: 0 0 0 0.2rem rgba(76, 161, 175, 0.25);
+    }
+
+    .category-filter {
+        margin-bottom: 30px;
+    }
+
+    .category-btn {
+        border-radius: 20px;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .category-btn.active, .category-btn:hover {
+        background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+        color: white;
+        border-color: #2c3e50;
+    }
+
+    .contact-card {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- FAQ Header -->
+<section class="faq-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-3">Часто задаваемые вопросы</h1>
+                <p class="lead">Полезная информация о лиге, сезонах и всем остальном</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <!-- Search and Filter -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto">
+            <div class="search-box">
+                <input type="text" id="faq-search" placeholder="Найдите вопрос...">
+                <i class="bi bi-search position-absolute" style="right: 20px; top: 15px; color: #6c757d;"></i>
+            </div>
+
+            <div class="category-filter text-center">
+                <button class="btn btn-outline-primary category-btn active" data-category="all">Все вопросы</button>
+                <button class="btn btn-outline-primary category-btn" data-category="leagues">Лига</button>
+                <button class="btn btn-outline-primary category-btn" data-category="seasons">Сезоны и призы</button>
+                <button class="btn btn-outline-primary category-btn" data-category="technical">Raketo</button>
+                <button class="btn btn-outline-primary category-btn" data-category="ratings">Рейтинг</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Items -->
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <!-- Leagues Category -->
+            <h3 class="mb-4 mt-5 category-title" data-category="leagues">Лига</h3>
+
+            <div class="faq-card" data-category="leagues">
+                <button class="faq-question">Что такое лига?</button>
+                <div class="faq-answer">
+                    <p>Это альтернативный турнирам формат соревнования, который позволяет играть с оппонентами
+                        своего уровня в течение длительного времени - сезона (обычно длительностью 1-2 месяца).
+                        (То есть нет одного дня или расписания, когда состоятся матчи).</p>
+                    <p>В начале сезона происходит разделение по группам (обычно в каждой около 8 человек).<br/>
+                        Предлагается сыграть с каждым из оппонентов в своей группе.
+                        Игроки самостоятельно договариваются о времени и месте матчей.<br/>
+                        В дату завершения сезона подводятся результаты - учитываются только фактически сыгранные матчи,
+                        а все несыгранные "сгорают".</p>
+                    <p>
+                        По итогам сезона в каждой группе награждается первое и второе места.<br/>
+                        Дополнительно разыгрываются призы случайно среди всех игроков, которые сыграют
+                        наибольшее количество матчей за сезон.<br/>
+                        Результаты выступления в сезоне определяют разбиение по дивизионам в следующем сезоне.
+                    </p>
+                    <br/>
+                </div>
+            </div>
+
+            <div class="faq-card" data-category="leagues">
+                <button class="faq-question">Как присоединиться к лиге?</button>
+                <div class="faq-answer">
+                    <p>Чтобы присоединиться к лиге:</p>
+                    <ol>
+                        <li>Создайте аккаунт в приложении Raketo</li>
+                        <li>Заполните профиль и укажите Uzbekistan/Tashkent</li>
+                        <li>Присоединитесь к телеграмм @tashkent_masters_league</li>
+                        <li>Дождитесь открытия регистрации на новый сезон</li>
+                        <li>Присоединитесь в приложении Raketo к сезону</li>
+                        <li>Оплатите взнос (детали публикуются в telegram)</li>
+                    </ol>
+                    <p>Регистрация обычно открывается за 1 неделю до старта сезона.</p>
+                </div>
+            </div>
+
+            <div class="faq-card" data-category="leagues">
+                <button class="faq-question">В какой дивизион я попаду?</button>
+                <div class="faq-answer">
+                    <p>Если вы впервые участвуете в лиге, то для калибровки используются результаты ваших последних
+                        матчей с другими участниками лиги. Если вы ранее участвовали, то дивизион будет определен в
+                        соответствии с рейтингом.</p>
+                    <p>Если дивизион вас не устраивает - напишите запрос организатору на получение Wild Card,
+                        данные запросы рассматриваются индивидуально.</p>
+                </div>
+            </div>
+
+            <div class="faq-card" data-category="leagues">
+                <button class="faq-question">Возможно ли сменить дивизион по ходу сезона?</button>
+                <div class="faq-answer">
+                    <p>Обычно дивизион по ходу сезона не меняется, но могут быть сделаны исключения, в случае, если
+                    результаты игрока показывают явное несоответствие уровня игры дивизиону.</p>
+                </div>
+            </div>
+
+            <!-- seasons Category -->
+            <h3 class="mb-4 mt-5 category-title" data-category="seasons">Сезон и призы</h3>
+
+            <div class="faq-card" data-category="seasons">
+                <button class="faq-question">Как определяются порядок мест в дивизионе?</button>
+                <div class="faq-answer">
+                    <p>Для определения порядка мест сначала смотрится количество побед каждого игрока,
+                        если они равны то сравниваются дополнительные показатели в следующем порядке:</p>
+                    <ol>
+                        <li>Количество побед в очных матчах игроков с одинаковым количеством очков (побед)</li>
+                        <li>Количество игр (чем больше, тем лучше)</li>
+                        <li>Разница сетов</li>
+                        <li>Разница геймов</li>
+                    </ol>
+                    <p>Если все эти показатели равны, то порядок мест определяется жребием.</p>
+                </div>
+            </div>
+
+            <div class="faq-card" data-category="seasons">
+                <button class="faq-question">Сколько стоит участие в сезоне?</button>
+                <div class="faq-answer">
+                    <p>Взнос за участие в сезоне - 130 000 сум.</p>
+                    <p>Если у вас есть премиум подписка Raketo, то со скидкой стоимость участия составит 65 000 сум.</p>
+                    <p>Все взносы идут на оплату работы приложения и призовой фонд.</p>
+                    <p>Лига не предоставляет корты или мячи - расходы оплачиваются игроками самостоятельно.</p>
+                </div>
+            </div>
+
+            <div class="faq-card" data-category="seasons">
+                <button class="faq-question">Сколько игр я сыграю?</button>
+                <div class="faq-answer">
+                    <p>За 1 сезон игрок может сыграть любое количество матчей с оппонентами из своей группы
+                        (не более 1 матча с каждым соперником) - обычно 7-9 матчей.</p>
+                    <p> Рекомендуется играть 2 игры в неделю. Таким образом у вас останется время на отпуск или непредвиденные перерыввы. </p>
+                </div>
+            </div>
+
+            <div class="faq-card" data-category="seasons">
+                <button class="faq-question">Какие призы за победу в лиге?</button>
+                <div class="faq-answer">
+                    <p>За призовые места в каждом дивизионе вручается призовой сертификат на сумму 300 000 сум.</p>
+                    <p>Кроме того каждый сезон разыгрываются призы за активное участие, размер сертификата - 200 000 сум.</p>
+                    <p>Призовые места и количество сертификатов фиксируются в регламенте сезона после закрытия регистрации.</p>
+                    <p>Призовой сертификат может быть получен и использован в магазине Amazing Store на любые покупки:
+                        мячи, струны, услуги стрингера, кроссовки, ракетки и т.п.</p>
+                </div>
+            </div>
+
+            <!-- Technical Category -->
+            <h3 class="mb-4 mt-5 category-title" data-category="technical">Raketo</h3>
+
+            <div class="faq-card" data-category="technical">
+                <button class="faq-question">Как скачать приложение Raketo?</button>
+                <div class="faq-answer">
+                    <p>Приложение на телефон доступно в App Store и Google Play. Просто вбейте в поиске Raketo.</p>
+                    <p>С компьютера можно воспользоваться web версией: </p>
+                    <a href="https://raketo.app" target="_blank" class="btn btn-warning">
+                        <i class="bi bi-window me-2"></i> Raketo Web
+                    </a>
+                </div>
+            </div>
+
+            <div class="faq-card" data-category="technical">
+                <button class="faq-question">Как отметить результат матча?</button>
+                <div class="faq-answer">
+                    <p>Результаты матчей отмечайте в приложении Raketo.<br/>
+                       Найдите в разделе "Мои матчи" оппонента - нажмите на плашку и введите счет. <br/>
+                        После этого счет должен появиться в разделе сыгранных матчей и опубликоваться в telegram.
+                        </p>
+
+                </div>
+            </div>
+
+            <div class="faq-card" data-category="technical">
+                <button class="faq-question">Как отметить счет на решающем тайбрейке?</button>
+                <div class="faq-answer">
+                    <p>При указании результатов матча необходимо указать победителя и счет:<br/>
+                        - счет в тайбрейках каждого сета указывается снизу сета<br/>
+                        - если игрался решающий тайбрейк вместо третьего сета - указываем счет в самом правом столбце (tie D)<br/>
+                        - если игрался третий сет, то записываем результат в третий столбец как обычно</p>
+                </div>
+            </div>
+
+            <!-- Ratings Category -->
+            <h3 class="mb-4 category-title" data-category="ratings">Рейтинг</h3>
+
+            <div class="faq-card" data-category="ratings">
+                <button class="faq-question">Как считается рейтинг лиги?</button>
+                <div class="faq-answer">
+                    <p>Рейтинг определяется по последнему сезону, сыгранному игроком.</p>
+                    <p>Положение в рейтинге определяется исходя из дивизиона игрока и положения в дивизионе. <br/>
+                        Описание логики расчета закреплено в регламенте.</p>
+                </div>
+            </div>
+
+            <div class="faq-card" data-category="ratings">
+                <button class="faq-question">Как считается рейтинг Raketo?</button>
+                <div class="faq-answer">
+                    <p>Рейтинг Raketo рассчитывается по принципу ELO. <br/>
+                        В случае победы над сильным соперником вы получаете больше рейтинга, над слабым - меньше.  <br/>
+                        При поражении - наоборот. </p>
+                    <p> Рейтинг Raketo может быть использован в качестве основания для Wild Card или при первичном рапределении по дивизионам.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle FAQ answers
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const isActive = question.classList.contains('active');
+
+            // Close all answers
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                ans.classList.remove('show');
+            });
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.classList.remove('active');
+            });
+
+            // Open clicked answer if it wasn't already active
+            if (!isActive) {
+                answer.classList.add('show');
+                question.classList.add('active');
+            }
+        });
+    });
+
+    // FAQ search functionality
+    const searchInput = document.getElementById('faq-search');
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const faqCards = document.querySelectorAll('.faq-card');
+
+        faqCards.forEach(card => {
+            const question = card.querySelector('.faq-question').textContent.toLowerCase();
+            const answer = card.querySelector('.faq-answer').textContent.toLowerCase();
+
+            if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                card.style.display = 'block';
+                // Highlight matching text (you could implement this with a library like Mark.js)
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Show category titles only if they have visible questions
+        document.querySelectorAll('.category-title').forEach(title => {
+            const category = title.getAttribute('data-category');
+            const hasVisible = Array.from(faqCards).some(card => {
+                return card.style.display !== 'none' && card.getAttribute('data-category') === category;
+            });
+
+            title.style.display = hasVisible ? 'block' : 'none';
+        });
+    });
+
+    // Category filter
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+
+            // Update active button
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Show/hide questions based on category
+            const faqCards = document.querySelectorAll('.faq-card');
+            const categoryTitles = document.querySelectorAll('.category-title');
+
+            if (category === 'all') {
+                faqCards.forEach(card => card.style.display = 'block');
+                categoryTitles.forEach(title => title.style.display = 'block');
+            } else {
+                faqCards.forEach(card => {
+                    if (card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                categoryTitles.forEach(title => {
+                    title.style.display = title.getAttribute('data-category') === category ? 'block' : 'none';
+                });
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

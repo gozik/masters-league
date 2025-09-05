@@ -10,6 +10,19 @@ import os
 app = create_app()
 
 
+def delete_all():
+    Ranking.query.delete()
+    Result.query.delete()
+    Player.query.delete()
+    Division.query.delete()
+    Season.query.delete()
+    League.query.delete()
+
+    db.session.commit()
+    return
+
+
+
 def input_data_from_json(file):
     """Add all leagues, seasons, divisions, players, results from file.
 
@@ -88,6 +101,7 @@ def calculate_rankings(date):
                             'result_date': result_date,
                             'player': player})
 
+
     sorted_items = sorted(
         results,
         key=lambda x: (
@@ -100,7 +114,7 @@ def calculate_rankings(date):
 
     rankings = []
     for i, value in enumerate(sorted_items):
-        ranking = Ranking(player_id=value['player'].id ,
+        ranking = Ranking(player_id=value['player'].id,
                           position=i+1,
                           actual_date=value['result_date'],
                           actual_season_id=value['last_result'].division_ref.season_id,
@@ -177,52 +191,62 @@ def to_date_filter(date_string):
     except:
         return None
 
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+
 
 @app.route('/schedule')
 def show_schedule():
     # Season data - you can also move this to a database later
     seasons = [
         {
-            'name': 'PRESEASON',
+            'name': 'Preseason',
             'start_date': '2025-02-22',
             'end_date': '2025-03-30',
             'status': 'upcoming',
-            'description': 'Preparation period before the official season starts'
+            'description': 'Подготовительный сезон вне зачета - 1 общий дивизион',
+            'rating': 'Вне зачета',
         },
         {
             'name': 'Season 1',
             'start_date': '2025-04-05',
             'end_date': '2025-05-18',
             'status': 'upcoming',
-            'description': 'First official season of the year'
+            'description': 'Первый рейтинговый сезон года',
+            'rating': 'Рейтинговый',
         },
         {
             'name': 'Masters Slam',
             'start_date': '2025-06-01',
             'end_date': '2025-06-28',
             'status': 'upcoming',
-            'description': 'Premium tournament featuring top players'
+            'description': 'Турнир на вылет для всех участников лиги',
+            'rating': 'Вне зачета',
         },
         {
             'name': 'Season 2',
             'start_date': '2025-07-06',
             'end_date': '2025-08-31',
             'status': 'upcoming',
-            'description': 'Summer season competition'
+            'description': 'Летний сезон',
+            'rating': 'Рейтинговый',
         },
         {
             'name': 'Season 3',
             'start_date': '2025-09-15',
             'end_date': '2025-11-02',
             'status': 'upcoming',
-            'description': 'Autumn season matches'
+            'description': 'Осенний сезон',
+            'rating': 'Рейтинговый',
         },
         {
             'name': 'Season 4',
             'start_date': '2025-11-10',
             'end_date': '2025-12-14',
             'status': 'upcoming',
-            'description': 'Final season of the year'
+            'description': 'Завершающий сезон года',
+            'rating': 'Рейтинговый',
         }
     ]
 
@@ -245,6 +269,8 @@ def show_schedule():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
+
+        delete_all()
 
         if Player.query.count() == 0:
             with open('misc/results_season12025_1.json') as f:
