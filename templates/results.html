@@ -68,7 +68,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         const results = {{ results|tojson|safe }};
 
-        const formattedPlayers = results.map(player => {
+        const formattedResults = results.map(player => {
             return {
                 rank: player.id,  // Will be updated to actual rank after sorting
                 name: `${player.first_name} ${player.last_name}`,
@@ -78,6 +78,7 @@
                 relegation: `${player.relegation}`,
                 season: `${player.season}`,
                 division: `${player.division}`,
+                player_id: `${player.player_id}`
             };
 
         });
@@ -89,14 +90,14 @@
                 {
                     id: 'name',
                     name: 'Игрок',
-                    formatter: (cell) => gridjs.html(`<a href="/player/${results.find(p => `${p.first_name} ${p.last_name}` === cell).id}">${cell}</a>`)
+                    formatter: (cell) => gridjs.html(`<a href="/player/${results.find(p => `${p.first_name} ${p.last_name}` === cell).player_id}">${cell}</a>`)
                 },
                 { id: 'position', name: 'Место', width: '80px' },
                 { id: 'match_count', name: 'Матчей', width: '80px' },
                 { id: 'win_count', name: 'Побед', width: '80px' },
                 { id: 'relegation', name: 'Переход', width: '100px' },
             ],
-            data: formattedPlayers,
+            data: formattedResults,
             search: true,
             sort: true,
             pagination: {

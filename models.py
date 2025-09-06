@@ -119,7 +119,8 @@ class Result(db.Model):
             'win_count': self.win_count,
             'relegation': self.relegation,
             'season': self.division_ref.season_ref.get_title(),
-            'division': self.division_ref.name
+            'division': self.division_ref.name,
+            'player_id': self.player_id,
         }
 
 
@@ -151,6 +152,7 @@ class Ranking(db.Model):
             'last_division': self.last_result_ref.division_ref.name,
             'last_position': self.last_result_ref.position,
             'last_result_date': self.last_result_ref.division_ref.season_ref.date_end,
+            'player_id': self.player_id,
         }
 
 

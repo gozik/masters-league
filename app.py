@@ -276,6 +276,56 @@ def show_schedule():
     return render_template('schedule.html', seasons=seasons, current_year=2025)
 
 
+@app.route('/player/<int:player_id>')
+def player_profile(player_id):
+    """Display player profile with statistics and history"""
+    player = Player.query.get_or_404(player_id)
+
+    # Get current ranking
+    current_ranking = get_current_ranking(player_id)
+
+    # Get season results
+    season_results = get_results(player_id)
+
+    # Calculate total statistics
+    total_stats = calculate_total_stats(player_id)
+
+    return render_template('player_profile.html',
+                           player=player,
+                           current_ranking=current_ranking,
+                           season_results=season_results,
+                           division_history=season_results,
+                           total_stats=total_stats,
+                           )
+
+
+def get_current_ranking(player_id):
+    """Get player's current ranking"""
+    return Ranking.query.filter_by(player_id=player_id).order_by(Ranking.actual_date.desc()).first()
+
+
+def get_results(player_id):
+    """Get all season results for the player"""
+    return Result.query.filter_by(player_id=player_id).join(Division).join(Season)\
+        .order_by(Season.date_end.desc()).all()
+
+
+def calculate_total_stats(player_id):
+    """Calculate total wins, games, and other statistics"""
+    results = Result.query.filter_by(player_id=player_id).all()
+
+    total_wins = sum(result.win_count for result in results)
+    total_matches = sum(result.match_count for result in results)
+    total_seasons = len(set(result.division_ref.season_id for result in results if result.division_ref))
+
+    return {
+        'total_wins': total_wins,
+        'total_matches': total_matches,
+        'win_percentage': (total_wins / total_matches * 100) if total_matches > 0 else 0,
+        'total_seasons': total_seasons
+    }
+
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()

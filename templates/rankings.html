@@ -94,7 +94,7 @@
                 {
                     id: 'name',
                     name: 'Игрок',
-                    formatter: (cell) => gridjs.html(`<a href="/player/${rankings.find(p => `${p.first_name} ${p.last_name}` === cell).id}">${cell}</a>`)
+                    formatter: (cell) => gridjs.html(`<a href="/player/${rankings.find(p => `${p.first_name} ${p.last_name}` === cell).player_id}">${cell}</a>`)
                 },
                 { id: 'last_result_date', name: 'Дата результата', width: '120px' },
                 { id: 'last_division', name: 'Дивизион', width: '90px' },
