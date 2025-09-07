@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}Home - Tennis Ratings League{% endblock %}
+{% block title %}Tashkents Masters League{% endblock %}
 
 {% block head %}
-<style>
+<style xmlns="http://www.w3.org/1999/html">
     .hero-section {
         background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)),
                    url('/static/images/tennis-action.jpg');
@@ -13,6 +13,16 @@
         color: white;
         text-align: center;
     }
+
+    .partner-img {
+        background: url('/static/images/astore-logo-color.png');
+        background-size: 350px;
+        background-position: 50% 50%;
+        padding: 100px 0;
+        color: white;
+        text-align: center;
+    }
+
 
     .feature-card {
         transition: all 0.3s ease;
@@ -94,6 +104,97 @@
         font-size: 0.9rem;
         margin-left: 1rem;
     }
+
+    .partners-section {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            padding: 60px 0;
+        }
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #e74c3c;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        .partner-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        .partner-logo {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #eee;
+        }
+        .partner-logo img {
+            max-height: 120px;
+            max-width: 80%;
+            object-fit: contain;
+        }
+        .partner-info {
+            padding: 25px;
+        }
+        .partner-name {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+        .partner-contact {
+            margin-bottom: 15px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .contact-item i {
+            color: #e74c3c;
+            margin-right: 10px;
+            font-size: 1.1rem;
+            width: 20px;
+        }
+        .partner-link {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        .partner-link:hover {
+            background: #e74c3c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+            color: white;
+        }
+        .tennis-icon {
+            color: #e74c3c;
+            margin-right: 10px;
+        }
 </style>
 {% endblock %}
 
@@ -173,6 +274,9 @@
         </div>
     </div>
 </section>
+
+
+
 
 <!-- Key Features Section -->
 <section class="py-5">
@@ -303,7 +407,7 @@
 
         <div class="row">
             <div class="col-md-4">
-                <div class="testimonial-card">
+                <div class="testimonial-card card">
                     <div class="d-flex align-items-center mb-3">
                         <img src="{{ url_for('static', filename='images/player1.jpg') }}" alt="Player" class="testimonial-avatar">
                         <div>
@@ -316,7 +420,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="testimonial-card">
+                <div class="testimonial-card card">
                     <div class="d-flex align-items-center mb-3">
                         <img src="{{ url_for('static', filename='images/player2.jpg') }}" alt="Player" class="testimonial-avatar">
                         <div>
@@ -329,7 +433,7 @@
             </div>
 
             <div class="col-md-4">
-                <div class="testimonial-card">
+                <div class="testimonial-card card">
                     <div class="d-flex align-items-center mb-3">
                         <img src="{{ url_for('static', filename='images/player3.jpg') }}" alt="Player" class="testimonial-avatar">
                         <div>
@@ -338,6 +442,108 @@
                         </div>
                     </div>
                     <p class="mb-0">"Я первый раз участвовал, мне все понравилось. Распределение игроков по группам справедливое, не было очевидно слабых и очевидно сильных. Срок для лета тоже комфортный, т.к. есть отпуска и многие разъезжались."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="partners-section">
+    <div class="container">
+        <h2 class="text-center section-title">Партнеры лиги</h2>
+
+        <div class="row">
+            <!-- Partner 1 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="static/images/astore-logo-color.png" alt="Amazing Store Logo">
+                    </div>
+                    <div class="partner-info">
+                        <h3 class="partner-name">Amazing Store</h3>
+                        <div class="partner-contact">
+                            <div class="contact-item">
+                                <i class="bi bi-geo-alt-fill"></i>
+                                <span>Фидокор, 1/1</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-telephone-fill"></i>
+                                <span>(71) 230-11-53</span>
+                            </div>
+                        </div>
+                        <p>Лучший теннисный магазин  <br/> Cпонсор призового фонда <br/> Теннисный инвентарь | Перетяжка струн | Официальный поставщик Tecnifibre</p>
+                        <a href="https://www.instagram.com/amazing_store.uz/" target="_blank" class="partner-link">
+                            <i class="bi bi-box-arrow-up-right"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partner 2 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="static/images/raketo.png" alt="Raketo Logo">
+                    </div>
+                    <div class="partner-info">
+                        <h3 class="partner-name">Raketo</h3>
+
+                        <div class="contact-item">
+                            <i class="bi bi-telegram"></i>
+                            <a href="https://t.me/raketo_worldwide"><span>t.me/raketo_worldwide</span></a>
+                        </div>
+
+                        <p>Удобное бесплатное приложение для поиска теннисного партнера и организации турниров и лиг</p>
+                        <p>
+                        <a href="https://apps.apple.com/us/app/raketo/id6449183508?platform=iphone" target="_blank" class="btn btn-outline-primary">
+                            <i class="bi bi-apple me-2"></i> App Store
+                        </a>
+
+
+                        <a href="https://play.google.com/store/apps/details?id=com.flutterflow.georgiatennis" target="_blank" class="btn btn-outline-primary">
+                            <i class="bi bi-google-play me-2"></i> Google Play
+                        </a>
+                        </p>
+                        <br/>
+
+                        <a href="https://raketo.app/" target="_blank" class="partner-link">
+                            <i class="bi bi-box-arrow-up-right"></i> Сайт
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partner 3 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="static/images/rodena.jpg" alt="Rodena Logo">
+                    </div>
+                    <div class="partner-info">
+                        <h3 class="partner-name">Кафе Родена</h3>
+                        <div class="partner-contact">
+                            <div class="contact-item">
+                                <i class="bi bi-geo-alt-fill"></i>
+                                <span>Rodena(Кадышева)</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-telephone-fill"></i>
+                                <span>(95) 475-88-55</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-geo-alt-fill"></i>
+                                <span>Rodena(Паркент)</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-telephone-fill"></i>
+                                <span>(95) 411-88-55</span>
+                            </div>
+                        </div>
+                        <p>Очень вкусная кухня и десерты.</p>
+                        <a href="https://www.instagram.com/rodena_coffee_/" target="_blank" class="partner-link">
+                            <i class="bi bi-box-arrow-up-right"></i> Instagram
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
