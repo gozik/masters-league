@@ -118,6 +118,7 @@
     <div class="row mb-5">
         <div class="col-12">
             {% set current_season = seasons|selectattr('status', 'equalto', 'current')|first %}
+            {% set reg_season = seasons|selectattr('status', 'equalto', 'registration')|first %}
             {% if current_season %}
             <div class="alert alert-success">
                 <div class="row align-items-center">
@@ -129,6 +130,20 @@
                     </div>
                     <div class="col-md-4 text-md-end">
                         <strong>{{ current_season.start_date }} - {{ current_season.end_date }}</strong>
+                    </div>
+                </div>
+            </div>
+            {% elif reg_season %}
+            <div class="alert alert-success">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h4 class="alert-heading">
+                            <i class="bi bi-star-fill me-2"></i>Открыта регистрация на сезон: {{ reg_season.name }}
+                        </h4>
+                        <p class="mb-0">{{ reg_season.description }}</p>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <strong>{{ reg_season.start_date }} - {{ reg_season.end_date }}</strong>
                     </div>
                 </div>
             </div>
@@ -148,11 +163,14 @@
         {% for season in seasons %}
         <div class="col-lg-6 col-xl-4 mb-4">
             <div class="card season-card h-100">
+                {% if season.id %}<a href="/season/{{ season.id }}/rules">{% endif %}
                 <div class="season-header
-                    {% if season.status == 'current' %}bg-success
+                    {% if season.status == 'current' or season.status == 'registration' %}bg-success
                     {% elif season.status == 'completed' %}bg-info
                     {% else %}bg-secondary{% endif %}">
+
                     <h5 class="card-title mb-0">{{ season.name }}</h5>
+
                     <span class="season-status
                         {% if season.status == 'current' %}status-current
                         {% elif season.status == 'completed' %}status-completed
@@ -160,6 +178,7 @@
                         {{ season.status|upper }}
                     </span>
                 </div>
+                {% if season.id %}</a>{% endif %}
 
                 <div class="card-body">
                     <div class="season-dates mb-3">

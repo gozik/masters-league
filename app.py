@@ -39,7 +39,7 @@ def input_data_from_json(file):
             season = Season(name=s['name'], year=s['year'], league_id=league.id,
                             date_start=datetime.strptime(s['date_start'], "%Y-%m-%d"),
                             date_end=datetime.strptime(s['date_end'], "%Y-%m-%d"),
-                            is_ranked=True)
+                            is_ranked=True, is_completed=True)
 
             if 'is_ranked' in s:
                 if s['is_ranked'] == 0:
@@ -75,6 +75,16 @@ def input_data_from_json(file):
                                     )
                     db.session.add(result)
                     db.session.commit()
+
+def add_season3():
+    league = League.query.first()
+    season3 = Season(name='3', year=2025, is_ranked=True, league_id=league.id,
+        date_start=datetime.strptime('2025-09-15', "%Y-%m-%d"),
+        date_end=datetime.strptime('2025-11-02', "%Y-%m-%d"),
+        is_completed=False,
+    )
+    db.session.add(season3)
+    db.session.commit()
 
 
 def calculate_rankings(date):
@@ -143,7 +153,8 @@ def index():
 @app.route('/rankings')
 def show_rankings():
     """Display rankings with date and season filtering"""
-    actual_date = Season.query.order_by(Season.date_end.desc()).first().date_end
+    actual_date = Season.query.filter(Season.is_completed == True).filter(Season.is_ranked == True)\
+        .order_by(Season.date_end.desc()).first().date_end
 
     # Get filters from request
     season_id = request.args.get('season_id', type=int)
@@ -153,7 +164,8 @@ def show_rankings():
             actual_date = season.date_end
 
     # Get available seasons for dropdown
-    seasons = Season.query.order_by(Season.id.desc()).filter(Season.is_ranked == True).all()
+    seasons = Season.query.order_by(Season.id.desc()).filter(Season.is_ranked == True)\
+        .filter(Season.is_completed == True).all()
 
     # Get rankings
     rankings = Ranking.query.filter_by(actual_date=actual_date).order_by('position').all()
@@ -167,7 +179,7 @@ def show_rankings():
 
 
 @app.route('/results')
-def show_ratings():
+def show_results():
     # Get filters from request
     season_id = request.args.get('season_id', type=int)
     division_id = request.args.get('division_id', type=int)
@@ -183,7 +195,7 @@ def show_ratings():
 
     results_data = [p.to_dict() for p in results]
 
-    seasons = Season.query.order_by(Season.id.desc()).all()
+    seasons = Season.query.filter(Season.is_completed == True).order_by(Season.id.desc()).all()
 
     return render_template('results.html', results=results_data, seasons=seasons, selected_season_id=season_id,
                            divisions=divisions, selected_division_id=division_id)
@@ -217,6 +229,7 @@ def show_schedule():
             'status': 'upcoming',
             'description': 'Подготовительный сезон вне зачета - 1 общий дивизион',
             'rating': 'Вне зачета',
+            'id': 5,
         },
         {
             'name': 'Season 1',
@@ -225,6 +238,7 @@ def show_schedule():
             'status': 'upcoming',
             'description': 'Первый рейтинговый сезон года',
             'rating': 'Рейтинговый',
+            'id': 6,
         },
         {
             'name': 'Masters Slam',
@@ -241,14 +255,17 @@ def show_schedule():
             'status': 'upcoming',
             'description': 'Летний сезон',
             'rating': 'Рейтинговый',
+            'id': 7
         },
         {
             'name': 'Season 3',
             'start_date': '2025-09-15',
             'end_date': '2025-11-02',
+            'registration_start': '2025-09-07',
             'status': 'upcoming',
             'description': 'Осенний сезон',
             'rating': 'Рейтинговый',
+            'id': 8,
         },
         {
             'name': 'Season 4',
@@ -266,10 +283,16 @@ def show_schedule():
         start = datetime.strptime(season['start_date'], '%Y-%m-%d').date()
         end = datetime.strptime(season['end_date'], '%Y-%m-%d').date()
 
+        registration_start = start
+        if 'registration_start' in season:
+            registration_start = datetime.strptime(season['registration_start'], '%Y-%m-%d').date()
+
         if start <= current_date <= end:
             season['status'] = 'current'
         elif current_date > end:
             season['status'] = 'completed'
+        elif current_date > registration_start:
+            season['status'] = 'registration'
         elif current_date < start:
             season['status'] = 'upcoming'
 
@@ -297,6 +320,147 @@ def player_profile(player_id):
                            division_history=season_results,
                            total_stats=total_stats,
                            )
+
+@app.route('/season/<season_id>/rules')
+def season_rules(season_id):
+    season = Season.query.get_or_404(season_id)
+
+    season_info = {}
+
+    if season_id == '1':
+        season_info = {
+            'registration_start': '2024-05-20',
+            'registration_end': '2024-06-01',
+            'cost': 0,
+            'raketo_ref': 'https://raketo.app/tournamentDetails?tournamentRef=NJqr1JEpBVCcSPKfK9Xc',
+            'prize_positions': ['M1a - 1 место', 'M1b - 1 место'],
+            'prize_amount': 150000,
+            'lottery_minimum_matches': 7,
+            'lottery_amount': 150000,
+            'lottery_count': 1,
+            'relegations': {'M1a, M1b': ['Топ-8 игроков выходят в M1 (сквозная сортировка)']},
+            'special_rules': ['После завершения месяца первые места групп играют финал за первое место в сезоне']
+        }
+    elif season_id == '2':
+        season_info = {
+            'registration_start': '2024-06-25',
+            'registration_end': '2024-07-01',
+            'cost': 100000,
+            'raketo_ref': 'https://raketo.app/tournamentDetails?tournamentRef=o0mtSkzlRKoiiijwzRmo',
+            'prize_positions': ['M1 - 1, 2 место', 'M2 - 1, 2 место'],
+            'prize_amount': 200000,
+            'lottery_minimum_matches': 7,
+            'lottery_amount': 200000,
+            'lottery_count': 1,
+            'relegations': {'M1': ['понижение: bottom-4'], 'M2': ['повышение: top-3', 'понижение: bottom-2 ']},
+            'special_rules': ['Нет']
+        }
+    elif season_id == '3':
+        season_info = {
+            'registration_start': '2024-06-25',
+            'registration_end': '2024-07-01',
+            'cost': 100000,
+            'raketo_ref': 'https://raketo.app.link/oOKLWTaUuLb',
+            'prize_positions': ['M1 - 1, 2, 3 место', 'M2 - 1, 2, 3 место'],
+            'prize_amount': 200000,
+            'lottery_minimum_matches': 7,
+            'lottery_amount': 200000,
+            'lottery_count': 1,
+            'relegations': {'M1': ['понижение: bottom-5'], 'M2': ['повышение: top-3', 'понижение: bottom-2 ']},
+            'special_rules': ['Нет']
+        }
+    elif season_id == '4':
+        season_info = {
+            'registration_start': '2024-09-15',
+            'registration_end': '2024-09-23',
+            'cost': 100000,
+            'raketo_ref': 'https://raketo.app.link/6NgJijC05Mb',
+            'prize_positions': ['M1 - 1, 2 место', 'M2 - 1, 2 место', 'M3 - 1, 2 место'],
+            'prize_amount': 200000,
+            'lottery_minimum_matches': 7,
+            'lottery_amount': 200000,
+            'lottery_count': 2,
+            'relegations': {'M1': ['понижение: bottom-4'], 'M2': ['повышение: top-3', 'понижение: bottom-2'], 'M3': ['повышение: top-3']},
+            'special_rules': ['Нет']
+        }
+    elif season_id == '5':
+        season_info = {
+            'registration_start': '2025-02-15',
+            'registration_end': '2025-02-22',
+            'cost': 130000,
+            'raketo_ref': 'https://raketo.app.link/bDoqC0ZueSb',
+            'prize_positions': ['Masters - 1, 2, 3 место', 'Open - 1, 2, 3 место' ],
+            'prize_amount': 300000,
+            'lottery_minimum_matches': 7,
+            'lottery_amount': 300000,
+            'lottery_count': 2,
+            'relegations': {},
+            'special_rules': ['Одна общая группа для Masters и одна для Open', 'Результаты не влияют на рейтинг', 'Учитываются лучшие 7 игр']
+        }
+    elif season_id == '6':
+        season_info = {
+            'registration_start': '2025-04-01',
+            'registration_end': '2025-04-20',
+            'cost': 130000,
+            'raketo_ref': 'https://raketo.app.link/bDoqC0ZueSb',
+            'prize_positions': ['M1 - 1, 2 место', 'M2 - 1, 2 место', 'M3 - 1, 2 место', 'M4 - 1, 2 место'],
+            'prize_amount': 300000,
+            'lottery_minimum_matches': 7,
+            'lottery_amount': 200000,
+            'lottery_count': 6,
+            'relegations': {'M1': ['понижение: bottom-4'], 'M2': ['повышение: top-3', 'понижение: bottom-3'],
+                            'M3': ['повышение в M1: top-1', 'повышение в M2: 2, 3, 4 места', 'понижение: bottom-1'],
+                            'M4': ['повышение: top-3'],},
+            'special_rules': ['Объединенный дивизион M3: формирование M3-M4 по ходу сезона 27.04.2025',
+                              'Топ-5 из двух подгрупп объединяются в дивизион M3, остальные участники двух подгрупп объединяются в дивизион M4',
+                              'Игры с игроками, которые попали в ту же подгруппу, если они были сыграны до 27.04 переигрывать нельзя и не нужно - они учитываются как есть. Если такая игра не была сыграна до 27.04 - ее можно сыграть до 18.05',
+                              ],
+            'special_dates': {'2025-04-27': 'Перегруппировка дивизионов M3-M4'}
+        }
+    elif season_id == '7':
+        season_info = {
+            'registration_start': '2025-07-01',
+            'registration_end': '2025-07-27',
+            'cost': 130000,
+            'raketo_ref': 'https://raketo.app.link/FKrblQYlHUb',
+            'prize_positions': ['M1 - 1, 2, 3 место', 'M2 - 1, 2 место', 'M3 - 1, 2 место'],
+            'prize_amount': 300000,
+            'lottery_minimum_matches': 7,
+            'lottery_amount': 200000,
+            'lottery_count': 7,
+            'relegations': {'M1': ['понижение: bottom-4'], 'M2': ['повышение: top-3', 'понижение: bottom-3'],
+                            'M3': ['повышение: top-3', 'понижение: bottom-3'], 'M4': ['повышение: top-3', 'понижение: bottom-2'],
+                            'O1': ['повышение: top-3']},
+            'special_rules': ['Быстрый переход для лидеров групп 1.08.2025 по желанию',
+                              'При переходе в дивизион выше сгорают все набранные очки. Но матчи учитываются для определения приза за активность',
+                              'Третье место (непризовое) - может по своему желанию отказаться от перехода в дивизион выше'],
+            'special_dates': {'2025-08-01': 'Быстрый переход'}
+        }
+    elif season_id == '8':
+        season_info = {
+            'registration_start': '2025-09-08',
+            'registration_end': '2025-10-05',
+            'cost': 130000,
+            'raketo_ref': 'https://raketo.app.link/XdJwhhziuWb',
+            'prize_positions': ['* - уточняется по итоам регистрации'],
+            'prize_amount': 300000,
+            'lottery_minimum_matches': 7,
+            'lottery_amount': 200000,
+            'lottery_count': '*',
+            'relegations': {'* - уточняется по итоам регистрации': []},
+            'special_rules': ['Регламент будет уточнен по итогам регистрации в зависимости от заявки'],
+        }
+
+    current_date = datetime.now().date()
+    start = datetime.strptime(season_info['registration_start'], '%Y-%m-%d').date()
+    end = datetime.strptime(season_info['registration_end'], '%Y-%m-%d').date()
+
+    if start <= current_date <= end:
+        season_info['registration_status'] = 'open'
+    else:
+        season_info['registration_status'] = 'closed'
+
+    return render_template('season_rules.html', season=season, season_info=season_info)
 
 
 def get_current_ranking(player_id):
@@ -342,5 +506,7 @@ if __name__ == '__main__':
                 if s.name == 'Preseason':
                     pass
                 calculate_rankings(s.date_end)
+
+        add_season3()
 
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))

@@ -51,9 +51,11 @@ class Season(db.Model):
     name = db.Column(db.String(64), nullable=True)
     year = db.Column(db.Integer, nullable=True)
     is_ranked = db.Column(db.Boolean, default=True)
+    is_completed = db.Column(db.Boolean, default=True)
     date_start = db.Column(db.Date, nullable=True)
     date_end = db.Column(db.Date, nullable=True)
     league_id = db.Column(db.Integer, db.ForeignKey('League.id'), nullable=False)
+
 
     divisions = db.relationship('Division', backref='season_ref', lazy=True)
 
