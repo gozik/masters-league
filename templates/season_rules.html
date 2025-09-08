@@ -1,0 +1,343 @@
+{% extends "base.html" %}
+
+{% block title %}Правила сезона {{ season.year }}/{{ season.name }} - Tashkents Masters League{% endblock %}
+
+{% block head %}
+<style>
+    .season-header {
+        background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+        color: white;
+        padding: 60px 0;
+        margin-bottom: 40px;
+    }
+    
+    .rule-card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin-bottom: 25px;
+        overflow: hidden;
+    }
+    
+    .rule-header {
+        background: #f8f9fa;
+        padding: 20px;
+        border-bottom: 1px solid #e9ecef;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .rule-content {
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    
+    .rule-content.show {
+        padding: 20px;
+        max-height: 1000px;
+    }
+    
+    .rule-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+        color: #4ca1af;
+    }
+    
+    .date-badge {
+        background: #e3f2fd;
+        color: #1565c0;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-right: 10px;
+    }
+    
+    .cost-badge {
+        background: #e8f5e9;
+        color: #2e7d32;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+    
+    .prize-card {
+        border-left: 4px solid;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    
+    .prize-1 { border-color: #FFD700; background-color: #fff9e6; }
+    .prize-2 { border-color: #C0C0C0; background-color: #f8f8f8; }
+    .prize-3 { border-color: #CD7F32; background-color: #fef3e8; }
+    
+    .timeline {
+        position: relative;
+        padding-left: 30px;
+        margin: 20px 0;
+    }
+    
+    .timeline:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 3px;
+        background: #4ca1af;
+    }
+    
+    .timeline-item {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    
+    .timeline-item:before {
+        content: '';
+        position: absolute;
+        left: -33px;
+        top: 5px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #4ca1af;
+        border: 3px solid white;
+    }
+    
+    .important-note {
+        background: #fff3e0;
+        border-left: 4px solid #ff9800;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Season Header -->
+<section class="season-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-3">Cезон {{season.year}}/{{ season.name }}</h1>
+                <p class="lead mb-0">{{ season.date_start }} до {{ season.date_end }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            {% if season_info.registration_status == 'open' %}
+            <div class="alert alert-info">
+                <h4 class="alert-heading">
+                    <i class="bi bi-info-circle me-2"></i>Открыта регистрация
+                </h4>
+                <p class="mb-0">Открыта регистрация. Регламент сезона может быть уточнен в зависимости от количества заявившихся.</p>
+            </div>
+            {% endif %}
+
+            <!-- Quick Info Cards -->
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-calendar-event fs-1 text-primary mb-3"></i>
+                            <h5>Даты регистрации</h5>
+                            <p class="mb-0">{{ season_info.registration_start }} to {{ season_info.registration_end }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-cash-coin fs-1 text-success mb-3"></i>
+                            <h5>Стоимость участия</h5>
+                            <p class="mb-0">{{ season_info.cost }} сум</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-r-circle-fill fs-1 text-warning mb-3"></i>
+                            <h5>Турнир в Raketo</h5>
+                            <a href="{{ season_info.raketo_ref }}">
+                                <p class="mb-0">
+                                {% if season_info.registration_status == 'open' %}
+                                Ссылка на регистрацию
+                                {% else %}
+                                Ссылка на турнир
+                                {% endif %}
+                                </p>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dates & Schedule -->
+            <div class="rule-card">
+                <div class="rule-header" onclick="toggleRule(this)">
+                    <span><i class="bi bi-calendar-week rule-icon"></i>Расписание сезона и основные даты</span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="rule-content">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="date-badge">Регистрация</span>
+                            <strong>{{ season_info.registration_start }} - {{ season_info.registration_end }}</strong>
+                            <p>Регистрируйтесь в приложении Raketo.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="date-badge">Начало сезона</span>
+                            <strong>{{ season.date_start }}</strong>
+                            <p>Основной сезон - круговая система.</p>
+                        </div>
+                        {% for date in season_info.special_dates %}
+                        <div class="timeline-item">
+                            <span class="date-badge">{{ season_info.special_dates[date] }}</span>
+                            <strong>{{ date }}</strong>
+                        </div>
+                        {% endfor %}
+                        <div class="timeline-item">
+                            <span class="date-badge">Завершение сезона</span>
+                            <strong>{{ season.date_end }}</strong>
+                            <p>Окончание сезона и подсчет итоговых очков.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cost & Payment -->
+            <div class="rule-card">
+                <div class="rule-header" onclick="toggleRule(this)">
+                    <span><i class="bi bi-credit-card rule-icon"></i>Оплата</span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="rule-content">
+                    <p><span class="cost-badge">Организационный взнос: {{ season_info.cost }} сум</span></p>
+                    <p>Для пользователей Raketo с premium подпиской скидка 50%.</p>
+                    <p>Оплата должна быть произведена до окончания регистрации, чтобы забронировать свое место в дивизионе.</p>
+                    <p>Включено:</p>
+                    <ul>
+                        <li>Участие в матчах своего дивизиона</li>
+                        <li>Оплата взноса за использование приложения</li>
+                        <li>Призовой фонд</li>
+                    </ul>
+                    <p>Не включено (игроки оплачивают самостоятельно):</p>
+                    <ul>
+                        <li>Оплата кортов</li>
+                        <li>Оплата мячей</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Prizes & Awards -->
+            <div class="rule-card">
+                <div class="rule-header" onclick="toggleRule(this)">
+                    <span><i class="bi bi-trophy rule-icon"></i>Призы</span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="rule-content">
+                    <h5><i class="bi bi-award-fill text-warning"></i> Призовые места</h5>
+                    <ul>
+                    {% for rule in season_info.prize_positions %}
+                        <li>{{ rule }}</li>
+                    {% endfor %}
+                    </ul>
+                    <p>Сертификаты Amazing Store на сумму {{ season_info.prize_amount }} сум</p>
+
+                    <h5>Призы за участие</h5>
+                    <ul>
+                        <li>Розыгрыш между участниками, сыгравшими {{ season_info.lottery_minimum_matches }} или более матчей</li>
+                        <li>Сертификат Amazing Store на сумму {{ season_info.lottery_amount }} сум</li>
+                        <li>Количество сертификатов: {{ season_info.lottery_count }}</li>
+                    </ul>
+
+
+                </div>
+            </div>
+            
+            <!-- Promotion & Relegation -->
+            <div class="rule-card">
+                <div class="rule-header" onclick="toggleRule(this)">
+                    <span><i class="bi bi-bar-chart rule-icon"></i>Переходы</span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="rule-content">
+                    {% for division in season_info.relegations %}
+                        <h5>Дивизион {{ division }}</h5>
+                        <ul>
+                            {% for rule in season_info.relegations[division] %}
+                            <li>{{ rule }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Special Rules -->
+            <div class="rule-card">
+                <div class="rule-header" onclick="toggleRule(this)">
+                    <span><i class="bi bi-star rule-icon"></i>Особые правила</span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+                <div class="rule-content">
+                    <ul>
+                        {% for special_rule in season_info.special_rules %}
+                        <li>{{ special_rule }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-5">
+                {% if season_info.registration_status == 'open' %}
+                <a href="{{ season_info.raketo_ref }}" class="btn btn-primary btn-lg me-md-3">
+                    <i class="bi bi-pencil-square me-2"></i>Зарегистрироваться
+                </a>
+                {% endif %}
+                <a href="/regulations" class="btn btn-outline-secondary btn-lg">
+                    <i class="bi bi-journal-text me-2"></i>Регламент лиги
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function toggleRule(element) {
+    const content = element.nextElementSibling;
+    const icon = element.querySelector('.bi-chevron-down');
+    
+    content.classList.toggle('show');
+    icon.classList.toggle('bi-chevron-down');
+    icon.classList.toggle('bi-chevron-up');
+}
+
+// Open first rule by default
+document.addEventListener('DOMContentLoaded', function() {
+    const firstRule = document.querySelector('.rule-header');
+    if (firstRule) {
+        toggleRule(firstRule);
+    }
+});
+</script>
+{% endblock %}
