@@ -44,9 +44,9 @@
         <h5>Дивизионы</h5>
         <div class="btn-group" role="group">
             {% if selected_division_id %}
-                <a href="/results" id="sball" type="button" class="btn btn-outline-primary">Все</a>
+                <a href="/results?season_id={{selected_season_id}}" id="sball" type="button" class="btn btn-outline-primary">Все</a>
             {% else %}
-                <a href="/results"  id="sball" class="btn btn-outline-primary active" type="button">Все</a>
+                <a href="/results?season_id={{selected_season_id}}"  id="sball" class="btn btn-outline-primary active" type="button">Все</a>
             {% endif %}
             {% for division in divisions %}
                 {% if division.id == selected_division_id %}
