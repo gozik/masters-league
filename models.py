@@ -2,6 +2,19 @@ from datetime import datetime, timedelta
 from sqlalchemy import Enum, CheckConstraint
 from extensions import db
 
+def get_division_name(priority):
+    if priority <= 110:
+        return 'M1'
+    elif priority <= 120:
+        return 'M2'
+    elif priority <= 130:
+        return 'M3'
+    elif priority <= 140:
+        return 'M4'
+    elif priority <= 210:
+        return 'O1'
+    return 'O2'
+
 
 
 class Player(db.Model):
@@ -111,6 +124,24 @@ class Result(db.Model):
     def __repr__(self):
         return f'<Result Player {self.player_id} in Division {self.division_id}>'
 
+    def calc_new_priority(self):
+        relegation = self.relegation
+        prev_priority = self.division_ref.priority
+
+        if relegation == 'promoted' or relegation == 'fast promoted':
+            new_priority = prev_priority - 10
+        elif relegation == 'relegated':
+            new_priority = prev_priority + 10
+        elif relegation == 'double promoted':
+            new_priority = prev_priority - 20
+        else:
+            new_priority = prev_priority
+
+        return new_priority
+
+    def get_new_division(self):
+        return get_division_name(self.calc_new_priority())
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -144,17 +175,34 @@ class Ranking(db.Model):
         return f'<{self.position}: {self.player_ref}>'
 
     def to_dict(self):
+        relegation_arrow = ''
+        if self.last_result_ref.relegation == 'promoted':
+            relegation_arrow = '\u21e7' #arrow up
+        elif self.last_result_ref.relegation == 'relegated':
+            relegation_arrow = '\u21e9' #arrow down
+        elif self.last_result_ref.relegation == 'double promoted':
+            relegation_arrow = '\u21C8'  # double arrow up
+        else:
+            relegation_arrow = '\u21CF' #striped arrow
+
+
+
         return {
             'id': self.id,
             'first_name': self.player_ref.first_name,
             'last_name': self.player_ref.last_name,
             'position': self.position,
             'actual_date': self.actual_date,
+            'last_result_string': f'{self.last_result_ref.division_ref.name}: {self.last_result_ref.position} {relegation_arrow}',
+            'last_season_id': self.actual_season_id,
             'last_relegation': self.last_result_ref.relegation,
+            'last_relegation_arrow': relegation_arrow,
             'last_division': self.last_result_ref.division_ref.name,
             'last_position': self.last_result_ref.position,
             'last_result_date': self.last_result_ref.division_ref.season_ref.date_end,
             'player_id': self.player_id,
+            'new_priority': self.last_result_ref.calc_new_priority(),
+            'new_division': self.last_result_ref.get_new_division(),
         }
 
 

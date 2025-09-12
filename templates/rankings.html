@@ -80,9 +80,8 @@
             return {
                 position: `${ranking.position}`,
                 name: `${ranking.first_name} ${ranking.last_name}`,
-                'last_relegation': `${ranking.last_relegation}`,
-                'last_division': `${ranking.last_division}`,
-                'last_position': `${ranking.last_position}`,
+                'division': `${ranking.new_division}`,
+                'last_result': `${ranking.last_result_string}`,
                 'last_result_date': formattedDate,
             };
 
@@ -90,17 +89,16 @@
 
         new gridjs.Grid({
             columns: [
-                { id: 'position', name: 'Рейтинг', width: '80px' },
+                { id: 'position', name: 'Рейтинг', width: '90px' },
                 {
                     id: 'name',
                     name: 'Игрок',
                     formatter: (cell) => gridjs.html(`<a href="/player/${rankings.find(p => `${p.first_name} ${p.last_name}` === cell).player_id}">${cell}</a>`)
                 },
-                { id: 'last_result_date', name: 'Дата результата', width: '120px' },
-                { id: 'last_division', name: 'Дивизион', width: '90px' },
-                { id: 'last_relegation', name: 'Переход', width: '80px' },
-                { id: 'last_position', name: 'Место', width: '80px' },
 
+                { id: 'division', name: 'Дивизион', width: '140px' },
+                { id: 'last_result', name: 'Последний результат'},
+                { id: 'last_result_date', name: 'Дата результата'},
             ],
             data: formattedRankings,
             search: true,
