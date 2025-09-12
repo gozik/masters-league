@@ -203,7 +203,10 @@ def show_results():
 
 @app.route('/regulations')
 def show_regulations():
-    return render_template('regulations.html')
+    seasons = Season.query.filter(Season.is_completed == True).order_by(Season.id.desc()).all()
+    current_season = Season.query.order_by(Season.id.desc()).first()
+
+    return render_template('regulations.html', seasons=seasons, current_season=current_season)
 
 
 @app.template_filter('to_date')
@@ -459,6 +462,13 @@ def season_rules(season_id):
         season_info['registration_status'] = 'open'
     else:
         season_info['registration_status'] = 'closed'
+
+    if season.date_end < current_date:
+        season_info['status'] = 'completed'
+    elif season.date_start <= current_date <= season.date_end:
+        season_info['registration_status'] = 'current'
+    else:
+        season_info['registration_status'] = 'upcoming'
 
     return render_template('season_rules.html', season=season, season_info=season_info)
 
