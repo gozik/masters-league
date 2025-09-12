@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Заявка Season 3/2025 - Tashkent Masters League{% endblock %}
+
+{% block head %}
+<style>
+    .gridjs-container {
+        margin-bottom: 20px;
+    }
+    .gridjs-search {
+        float: right;
+    }
+    .flag-icon {
+        width: 20px;
+        margin-right: 5px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Заявка на сезон 3/2025. Игроков: {{ count }}</h1>
+
+<div id="players-table"></div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const players = {{ players|tojson|safe }};
+
+        const formattedRankings = players.map(player => {
+
+            return {
+                ranking: `${player.ranking}`,
+                player_name: `${player.player_name}`,
+                'status': `${player.status}`,
+                'division': `${player.division}`,
+                'raketo_rating': `${player.raketo_rating}`,
+            };
+
+        });
+
+        new gridjs.Grid({
+            columns: [
+                {
+                    id: 'player_name',
+                    name: 'Игрок',
+                },
+                { id: 'ranking', name: 'Рейтинг'},
+                { id: 'division', name: 'Дивизион'},
+                { id: 'status', name: 'Статус'},
+                { id: 'raketo_rating', name: 'Raketo'},
+
+            ],
+            data: players,
+            search: true,
+            pagination: {
+                limit: 100
+            },
+            style: {
+                table: {
+                    'white-space': 'nowrap'
+                }
+            }
+        }).render(document.getElementById('players-table'));
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    // Toggle FAQ answers
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const isActive = question.classList.contains('active');
+
+            // Close all answers
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                ans.classList.remove('show');
+            });
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.classList.remove('active');
+            });
+
+            // Open clicked answer if it wasn't already active
+            if (!isActive) {
+                answer.classList.add('show');
+                question.classList.add('active');
+            }
+        });
+    });
+
+    // FAQ search functionality
+    const searchInput = document.getElementById('faq-search');
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const faqCards = document.querySelectorAll('.faq-card');
+
+        faqCards.forEach(card => {
+            const question = card.querySelector('.faq-question').textContent.toLowerCase();
+            const answer = card.querySelector('.faq-answer').textContent.toLowerCase();
+
+            if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                card.style.display = 'block';
+                // Highlight matching text (you could implement this with a library like Mark.js)
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Show category titles only if they have visible questions
+        document.querySelectorAll('.category-title').forEach(title => {
+            const category = title.getAttribute('data-category');
+            const hasVisible = Array.from(faqCards).some(card => {
+                return card.style.display !== 'none' && card.getAttribute('data-category') === category;
+            });
+
+            title.style.display = hasVisible ? 'block' : 'none';
+        });
+    });
+
+    // Category filter
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+
+            // Update active button
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Show/hide questions based on category
+            const faqCards = document.querySelectorAll('.faq-card');
+            const categoryTitles = document.querySelectorAll('.category-title');
+
+            if (category === 'all') {
+                faqCards.forEach(card => card.style.display = 'block');
+                categoryTitles.forEach(title => title.style.display = 'block');
+            } else {
+                faqCards.forEach(card => {
+                    if (card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                categoryTitles.forEach(title => {
+                    title.style.display = title.getAttribute('data-category') === category ? 'block' : 'none';
+                });
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

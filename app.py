@@ -5,6 +5,7 @@ from extensions import db
 import json
 from datetime import datetime
 import os
+import csv
 
 
 app = create_app()
@@ -75,6 +76,7 @@ def input_data_from_json(file):
                                     )
                     db.session.add(result)
                     db.session.commit()
+
 
 def add_season3():
     league = League.query.first()
@@ -199,6 +201,42 @@ def show_results():
 
     return render_template('results.html', results=results_data, seasons=seasons, selected_season_id=season_id,
                            divisions=divisions, selected_division_id=division_id)
+
+
+@app.route('/application')
+def show_season_application():
+    """Display players in season application"""
+    with open('misc/application_list_season253.csv') as f:
+        csv_reader = csv.DictReader(f)
+
+        players = []
+
+        for row in csv_reader:
+            player_str = row['Player']
+            raketo_rating = row['Rating']
+
+            player_name = player_str.partition(' ')[2]
+            player_surname = player_str.partition(' ')[0]
+
+            player_dict = {'player_name': player_str, 'raketo_rating': raketo_rating}
+
+            player = Player.query.filter((Player.first_name==player_name)&(Player.last_name==player_surname)).first()
+            if player:
+                status = 'NOT_NEW'
+                ranking = Ranking.query.filter(Ranking.player_id == player.id).order_by(Ranking.actual_date.desc()).first()
+                if ranking:
+                    player_dict['ranking'] = ranking.to_dict()['position']
+                    player_dict['division'] = ranking.to_dict()['new_division']
+
+            else:
+                status = 'NEW'
+
+            player_dict['status'] = status
+
+            players.append(player_dict)
+
+    players = sorted(players, key=lambda player: player['ranking'] if 'ranking' in player else 100)
+    return render_template('application.html', players=players, count=len(players))
 
 
 @app.route('/regulations')
