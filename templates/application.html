@@ -18,7 +18,25 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Заявка на сезон 3/2025. Игроков: {{ count }}</h1>
+<h1 class="mb-4">Заявка на сезон 3/2025. Игроков: {% if division_name %} {{ selected_player_count }} из {% endif %} {{ count }}</h1>
+
+<div class="mb-4">
+    <div class="btn-group" role="group">
+        {% if division_name %}
+            <a href="/application" id="sball" type="button" class="btn btn-outline-primary">Все дивизионы</a>
+        {% else %}
+            <a href="/application"  id="sball" class="btn btn-outline-primary active" type="button">Все дивизионы</a>
+        {% endif %}
+        {% for division in divisions %}
+            {% if division == division_name %}
+                <a href="/application?division_name={{division}}" id="sb{{division}}" type="button" class="btn btn-outline-primary active">{{division}}</a>
+            {% else %}
+                <a href="/application?division_name={{division}}" type="button" class="btn btn-outline-primary">{{division}}</a>
+            {% endif %}
+
+        {% endfor %}
+    </div>
+</div>
 
 <div id="players-table"></div>
 
@@ -34,23 +52,32 @@
             return {
                 ranking: `${player.ranking}`,
                 player_name: `${player.player_name}`,
-                'status': `${player.status}`,
                 'division': `${player.division}`,
+                'qualification': `${player.qualification}`,
                 'raketo_rating': `${player.raketo_rating}`,
+                'wildcard': `${player.wildcard}`,
             };
 
         });
 
         new gridjs.Grid({
             columns: [
+                { id: 'division', name: 'Дивизион'},
                 {
                     id: 'player_name',
                     name: 'Игрок',
+                    formatter: (cell) => {
+                        const player = players.find(p => `${p.player_name}` === cell);
+                        return gridjs.html(player && player.player_id > 0
+                            ? `<a href="/player/${player.player_id}">${cell}</a>`
+                            : cell
+                        );
+                    }
                 },
                 { id: 'ranking', name: 'Рейтинг'},
-                { id: 'division', name: 'Дивизион'},
-                { id: 'status', name: 'Статус'},
+                { id: 'qualification', name: 'Квалификация'},
                 { id: 'raketo_rating', name: 'Raketo'},
+                { id: 'wildcard', name: 'Wildcard'},
 
             ],
             data: players,

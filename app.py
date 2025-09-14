@@ -199,6 +199,8 @@ def show_results():
 @app.route('/application')
 def show_season_application():
     """Display players in season application"""
+    division_name = request.args.get('division_name', type=str)
+
     with open('misc/application_list_season253.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -207,29 +209,53 @@ def show_season_application():
         for row in csv_reader:
             player_str = row['Player']
             raketo_rating = row['Rating']
+            wildcard = row['Wildcard']
 
             player_name = player_str.partition(' ')[2]
             player_surname = player_str.partition(' ')[0]
 
-            player_dict = {'player_name': player_str, 'raketo_rating': raketo_rating}
+            player_dict = {'player_name': player_str, 'raketo_rating': raketo_rating, 'wildcard': wildcard}
+            player_dict['player_id'] = 0
 
             player = Player.query.filter((Player.first_name==player_name)&(Player.last_name==player_surname)).first()
             if player:
-                status = 'NOT_NEW'
                 ranking = Ranking.query.filter(Ranking.player_id == player.id).order_by(Ranking.actual_date.desc()).first()
+                player_dict['player_id'] = player.id
                 if ranking:
                     player_dict['ranking'] = ranking.to_dict()['position']
-                    player_dict['division'] = ranking.to_dict()['new_division']
+                    player_dict['qualification'] = ranking.to_dict()['new_division']
 
             else:
-                status = 'NEW'
+                player_dict['qualification'] = 'NEW'
 
-            player_dict['status'] = status
+
+            # calculate division
+            player_dict['division'] = player_dict['qualification']
+
+            if player_dict['division'] == 'NEW':
+                if player_dict['raketo_rating'] > '3.1':
+                    player_dict['division'] = 'M4'
+                else:
+                    player_dict['division'] = 'O1'
+
+            if player_dict['wildcard'] != '':
+                player_dict['division'] = player_dict['wildcard']
 
             players.append(player_dict)
 
-    players = sorted(players, key=lambda player: player['ranking'] if 'ranking' in player else (1000 - float(player['raketo_rating'])))
-    return render_template('application.html', players=players, count=len(players))
+    players_count = len(players)
+
+    if division_name:
+        players = [player for player in players if player['division'] == division_name]
+
+    players = sorted(players, key=lambda player: (player['division'], player['ranking'] if 'ranking' in player else (1000 - float(player['raketo_rating']))))
+
+    selected_player_count = len(players)
+
+    divisions = ['M1', 'M2', 'M3', 'M4', 'O1']
+
+    return render_template('application.html', players=players, count=players_count, division_name=division_name,
+                           divisions=divisions, selected_player_count=selected_player_count)
 
 
 @app.route('/regulations')
