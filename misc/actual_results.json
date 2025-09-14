@@ -1231,7 +1231,7 @@
               "set_diff": -4,
               "game_diff": -20,
               "division_id": 10,
-              "relegation": "unchanged",
+              "relegation": "relegated",
               "first_name": "Bahtiyor",
               "last_name": "Matkurbanov",
               "gender": "male"
@@ -1244,7 +1244,7 @@
               "set_diff": -4,
               "game_diff": -13,
               "division_id": 10,
-              "relegation": "unchanged",
+              "relegation": "relegated",
               "first_name": "Muhtor",
               "last_name": "Muhammadaliyev",
               "gender": "male"
@@ -1257,7 +1257,7 @@
               "set_diff": -4,
               "game_diff": -9,
               "division_id": 10,
-              "relegation": "unchanged",
+              "relegation": "relegated",
               "first_name": "Sergei",
               "last_name": "Levtsov",
               "gender": "male"

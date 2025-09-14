@@ -103,14 +103,7 @@ def calculate_rankings(date):
             position = last_result.position
             result_date = last_result.division_ref.season_ref.date_end
 
-            if relegation == 'promoted' or relegation == 'fast promoted':
-                new_priority = prev_priority - 10
-            elif relegation ==  'relegated':
-                new_priority = prev_priority + 10
-            elif relegation == 'double promoted':
-                new_priority = prev_priority - 20
-            else:
-                new_priority = prev_priority
+            new_priority = last_result.calc_new_priority()
 
             results.append({'last_result': last_result,
                             'new_priority': new_priority,
@@ -235,7 +228,7 @@ def show_season_application():
 
             players.append(player_dict)
 
-    players = sorted(players, key=lambda player: player['ranking'] if 'ranking' in player else 100)
+    players = sorted(players, key=lambda player: player['ranking'] if 'ranking' in player else (1000 - float(player['raketo_rating'])))
     return render_template('application.html', players=players, count=len(players))
 
 

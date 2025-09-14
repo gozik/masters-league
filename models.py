@@ -130,6 +130,8 @@ class Result(db.Model):
 
         if relegation == 'promoted' or relegation == 'fast promoted':
             new_priority = prev_priority - 10
+            if new_priority == 200:
+                new_priority = 140
         elif relegation == 'relegated':
             new_priority = prev_priority + 10
         elif relegation == 'double promoted':
