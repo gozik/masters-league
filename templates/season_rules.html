@@ -305,11 +305,18 @@
                 </div>
             </div>
 
+
+
             <!-- Action Buttons -->
             <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-5">
+
                 {% if season_info.registration_status == 'open' %}
                 <a href="{{ season_info.raketo_ref }}" class="btn btn-primary btn-lg me-md-3">
                     <i class="bi bi-pencil-square me-2"></i>Зарегистрироваться
+                </a>
+
+                <a href="/application" class="btn btn-outline-primary btn-lg me-md-3">
+                    <i class="bi bi-pencil-square me-2"></i>Лист регистрации
                 </a>
                 {% endif %}
                 {% if season_info.status == 'completed' %}

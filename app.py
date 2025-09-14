@@ -523,9 +523,9 @@ def season_rules(season_id):
     if season.date_end < current_date:
         season_info['status'] = 'completed'
     elif season.date_start <= current_date <= season.date_end:
-        season_info['registration_status'] = 'current'
+        season_info['status'] = 'current'
     else:
-        season_info['registration_status'] = 'upcoming'
+        season_info['status'] = 'upcoming'
 
     return render_template('season_rules.html', season=season, season_info=season_info)
 
