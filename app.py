@@ -246,7 +246,7 @@ def show_season_application():
     players_count = len(players)
 
     if division_name:
-        players = [player for player in players if player['division'] == division_name]
+        players = [player for player in players if player['division'].startswith(division_name)]
 
     players = sorted(players, key=lambda player: (player['division'], player['ranking'] if 'ranking' in player else (1000 - float(player['raketo_rating']))))
 
