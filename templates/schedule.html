@@ -190,9 +190,9 @@
 
                     {% if season.status == 'current' %}
                     <div class="progress-bar mb-3">
-                        <div class="progress-fill" style="width: 50%;"></div>
+                        <div class="progress-fill" style="width: {{ season['completion_rate'] }};"></div>
                     </div>
-                    <small class="text-muted">Season progress: 50% complete</small>
+                    <small class="text-muted">Прогресс: {{ season['completion_rate']*100|round }}% </small>
                     {% endif %}
 
                     <div class="season-duration mt-3">

@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, request
+from flask import render_template, request
 from init import create_app
 from models import Player, League, Season, Division, Result, Ranking, get_last_result_before_date
 from extensions import db
@@ -355,6 +355,8 @@ def show_schedule():
             season['status'] = 'registration'
         elif current_date < start:
             season['status'] = 'upcoming'
+
+        season['completion_rate'] = max(0., min(1., (current_date - start).days / (end - start).days ))
 
     return render_template('schedule.html', seasons=seasons, current_year=2025)
 
