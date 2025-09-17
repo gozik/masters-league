@@ -154,7 +154,7 @@ def show_rankings():
     # Get filters from request
     season_id = request.args.get('season_id', type=int)
     if season_id:
-        season = Season.query.get(season_id)
+        season = db.session.get(Season, season_id)
         if season:
             actual_date = season.date_end
 
@@ -182,7 +182,7 @@ def show_results():
     divisions = []
     if season_id:
         results = Result.query.join(Result.division_ref).filter(Division.season_id == season_id).all()
-        divisions = Season.query.get(season_id).divisions
+        divisions = db.session.get(Season, season_id).divisions
         if division_id:
             results = Result.query.filter_by(division_id=division_id).all()
     else:
@@ -364,7 +364,7 @@ def show_schedule():
 @app.route('/player/<int:player_id>')
 def player_profile(player_id):
     """Display player profile with statistics and history"""
-    player = Player.query.get_or_404(player_id)
+    player = db.get_or_404(Player, player_id)
 
     # Get current ranking
     current_ranking = get_current_ranking(player_id)
@@ -385,7 +385,7 @@ def player_profile(player_id):
 
 @app.route('/season/<season_id>/rules')
 def season_rules(season_id):
-    season = Season.query.get_or_404(season_id)
+    season = db.get_or_404(Season, season_id)
 
     season_info = {}
 
@@ -517,7 +517,7 @@ def season_rules(season_id):
                             'O1': ['повышение: top-3']},
             'special_rules': ['Действует правило быстрого перехода (дата - 5.10.2025)',
                 "По итогам сезона формируется +1 дивизион в соостветствии с рейтингом",
-                'Регламент может быть по итогам регистрации в зависимости от количества заявившихся'],
+                'Регламент будет уточнен по итогам регистрации в зависимости от заявки'],
         }
 
     current_date = datetime.now().date()
