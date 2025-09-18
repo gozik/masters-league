@@ -188,17 +188,20 @@
 
                     <p class="card-text">{{ season.description }}</p>
 
-                    {% if season.status == 'current' %}
-                    <div class="progress-bar mb-3">
-                        <div class="progress-fill" style="width: {{ (season['completion_rate']*100)|round(0) }}%;"></div>
-                    </div>
-                    <small class="text-muted">Прогресс: {{ (season['completion_rate']*100)|round(0) }}% </small>
-                    {% endif %}
-
                     <div class="season-duration mt-3">
                         <i class="bi bi-clock"></i>
                         Продолжительность: {{ ((season.end_date|string|to_date - season.start_date|string|to_date).days + 1) }} дней
                     </div>
+
+                    {% if season.status == 'current' %}
+
+                    <div class="mt-3">
+                        <small class="text-muted">Прогресс: {{ (season['completion_rate']*100)|round|int  }}% </small>
+                        <div class="progress-bar mb-3">
+                            <div class="progress-fill" style="width: {{ season['completion_rate']*100  }}%;"></div>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
 
                 <div class="card-footer bg-transparent">
