@@ -140,6 +140,22 @@ def calculate_rankings(date):
     return rankings
 
 
+def reset_content():
+    # must be invoked inside app context
+    delete_all()
+
+    with open('misc/actual_results.json') as f:
+        input_data_from_json(f)
+
+    seasons = Season.query.order_by('date_end').all()
+    for s in seasons:
+        if s.name == 'Preseason':
+            pass
+        calculate_rankings(s.date_end)
+
+    add_season3()
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -570,19 +586,6 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
 
-        delete_all()
-
-        if Player.query.count() == 0:
-            with open('misc/actual_results.json') as f:
-                input_data_from_json(f)
-
-        if Ranking.query.count() == 0:
-            seasons = Season.query.order_by('date_end').all()
-            for s in seasons:
-                if s.name == 'Preseason':
-                    pass
-                calculate_rankings(s.date_end)
-
-        add_season3()
+        reset_content()
 
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))

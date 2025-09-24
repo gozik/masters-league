@@ -5,8 +5,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import json
 from io import StringIO
-from app import input_data_from_json, delete_all
+from app import input_data_from_json, delete_all, reset_content
 from extensions import db
+from models import League, Season, Division, Player, Result, Ranking
 
 
 def test_input_data_from_json(app):
@@ -54,8 +55,6 @@ def test_input_data_from_json(app):
         # Load the data
         input_data_from_json(json_file)
 
-        # Verify the data was loaded correctly
-        from models import League, Season, Division, Player, Result
         assert League.query.count() == 1
         assert Season.query.count() == 1
         assert Division.query.count() == 1
@@ -73,8 +72,6 @@ def test_input_data_from_json(app):
 def test_delete_all(app):
     """Test delete_all function."""
     with app.app_context():
-        # Add some test data
-        from models import Player
 
         player = Player(first_name='Test', last_name='Delete')
         db.session.add(player)
@@ -93,3 +90,15 @@ def test_delete_all(app):
         db.session.commit()
 
         assert Player.query.count() == 1
+
+
+def test_content_reset(app):
+    with app.app_context():
+        reset_content()
+
+        assert League.query.count() == 1
+        assert Season.query.count() == 8
+        assert Division.query.count() == 24
+        assert Player.query.count() == 95
+        assert Result.query.count() == 230
+        assert Ranking.query.count() == 349
