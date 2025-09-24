@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 from sqlalchemy import Enum, CheckConstraint
 from extensions import db
 
+
 def get_division_name(priority):
     if priority <= 110:
         return 'M1'
@@ -14,7 +15,6 @@ def get_division_name(priority):
     elif priority <= 210:
         return 'O1'
     return 'O2'
-
 
 
 class Player(db.Model):
@@ -42,7 +42,6 @@ class Player(db.Model):
         return f'<{self.first_name} {self.last_name}>'
 
 
-
 class League(db.Model):
     """Represents a tennis league"""
     __tablename__ = 'League'
@@ -63,12 +62,28 @@ class Season(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(64), nullable=True)
     year = db.Column(db.Integer, nullable=True)
-    is_ranked = db.Column(db.Boolean, default=True)
     is_completed = db.Column(db.Boolean, default=True)
+    is_ranked = db.Column(db.Boolean, default=True)
     date_start = db.Column(db.Date, nullable=True)
     date_end = db.Column(db.Date, nullable=True)
     league_id = db.Column(db.Integer, db.ForeignKey('League.id'), nullable=False)
 
+    registration_start = db.Column(db.Date, nullable=True)
+    registration_end = db.Column(db.Date, nullable=True)
+    cost = db.Column(db.Integer, default=0)  # Стоимость в сумах
+    raketo_ref = db.Column(db.String(500), nullable=True)
+    prize_amount = db.Column(db.Integer, default=0)
+    lottery_minimum_matches = db.Column(db.Integer, default=7)
+    lottery_amount = db.Column(db.Integer, default=0)
+    lottery_count = db.Column(db.Integer, default=0)
+
+    description = db.Column(db.String(500), nullable=True)
+
+    # JSON поля для сложных структур
+    prize_positions = db.Column(db.JSON, default=list)  # Список призовых мест
+    relegations = db.Column(db.JSON, default=dict)  # Правила переходов
+    special_rules = db.Column(db.JSON, default=list)  # Особые правила
+    special_dates = db.Column(db.JSON, default=dict)  # Особые даты
 
     divisions = db.relationship('Division', backref='season_ref', lazy=True)
 
@@ -82,10 +97,99 @@ class Season(db.Model):
             'year': self.year,
             'date_start': self.date_start,
             'date_end': self.date_end,
+            'registration_start': self.registration_start,
+            'registration_end': self.registration_end,
+            'cost': self.cost,
+            'raketo_ref': self.raketo_ref,
+            'prize_amount': self.prize_amount,
+            'prize_positions': self.prize_positions or [],
+            'lottery_minimum_matches': self.lottery_minimum_matches,
+            'lottery_amount': self.lottery_amount,
+            'lottery_count': self.lottery_count,
+            'relegations': self.relegations or {},
+            'special_rules': self.special_rules or [],
+            'special_dates': self.special_dates or {},
+            'is_ranked': self.is_ranked,
+            'is_completed': self.is_completed,
+            'description': self.description,
+            'status': self.status,
+            'registration_status': self.registration_status,
+            'completion_rate': self.completion_rate
         }
 
     def get_title(self):
         return f'{self.year}/{self.name}'
+
+    @property
+    def status(self):
+        return self.get_status()
+
+    @property
+    def registration_status(self):
+        return self.get_registration_status()
+
+    @property
+    def completion_rate(self):
+        return self.get_completion_rate()
+
+
+
+    def get_status(self):
+        if not self.date_end or not self.date_start:
+            return 'undefined'
+
+        current_date = datetime.now().date()
+
+        if self.date_end < current_date:
+            return 'completed'
+        elif self.date_start <= current_date <= self.date_end:
+            return 'current'
+        else:
+            return 'upcoming'
+
+
+    def get_registration_status(self):
+        if not self.registration_start or not self.registration_end:
+            return 'closed'
+
+        current_date = datetime.now().date()
+        if self.registration_start <= current_date <= self.registration_end:
+            return 'open'
+        else:
+            return 'closed'
+
+
+    def get_completion_rate(self):
+        if not self.date_end or not self.date_start:
+            return 0
+
+        current_date = datetime.now().date()
+        return max(0., min(1., (current_date - self.date_start).days / (self.date_end - self.date_start).days))
+
+
+    def update_from_info(self, season_info):
+        """Обновить сезон из season_info"""
+        simple_fields = [
+            'name', 'year',
+            'registration_start', 'registration_end', 'cost', 'raketo_ref',
+            'prize_amount', 'lottery_minimum_matches', 'lottery_amount', 'lottery_count',
+            'description',  'is_ranked', 'is_completed'
+        ]
+        for field in simple_fields:
+            if field in season_info:
+                setattr(self, field, season_info[field])
+
+        date_fields = ['registration_start', 'registration_end', 'date_start', 'date_end']
+        for field in date_fields:
+            if field in season_info:
+                setattr(self, field, datetime.strptime(season_info[field], '%Y-%m-%d').date())
+
+
+        # JSON fields
+        json_fields = ['prize_positions', 'relegations', 'special_rules', 'special_dates']
+        for field in json_fields:
+            if field in season_info:
+                setattr(self, field, season_info[field])
 
 
 class Division(db.Model):
@@ -179,15 +283,13 @@ class Ranking(db.Model):
     def to_dict(self):
         relegation_arrow = ''
         if self.last_result_ref.relegation == 'promoted':
-            relegation_arrow = '\u21e7' #arrow up
+            relegation_arrow = '\u21e7'  # arrow up
         elif self.last_result_ref.relegation == 'relegated':
-            relegation_arrow = '\u21e9' #arrow down
+            relegation_arrow = '\u21e9'  # arrow down
         elif self.last_result_ref.relegation == 'double promoted':
             relegation_arrow = '\u21C8'  # double arrow up
         else:
-            relegation_arrow = '\u21CF' #striped arrow
-
-
+            relegation_arrow = '\u21CF'  # striped arrow
 
         return {
             'id': self.id,
@@ -206,9 +308,6 @@ class Ranking(db.Model):
             'new_priority': self.last_result_ref.calc_new_priority(),
             'new_division': self.last_result_ref.get_new_division(),
         }
-
-
-
 
 
 class Match(db.Model):
@@ -294,12 +393,12 @@ class Match(db.Model):
 
 def get_last_result_before_date(player_id, target_date, filter_seasons, expire_days):
     """Get the latest result for a player before a specific date using season dates"""
-    r = Result.query\
-        .join(Division, Result.division_id == Division.id)\
-        .join(Season, Division.season_id == Season.id)\
+    r = Result.query \
+        .join(Division, Result.division_id == Division.id) \
+        .join(Season, Division.season_id == Season.id) \
         .filter(
-            Result.player_id == player_id,
-            Season.date_end <= target_date)  # Season ends before target date
+        Result.player_id == player_id,
+        Season.date_end <= target_date)  # Season ends before target date
 
     if filter_seasons == 'ranked':
         r = r.filter(Season.is_ranked == True)

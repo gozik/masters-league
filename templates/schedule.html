@@ -124,12 +124,12 @@
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <h4 class="alert-heading">
-                            <i class="bi bi-star-fill me-2"></i>Текущий сезон: {{ current_season.name }}
+                            <i class="bi bi-star-fill me-2"></i>Текущий сезон: {{ current_season.get_title() }}
                         </h4>
                         <p class="mb-0">{{ current_season.description }}</p>
                     </div>
                     <div class="col-md-4 text-md-end">
-                        <strong>{{ current_season.start_date }} - {{ current_season.end_date }}</strong>
+                        <strong>{{ current_season.date_start }} - {{ current_season.date_end }}</strong>
                     </div>
                 </div>
             </div>
@@ -143,7 +143,7 @@
                         <p class="mb-0">{{ reg_season.description }}</p>
                     </div>
                     <div class="col-md-4 text-md-end">
-                        <strong>{{ reg_season.start_date }} - {{ reg_season.end_date }}</strong>
+                        <strong>{{ reg_season.date_start }} - {{ reg_season.date_end }}</strong>
                     </div>
                 </div>
             </div>
@@ -169,7 +169,7 @@
                     {% elif season.status == 'completed' %}bg-info
                     {% else %}bg-secondary{% endif %}">
 
-                    <h5 class="card-title mb-0">{{ season.name }}</h5>
+                    <h5 class="card-title mb-0">{{ season.get_title() }}</h5>
 
                     <span class="season-status
                         {% if season.status == 'current' %}status-current
@@ -183,20 +183,20 @@
                 <div class="card-body">
                     <div class="season-dates mb-3">
                         <i class="bi bi-calendar-event calendar-icon"></i>
-                        {{ season.start_date }} - {{ season.end_date }}
+                        {{ season.date_start }} - {{ season.date_end }}
                     </div>
 
                     <p class="card-text">{{ season.description }}</p>
 
                     <div class="season-duration mt-3">
                         <i class="bi bi-clock"></i>
-                        Продолжительность: {{ ((season.end_date|string|to_date - season.start_date|string|to_date).days + 1) }} дней
+                        Продолжительность: {{ ((season.date_end - season.date_start).days + 1) }} дней
                     </div>
 
                     {% if season.status == 'current' %}
 
                     <div class="mt-3">
-                        <small class="text-muted">Прогресс: {{ (season['completion_rate']*100)|round|int  }}% </small>
+                        <small class="text-muted">Прогресс: {{ (season.completion_rate*100)|round|int  }}% </small>
                         <div class="progress-bar mb-3">
                             <div class="progress-fill" style="width: {{ season['completion_rate']*100  }}%;"></div>
                         </div>
@@ -207,7 +207,9 @@
                 <div class="card-footer bg-transparent">
                     <div class="d-flex justify-content-between">
                         <span class="badge bg-light text-dark">
-                            <i class="bi {% if season.rating|string == 'Рейтинговый' %} bi-trophy {% endif %}"></i> {{season.rating|string}}
+                            {% if season.is_ranked %}<i class="bi bi-trophy"></i> Рейтинговый
+                            {% else %}<i class="bi bi-heart"></i> Вне зачета
+                            {% endif %}
                         </span>
                         <span class="badge bg-light text-dark">
                             <i class="bi bi-people"></i> Все дивизионы

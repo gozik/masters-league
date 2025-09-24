@@ -140,7 +140,7 @@
 
     <div class="row">
         <div class="col-lg-8 mx-auto">
-            {% if season_info.registration_status == 'open' %}
+            {% if season.registration_status == 'open' %}
             <div class="alert alert-info">
                 <h4 class="alert-heading">
                     <i class="bi bi-info-circle me-2"></i>Открыта регистрация
@@ -156,7 +156,7 @@
                         <div class="card-body text-center">
                             <i class="bi bi-calendar-event fs-1 text-primary mb-3"></i>
                             <h5>Даты регистрации</h5>
-                            <p class="mb-0">{{ season_info.registration_start }} to {{ season_info.registration_end }}</p>
+                            <p class="mb-0">{{ season.registration_start }} - {{ season.registration_end }}</p>
                         </div>
                     </div>
                 </div>
@@ -165,7 +165,7 @@
                         <div class="card-body text-center">
                             <i class="bi bi-cash-coin fs-1 text-success mb-3"></i>
                             <h5>Стоимость участия</h5>
-                            <p class="mb-0">{{ season_info.cost }} сум</p>
+                            <p class="mb-0">{{ season.cost }} сум</p>
                         </div>
                     </div>
                 </div>
@@ -176,7 +176,7 @@
                             <h5>Турнир в Raketo</h5>
                             <a href="{{ season_info.raketo_ref }}">
                                 <p class="mb-0">
-                                {% if season_info.registration_status == 'open' %}
+                                {% if season.registration_status == 'open' %}
                                 Ссылка на регистрацию
                                 {% else %}
                                 Ссылка на турнир
@@ -199,7 +199,7 @@
                     <div class="timeline">
                         <div class="timeline-item">
                             <span class="date-badge">Регистрация</span>
-                            <strong>{{ season_info.registration_start }} - {{ season_info.registration_end }}</strong>
+                            <strong>{{ season.registration_start }} - {{ season.registration_end }}</strong>
                             <p>Регистрируйтесь в приложении Raketo.</p>
                         </div>
                         <div class="timeline-item">
@@ -207,9 +207,9 @@
                             <strong>{{ season.date_start }}</strong>
                             <p>Основной сезон - круговая система.</p>
                         </div>
-                        {% for date in season_info.special_dates %}
+                        {% for date in season.special_dates %}
                         <div class="timeline-item">
-                            <span class="date-badge">{{ season_info.special_dates[date] }}</span>
+                            <span class="date-badge">{{ season.special_dates[date] }}</span>
                             <strong>{{ date }}</strong>
                         </div>
                         {% endfor %}
@@ -229,7 +229,7 @@
                     <i class="bi bi-chevron-down"></i>
                 </div>
                 <div class="rule-content">
-                    <p><span class="cost-badge">Организационный взнос: {{ season_info.cost }} сум</span></p>
+                    <p><span class="cost-badge">Организационный взнос: {{ season.cost }} сум</span></p>
                     <p>Для пользователей Raketo с premium подпиской скидка 50%.</p>
                     <p>Оплата должна быть произведена до окончания регистрации, чтобы забронировать свое место в дивизионе.</p>
                     <p>Включено:</p>
@@ -259,13 +259,13 @@
                         <li>{{ rule }}</li>
                     {% endfor %}
                     </ul>
-                    <p>Сертификаты Amazing Store на сумму {{ season_info.prize_amount }} сум</p>
+                    <p>Сертификаты Amazing Store на сумму {{ season.prize_amount }} сум</p>
 
                     <h5>Призы за участие</h5>
                     <ul>
-                        <li>Розыгрыш между участниками, сыгравшими {{ season_info.lottery_minimum_matches }} или более матчей</li>
-                        <li>Сертификат Amazing Store на сумму {{ season_info.lottery_amount }} сум</li>
-                        <li>Количество сертификатов: {{ season_info.lottery_count }}</li>
+                        <li>Розыгрыш между участниками, сыгравшими {{ season.lottery_minimum_matches }} или более матчей</li>
+                        <li>Сертификат Amazing Store на сумму {{ season.lottery_amount }} сум</li>
+                        <li>Количество сертификатов: {{ season.lottery_count }}</li>
                     </ul>
 
 
@@ -279,10 +279,10 @@
                     <i class="bi bi-chevron-down"></i>
                 </div>
                 <div class="rule-content">
-                    {% for division in season_info.relegations %}
+                    {% for division in season.relegations %}
                         <h5>Дивизион {{ division }}</h5>
                         <ul>
-                            {% for rule in season_info.relegations[division] %}
+                            {% for rule in season.relegations[division] %}
                             <li>{{ rule }}</li>
                             {% endfor %}
                         </ul>
@@ -298,7 +298,7 @@
                 </div>
                 <div class="rule-content">
                     <ul>
-                        {% for special_rule in season_info.special_rules %}
+                        {% for special_rule in season.special_rules %}
                         <li>{{ special_rule }}</li>
                         {% endfor %}
                     </ul>
@@ -310,8 +310,8 @@
             <!-- Action Buttons -->
             <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-5">
 
-                {% if season_info.registration_status == 'open' %}
-                <a href="{{ season_info.raketo_ref }}" class="btn btn-primary btn-lg me-md-3">
+                {% if season.registration_status == 'open' %}
+                <a href="{{ season.raketo_ref }}" class="btn btn-primary btn-lg me-md-3">
                     <i class="bi bi-pencil-square me-2"></i>Зарегистрироваться
                 </a>
 
@@ -319,7 +319,7 @@
                     <i class="bi bi-pencil-square me-2"></i>Лист регистрации
                 </a>
                 {% endif %}
-                {% if season_info.status == 'completed' %}
+                {% if season.status == 'completed' %}
                 <a href="/results?season_id={{season.id}}" class="btn btn-primary btn-lg me-md-3">
                     <i class="bi bi-pencil-square me-2"></i>Результаты сезона
                 </a>
