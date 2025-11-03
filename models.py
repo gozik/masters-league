@@ -12,6 +12,8 @@ def get_division_name(priority):
         return 'M3'
     elif priority <= 140:
         return 'M4'
+    elif priority <= 150:
+        return 'M5'
     elif priority <= 210:
         return 'O1'
     return 'O2'
@@ -235,7 +237,7 @@ class Result(db.Model):
         if relegation == 'promoted' or relegation == 'fast promoted':
             new_priority = prev_priority - 10
             if new_priority == 200:
-                new_priority = 140
+                new_priority = 150
         elif relegation == 'relegated':
             new_priority = prev_priority + 10
         elif relegation == 'double promoted':
