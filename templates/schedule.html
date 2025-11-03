@@ -118,7 +118,7 @@
     <div class="row mb-5">
         <div class="col-12">
             {% set current_season = seasons|selectattr('status', 'equalto', 'current')|first %}
-            {% set reg_season = seasons|selectattr('status', 'equalto', 'registration')|first %}
+            {% set reg_season = seasons|selectattr('registration_status', 'equalto', 'open')|first %}
             {% if current_season %}
             <div class="alert alert-success">
                 <div class="row align-items-center">
@@ -165,17 +165,21 @@
             <div class="card season-card h-100">
                 {% if season.id %}<a href="/season/{{ season.id }}/rules">{% endif %}
                 <div class="season-header
-                    {% if season.status == 'current' or season.status == 'registration' %}bg-success
+                    {% if season.status == 'current' or season.registration_status == 'open' %}bg-success
                     {% elif season.status == 'completed' %}bg-info
                     {% else %}bg-secondary{% endif %}">
 
                     <h5 class="card-title mb-0">{{ season.get_title() }}</h5>
 
                     <span class="season-status
-                        {% if season.status == 'current' %}status-current
+                        {% if season.status == 'current' or season.registration_status == 'open' %}status-current
                         {% elif season.status == 'completed' %}status-completed
                         {% else %}status-upcoming{% endif %}">
+                        {% if season.registration_status == 'open' %}
+                        REGISTRATION
+                        {% else %}
                         {{ season.status|upper }}
+                        {% endif %}
                     </span>
                 </div>
                 {% if season.id %}</a>{% endif %}
