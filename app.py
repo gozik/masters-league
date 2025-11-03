@@ -269,7 +269,7 @@ def show_regulations():
     seasons = Season.query.filter(Season.is_completed == True).order_by(Season.id.desc()).all()
 
     # to change
-    current_season = Season.query.filter_by(year=2025, name='3').order_by(Season.id.desc()).first()
+    current_season = Season.query.filter_by(year=2025, name='4').order_by(Season.id.desc()).first()
 
     return render_template('regulations.html', seasons=seasons, current_season=current_season)
 
