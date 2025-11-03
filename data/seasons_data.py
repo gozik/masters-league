@@ -135,14 +135,14 @@ SEASONS_INFO = {
                           "По итогам сезона формируется +1 дивизион в соостветствии с рейтингом",
                           'Регламент будет уточнен по итогам регистрации в зависимости от заявки'],
         'description': 'Осенний сезон',
-        'is_completed': False
+        'is_completed': True
     },
     9: {
             'year': 2025,
             'name': '4',
             'date_start': '2025-11-08',
             'date_end': '2025-12-14',
-            'registration_start': '2025-11-03',
+            'registration_start': '2025-11-01',
             'registration_end': '2025-11-09',
             'cost': 130000,
             'raketo_ref': '',

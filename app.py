@@ -79,16 +79,6 @@ def input_data_from_json(file):
                     db.session.commit()
 
 
-def add_season3():
-    league = League.query.first()
-    season3 = Season(name='3', year=2025, is_ranked=True, league_id=league.id,
-        date_start=datetime.strptime('2025-09-15', "%Y-%m-%d"),
-        date_end=datetime.strptime('2025-11-02', "%Y-%m-%d"),
-    )
-    db.session.add(season3)
-    db.session.commit()
-
-
 def calculate_rankings(date):
     """
     Calculate rankings for given date
@@ -153,7 +143,6 @@ def reset_content():
             pass
         calculate_rankings(s.date_end)
 
-    #add_season3()
     init_seasons_data()
 
 

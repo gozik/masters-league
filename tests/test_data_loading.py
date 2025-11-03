@@ -98,7 +98,7 @@ def test_content_reset(app):
 
         assert League.query.count() == 1
         assert Season.query.count() == 10
-        assert Division.query.count() == 24
-        assert Player.query.count() == 95
-        assert Result.query.count() == 230
-        assert Ranking.query.count() == 349
+        assert Division.query.count() == 30
+        assert Player.query.count() == 108
+        assert Result.query.count() == 295
+        assert Ranking.query.count() == 445
