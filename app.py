@@ -207,7 +207,7 @@ def show_season_application():
     """Display players in season application"""
     division_name = request.args.get('division_name', type=str)
 
-    with open('data/application_list_season253.csv') as f:
+    with open('data/application_list_season254.csv') as f:
         csv_reader = csv.DictReader(f)
 
         players = []
@@ -258,7 +258,7 @@ def show_season_application():
 
     selected_player_count = len(players)
 
-    divisions = ['M1', 'M2', 'M3', 'M4', 'O1']
+    divisions = ['M1', 'M2', 'M3', 'M4', 'M5', 'O1']
 
     return render_template('application.html', players=players, count=players_count, division_name=division_name,
                            divisions=divisions, selected_player_count=selected_player_count)
