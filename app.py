@@ -242,7 +242,7 @@ def show_season_application():
                 if player_dict['raketo_rating'] > '3.1':
                     player_dict['division'] = 'M4'
                 else:
-                    player_dict['division'] = 'O1'
+                    player_dict['division'] = 'M4'
 
             if player_dict['wildcard'] != '':
                 player_dict['division'] = player_dict['wildcard']
@@ -258,7 +258,7 @@ def show_season_application():
 
     selected_player_count = len(players)
 
-    divisions = ['M1', 'M2', 'M3', 'M4', 'M5', 'O1']
+    divisions = ['M1', 'M2', 'M3', 'M4']
 
     return render_template('application.html', players=players, count=players_count, division_name=division_name,
                            divisions=divisions, selected_player_count=selected_player_count)
