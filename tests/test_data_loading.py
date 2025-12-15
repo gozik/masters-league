@@ -101,4 +101,5 @@ def test_content_reset(client, app):
         assert Division.query.count() == 30
         assert Player.query.count() == 108
         assert Result.query.count() == 295
-        assert Ranking.query.count() == 445
+        assert Ranking.query.count() == 456
+

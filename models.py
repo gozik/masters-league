@@ -393,7 +393,7 @@ class Match(db.Model):
         return " ".join(scores)
 
 
-def get_last_result_before_date(player_id, target_date, filter_seasons, expire_days):
+def get_last_result_before_date(player_id, target_date, filter_seasons, expire_days=None):
     """Get the latest result for a player before a specific date using season dates"""
     r = Result.query \
         .join(Division, Result.division_id == Division.id) \

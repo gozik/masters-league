@@ -107,26 +107,36 @@ def calculate_rankings(date):
     results = []
 
     for player in Player.query.all():
+        expired = False
         last_result = get_last_result_before_date(player.id, date, filter_seasons='ranked', expire_days=365)
-        if last_result:
-            relegation = last_result.relegation
-            prev_priority = last_result.division_ref.priority
-            position = last_result.position
-            result_date = last_result.division_ref.season_ref.date_end
 
-            new_priority = last_result.calc_new_priority()
+        if not last_result:
+            last_result = get_last_result_before_date(player.id, date, filter_seasons='ranked')
+            if not last_result:
+                continue
 
-            results.append({'last_result': last_result,
-                            'new_priority': new_priority,
-                            'prev_priority': prev_priority,
-                            'position': position,
-                            'result_date': result_date,
-                            'player': player})
+            expired = True
+
+
+        prev_priority = last_result.division_ref.priority
+        position = last_result.position
+        result_date = last_result.division_ref.season_ref.date_end
+
+        new_priority = last_result.calc_new_priority()
+
+        results.append({'expired': expired,
+                        'last_result': last_result,
+                        'new_priority': new_priority,
+                        'prev_priority': prev_priority,
+                        'position': position,
+                        'result_date': result_date,
+                        'player': player})
 
 
     sorted_items = sorted(
         results,
         key=lambda x: (
+            int(x['expired']),
             x['new_priority'],  # (ascending)
             x['prev_priority'],  # (ascending)
             x['position'],  # (ascending)
@@ -166,6 +176,14 @@ def reset_content():
         calculate_rankings(s.date_end)
 
     init_seasons_data()
+
+
+@app.template_filter('to_date')
+def to_date_filter(date_string):
+    try:
+        return datetime.strptime(date_string, '%Y-%m-%d').date()
+    except ValueError:
+        return None
 
 
 @app.route('/')
@@ -300,14 +318,6 @@ def show_regulations():
     current_season = Season.query.filter_by(year=2025, name='4').order_by(Season.id.desc()).first()
 
     return render_template('regulations.html', seasons=seasons, current_season=current_season)
-
-
-@app.template_filter('to_date')
-def to_date_filter(date_string):
-    try:
-        return datetime.strptime(date_string, '%Y-%m-%d').date()
-    except ValueError:
-        return None
 
 
 @app.route('/faq')
