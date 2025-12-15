@@ -3,9 +3,12 @@ from config import Config
 from extensions import db, bootstrap
 
 
-def create_app():
+def create_app(config=None):
     app = Flask(__name__)
-    app.config.from_object(Config)
+
+    if not config:
+        config = Config
+    app.config.from_object(config)
 
     # Initialize extensions
     db.init_app(app)

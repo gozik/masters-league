@@ -1,9 +1,8 @@
 # tests/conftest.py
 import os
 import sys
-import tempfile
 import pytest
-from datetime import datetime, date
+from datetime import date
 
 # Add the parent directory to Python path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -16,29 +15,25 @@ from models import League, Season, Division, Player, Result
 @pytest.fixture
 def app():
     """Create and configure a new app instance for each test."""
-    # Create a temporary file to isolate the database for each test
-    db_fd, db_path = tempfile.mkstemp()
+    # Create the app with test config
 
-    # Create the app with common test config
-    app = real_app
-    app.config.update({
+    real_app.config.update({
         'TESTING': True,
-        'SQLALCHEMY_DATABASE_URI': f'sqlite:///{db_path}',
+        'SQLALCHEMY_DATABASE_URI': 'sqlite:///:memory:',
         'SQLALCHEMY_TRACK_MODIFICATIONS': False,
         'WTF_CSRF_ENABLED': False,
-        'SERVER_NAME': 'localhost'  # Add this for URL building
+        'SERVER_NAME': 'localhost'
     })
 
     # Create the database and load test data
-    with app.app_context():
+    with real_app.app_context():
         db.create_all()
         load_test_data(db)
 
-    yield app
+    yield real_app
 
-    # Close and remove the temporary database
-    os.close(db_fd)
-    os.unlink(db_path)
+    with real_app.app_context():
+        db.drop_all()
 
 
 @pytest.fixture

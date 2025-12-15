@@ -10,47 +10,47 @@ from extensions import db
 from models import League, Season, Division, Player, Result, Ranking
 
 
-def test_input_data_from_json(app):
+def test_input_data_from_json(client, app):
     """Test input_data_from_json function."""
+    # Create test JSON data
+    test_data = {
+        "Test League": [
+            {
+                "name": "Test Season",
+                "year": 2024,
+                "date_start": "2024-01-01",
+                "date_end": "2024-01-31",
+                "is_ranked": True,
+                "divisions": [
+                    {
+                        "name": "Test Division",
+                        "priority": 100,
+                        "results": [
+                            {
+                                "first_name": "Test",
+                                "last_name": "Player",
+                                "gender": "male",
+                                "position": 1,
+                                "match_count": 5,
+                                "win_count": 4,
+                                "tie_win_count": 0,
+                                "set_diff": 3,
+                                "game_diff": 10,
+                                "relegation": "promoted"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+
+    # Convert to file-like object
+    json_file = StringIO(json.dumps(test_data))
+
     with app.app_context():
         # Delete existing data
         delete_all()
-
-        # Create test JSON data
-        test_data = {
-            "Test League": [
-                {
-                    "name": "Test Season",
-                    "year": 2024,
-                    "date_start": "2024-01-01",
-                    "date_end": "2024-01-31",
-                    "is_ranked": True,
-                    "divisions": [
-                        {
-                            "name": "Test Division",
-                            "priority": 100,
-                            "results": [
-                                {
-                                    "first_name": "Test",
-                                    "last_name": "Player",
-                                    "gender": "male",
-                                    "position": 1,
-                                    "match_count": 5,
-                                    "win_count": 4,
-                                    "tie_win_count": 0,
-                                    "set_diff": 3,
-                                    "game_diff": 10,
-                                    "relegation": "promoted"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }
-
-        # Convert to file-like object
-        json_file = StringIO(json.dumps(test_data))
 
         # Load the data
         input_data_from_json(json_file)
@@ -69,7 +69,7 @@ def test_input_data_from_json(app):
         assert player.last_name == "Player"
 
 
-def test_delete_all(app):
+def test_delete_all(client, app):
     """Test delete_all function."""
     with app.app_context():
 
@@ -92,7 +92,7 @@ def test_delete_all(app):
         assert Player.query.count() == 1
 
 
-def test_content_reset(app):
+def test_content_reset(client, app):
     with app.app_context():
         reset_content()
 

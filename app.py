@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, current_app
 from init import create_app
 from models import Player, League, Season, Division, Result, Ranking, get_last_result_before_date
 from data.seasons_data import init_seasons_data
@@ -7,7 +7,6 @@ import json
 from datetime import datetime
 import os
 import csv
-
 
 app = create_app()
 
@@ -24,59 +23,81 @@ def delete_all():
     return
 
 
-
 def input_data_from_json(file):
     """Add all leagues, seasons, divisions, players, results from file.
 
     Must be invoked within app_context.
+    This function now performs the import within a single transaction to avoid
+    per-object commits and to ensure atomicity.
     """
     d = json.load(file)
 
-    for name in d:
-        league = League(name=name)
-        db.session.add(league)
-        db.session.commit()
+    # Use a transaction: either everything is committed, or rolled back on error
+    with db.session.begin():
+        # Cache existing players to reduce queries for repeated names
+        existing_players = {}
+        for p in Player.query.all():
+            key = (p.first_name.strip(), p.last_name.strip())
+            existing_players[key] = p
 
-        for s in d[name]:
-            season = Season(name=s['name'], year=s['year'], league_id=league.id,
-                            date_start=datetime.strptime(s['date_start'], "%Y-%m-%d"),
-                            date_end=datetime.strptime(s['date_end'], "%Y-%m-%d"),
-                            is_ranked=True)
+        for league_name, seasons_list in d.items():
+            league = League(name=league_name)
+            db.session.add(league)
+            db.session.flush()
 
-            if 'is_ranked' in s:
-                if s['is_ranked'] == 0:
+            for s in seasons_list:
+                season = Season(
+                    name=s.get('name'),
+                    year=s.get('year'),
+                    league_id=league.id,
+                    date_start=datetime.strptime(s['date_start'], "%Y-%m-%d") if s.get('date_start') else None,
+                    date_end=datetime.strptime(s['date_end'], "%Y-%m-%d") if s.get('date_end') else None,
+                    is_ranked=True
+                )
+
+                if 'is_ranked' in s and s['is_ranked'] in (0, "0", False, "false", "False"):
                     season.is_ranked = False
 
-            db.session.add(season)
-            db.session.commit()
+                db.session.add(season)
+                db.session.flush()
 
-            for d in s['divisions']:
-                division = Division(name=d['name'], priority=d['priority'], season_id=season.id)
-                db.session.add(division)
-                db.session.commit()
+                for div in s.get('divisions', []):
+                    division = Division(
+                        name=div.get('name'),
+                        priority=div.get('priority'),
+                        season_id=season.id
+                    )
+                    db.session.add(division)
+                    db.session.flush()
 
-                for r in d['results']:
-                    player = Player.query.filter_by(first_name=r['first_name'],
-                                                    last_name=r['last_name']).first()
-                    if player is None:
-                        player = Player(first_name=r['first_name'],
-                                        last_name=r['last_name'],
-                                        gender=r['gender'])
-                        db.session.add(player)
-                        db.session.commit()
+                    for r in div.get('results', []):
+                        first = r.get('first_name', '').strip()
+                        last = r.get('last_name', '').strip()
+                        player_key = (first, last)
 
-                    result = Result(player_id=player.id,
-                                    position=r['position'],
-                                    match_count=r['match_count'],
-                                    win_count=r['win_count'],
-                                    tie_win_count=r['tie_win_count'],
-                                    set_diff=r['set_diff'],
-                                    game_diff=r['game_diff'],
-                                    division_id=division.id,
-                                    relegation=r['relegation']
-                                    )
-                    db.session.add(result)
-                    db.session.commit()
+                        player = existing_players.get(player_key)
+                        if player is None:
+                            player = Player(first_name=first, last_name=last, gender=r.get('gender'))
+                            db.session.add(player)
+                            # flush to get player.id for dependent objects
+                            db.session.flush()
+                            existing_players[player_key] = player
+
+                        result = Result(
+                            player_id=player.id,
+                            position=r.get('position'),
+                            match_count=r.get('match_count'),
+                            win_count=r.get('win_count'),
+                            tie_win_count=r.get('tie_win_count'),
+                            set_diff=r.get('set_diff'),
+                            game_diff=r.get('game_diff'),
+                            division_id=division.id,
+                            relegation=r.get('relegation')
+                        )
+                        db.session.add(result)
+
+    # end of transaction block will commit if no exception occurred
+    return
 
 
 def calculate_rankings(date):
@@ -106,7 +127,7 @@ def calculate_rankings(date):
     sorted_items = sorted(
         results,
         key=lambda x: (
-            x['new_priority'], # (ascending)
+            x['new_priority'],  # (ascending)
             x['prev_priority'],  # (ascending)
             x['position'],  # (ascending)
             -(x['result_date'].toordinal())  # (descending)
@@ -116,7 +137,7 @@ def calculate_rankings(date):
     rankings = []
     for i, value in enumerate(sorted_items):
         ranking = Ranking(player_id=value['player'].id,
-                          position=i+1,
+                          position=i + 1,
                           actual_date=date,
                           actual_season_id=value['last_result'].division_ref.season_id,
                           last_result_id=value['last_result'].id)
@@ -134,7 +155,8 @@ def reset_content():
     # must be invoked inside app context
     delete_all()
 
-    with open('data/actual_results.json') as f:
+    actual_results_path = current_app.config.get('ACTUAL_RESULTS_JSON', 'data/actual_results.json')
+    with open(actual_results_path) as f:
         input_data_from_json(f)
 
     seasons = Season.query.order_by('date_end').all()
@@ -154,8 +176,14 @@ def index():
 @app.route('/rankings')
 def show_rankings():
     """Display rankings with date and season filtering"""
-    actual_date = Season.query.filter(Season.is_completed == True).filter(Season.is_ranked == True)\
-        .order_by(Season.date_end.desc()).first().date_end
+    latest_season = Season.query.filter(Season.is_completed == True, Season.is_ranked == True) \
+        .order_by(Season.date_end.desc()).first()
+
+    if not latest_season:
+        # handle empty DB gracefully
+        return render_template('rankings.html', actual_date=None, rankings=[], seasons=[], selected_season_id=None)
+
+    actual_date = latest_season.date_end
 
     # Get filters from request
     season_id = request.args.get('season_id', type=int)
@@ -165,7 +193,7 @@ def show_rankings():
             actual_date = season.date_end
 
     # Get available seasons for dropdown
-    seasons = Season.query.order_by(Season.id.desc()).filter(Season.is_ranked == True)\
+    seasons = Season.query.order_by(Season.id.desc()).filter(Season.is_ranked == True) \
         .filter(Season.is_completed == True).all()
 
     # Get rankings
@@ -278,8 +306,9 @@ def show_regulations():
 def to_date_filter(date_string):
     try:
         return datetime.strptime(date_string, '%Y-%m-%d').date()
-    except:
+    except ValueError:
         return None
+
 
 @app.route('/faq')
 def faq():
@@ -355,6 +384,9 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
 
-        reset_content()
+        if not League.query.first():
+            reset_content()
 
-    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
+
+    # Use config-driven debug mode
+    app.run(debug=app.config.get('DEBUG', False), host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
