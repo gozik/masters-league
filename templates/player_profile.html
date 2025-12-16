@@ -194,28 +194,29 @@
         <!-- Statistics Grid -->
         <div class="stats-grid">
             <div class="stat-card">
-                <h2 class="stat-number">{{ current_ranking.position if current_ranking else 'N/A' }}</h2>
-                <p class="stat-label">Текущий рейтинг</p>
-                {% if current_ranking %}
-                <p style="margin-top: 5px; font-size: 0.9em; color: #666;">
-                    ({{ current_ranking.actual_date }})
-                </p>
-                {% endif %}
+                <p class="stat-label">Текущий (лучший) рейтинг</p>
+                <h2 class="stat-number">{{ current_ranking.position if current_ranking else 'N/A' }} ({{ total_stats.career_high }})</h2>
+
+
+
             </div>
 
             <div class="stat-card">
-                <h2 class="stat-number">{{ total_stats.total_seasons }}</h2>
                 <p class="stat-label">Сыграно сезонов</p>
+                <h2 class="stat-number">{{ total_stats.total_seasons }}</h2>
+
             </div>
 
             <div class="stat-card">
-                <h2 class="stat-number">{{ total_stats.total_wins }}/{{ total_stats.total_matches }}</h2>
                 <p class="stat-label">Всего Побед/Матчей</p>
+                <h2 class="stat-number">{{ total_stats.total_wins }}/{{ total_stats.total_matches }}</h2>
+
             </div>
 
             <div class="stat-card">
-                <h2 class="stat-number win-percentage">{{ total_stats.win_percentage|round(1) }}%</h2>
                 <p class="stat-label">Процент побед</p>
+                <h2 class="stat-number win-percentage">{{ total_stats.win_percentage|round(1) }}%</h2>
+
             </div>
         </div>
 

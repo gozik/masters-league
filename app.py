@@ -303,10 +303,12 @@ def show_season_application():
 
 @app.route('/regulations')
 def show_regulations():
+    current_year = current_app.config.get('ACTIVE_SEASON_YEAR')
+    current_name = current_app.config.get('ACTIVE_SEASON_NAME')
+
     seasons = Season.query.filter(Season.is_completed == True).order_by(Season.id.desc()).all()
 
-    # to change
-    current_season = Season.query.filter_by(year=2025, name='4').order_by(Season.id.desc()).first()
+    current_season = Season.query.filter_by(year=current_year, name=current_name).order_by(Season.id.desc()).first()
 
     return render_template('regulations.html', seasons=seasons, current_season=current_season)
 
@@ -318,9 +320,11 @@ def faq():
 
 @app.route('/schedule')
 def show_schedule():
-    seasons = Season.query.filter_by(year=2025).order_by('date_start').all()
+    current_year = current_app.config.get('ACTIVE_SEASON_YEAR')
 
-    return render_template('schedule.html', seasons=seasons, current_year=2025)
+    seasons = Season.query.filter_by(year=current_year).order_by('date_start').all()
+
+    return render_template('schedule.html', seasons=seasons, current_year=current_year)
 
 
 @app.route('/player/<int:player_id>')
@@ -368,16 +372,22 @@ def get_results(player_id):
 def calculate_total_stats(player_id):
     """Calculate total wins, games, and other statistics"""
     results = Result.query.filter_by(player_id=player_id).all()
+    rankings = Ranking.query.filter_by(player_id=player_id).all()
 
     total_wins = sum(result.win_count for result in results)
     total_matches = sum(result.match_count for result in results)
     total_seasons = len(set(result.division_ref.season_id for result in results if result.division_ref))
+    if rankings:
+        career_high = min(ranking.position for ranking in rankings)
+    else:
+        career_high = None
 
     return {
         'total_wins': total_wins,
         'total_matches': total_matches,
         'win_percentage': (total_wins / total_matches * 100) if total_matches > 0 else 0,
-        'total_seasons': total_seasons
+        'total_seasons': total_seasons,
+        'career_high': career_high
     }
 
 
