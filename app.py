@@ -107,16 +107,10 @@ def calculate_rankings(date):
     results = []
 
     for player in Player.query.all():
-        expired = False
         last_result = get_last_result_before_date(player.id, date, filter_seasons='ranked', expire_days=365)
 
         if not last_result:
-            last_result = get_last_result_before_date(player.id, date, filter_seasons='ranked')
-            if not last_result:
-                continue
-
-            expired = True
-
+            continue
 
         prev_priority = last_result.division_ref.priority
         position = last_result.position
@@ -124,8 +118,7 @@ def calculate_rankings(date):
 
         new_priority = last_result.calc_new_priority()
 
-        results.append({'expired': expired,
-                        'last_result': last_result,
+        results.append({'last_result': last_result,
                         'new_priority': new_priority,
                         'prev_priority': prev_priority,
                         'position': position,
@@ -136,7 +129,6 @@ def calculate_rankings(date):
     sorted_items = sorted(
         results,
         key=lambda x: (
-            int(x['expired']),
             x['new_priority'],  # (ascending)
             x['prev_priority'],  # (ascending)
             x['position'],  # (ascending)
@@ -171,9 +163,8 @@ def reset_content():
 
     seasons = Season.query.order_by('date_end').all()
     for s in seasons:
-        if s.name == 'Preseason':
-            pass
-        calculate_rankings(s.date_end)
+        if s.is_ranked:
+            calculate_rankings(s.date_end)
 
     init_seasons_data()
 
@@ -394,7 +385,7 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
 
-        if not League.query.first():
+        if not League.query.first() or app.config.get('DEBUG'): # always reseting content in dev
             reset_content()
 
 
