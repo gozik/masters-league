@@ -40,8 +40,28 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
+                    <!-- Player Search Form -->
+                    <form class="d-flex search-form" id="player-search-form">
+                        <div class="input-group search-container">
+                            <input type="text"
+                                   class="form-control search-input"
+                                   id="player-search"
+                                   placeholder="Search players..."
+                                   aria-label="Search players"
+                                   autocomplete="off">
+                            <button class="btn btn-outline-light" type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                        <!-- Search Results Dropdown -->
+                        <div class="search-results" id="search-results"></div>
+                    </form>
+
                     <div class="collapse navbar-collapse" id="navbarNav">
+
                         <ul class="navbar-nav ms-auto">
+
                             <li class="nav-item">
                                 <a class="nav-link" href="/">Главная</a>
                             </li>
@@ -94,6 +114,9 @@
 
     <!-- Grid.js -->
     <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+
+    <!-- Custom JavaScript files -->
+    <script src="{{ url_for('static', filename='js/search.js') }}"></script>
 
     {% block scripts %}{% endblock %}
 </body>

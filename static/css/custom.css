@@ -365,3 +365,201 @@ body::before {
     border-left: 4px solid var(--primary-color);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
+/* Minimalist Underline Search Form */
+.search-container {
+    position: relative;
+    margin-left: 20px;
+    width: 250px;
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 0;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 8px 15px 8px 0;
+    width: 100%;
+    font-size: 0.95rem;
+
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.search-input:focus {
+    outline: none;
+    border-bottom: 2px solid white;
+    box-shadow: none;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+}
+
+
+/* Ensure text color is white in all states */
+.search-input,
+.search-input:focus,
+.search-input:hover {
+    color: white !important;
+}
+
+
+/* Search button - hidden by default, appears on hover */
+.search-container .btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 8px 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.search-input:focus ~ .btn,
+.search-container:hover .btn {
+    opacity: 1;
+}
+
+.search-container .btn:hover {
+    color: white;
+    background: transparent;
+}
+
+/* Search Results Dropdown - transparent styling */
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(44, 62, 80, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+    margin-top: 2px;
+    border: none;
+}
+
+.search-result-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: white;
+}
+
+.search-result-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.player-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(76, 161, 175, 0.9), rgba(44, 62, 80, 0.9));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.player-name {
+    font-weight: 500;
+    margin-bottom: 2px;
+    color: white;
+}
+
+.player-details {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.no-results {
+    padding: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}
+
+.search-loading {
+    padding: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-loading:after {
+    content: '...';
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+/* Animation for underline expansion on focus */
+.search-input {
+    position: relative;
+}
+
+.search-input:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.search-input:focus:after {
+    width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .search-container {
+        width: 200px;
+        margin-left: 15px;
+    }
+
+    .search-input {
+        font-size: 0.9rem;
+        padding: 6px 30px 6px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .search-container {
+        width: 160px;
+        margin-left: 10px;
+    }
+
+    .search-input {
+        font-size: 0.85rem;
+        padding: 5px 25px 5px 0;
+    }
+
+    .search-input::placeholder {
+        font-size: 0.85rem;
+    }
+}

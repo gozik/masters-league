@@ -40,6 +40,11 @@ class Player(db.Model):
             'last_name': self.last_name,
         }
 
+    @property
+    def current_ranking(self):
+        return get_current_ranking(self.id)
+
+
     def __repr__(self):
         return f'<{self.first_name} {self.last_name}>'
 
@@ -410,3 +415,38 @@ def get_last_result_before_date(player_id, target_date, filter_seasons, expire_d
         r = r.filter(Season.date_end >= cutoff_date)
 
     return r.order_by(Season.date_end.desc(), Division.priority).first()
+
+
+def get_current_ranking(player_id):
+    """Get player's current ranking"""
+    return Ranking.query.filter_by(player_id=player_id).order_by(Ranking.actual_date.desc()).first()
+    # wrong logic for players, without actual result
+    # should be ACTUAL RANKING -> get_result(player_id)
+
+
+def get_results(player_id):
+    """Get all season results for the player"""
+    return Result.query.filter_by(player_id=player_id).join(Division).join(Season) \
+        .order_by(Season.date_end.desc()).all()
+
+
+def calculate_total_stats(player_id):
+    """Calculate total wins, games, and other statistics"""
+    results = Result.query.filter_by(player_id=player_id).all()
+    rankings = Ranking.query.filter_by(player_id=player_id).all()
+
+    total_wins = sum(result.win_count for result in results)
+    total_matches = sum(result.match_count for result in results)
+    total_seasons = len(set(result.division_ref.season_id for result in results if result.division_ref))
+    if rankings:
+        career_high = min(ranking.position for ranking in rankings)
+    else:
+        career_high = None
+
+    return {
+        'total_wins': total_wins,
+        'total_matches': total_matches,
+        'win_percentage': (total_wins / total_matches * 100) if total_matches > 0 else 0,
+        'total_seasons': total_seasons,
+        'career_high': career_high
+    }

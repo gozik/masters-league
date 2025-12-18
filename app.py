@@ -1,6 +1,7 @@
-from flask import render_template, request, current_app
+from flask import render_template, request, current_app, jsonify
 from init import create_app
-from models import Player, League, Season, Division, Result, Ranking, get_last_result_before_date
+from models import Player, League, Season, Division, Result, Ranking, get_last_result_before_date, get_current_ranking, \
+    get_results, calculate_total_stats
 from data.seasons_data import init_seasons_data
 from extensions import db
 import json
@@ -351,6 +352,34 @@ def player_profile(player_id):
                            )
 
 
+@app.route('/api/search-players')
+def search_players():
+    query = request.args.get('q', '').lower().strip()
+
+    if not query or len(query) < 2:
+        return jsonify([])
+
+    try:
+        # Search in database - adjust based on your Player model
+        players = Player.query.filter(
+            (Player.first_name.ilike(f'%{query}%')) |
+            (Player.last_name.ilike(f'%{query}%'))
+        ).limit(10).all()
+
+        results = [{
+            'id': p.id,
+            'first_name': p.first_name,
+            'last_name': p.last_name,
+            'current_rating': p.current_ranking or '-'
+        } for p in players]
+
+        return jsonify(results)
+
+    except Exception as e:
+        print(f"Search error: {e}")
+        return jsonify([])
+
+
 @app.route('/season/<season_id>/rules')
 def season_rules(season_id):
     season = db.get_or_404(Season, season_id)
@@ -358,39 +387,6 @@ def season_rules(season_id):
     season_info = season.to_dict()
 
     return render_template('season_rules.html', season=season, season_info=season_info)
-
-
-def get_current_ranking(player_id):
-    """Get player's current ranking"""
-    return Ranking.query.filter_by(player_id=player_id).order_by(Ranking.actual_date.desc()).first()
-
-
-def get_results(player_id):
-    """Get all season results for the player"""
-    return Result.query.filter_by(player_id=player_id).join(Division).join(Season) \
-        .order_by(Season.date_end.desc()).all()
-
-
-def calculate_total_stats(player_id):
-    """Calculate total wins, games, and other statistics"""
-    results = Result.query.filter_by(player_id=player_id).all()
-    rankings = Ranking.query.filter_by(player_id=player_id).all()
-
-    total_wins = sum(result.win_count for result in results)
-    total_matches = sum(result.match_count for result in results)
-    total_seasons = len(set(result.division_ref.season_id for result in results if result.division_ref))
-    if rankings:
-        career_high = min(ranking.position for ranking in rankings)
-    else:
-        career_high = None
-
-    return {
-        'total_wins': total_wins,
-        'total_matches': total_matches,
-        'win_percentage': (total_wins / total_matches * 100) if total_matches > 0 else 0,
-        'total_seasons': total_seasons,
-        'career_high': career_high
-    }
 
 
 if __name__ == '__main__':
