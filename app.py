@@ -125,7 +125,6 @@ def calculate_rankings(date):
                         'result_date': result_date,
                         'player': player})
 
-
     sorted_items = sorted(
         results,
         key=lambda x: (
@@ -260,9 +259,11 @@ def show_season_application():
             player_dict = {'player_name': player_str, 'raketo_rating': raketo_rating, 'wildcard': wildcard}
             player_dict['player_id'] = 0
 
-            player = Player.query.filter((Player.first_name==player_name)&(Player.last_name==player_surname)).first()
+            player = Player.query.filter(
+                (Player.first_name == player_name) & (Player.last_name == player_surname)).first()
             if player:
-                ranking = Ranking.query.filter(Ranking.player_id == player.id).order_by(Ranking.actual_date.desc()).first()
+                ranking = Ranking.query.filter(Ranking.player_id == player.id).order_by(
+                    Ranking.actual_date.desc()).first()
                 player_dict['player_id'] = player.id
                 if ranking:
                     player_dict['ranking'] = ranking.to_dict()['position']
@@ -270,7 +271,6 @@ def show_season_application():
 
             else:
                 player_dict['qualification'] = 'NEW'
-
 
             # calculate division
             player_dict['division'] = player_dict['qualification']
@@ -291,7 +291,8 @@ def show_season_application():
     if division_name:
         players = [player for player in players if player['division'].startswith(division_name)]
 
-    players = sorted(players, key=lambda player: (player['division'], player['ranking'] if 'ranking' in player else (1000 - float(player['raketo_rating']))))
+    players = sorted(players, key=lambda plr: (
+        plr['division'], plr['ranking'] if 'ranking' in plr else (1000 - float(plr['raketo_rating']))))
 
     selected_player_count = len(players)
 
@@ -349,6 +350,7 @@ def player_profile(player_id):
                            total_stats=total_stats,
                            )
 
+
 @app.route('/season/<season_id>/rules')
 def season_rules(season_id):
     season = db.get_or_404(Season, season_id)
@@ -365,7 +367,7 @@ def get_current_ranking(player_id):
 
 def get_results(player_id):
     """Get all season results for the player"""
-    return Result.query.filter_by(player_id=player_id).join(Division).join(Season)\
+    return Result.query.filter_by(player_id=player_id).join(Division).join(Season) \
         .order_by(Season.date_end.desc()).all()
 
 
@@ -395,9 +397,8 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
 
-        if not League.query.first() or app.config.get('DEBUG'): # always reseting content in dev
+        if not League.query.first() or app.config.get('DEBUG'):  # always reseting content in dev
             reset_content()
-
 
     # Use config-driven debug mode
     app.run(debug=app.config.get('DEBUG', False), host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
