@@ -419,7 +419,19 @@ def get_last_result_before_date(player_id, target_date, filter_seasons, expire_d
 
 def get_current_ranking(player_id):
     """Get player's current ranking"""
-    return Ranking.query.filter_by(player_id=player_id).order_by(Ranking.actual_date.desc()).first()
+    latest_season = Season.query.filter(Season.is_completed == True, Season.is_ranked == True) \
+        .order_by(Season.date_end.desc()).first()
+
+    if not latest_season:
+        return
+
+    actual_date = latest_season.date_end
+
+    ranking = Ranking.query.filter_by(actual_date=actual_date).filter_by(player_id=player_id).order_by('position').first()
+
+    if ranking:
+        return ranking.position
+    return None
     # wrong logic for players, without actual result
     # should be ACTUAL RANKING -> get_result(player_id)
 
