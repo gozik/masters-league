@@ -462,3 +462,121 @@ def calculate_total_stats(player_id):
         'total_seasons': total_seasons,
         'career_high': career_high
     }
+
+
+def parse_score(score_string):
+    """
+    Parse tennis score string into structured format
+    Supports formats: "6-3 6-3", "3-6 6-4 [10/8]", "4-6 6-3 [10/4]"
+    """
+    if not score_string:
+        return None
+
+    # Remove any extra spaces and split by space
+    parts = score_string.strip().split()
+
+    sets = []
+    royal_tiebreak = False
+    royal_tiebreak_score = None
+
+    for i, part in enumerate(parts):
+        if part.startswith('[') and part.endswith(']'):
+            # This is a tiebreak or royal tiebreak
+            tiebreak_content = part[1:-1]
+            if '/' in tiebreak_content:
+                # Format: [10/8] or [10/4]
+                royal_tiebreak = True
+                royal_score_parts = tiebreak_content.split('/')
+                royal_tiebreak_score = (int(royal_score_parts[0]), int(royal_score_parts[1]))
+
+        elif part.startswith('(') and part.endswith(')'):
+            # This is a regular tiebreak , must be after regular set
+            tiebreak_content = part[1:-1]
+            score_parts = tiebreak_content.split('/')
+            # The previous set should be a tiebreak
+            if sets:
+                sets[-1]['tiebreak'] = True
+                sets[-1]['tiebreak_score'] = {
+                    'player1': int(score_parts[0]),
+                    'player2': int(score_parts[1])
+                }
+
+
+        elif '-' in part:
+            # Regular set score
+            set_parts = part.split('-')
+            if len(set_parts) == 2 and set_parts[0].isdigit() and set_parts[1].isdigit():
+                sets.append({
+                    'player1': int(set_parts[0]),  # Winner's games
+                    'player2': int(set_parts[1]),  # Loser's games
+                    'tiebreak': False
+                })
+
+    return {
+        'sets': sets,
+        'royal_tiebreak': royal_tiebreak,
+        'royal_tiebreak_score': royal_tiebreak_score
+    }
+
+
+def get_season_by_raketo_name(season_name):
+    raketo_names = {'Amazing Masters Slam': 10,
+                  'Amazing Masters Slam 2': 10,
+                  'Amazing Masters Slam 3': 10,
+                  'Amazing Open Slam': 10,
+                  'Masters League Preseason 2025': 5,
+                  'Masters League Season 1/2025': 6,
+                  'Masters League Season 2/2025': 7,
+                  'Masters League Season 3/2025': 8,
+                  'Masters League Season 4/2025': 9,
+                  'Open League Preseason 2025': 5,
+                  'Open League Season 1/2025': 6,
+                  'Tashkent Masters League': 1,
+                  'Tashkent Masters League. Season 2': 2,
+                  'Tashkent Masters League. Season 3': 3,
+                  'Tashkent Masters League. Season 4': 4,
+                  'Tashkent Open League': 3,
+                  'Tashkent Open League. Season 2': 4, }
+    if season_name in raketo_names:
+        return Season.query.get(raketo_names[season_name])
+
+
+def get_common_divisions_in_season(player1_id, player2_id, season_id):
+    """
+    Find all divisions in a season where both players participated.
+
+    Args:
+        player1_id (int): ID of first player
+        player2_id (int): ID of second player
+        season_id (int): ID of the season
+
+    Returns:
+        List of Division objects where both players had results
+    """
+    # Get divisions where player1 played in the season
+    player1_divisions = Division.query \
+        .join(Result, Division.id == Result.division_id) \
+        .filter(
+        Result.player_id == player1_id,
+        Division.season_id == season_id
+    ) \
+        .subquery()
+
+    # Get divisions where player2 played in the season
+    player2_divisions = Division.query \
+        .join(Result, Division.id == Result.division_id) \
+        .filter(
+        Result.player_id == player2_id,
+        Division.season_id == season_id
+    ) \
+        .subquery()
+
+    # Find common divisions
+    common_divisions = Division.query \
+        .join(player1_divisions, Division.id == player1_divisions.c.id) \
+        .join(player2_divisions, Division.id == player2_divisions.c.id) \
+        .all()
+
+    return common_divisions
+
+

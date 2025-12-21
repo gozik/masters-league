@@ -1,0 +1,913 @@
+,winner,loser,score,season,date
+0,Rogozin Anton,Niyazov Zarrux,6-3 6-3,Tashkent Masters League,2024-06-01
+1,Razzakov Alisher,Vohidov Nodir,6-3 6-3,Tashkent Masters League,2024-06-02
+2,Razzakov Alisher,Rogozin Anton,7-5 6-2,Tashkent Masters League,2024-06-03
+3,Musadjanov Hatam,Vohidov Nodir,7-5 6-4,Tashkent Masters League,2024-06-04
+4,Rogozin Anton,Kamilov Baxriddin,6-3 6-3,Tashkent Masters League,2024-06-04
+5,Shamuratov Farrukh,Zakharchenko Petro,7-5 6-1,Tashkent Masters League,2024-06-04
+6,Niyazov Zarrux,Bukharov Ulugbek,6-3 3-6 6-1,Tashkent Masters League,2024-06-04
+7,Razzakov Alisher,Malikov Humoyun,6-0 6-4,Tashkent Masters League,2024-06-05
+8,Vohidov Nodir,Kamilov Baxriddin,3-6 6-2 6-4,Tashkent Masters League,2024-06-06
+9,Rogozin Anton,Musadjanov Hatam,6-3 6-1,Tashkent Masters League,2024-06-06
+10,Musadjanov Hatam,Malikov Humoyun,6-4 7-6,Tashkent Masters League,2024-06-06
+11,Ruziev Davron,Shamuratov Farrukh,4-6 6-3 6-2,Tashkent Masters League,2024-06-06
+12,Razzakov Alisher,Bukharov Ulugbek,6-2 6-2,Tashkent Masters League,2024-06-07
+13,Shamuratov Farrukh,Logvis Kirill,6-2 6-7 (7/5) 7-6 (10/8),Tashkent Masters League,2024-06-09
+14,Musadjanov Hatam,Kamilov Baxriddin,6-3 6-3,Tashkent Masters League,2024-06-11
+15,Vohidov Nodir,Niyazov Zarrux,6-3 7-6 (7/3),Tashkent Masters League,2024-06-11
+16,Rogozin Anton,Malikov Humoyun,6-2 2-6 6-4,Tashkent Masters League,2024-06-11
+17,Rogozin Anton,Vohidov Nodir,2-6 6-3 6-2,Tashkent Masters League,2024-06-13
+18,Bukharov Ulugbek,Kamilov Baxriddin,6-0 7-6 (7/3),Tashkent Masters League,2024-06-13
+19,Razzakov Alisher,Kamilov Baxriddin,6-2 6-1,Tashkent Masters League,2024-06-14
+20,Musadjanov Hatam,Bukharov Ulugbek,6-2 6-1,Tashkent Masters League,2024-06-14
+21,Musadjanov Hatam,Razzakov Alisher,2-6 6-2 6-2,Tashkent Masters League,2024-06-14
+22,Shamuratov Farrukh,Magomedov Arsen,6-1 6-4,Tashkent Masters League,2024-06-14
+23,Tadjiev Khamdam,Magomedov Arsen,5-7 7-5 [10/6],Tashkent Masters League,2024-06-14
+24,Musadjanov Hatam,Niyazov Zarrux,2-6 6-4 [10/4],Tashkent Masters League,2024-06-15
+25,Shamuratov Farrukh,Xaleulin Ruslan,6-1 1-6 [10/8],Tashkent Masters League,2024-06-19
+26,Malikov Humoyun,Bukharov Ulugbek,6-3 6-2,Tashkent Masters League,2024-06-25
+27,Rogozin Anton,Bukharov Ulugbek,6-3 6-1,Tashkent Masters League,2024-06-25
+28,Malikov Humoyun,Vohidov Nodir,3-6 6-3 6-4,Tashkent Masters League,2024-06-26
+29,Vohidov Nodir,Bukharov Ulugbek,7-5 6-4,Tashkent Masters League,2024-06-28
+30,Musadjanov Hatam,Malikov Humoyun,6-3 4-6 6-4,Tashkent Masters League. Season 2,2024-07-01
+31,Kamilov Baxriddin,Kan Maksim,6-0 7-5,Tashkent Masters League. Season 2,2024-07-02
+32,Rogozin Anton,Shamuratov Farrukh,6-3 6-3,Tashkent Masters League. Season 2,2024-07-02
+33,Kan Maksim,Niyazov Shoxrux,4-6 6-4 [12/10],Tashkent Masters League. Season 2,2024-07-02
+34,Shamuratov Farrukh,Musadjanov Hatam,6-4 7-5,Tashkent Masters League. Season 2,2024-07-03
+35,Kamilov Baxriddin,Lim Mikhail,6-7 6-3 [10/3],Tashkent Masters League. Season 2,2024-07-04
+36,Ashurmatov Bakhtiyor,Ahrarov Izzat,7-5 6-4,Tashkent Masters League. Season 2,2024-07-04
+37,Rogozin Anton,Malikov Humoyun,6-3 6-2,Tashkent Masters League. Season 2,2024-07-04
+38,Abduraimov Vladimir,Niyazov Shoxrux,6-2 6-3,Tashkent Masters League. Season 2,2024-07-04
+39,Rogozin Anton,Ruziev Davron,6-2 7-5,Tashkent Masters League. Season 2,2024-07-05
+40,Ashurmatov Bakhtiyor,Logvis Kirill,3-6 (11/9) 6-3 [11/9],Tashkent Masters League. Season 2,2024-07-07
+41,Kamilov Baxriddin,Abduraimov Vladimir,6-1 4-6 [7/1],Tashkent Masters League. Season 2,2024-07-09
+42,Logvis Kirill,Tadjiev Khamdam,6-1 6-1,Tashkent Masters League. Season 2,2024-07-09
+43,Razzakov Alisher,Shamuratov Farrukh,6-3 3-6 6-1,Tashkent Masters League. Season 2,2024-07-10
+44,Razzakov Alisher,Musadjanov Hatam,6-4 6-1,Tashkent Masters League. Season 2,2024-07-10
+45,Razzakov Alisher,Malikov Humoyun,6-2 6-2,Tashkent Masters League. Season 2,2024-07-11
+46,Shamuratov Farrukh,Bukharov Ulugbek,3-6 6-4 [10/8],Tashkent Masters League. Season 2,2024-07-11
+47,Razzakov Alisher,Vohidov Nodir,6-3 6-2,Tashkent Masters League. Season 2,2024-07-12
+48,Kamilov Baxriddin,Ashurmatov Bakhtiyor,4-6 6-3 [10/4],Tashkent Masters League. Season 2,2024-07-12
+49,Logvis Kirill,Abduraimov Vladimir,6-4 6-3,Tashkent Masters League. Season 2,2024-07-13
+50,Musadjanov Hatam,Vohidov Nodir,6-0 6-1,Tashkent Masters League. Season 2,2024-07-13
+51,Musadjanov Hatam,Ruziev Davron,7-5 6-3,Tashkent Masters League. Season 2,2024-07-15
+52,Ruziev Davron,Malikov Humoyun,6-4 4-6 6-4,Tashkent Masters League. Season 2,2024-07-16
+53,Malikov Humoyun,Shamuratov Farrukh,3-6 6-3 6-4,Tashkent Masters League. Season 2,2024-07-17
+54,Niyazov Zarrux,Malikov Humoyun,6-7 (3/7) 6-4 [10/5],Tashkent Masters League. Season 2,2024-07-18
+55,Kan Maksim,Abduraimov Vladimir,6-3 6-4,Tashkent Masters League. Season 2,2024-07-19
+56,Ashurmatov Bakhtiyor,Kan Maksim,6-4 6-2,Tashkent Masters League. Season 2,2024-07-20
+57,Logvis Kirill,Kamilov Baxriddin,6-0 6-3,Tashkent Masters League. Season 2,2024-07-21
+58,Ashurmatov Bakhtiyor,Abduraimov Vladimir,6-1 6-7 [10/6],Tashkent Masters League. Season 2,2024-07-21
+59,Ashurmatov Bakhtiyor,Tadjiev Khamdam,6-1 6-3,Tashkent Masters League. Season 2,2024-07-21
+60,Ahrarov Izzat,Kamilov Baxriddin,6-2 2-6 6-1,Tashkent Masters League. Season 2,2024-07-23
+61,Ahrarov Izzat,Abduraimov Vladimir,7-6 7-5,Tashkent Masters League. Season 2,2024-07-23
+62,Rogozin Anton,Niyazov Zarrux,4-6 7-6 (7/1) [10/2],Tashkent Masters League. Season 2,2024-07-23
+63,Ahrarov Izzat,Kan Maksim,6-3 1-6 6-0,Tashkent Masters League. Season 2,2024-07-25
+64,Rogozin Anton,Vohidov Nodir,6-2 6-3,Tashkent Masters League. Season 2,2024-07-25
+65,Niyazov Zarrux,Bukharov Ulugbek,6-3 7-6 (7/2),Tashkent Masters League. Season 2,2024-07-25
+66,Logvis Kirill,Kan Maksim,6-3 6-3,Tashkent Masters League. Season 2,2024-07-27
+67,Ahrarov Izzat,Tadjiev Khamdam,4-6 6-4 6-3,Tashkent Masters League. Season 2,2024-07-30
+68,Rogozin Anton,Musadjanov Hatam,7-5 3-6 [10/6],Tashkent Masters League. Season 2,2024-07-30
+69,Niyazov Zarrux,Musadjanov Hatam,6-3 1-6 6-1,Tashkent Masters League. Season 2,2024-07-30
+70,Khikmatov Shukhrat,Medvedev Vladimir,8-6,Tashkent Open League,2024-08-01
+71,Maxamedkasimov Rustam,Rashidov Amirkhan,7-6 (8/6) 6-7 (4/7) [7/2],Tashkent Masters League. Season 3,2024-08-01
+72,Abduraimov Vladimir,Bukharov Ulugbek,7-6 6-2,Tashkent Masters League. Season 3,2024-08-01
+73,Rogozin Anton,Ahrarov Izzat,6-1 6-4,Tashkent Masters League. Season 3,2024-08-01
+74,Fetisov Artem,Medvedev Vladimir,8-4,Tashkent Open League,2024-08-02
+75,Rogozin Anton,Kamilov Baxriddin,6-0 6-3,Tashkent Masters League. Season 3,2024-08-03
+76,Zakharchenko Petro,Levtsov Sergei,6-1 6-2,Tashkent Masters League. Season 3,2024-08-03
+77,Nazarov Sarvar,Wao Sasha,8-3,Tashkent Open League,2024-08-03
+78,Rogozin Anton,Logvis Kirill,6-4 6-4,Tashkent Masters League. Season 3,2024-08-04
+79,Fetisov Artem,Khikmatov Shukhrat,8-2,Tashkent Open League,2024-08-05
+80,Rogozin Anton,Ashurmatov Bakhtiyor,6-2 6-3,Tashkent Masters League. Season 3,2024-08-06
+81,Tadjiev Khamdam,Levtsov Sergei,6-0 6-3,Tashkent Masters League. Season 3,2024-08-06
+82,Maxamedkasimov Rustam,Alimatov Burxon,7-5 6-3,Tashkent Masters League. Season 3,2024-08-06
+83,Khikmatov Shukhrat,Turabov Anvar,8-6,Tashkent Open League,2024-08-06
+84,Sadibekov Bulat,Nazarov Sarvar,8-3,Tashkent Open League,2024-08-06
+85,Nazarov Sarvar,Khikmatov Shukhrat,9-7,Tashkent Open League,2024-08-06
+86,Khikmatov Shukhrat,Sadibekov Bulat,8-5,Tashkent Open League,2024-08-06
+87,Abduraimov Vladimir,Levtsov Sergei,6-0 6-0,Tashkent Masters League. Season 3,2024-08-07
+88,Khikmatov Shukhrat,Wao Sasha,8-1,Tashkent Open League,2024-08-08
+89,Ashurmatov Bakhtiyor,Ahrarov Izzat,2-6 6-3 7-5,Tashkent Masters League. Season 3,2024-08-08
+90,Ibragimov Murod,Kamilov Baxriddin,6-2 6-2,Tashkent Masters League. Season 3,2024-08-08
+91,Abduraimov Vladimir,Alimatov Burxon,6-1 6-3,Tashkent Masters League. Season 3,2024-08-08
+92,Rashidov Amirkhan,Levtsov Sergei,6-3 7-5,Tashkent Masters League. Season 3,2024-08-08
+93,Ahrarov Izzat,Ibragimov Murod,3-6 6-2 [10/5],Tashkent Masters League. Season 3,2024-08-09
+94,Rashidov Amirkhan,Magomedov Arsen,2-6 7-5 [10/6],Tashkent Masters League. Season 3,2024-08-13
+95,Rogozin Anton,Ibragimov Murod,6-2 6-1,Tashkent Masters League. Season 3,2024-08-13
+96,Sharopov Alisher,Maxamedkasimov Rustam,6-1 6-1,Tashkent Masters League. Season 3,2024-08-13
+97,Sadibekov Bulat,Turabov Anvar,8-5,Tashkent Open League,2024-08-14
+98,Rashidov Amirkhan,Tadjiev Khamdam,7-5 7-5,Tashkent Masters League. Season 3,2024-08-15
+99,Rogozin Anton,Niyazov Zarrux,4-6 6-3 6-3,Tashkent Masters League. Season 3,2024-08-15
+100,Nazarov Sarvar,Turabov Anvar,8-3,Tashkent Open League,2024-08-15
+101,Sadibekov Bulat,Wao Sasha,9-7,Tashkent Open League,2024-08-15
+102,Maxamedkasimov Rustam,Levtsov Sergei,6-1 6-0,Tashkent Masters League. Season 3,2024-08-15
+103,Abduraimov Vladimir,Sharopov Alisher,7-5 4-4,Tashkent Masters League. Season 3,2024-08-15
+104,Karimkhodjaev Abdulaziz,Wao Sasha,8-1,Tashkent Open League,2024-08-15
+105,Saydullaev Khikmatulla,Ashurmatov Bakhtiyor,5-7 6-4 [10/8],Tashkent Masters League. Season 3,2024-08-16
+106,Rogozin Anton,Razzakov Alisher,6-2 6-3,Tashkent Masters League. Season 3,2024-08-16
+107,Sadibekov Bulat,Mirkhamidov Mirkomil,8-4,Tashkent Open League,2024-08-18
+108,Abduraimov Vladimir,Rashidov Amirkhan,6-2 7-6 (7/5),Tashkent Masters League. Season 3,2024-08-18
+109,Medvedev Vladimir,Karimov Mardonbek,9-8 (7/2),Tashkent Open League,2024-08-19
+110,Medvedev Vladimir,Karimkhodjaev Abdulaziz,9-8 (7/3),Tashkent Open League,2024-08-20
+111,Ashurmatov Bakhtiyor,Kamilov Baxriddin,6-3 0-6 6-2,Tashkent Masters League. Season 3,2024-08-21
+112,Karimkhodjaev Abdulaziz,Nazarov Sarvar,8-2,Tashkent Open League,2024-08-22
+113,Abduraimov Vladimir,Tadjiev Khamdam,6-1 6-7 [10/3],Tashkent Masters League. Season 3,2024-08-23
+114,Wao Sasha,Turabov Anvar,8-6,Tashkent Open League,2024-08-23
+115,Zakharchenko Petro,Maxamedkasimov Rustam,6-3 6-3,Tashkent Masters League. Season 3,2024-08-24
+116,Khikmatov Shukhrat,Mirkhamidov Mirkomil,8-4,Tashkent Open League,2024-08-24
+117,Medvedev Vladimir,Wao Sasha,8-5,Tashkent Open League,2024-08-25
+118,Ashurmatov Bakhtiyor,Ibragimov Murod,7-6 0-6 6-4,Tashkent Masters League. Season 3,2024-08-26
+119,Alimatov Burxon,Rashidov Amirkhan,6-3 7-5,Tashkent Masters League. Season 3,2024-08-27
+120,Medvedev Vladimir,Sadibekov Bulat,8-7 (7/4),Tashkent Open League,2024-08-27
+121,Maxamedkasimov Rustam,Abduraimov Vladimir,6-4 6-4,Tashkent Masters League. Season 3,2024-08-27
+122,Malikov Humoyun,Kamilov Baxriddin,6-1 3-6 6-2,Tashkent Masters League. Season 3,2024-08-27
+123,Razzakov Alisher,Ibragimov Murod,6-0 6-0,Tashkent Masters League. Season 3,2024-08-27
+124,Ashurmatov Bakhtiyor,Malikov Humoyun,6-3 7-6,Tashkent Masters League. Season 3,2024-08-28
+125,Tadjiev Khamdam,Maxamedkasimov Rustam,4-6 (10/3) 7-5,Tashkent Masters League. Season 3,2024-08-31
+126,Zakharchenko Petro,Tadjiev Khamdam,6-4 3-6 [10/8],Tashkent Masters League. Season 3,2024-08-31
+127,Razzakov Alisher,Ashurmatov Bakhtiyor,6-4 6-2,Tashkent Masters League. Season 3,2024-09-01
+128,Razzakov Alisher,Kamilov Baxriddin,6-1 6-0,Tashkent Masters League. Season 3,2024-09-02
+129,Rashidov Amirkhan,Bukharov Ulugbek,6-1 6-0,Tashkent Masters League. Season 3,2024-09-02
+130,Razzakov Alisher,Niyazov Zarrux,6-2 6-1,Tashkent Masters League. Season 3,2024-09-03
+131,Niyazov Zarrux,Kamilov Baxriddin,6-3 6-1,Tashkent Masters League. Season 3,2024-09-03
+132,Fetisov Artem,Sadibekov Bulat,8-5,Tashkent Open League,2024-09-07
+133,Malikov Humoyun,Ahrarov Izzat,6-4 5-7 6-3,Tashkent Masters League. Season 3,2024-09-10
+134,Medvedev Vladimir,Turabov Anvar,9-8 (8/6),Tashkent Open League,2024-09-10
+135,Alimatov Burxon,Levtsov Sergei,6-3 6-1,Tashkent Masters League. Season 3,2024-09-11
+136,Rogozin Anton,Malikov Humoyun,6-1 6-4,Tashkent Masters League. Season 3,2024-09-11
+137,Razzakov Alisher,Ahrarov Izzat,6-1 6-0,Tashkent Masters League. Season 3,2024-09-11
+138,Fetisov Artem,Wao Sasha,8-5,Tashkent Open League,2024-09-11
+139,Nazarov Sarvar,Medvedev Vladimir,8-3,Tashkent Open League,2024-09-11
+140,Nazarov Sarvar,Fetisov Artem,8-5,Tashkent Open League,2024-09-12
+141,Zakharchenko Petro,Rashidov Amirkhan,6-3,Tashkent Masters League. Season 3,2024-09-13
+142,Turabov Anvar,Fetisov Artem,8-3,Tashkent Open League,2024-09-15
+143,Pankratov Vladimir,Khidoyatov Takhir,8-6,Tashkent Open League. Season 2,2024-09-16
+144,Medvedev Vladimir,Nazarov Sarvar,9-8,Tashkent Open League. Season 2,2024-09-17
+145,Khidoyatov Takhir,Azimov Bobur,8-1 8-7,Tashkent Open League. Season 2,2024-09-18
+146,Ochildiyev Husniddin,Wao Sasha,8-2,Tashkent Open League. Season 2,2024-09-19
+147,Medvedev Vladimir,Fetisov Artem,8-6,Tashkent Open League. Season 2,2024-09-19
+148,Pankratov Vladimir,Azimov Bobur,8-6,Tashkent Open League. Season 2,2024-09-20
+149,Medvedev Vladimir,Sadibekov Bulat,8-2,Tashkent Open League. Season 2,2024-09-21
+150,Levtsov Sergei,Medvedev Vladimir,8-4,Tashkent Open League. Season 2,2024-09-21
+151,Ochildiyev Husniddin,Zuhirxojaev Nuriddin,8-1,Tashkent Open League. Season 2,2024-09-22
+152,Levtsov Sergei,Khikmatov Shukhrat,8-6,Tashkent Open League. Season 2,2024-09-22
+153,Pankratov Vladimir,Zuhirxojaev Nuriddin,8-1,Tashkent Open League. Season 2,2024-09-23
+154,Ibragimov Murod,Rashidov Amirkhan,6-1 6-0,Tashkent Masters League. Season 4,2024-09-23
+155,Ibragimov Murod,Kamilov Baxriddin,6-4 6-4,Tashkent Masters League. Season 4,2024-09-24
+156,Tulanov Temur,Fetisov Artem,8-6,Tashkent Open League. Season 2,2024-09-24
+157,Khikmatov Shukhrat,Nazarov Sarvar,8-6,Tashkent Open League. Season 2,2024-09-24
+158,Kadirov Bakhrom,Kim Radion,6-3 7-5,Tashkent Masters League. Season 4,2024-09-24
+159,Fetisov Artem,Sadibekov Bulat,8-2,Tashkent Open League. Season 2,2024-09-24
+160,Fetisov Artem,Khikmatov Shukhrat,8-7,Tashkent Open League. Season 2,2024-09-24
+161,Fetisov Artem,Nazarov Sarvar,8-2,Tashkent Open League. Season 2,2024-09-24
+162,Isaboev Sarvar,Sultanov Jamoliddin,3-6 6-3 6-4,Tashkent Masters League. Season 4,2024-09-25
+163,Sadibekov Bulat,Nazarov Sarvar,8-5,Tashkent Open League. Season 2,2024-09-26
+164,Khikmatov Shukhrat,Medvedev Vladimir,9-7,Tashkent Open League. Season 2,2024-09-26
+165,Ochildiyev Husniddin,Pankratov Vladimir,8-6,Tashkent Open League. Season 2,2024-09-26
+166,Nuriddinov Jaxongir,Kim Radion,6-3 7-5,Tashkent Masters League. Season 4,2024-09-26
+167,Muminov Bahtiyar,Ahrarov Izzat,6-2 6-3,Tashkent Masters League. Season 4,2024-09-26
+168,Khidoyatov Takhir,Khoroshaev Ivan,8-2,Tashkent Open League. Season 2,2024-09-26
+169,Vohidov Nodir,Ibragimov Murod,7-5 7-6 (7/4),Tashkent Masters League. Season 4,2024-09-27
+170,Kamilov Baxriddin,Alimatov Burxon,6-4 6-1,Tashkent Masters League. Season 4,2024-09-27
+171,Ibragimov Murod,Tadjiev Khamdam,6-4 6-4,Tashkent Masters League. Season 4,2024-09-28
+172,Isaboev Sarvar,Kim Radion,6-1 4-6 6-3,Tashkent Masters League. Season 4,2024-09-28
+173,Shirinov Jahon,Matkurbanov Bahtiyor,6-0 6-1,Tashkent Masters League. Season 4,2024-09-28
+174,Pankratov Vladimir,Khoroshaev Ivan,8-6,Tashkent Open League. Season 2,2024-09-29
+175,Wao Sasha,Pankratov Vladimir,8-3,Tashkent Open League. Season 2,2024-09-30
+176,Levtsov Sergei,Sadibekov Bulat,8-4,Tashkent Open League. Season 2,2024-10-01
+177,Rogozin Anton,Ashurmatov Bakhtiyor,7-5 6-4,Tashkent Masters League. Season 4,2024-10-01
+178,Turabov Anvar,Ochildiyev Husniddin,8-3,Tashkent Open League. Season 2,2024-10-01
+179,Pak Igor,Khikmatov Shukhrat,8-4,Tashkent Open League. Season 2,2024-10-01
+180,Khikmatov Shukhrat,Tulanov Temur,8-6,Tashkent Open League. Season 2,2024-10-01
+181,Tulanov Temur,Sadibekov Bulat,9-7,Tashkent Open League. Season 2,2024-10-01
+182,Vohidov Nodir,Tadjiev Khamdam,6-3 7-6 (7/5),Tashkent Masters League. Season 4,2024-10-01
+183,Pak Igor,Sadibekov Bulat,8-6,Tashkent Open League. Season 2,2024-10-01
+184,Medvedev Vladimir,Tulanov Temur,8-4,Tashkent Open League. Season 2,2024-10-02
+185,Tulanov Temur,Nazarov Sarvar,9-8 (7/5),Tashkent Open League. Season 2,2024-10-02
+186,Levtsov Sergei,Fetisov Artem,8-5,Tashkent Open League. Season 2,2024-10-03
+187,Rogozin Anton,Ahrarov Izzat,7-5 7-5,Tashkent Masters League. Season 4,2024-10-03
+188,Malikov Humoyun,Ahrarov Izzat,6-3 2-6 6-3,Tashkent Masters League. Season 4,2024-10-04
+189,Azimov Bobur,Ochildiyev Husniddin,8-4,Tashkent Open League. Season 2,2024-10-05
+190,Ashurmatov Bakhtiyor,Muminov Bahtiyar,6-3 4-6 [10/8],Tashkent Masters League. Season 4,2024-10-05
+191,Turabov Anvar,Pankratov Vladimir,8-2,Tashkent Open League. Season 2,2024-10-06
+192,Turabov Anvar,Wao Sasha,8-5,Tashkent Open League. Season 2,2024-10-06
+193,Razzakov Alisher,Ahrarov Izzat,6-2 6-2,Tashkent Masters League. Season 4,2024-10-06
+194,Azimov Bobur,Wao Sasha,8-6,Tashkent Open League. Season 2,2024-10-07
+195,Wao Sasha,Khidoyatov Takhir,9-8 (7/2),Tashkent Open League. Season 2,2024-10-07
+196,Vohidov Nodir,Kamilov Baxriddin,7-5 6-2,Tashkent Masters League. Season 4,2024-10-08
+197,Kim Radion,Sultanov Jamoliddin,6-7 (4/7) 6-2 [13/11],Tashkent Masters League. Season 4,2024-10-08
+198,Muminov Bahtiyar,Malikov Humoyun,6-1 7-6 (7/2),Tashkent Masters League. Season 4,2024-10-08
+199,Ochildiyev Husniddin,Khoroshaev Ivan,8-2,Tashkent Open League. Season 2,2024-10-08
+200,Levtsov Sergei,Nazarov Sarvar,8-2,Tashkent Open League. Season 2,2024-10-08
+201,Muminov Bahtiyar,Maxamedkasimov Rustam,6-3 6-0,Tashkent Masters League. Season 4,2024-10-09
+202,Khoroshaev Ivan,Zuhirxojaev Nuriddin,7-3,Tashkent Open League. Season 2,2024-10-09
+203,Ashurmatov Bakhtiyor,Ahrarov Izzat,6-4 2-6 6-3,Tashkent Masters League. Season 4,2024-10-09
+204,Shirinov Jahon,Kim Radion,6-2 6-0,Tashkent Masters League. Season 4,2024-10-09
+205,Levtsov Sergei,Tulanov Temur,8-1,Tashkent Open League. Season 2,2024-10-10
+206,Rogozin Anton,Razzakov Alisher,6-4 5-7 [10/8],Tashkent Masters League. Season 4,2024-10-10
+207,Pak Igor,Medvedev Vladimir,8-3,Tashkent Open League. Season 2,2024-10-10
+208,Kim Radion,Muhammadaliyev Muhtor,6-3 6-3,Tashkent Masters League. Season 4,2024-10-11
+209,Muminov Bahtiyar,Abduraimov Vladimir,6-1 6-1,Tashkent Masters League. Season 4,2024-10-12
+210,Razzakov Alisher,Muminov Bahtiyar,7-5 6-1,Tashkent Masters League. Season 4,2024-10-13
+211,Ahrarov Izzat,Maxamedkasimov Rustam,4-6 6-3 [10/6],Tashkent Masters League. Season 4,2024-10-14
+212,Pak Igor,Tulanov Temur,8-2,Tashkent Open League. Season 2,2024-10-17
+213,Rogozin Anton,Maxamedkasimov Rustam,6-3 6-2,Tashkent Masters League. Season 4,2024-10-18
+214,Rogozin Anton,Malikov Humoyun,6-2 6-1,Tashkent Masters League. Season 4,2024-10-20
+215,Shirinov Jahon,Alimatov Burxon,6-2 6-1,Tashkent Masters League. Season 4,2024-10-21
+216,Levtsov Sergei,Pak Igor,8-6,Tashkent Open League. Season 2,2024-10-22
+217,Khidoyatov Takhir,Zuhirxojaev Nuriddin,8-0,Tashkent Open League. Season 2,2024-10-23
+218,Malikov Humoyun,Abduraimov Vladimir,6-3 6-3,Tashkent Masters League. Season 4,2024-10-23
+219,Kim Radion,Levtsov Sergei,1-6 7-5 6-4,Tashkent Masters League. Season 4,2024-10-24
+220,Malikov Humoyun,Maxamedkasimov Rustam,6-3 7-5,Tashkent Masters League. Season 4,2024-10-27
+221,Rogozin Anton,Abduraimov Vladimir,6-3 6-1,Tashkent Masters League. Season 4,2024-11-02
+222,Sultanov Jamoliddin,Matkurbanov Bahtiyor,6-1 6-2,Tashkent Masters League. Season 4,2024-11-02
+223,Razzakov Alisher,Ashurmatov Bakhtiyor,6-3 7-5,Tashkent Masters League. Season 4,2024-11-03
+224,Kamilov Baxriddin,Rashidov Amirkhan,6-3 6-3,Tashkent Masters League. Season 4,2024-11-03
+225,Ibragimov Murod,Alimatov Burxon,6-3 6-4,Tashkent Masters League. Season 4,2024-11-09
+226,Nuriddinov Jaxongir,Sultanov Jamoliddin,6-1 2-6 6-3,Tashkent Masters League. Season 4,2024-11-09
+227,Nuriddinov Jaxongir,Kadirov Bakhrom,6-4 3-6 6-1,Tashkent Masters League. Season 4,2024-11-12
+228,Sultanov Jamoliddin,Muhammadaliyev Muhtor,6-1 6-4,Tashkent Masters League. Season 4,2024-11-14
+229,Nuriddinov Jaxongir,Levtsov Sergei,6-4 6-3,Tashkent Masters League. Season 4,2024-11-16
+230,Sultanov Jamoliddin,Levtsov Sergei,6-1 3-6 6-3,Tashkent Masters League. Season 4,2024-11-17
+231,Isaboev Sarvar,Nuriddinov Jaxongir,6-3 2-6 [7/5],Tashkent Masters League. Season 4,2024-11-18
+232,Kadirov Bakhrom,Sultanov Jamoliddin,6-4 6-4,Tashkent Masters League. Season 4,2024-11-21
+233,Sadibekov Bulat,Ismailov Ziyodbek,8-1,Open League Preseason 2025,2025-02-23
+234,Razzakov Alisher,Rogozin Anton,6-4 7-6 (7/5),Masters League Preseason 2025,2025-02-25
+235,N Dzhalil,Rashidov Amirkhan,6-4 6-1,Masters League Preseason 2025,2025-02-26
+236,Shirinov Jahon,Muminov Bahtiyar,6-1 7-5,Masters League Preseason 2025,2025-02-26
+237,Razzakov Alisher,Tadjiev Khamdam,6-3 6-3,Masters League Preseason 2025,2025-02-26
+238,Nazarov Sarvar,Pankratov Vladimir,8-4,Open League Preseason 2025,2025-02-27
+239,N Dzhalil,Tadjiev Khamdam,6-3 6-3,Masters League Preseason 2025,2025-02-28
+240,Nazarov Sarvar,Sadibekov Bulat,8-2,Open League Preseason 2025,2025-03-01
+241,N Dzhalil,Muminov Bahtiyar,6-4 6-4,Masters League Preseason 2025,2025-03-03
+242,Mirzoev Suren,Pak Igor,8-3,Open League Preseason 2025,2025-03-03
+243,Sadibekov Bulat,Morita Taisei,8-1,Open League Preseason 2025,2025-03-03
+244,Shirinov Jahon,Kamilov Baxriddin,6-1 6-3,Masters League Preseason 2025,2025-03-04
+245,Nazarov Sarvar,Ismailov Ziyodbek,8-1,Open League Preseason 2025,2025-03-05
+246,Sadibekov Bulat,Khikmatov Shukhrat,9-7,Open League Preseason 2025,2025-03-06
+247,Shirinov Jahon,Tadjiev Khamdam,6-3 6-0,Masters League Preseason 2025,2025-03-06
+248,Mirzoev Suren,Choi Alexey,8-1,Open League Preseason 2025,2025-03-07
+249,Mirzoev Suren,Nazarov Sarvar,8-3,Open League Preseason 2025,2025-03-07
+250,Kim Radion,Tadjiev Khamdam,6-0 6-1,Masters League Preseason 2025,2025-03-07
+251,Pankratov Vladimir,Pak Igor,8-3,Open League Preseason 2025,2025-03-09
+252,Kamilov Baxriddin,Rogozin Anton,6-4 6-3,Masters League Preseason 2025,2025-03-09
+253,Rogozin Anton,Shirinov Jahon,6-3 6-7 (5/7) [10/5],Masters League Preseason 2025,2025-03-10
+254,Rogozin Anton,Kan Maksim,6-0 6-3,Masters League Preseason 2025,2025-03-12
+255,Rogozin Anton,Kim Radion,6-2 6-3,Masters League Preseason 2025,2025-03-13
+256,Mirzoev Suren,Sadibekov Bulat,8-1,Open League Preseason 2025,2025-03-15
+257,Niyazov Zarrux,Rogozin Anton,6-4 4-6 [10/8],Masters League Preseason 2025,2025-03-15
+258,Mirzoev Suren,Khikmatov Shukhrat,8-6,Open League Preseason 2025,2025-03-15
+259,Shirinov Jahon,Kan Maksim,7-6 (9/7) 7-5,Masters League Preseason 2025,2025-03-16
+260,Rashidov Amirkhan,Kan Maksim,6-1 6-2,Masters League Preseason 2025,2025-03-17
+261,Sadibekov Bulat,Pankratov Vladimir,8-3,Open League Preseason 2025,2025-03-22
+262,Shirinov Jahon,Rashidov Amirkhan,6-1 6-2,Masters League Preseason 2025,2025-03-22
+263,Pankratov Vladimir,Ismailov Ziyodbek,8-0,Open League Preseason 2025,2025-03-23
+264,Pankratov Vladimir,Morita Taisei,8-1,Open League Preseason 2025,2025-03-26
+265,Pankratov Vladimir,Turabov Anvar,9-7,Open League Preseason 2025,2025-03-30
+266,Kan Maksim,Kim Radion,2-6 6-4 6-2,Masters League Preseason 2025,2025-03-30
+267,Pankratov Vladimir,Khikmatov Shukhrat,9-8,Open League Preseason 2025,2025-03-31
+268,Razzakov Alisher,Kamilov Baxriddin,6-1 6-0,Masters League Preseason 2025,2025-03-31
+269,Rogozin Anton,Rashidov Amirkhan,6-1 6-2,Masters League Preseason 2025,2025-03-31
+270,Kan Maksim,Kamilov Baxriddin,6-1 1-6 6-3,Masters League Preseason 2025,2025-04-01
+271,Tadjiev Khamdam,Rashidov Amirkhan,7-5 6-2,Masters League Preseason 2025,2025-04-01
+272,Kamilov Baxriddin,Muminov Bahtiyar,6-4 2-6 [10/6],Masters League Preseason 2025,2025-04-01
+273,Rogozin Anton,Tadjiev Khamdam,6-1 6-0,Masters League Preseason 2025,2025-04-03
+274,Sadibekov Bulat,Turabov Anvar,8-5,Open League Preseason 2025,2025-04-04
+275,Razzakov Alisher,Muminov Bahtiyar,6-0 6-0,Masters League Preseason 2025,2025-04-04
+276,Mirzoev Suren,Pankratov Vladimir,8-4,Open League Preseason 2025,2025-04-05
+277,Rogozin Anton,Muminov Bahtiyar,6-3 6-4,Masters League Preseason 2025,2025-04-05
+278,Pankratov Vladimir,Choi Alexey,8-2,Open League Preseason 2025,2025-04-06
+279,Rogozin Anton,Vohidov Nodir,6-2 6-2,Masters League Season 1/2025,2025-04-06
+280,Rogozin Anton,Kamilov Baxriddin,6-2 6-3,Masters League Season 1/2025,2025-04-08
+281,Abdullaev Sharof,Maksudov Temur,6-2 6-3,Masters League Season 1/2025,2025-04-09
+282,Sultanov Jamoliddin,Pankratov Vladimir,6-1 6-1,Masters League Season 1/2025,2025-04-09
+283,Rogozin Anton,Larionov Svyatoslav,7-5 2-6 6-0,Masters League Season 1/2025,2025-04-09
+284,Rashidov Amirkhan,Sadibekov Bulat,6-0 6-3,Masters League Season 1/2025,2025-04-10
+285,Rogozin Anton,Musadjanov Hatam,6-2 6-1,Masters League Season 1/2025,2025-04-10
+286,Tadjiev Khamdam,Mirzoev Suren,2-6 6-1 [10/5],Masters League Season 1/2025,2025-04-10
+287,Malikov Humoyun,Vohidov Nodir,7-5 6-7 (3/7) 6-3,Masters League Season 1/2025,2025-04-10
+288,Azimov Bobur,Ochildiyev Husniddin,6-2 6-2,Masters League Season 1/2025,2025-04-10
+289,Pankratov Vladimir,Fetisov Artem,7-5 2-6 6-3,Masters League Season 1/2025,2025-04-10
+290,Abdullaev Sharof,Khikmatov Shukhrat,6-1 6-0,Masters League Season 1/2025,2025-04-11
+291,Fetisov Artem,Sultanov Jamoliddin,1-6 6-2 6-4,Masters League Season 1/2025,2025-04-11
+292,Abduvakhidov Alisher,Maxamedkasimov Rustam,7-5 7-5,Masters League Season 1/2025,2025-04-11
+293,Maksudov Temur,Ochildiyev Husniddin,6-2 2-6 [10/7],Masters League Season 1/2025,2025-04-12
+294,Abduraimov Vladimir,Bukharov Ulugbek,4-6 6-1 4-2,Masters League Season 1/2025,2025-04-12
+295,Razzoqov Davron,Pankratov Vladimir,7-6 (7/2) 3-6 7-5,Masters League Season 1/2025,2025-04-13
+296,Mirzoev Suren,Azimov Bobur,6-2 1-6 6-3,Masters League Season 1/2025,2025-04-14
+297,Shamuratov Farrukh,Vohidov Nodir,6-1 6-4,Masters League Season 1/2025,2025-04-15
+298,Ibragimov Murod,Maxamedkasimov Rustam,6-2 6-4,Masters League Season 1/2025,2025-04-15
+299,Pankratov Vladimir,Sadibekov Bulat,7-5 6-2,Masters League Season 1/2025,2025-04-15
+300,Razzakov Alisher,Kamilov Baxriddin,6-2 6-1,Masters League Season 1/2025,2025-04-15
+301,Tadjiev Khamdam,Maksudov Temur,6-2 6-3,Masters League Season 1/2025,2025-04-15
+302,Abdullaev Sharof,Khidoyatov Takhir,6-2 6-2,Masters League Season 1/2025,2025-04-15
+303,Razzoqov Davron,Sultanov Jamoliddin,6-2 3-6 [10/6],Masters League Season 1/2025,2025-04-15
+304,Larionov Svyatoslav,Shamuratov Farrukh,6-0 6-3,Masters League Season 1/2025,2025-04-16
+305,Beknazarov Botirbek,Rashidov Amirkhan,6-3 1-6 [10/7],Masters League Season 1/2025,2025-04-16
+306,Tadjiev Khamdam,Khikmatov Shukhrat,6-1 6-3,Masters League Season 1/2025,2025-04-16
+307,Abdullaev Sharof,Ochildiyev Husniddin,6-1 6-1,Masters League Season 1/2025,2025-04-17
+308,Azimov Bobur,Khidoyatov Takhir,6-7 (2/7) 6-4 [10/8],Masters League Season 1/2025,2025-04-17
+309,Beknazarov Botirbek,Pankratov Vladimir,6-2 6-2,Masters League Season 1/2025,2025-04-17
+310,Mirzoev Suren,Khikmatov Shukhrat,2-6 6-4 6-4,Masters League Season 1/2025,2025-04-17
+311,Abdullaev Sharof,Azimov Bobur,6-1 6-0,Masters League Season 1/2025,2025-04-18
+312,Shirinov Jahon,Shamuratov Farrukh,4-6 6-4 [10/8],Masters League Season 1/2025,2025-04-18
+313,Sultanov Jamoliddin,Sadibekov Bulat,6-2 6-1,Masters League Season 1/2025,2025-04-18
+314,Khidoyatov Takhir,Ochildiyev Husniddin,7-6 (7/5) 1-6 [10/4],Masters League Season 1/2025,2025-04-18
+315,Alimatov Burxon,Razzoqov Davron,6-3 1-6 6-2,Masters League Season 1/2025,2025-04-18
+316,Mirzoev Suren,Dosmatov Iskandar,6-2 7-6,Masters League Season 1/2025,2025-04-19
+317,Tadjiev Khamdam,Ochildiyev Husniddin,6-1 6-0,Masters League Season 1/2025,2025-04-19
+318,Ibragimov Murod,Akhtamov Farrukh,6-2 6-3,Masters League Season 1/2025,2025-04-19
+319,Razzakov Alisher,Musadjanov Hatam,6-4 7-6,Masters League Season 1/2025,2025-04-20
+320,Ochildiyev Husniddin,Dosmatov Iskandar,6-1 6-1,Masters League Season 1/2025,2025-04-20
+321,Abduvakhidov Alisher,Akhtamov Farrukh,2-6 6-3 6-3,Masters League Season 1/2025,2025-04-20
+322,Rogozin Anton,Shamuratov Farrukh,6-1 6-2,Masters League Season 1/2025,2025-04-20
+323,Alimatov Burxon,Sultanov Jamoliddin,6-2 6-3,Masters League Season 1/2025,2025-04-21
+324,Mirzoev Suren,Karimov Islombek,6-1 6-3,Masters League Season 1/2025,2025-04-21
+325,Larionov Svyatoslav,Musadjanov Hatam,6-4 6-3,Masters League Season 1/2025,2025-04-21
+326,Musadjanov Hatam,Vohidov Nodir,6-3 6-1,Masters League Season 1/2025,2025-04-22
+327,Razzakov Alisher,Rogozin Anton,7-5 7-5,Masters League Season 1/2025,2025-04-22
+328,Shamuratov Farrukh,Kamilov Baxriddin,6-3 1-6 [11/9],Masters League Season 1/2025,2025-04-22
+329,Khidoyatov Takhir,Mirzoev Suren,6-7 (4/7) 6-2 [10/5],Masters League Season 1/2025,2025-04-22
+330,Beknazarov Botirbek,Razzoqov Davron,6-4 6-3,Masters League Season 1/2025,2025-04-22
+331,Rashidov Amirkhan,Sultanov Jamoliddin,6-3 6-1,Masters League Season 1/2025,2025-04-23
+332,Razzakov Alisher,Shamuratov Farrukh,6-0 7-5,Masters League Season 1/2025,2025-04-23
+333,Mirzoev Suren,Ochildiyev Husniddin,6-4 6-4,Masters League Season 1/2025,2025-04-23
+334,Khidoyatov Takhir,Karimov Islombek,6-3 6-3,Masters League Season 1/2025,2025-04-23
+335,Alimatov Burxon,Pankratov Vladimir,6-1 6-1,Masters League Season 1/2025,2025-04-23
+336,Azimov Bobur,Karimov Islombek,6-3 6-4,Masters League Season 1/2025,2025-04-24
+337,Isaboev Sarvar,Akhtamov Farrukh,7-6 6-4,Masters League Season 1/2025,2025-04-24
+338,Musadjanov Hatam,Malikov Humoyun,6-1 4-6 6-3,Masters League Season 1/2025,2025-04-24
+339,Abdullaev Sharof,Dosmatov Iskandar,6-0 6-0,Masters League Season 1/2025,2025-04-24
+340,Razzoqov Davron,Fetisov Artem,6-3 7-5,Masters League Season 1/2025,2025-04-24
+341,Rashidov Amirkhan,Pankratov Vladimir,6-0 2-6 [10/0],Masters League Season 1/2025,2025-04-25
+342,Razzakov Alisher,Vohidov Nodir,6-2 6-1,Masters League Season 1/2025,2025-04-25
+343,Khikmatov Shukhrat,Ochildiyev Husniddin,3-6 6-4 [12/10],Masters League Season 1/2025,2025-04-25
+344,Nazarov Sarvar,Neklesov Igor,8-0,Open League Season 1/2025,2025-04-25
+345,Fetisov Artem,Sadibekov Bulat,6-3 6-1,Masters League Season 1/2025,2025-04-25
+346,Alimatov Burxon,Sadibekov Bulat,6-1 6-4,Masters League Season 1/2025,2025-04-25
+347,Kadirov Bakhrom,Fetisov Artem,6-2 6-2,Masters League Season 1/2025,2025-04-25
+348,Abduvakhidov Alisher,Bukharov Ulugbek,6-1 6-2,Masters League Season 1/2025,2025-04-25
+349,Musadjanov Hatam,Kamilov Baxriddin,6-0 6-2,Masters League Season 1/2025,2025-04-26
+350,Kadirov Bakhrom,Sadibekov Bulat,6-3 6-0,Masters League Season 1/2025,2025-04-26
+351,Beknazarov Botirbek,Fetisov Artem,6-0 6-2,Masters League Season 1/2025,2025-04-26
+352,Akhtamov Farrukh,Ahrarov Izzat,6-3 7-5,Masters League Season 1/2025,2025-04-26
+353,Shamuratov Farrukh,Musadjanov Hatam,6-4 6-4,Masters League Season 1/2025,2025-04-26
+354,Beknazarov Botirbek,Sadibekov Bulat,6-0 6-2,Masters League Season 1/2025,2025-04-26
+355,Razzakov Alisher,Larionov Svyatoslav,7-5 7-5,Masters League Season 1/2025,2025-04-27
+356,Tadjiev Khamdam,Azimov Bobur,6-2 6-2,Masters League Season 1/2025,2025-04-27
+357,Razzoqov Davron,Azimov Bobur,6-2 3-6 6-4,Masters League Season 1/2025,2025-04-28
+358,Rogozin Anton,Malikov Humoyun,6-4 6-3,Masters League Season 1/2025,2025-04-28
+359,Akhtamov Farrukh,Abduraimov Vladimir,6-3 1-6 6-3,Masters League Season 1/2025,2025-04-29
+360,Shirinov Jahon,Kamilov Baxriddin,7-6 (7/5) 7-6 (7/3),Masters League Season 1/2025,2025-04-29
+361,Sultanov Jamoliddin,Karimov Mamurbek,6-2 6-2,Masters League Season 1/2025,2025-04-29
+362,Pankratov Vladimir,Dosmatov Iskandar,6-3 6-7 (7/9) [10/7],Masters League Season 1/2025,2025-04-30
+363,Isaboev Sarvar,Maxamedkasimov Rustam,7-5 3-6 [7/2],Masters League Season 1/2025,2025-04-30
+364,Kadirov Bakhrom,Azimov Bobur,6-3 6-3,Masters League Season 1/2025,2025-04-30
+365,Sadibekov Bulat,Khikmatov Shukhrat,3-6 6-4 [10/6],Masters League Season 1/2025,2025-04-30
+366,Nazarov Sarvar,Choi Alexey,8-0,Open League Season 1/2025,2025-04-30
+367,Ochildiyev Husniddin,Fetisov Artem,6-2 5-7 [10/7],Masters League Season 1/2025,2025-05-01
+368,Tadjiev Khamdam,Khidoyatov Takhir,6-0 6-3,Masters League Season 1/2025,2025-05-01
+369,Malikov Humoyun,Kamilov Baxriddin,6-2 6-4,Masters League Season 1/2025,2025-05-01
+370,Fetisov Artem,Karimov Mamurbek,6-3 7-5,Masters League Season 1/2025,2025-05-03
+371,Sultanov Jamoliddin,Axmedov Suxrob,6-2 5-7 [10/5],Masters League Season 1/2025,2025-05-03
+372,Pankratov Vladimir,Ochildiyev Husniddin,6-1 6-3,Masters League Season 1/2025,2025-05-03
+373,Rashidov Amirkhan,Mirzoev Suren,6-4 5-7 [7/1],Masters League Season 1/2025,2025-05-04
+374,Ochildiyev Husniddin,Karimov Islombek,6-0 6-1,Masters League Season 1/2025,2025-05-04
+375,Sultanov Jamoliddin,Ochildiyev Husniddin,4-6 6-3 [10/6],Masters League Season 1/2025,2025-05-05
+376,Pankratov Vladimir,Karimov Mamurbek,3-6 6-4 [10/4],Masters League Season 1/2025,2025-05-05
+377,Beknazarov Botirbek,Azimov Bobur,7-6 (7/1) 6-2,Masters League Season 1/2025,2025-05-05
+378,Larionov Svyatoslav,Malikov Humoyun,6-2 6-4,Masters League Season 1/2025,2025-05-06
+379,Pankratov Vladimir,Karimov Islombek,6-2 6-1,Masters League Season 1/2025,2025-05-06
+380,Alimatov Burxon,Azimov Bobur,6-2 7-6 (7/2),Masters League Season 1/2025,2025-05-06
+381,Nurmuratov Alisher,Neklesov Igor,8-3,Open League Season 1/2025,2025-05-06
+382,Rogozin Anton,Shirinov Jahon,6-1 6-3,Masters League Season 1/2025,2025-05-07
+383,Nazarov Sarvar,Khoroshaev Ivan,8-3,Open League Season 1/2025,2025-05-07
+384,Fetisov Artem,Khikmatov Shukhrat,6-4 3-6 7-5,Masters League Season 1/2025,2025-05-08
+385,Razzoqov Davron,Khidoyatov Takhir,6-7 (5/7) 6-2 [17/15],Masters League Season 1/2025,2025-05-08
+386,Neklesov Igor,Hayitov Olimjon,8-2,Open League Season 1/2025,2025-05-09
+387,Abdullaev Sharof,Mirzoev Suren,6-3 6-0,Masters League Season 1/2025,2025-05-09
+388,Pankratov Vladimir,Khikmatov Shukhrat,3-6 7-6 (7/3) [10/8],Masters League Season 1/2025,2025-05-09
+389,Khikmatov Shukhrat,Dosmatov Iskandar,6-2 6-1,Masters League Season 1/2025,2025-05-10
+390,Rashidov Amirkhan,Khidoyatov Takhir,6-0 6-0,Masters League Season 1/2025,2025-05-11
+391,Sultanov Jamoliddin,Karimov Islombek,4-6 7-5 6-1,Masters League Season 1/2025,2025-05-12
+392,Rashidov Amirkhan,Azimov Bobur,6-3 5-7 [10/8],Masters League Season 1/2025,2025-05-13
+393,Shirinov Jahon,Malikov Humoyun,1-6 6-3 6-0,Masters League Season 1/2025,2025-05-13
+394,Maksudov Temur,Pankratov Vladimir,6-2 6-4,Masters League Season 1/2025,2025-05-14
+395,Neklesov Igor,Khoroshaev Ivan,8-6,Open League Season 1/2025,2025-05-14
+396,Nazarov Sarvar,Hayitov Olimjon,8-1,Open League Season 1/2025,2025-05-15
+397,Dosmatov Iskandar,Sadibekov Bulat,0-6 7-5 [10/8],Masters League Season 1/2025,2025-05-15
+398,Alimatov Burxon,Rashidov Amirkhan,6-4 6-4,Masters League Season 1/2025,2025-05-15
+399,Razzoqov Davron,Mirzoev Suren,2-6 6-2 [10/2],Masters League Season 1/2025,2025-05-15
+400,Shirinov Jahon,Musadjanov Hatam,6-3 2-6 [10/6],Masters League Season 1/2025,2025-05-16
+401,Akhtamov Farrukh,Maxamedkasimov Rustam,6-4 3-6 [10/2],Masters League Season 1/2025,2025-05-16
+402,Larionov Svyatoslav,Vohidov Nodir,6-2 7-5,Masters League Season 1/2025,2025-05-16
+403,Abdullaev Sharof,Alimatov Burxon,6-3 6-1,Masters League Season 1/2025,2025-05-16
+404,Razzoqov Davron,Abdullaev Sharof,6-4 6-4,Masters League Season 1/2025,2025-05-17
+405,Sadibekov Bulat,Karimov Mamurbek,6-0 7-5,Masters League Season 1/2025,2025-05-17
+406,Abdullaev Sharof,Rashidov Amirkhan,6-4 7-6 [7/5],Masters League Season 1/2025,2025-05-18
+407,Nurmuratov Alisher,Khoroshaev Ivan,8-2,Open League Season 1/2025,2025-05-19
+408,Hayitov Olimjon,Khoroshaev Ivan,8-4,Open League Season 1/2025,2025-05-21
+409,Khoroshaev Ivan,Choi Alexey,8-0,Open League Season 1/2025,2025-05-23
+410,Sagdullayev Abzal,Savlev Andrey,6-1 7-6 (7/2),Amazing Open Slam,2025-06-01
+411,Hayitov Olimjon,Samikov Bobur,7-6 6-1 [7/4],Amazing Open Slam,2025-06-02
+412,Akhtamov Farrukh,Shirinov Jahon,6-4 3-6 6-3,Amazing Masters Slam,2025-06-02
+413,Medvedev Vladimir,Khikmatov Shukhrat,7-6 6-3,Amazing Masters Slam 3,2025-06-02
+414,Ibragimov Murod,Malikov Humoyun,6-1 6-2,Amazing Masters Slam,2025-06-03
+415,Larionov Svyatoslav,Vohidov Nodir,4-6 6-2 [10/8],Amazing Masters Slam,2025-06-03
+416,Akhmadjonov Olimjon,Karimov Mamurbek,6-2 6-0,Amazing Masters Slam 3,2025-06-03
+417,Nazarov Sarvar,Mavlyutov Kamil,6-0 6-3,Amazing Masters Slam 3,2025-06-03
+418,Musadjanov Hatam,Razzakov Alisher,4-6 4-6,Amazing Masters Slam,2025-06-03
+419,Rogozin Anton,Abduvakhidov Alisher,7-5 6-4,Amazing Masters Slam,2025-06-04
+420,Ashurmatov Bakhtiyor,Boboev Khojiakbarkhuja,6-2 6-2,Amazing Masters Slam 2,2025-06-04
+421,Fetisov Artem,Mirzoev Suren,7-5 7-5,Amazing Masters Slam 3,2025-06-04
+422,Pankratov Vladimir,Karimkhodjaev Abdulaziz,7-6 (7/4) 6-1,Amazing Masters Slam 3,2025-06-04
+423,Niyazov Zarrux,Kan Maksim,7-5 6-3,Amazing Masters Slam,2025-06-04
+424,Bakhromov Iskandar,Zaretski Kir,6-3 6-2,Amazing Open Slam,2025-06-04
+425,Azimov Bobur,Sadibekov Bulat,1-6 6-3 6-2,Amazing Masters Slam 3,2025-06-05
+426,Payziev Bakhtiyor,Razzoqov Davron,6-3 2-6 [10/4],Amazing Masters Slam 2,2025-06-05
+427,Juraev Mirazim,Abdurakhmanov Boburkhan,6-3 6-3,Amazing Masters Slam 3,2025-06-06
+428,Maxamedkasimov Rustam,Ten Maxim,6-4 6-1,Amazing Masters Slam 2,2025-06-06
+429,Abdirasulov Abbos,Isaboev Sarvar,4-6 6-3 [10/6],Amazing Masters Slam,2025-06-06
+430,Pak Igor,Nuriddinov Jaxongir,7-6 7-5,Amazing Masters Slam 2,2025-06-07
+431,Rogozin Anton,Abdirasulov Abbos,6-1 6-1,Amazing Masters Slam,2025-06-09
+432,Ahrarov Izzat,Kadirov Bakhrom,3-6 6-4 [10/5],Amazing Masters Slam 2,2025-06-09
+433,Kamilov Baxriddin,Akhtamov Farrukh,6-2 6-1,Amazing Masters Slam,2025-06-09
+434,Raimov Bakhodir,Nazarov Sarvar,7-5 6-3,Amazing Masters Slam 3,2025-06-09
+435,Azimov Bobur,Juraev Mirazim,7-6 7-6,Amazing Masters Slam 3,2025-06-10
+436,Lim Mikhail,Niyazov Shoxrux,7-5 4-6 [10/6],Amazing Masters Slam 2,2025-06-10
+437,Maxamedkasimov Rustam,Payziev Bakhtiyor,6-4 6-2,Amazing Masters Slam 2,2025-06-10
+438,Khikmatov Shukhrat,Karimkhodjaev Abdulaziz,6-4 6-0,Amazing Masters Slam 3,2025-06-11
+439,Kan Maksim,Vohidov Nodir,6-4 6-2,Amazing Masters Slam,2025-06-11
+440,Sadibekov Bulat,Abdurakhmanov Boburkhan,6-2 6-4,Amazing Masters Slam 3,2025-06-11
+441,Malikov Humoyun,Musadjanov Hatam,6-2 7-6 [7/4],Amazing Masters Slam,2025-06-11
+442,Fetisov Artem,Akhmadjonov Olimjon,6-4 6-4,Amazing Masters Slam 3,2025-06-11
+443,Pankratov Vladimir,Medvedev Vladimir,6-4 2-6 5-4,Amazing Masters Slam 3,2025-06-12
+444,Bukharov Ulugbek,Pak Igor,6-1 6-1,Amazing Masters Slam 2,2025-06-12
+445,Razzoqov Davron,Ten Maxim,6-2 6-4,Amazing Masters Slam 2,2025-06-12
+446,Ashurmatov Bakhtiyor,Lim Mikhail,6-4 6-3,Amazing Masters Slam 2,2025-06-14
+447,Isaboev Sarvar,Abduvakhidov Alisher,6-4 6-2,Amazing Masters Slam,2025-06-14
+448,Mirzoev Suren,Karimov Mamurbek,6-3 6-3,Amazing Masters Slam 3,2025-06-14
+449,Razzakov Alisher,Ibragimov Murod,6-0 6-1,Amazing Masters Slam,2025-06-14
+450,Samikov Bobur,Savlev Andrey,6-0 6-0,Amazing Open Slam,2025-06-16
+451,Ashurmatov Bakhtiyor,Ahrarov Izzat,7-5 6-7 (6/8) [10/5],Amazing Masters Slam 2,2025-06-17
+452,Malikov Humoyun,Kan Maksim,7-6 (7/5) 6-2,Amazing Masters Slam,2025-06-17
+453,Fetisov Artem,Azimov Bobur,6-1 3-6 7-5,Amazing Masters Slam 3,2025-06-17
+454,Niyazov Shoxrux,Boboev Khojiakbarkhuja,7-5 7-5,Amazing Masters Slam 2,2025-06-17
+455,Medvedev Vladimir,Juraev Mirazim,7-5 5-7 [10/8],Amazing Masters Slam 3,2025-06-17
+456,Mirzoev Suren,Ochildiyev Husniddin,6-4 6-3,Amazing Masters Slam 3,2025-06-18
+457,Raimov Bakhodir,Pankratov Vladimir,3-6 7-5 [10/5],Amazing Masters Slam 3,2025-06-19
+458,Bukharov Ulugbek,Maxamedkasimov Rustam,6-2 6-1,Amazing Masters Slam 2,2025-06-20
+459,Razzakov Alisher,Larionov Svyatoslav,7-6 (10/6) 2-6 10-6,Amazing Masters Slam,2025-06-21
+460,Akhmadjonov Olimjon,Nazarov Sarvar,6-4 6-4,Amazing Masters Slam 3,2025-06-21
+461,Zaretski Kir,Grunski Igor,6-3 6-3,Amazing Open Slam,2025-06-22
+462,Bakhromov Iskandar,T Otabek,6-2 6-1,Amazing Open Slam,2025-06-23
+463,Rogozin Anton,Kamilov Baxriddin,6-3 6-1,Amazing Masters Slam,2025-06-24
+464,Zaretski Kir,Samikov Bobur,7-6 (7/1) 3-6 [11/9],Amazing Open Slam,2025-06-24
+465,Mirzoev Suren,Khikmatov Shukhrat,4-6 7-5 10-5,Amazing Masters Slam 3,2025-06-24
+466,Karimov Mamurbek,Mavlyutov Kamil,6-3 4-6 10-3,Amazing Masters Slam 3,2025-06-24
+467,Niyazov Shoxrux,Kadirov Bakhrom,6-3 7-5,Amazing Masters Slam 2,2025-06-25
+468,Nazarov Sarvar,Juraev Mirazim,7-5 7-6 (7/5),Amazing Masters Slam 3,2025-06-25
+469,Ashurmatov Bakhtiyor,Bukharov Ulugbek,6-4 2-6 6-3,Amazing Masters Slam 2,2025-06-27
+470,Razzakov Alisher,Rogozin Anton,6-4 7-6 (8/6),Amazing Masters Slam,2025-06-27
+471,Maxamedkasimov Rustam,Ahrarov Izzat,6-3 7-5,Amazing Masters Slam 2,2025-06-27
+472,Bakhromov Iskandar,Hayitov Olimjon,6-3 6-4,Amazing Open Slam,2025-06-27
+473,Akhmadjonov Olimjon,Medvedev Vladimir,6-2 6-4,Amazing Masters Slam 3,2025-06-28
+474,Grunski Igor,Savlev Andrey,6-2 6-3,Amazing Open Slam,2025-06-29
+475,Karimov Mamurbek,Abdurakhmanov Boburkhan,6-4 6-2,Amazing Masters Slam 3,2025-06-30
+476,Razzoqov Davron,Niyazov Shoxrux,2-6 6-4 [10/8],Amazing Masters Slam 2,2025-07-01
+477,Malikov Humoyun,Isaboev Sarvar,6-7 6-2 6-3,Amazing Masters Slam,2025-07-01
+478,Ibragimov Murod,Abdirasulov Abbos,6-3 6-3,Amazing Masters Slam,2025-07-02
+479,Karimkhodjaev Abdulaziz,Mavlyutov Kamil,6-4 6-2,Amazing Masters Slam 3,2025-07-03
+480,Payziev Bakhtiyor,Lim Mikhail,7-5 2-6 [10/8],Amazing Masters Slam 2,2025-07-05
+481,Fetisov Artem,Pankratov Vladimir,6-2 4-6 6-3,Masters League Season 2/2025,2025-07-08
+482,Rogozin Anton,Akhtamov Farrukh,6-3 6-1,Masters League Season 2/2025,2025-07-08
+483,Rogozin Anton,Ashurmatov Bakhtiyor,7-5 6-0,Masters League Season 2/2025,2025-07-09
+484,Lim Mikhail,Isaboev Sarvar,6-7 (6/8) 7-5 [10/8],Masters League Season 2/2025,2025-07-09
+485,Rogozin Anton,Ibragimov Murod,6-2 6-0,Masters League Season 2/2025,2025-07-10
+486,Hayitov Olimjon,Savlev Andrey,5-7 6-2 [10/2],Masters League Season 2/2025,2025-07-10
+487,Fetisov Artem,Azimov Bobur,6-4 6-4,Masters League Season 2/2025,2025-07-11
+488,Rogozin Anton,Shirinov Jahon,6-4 6-2,Masters League Season 2/2025,2025-07-12
+489,Usmonov Nazir,Khidoyatov Takhir,6-2 7-6 (8/6),Masters League Season 2/2025,2025-07-14
+490,Juraev Mirazim,Nurmuratov Alisher,7-5 6-3,Masters League Season 2/2025,2025-07-15
+491,Ahrarov Izzat,Maxamedkasimov Rustam,6-3 7-5,Masters League Season 2/2025,2025-07-15
+492,Khidoyatov Takhir,Raimov Bakhodir,6-4 3-6 [10/7],Masters League Season 2/2025,2025-07-15
+493,Juraev Mirazim,Karimkhodjaev Abdulaziz,6-4 6-2,Masters League Season 2/2025,2025-07-16
+494,Larionov Svyatoslav,Rogozin Anton,6-3 6-4,Masters League Season 2/2025,2025-07-16
+495,Shirinov Jahon,Ibragimov Murod,7-6 (7/5) 6-4,Masters League Season 2/2025,2025-07-16
+496,Medvedev Vladimir,Nurmuratov Alisher,7-5 3-6 [10/6],Masters League Season 2/2025,2025-07-16
+497,Sadibekov Bulat,Khodyrev Egor,6-3 5-7 [10/6],Masters League Season 2/2025,2025-07-16
+498,Azimov Bobur,Khidoyatov Takhir,5-7 6-4 [10/6],Masters League Season 2/2025,2025-07-17
+499,Abdurakhmanov Boburkhan,Savlev Andrey,6-0 6-2,Masters League Season 2/2025,2025-07-17
+500,Mirzoev Suren,Fetisov Artem,7-5 6-2,Masters League Season 2/2025,2025-07-17
+501,Khodyrev Egor,Bakhromov Iskandar,6-3 6-2,Masters League Season 2/2025,2025-07-17
+502,Ibragimov Murod,Abdullaev Sharof,6-4 6-1,Masters League Season 2/2025,2025-07-17
+503,Juraev Mirazim,Medvedev Vladimir,5-7 6-2 [10/7],Masters League Season 2/2025,2025-07-17
+504,Kamilov Baxriddin,Ahrarov Izzat,6-2 6-4,Masters League Season 2/2025,2025-07-18
+505,Khodyrev Egor,Khikmatov Shukhrat,3-6 6-4 [12/10],Masters League Season 2/2025,2025-07-18
+506,Khodyrev Egor,Nurmuratov Alisher,5-7 6-2 7-5,Masters League Season 2/2025,2025-07-18
+507,Ochildiyev Husniddin,Mirzoev Suren,6-7 6-2 10-6,Masters League Season 2/2025,2025-07-19
+508,Xaleulin Ruslan,Shamuratov Farrukh,7-6 (12/10) 7-6 (18/16),Masters League Season 2/2025,2025-07-20
+509,Azimov Bobur,Raimov Bakhodir,3-6 7-5 [10/5],Masters League Season 2/2025,2025-07-21
+510,Abdurakhmanov Boburkhan,Khon Victor,6-2 6-1,Masters League Season 2/2025,2025-07-21
+511,Khidoyatov Takhir,Ochildiyev Husniddin,4-6 6-4 [10/7],Masters League Season 2/2025,2025-07-22
+512,Rogozin Anton,Xaleulin Ruslan,2-6 7-5 [10/3],Masters League Season 2/2025,2025-07-22
+513,Sagdullayev Abzal,Hayitov Olimjon,2-6 6-3 [10/7],Masters League Season 2/2025,2025-07-22
+514,Sadibekov Bulat,Nurmuratov Alisher,6-4 3-6 6-1,Masters League Season 2/2025,2025-07-22
+515,Shirinov Jahon,Abdullaev Sharof,6-3 7-5,Masters League Season 2/2025,2025-07-22
+516,Kamilov Baxriddin,Lim Mikhail,6-1 6-3,Masters League Season 2/2025,2025-07-22
+517,Khakimov Alisher,Karimkhodjaev Abdulaziz,6-4 7-6 (7/5),Masters League Season 2/2025,2025-07-23
+518,Kamilov Baxriddin,Payziev Bakhtiyor,6-3 6-2,Masters League Season 2/2025,2025-07-23
+519,Juraev Mirazim,Khodyrev Egor,6-4 7-5,Masters League Season 2/2025,2025-07-23
+520,Shirinov Jahon,Shamuratov Farrukh,6-3 6-2,Masters League Season 2/2025,2025-07-24
+521,Larionov Svyatoslav,Xaleulin Ruslan,6-2 6-4,Masters League Season 2/2025,2025-07-24
+522,Juraev Mirazim,Sadibekov Bulat,4-6 6-4 [10/2],Masters League Season 2/2025,2025-07-24
+523,Abdurakhmanov Boburkhan,Zaretski Kir,6-1 6-1,Masters League Season 2/2025,2025-07-24
+524,Nurmuratov Alisher,Bakhromov Iskandar,6-4 6-3,Masters League Season 2/2025,2025-07-24
+525,Rogozin Anton,Abdullaev Sharof,6-0 7-5,Masters League Season 2/2025,2025-07-24
+526,Razzakov Alisher,Ashurmatov Bakhtiyor,6-1 6-1,Masters League Season 2/2025,2025-07-25
+527,Khon Victor,Zaretski Kir,6-3 6-3,Masters League Season 2/2025,2025-07-25
+528,Shatursunov Shokhaydar,Khodyrev Egor,3-6 6-4 [11/9],Masters League Season 2/2025,2025-07-26
+529,Khakimov Alisher,Juraev Mirazim,7-6 (9/7) 6-4,Masters League Season 2/2025,2025-07-26
+530,Rogozin Anton,Shamuratov Farrukh,6-1 6-3,Masters League Season 2/2025,2025-07-26
+531,Xaleulin Ruslan,Shirinov Jahon,7-5 6-4,Masters League Season 2/2025,2025-07-26
+532,Larionov Svyatoslav,Ibragimov Murod,6-2 6-4,Masters League Season 2/2025,2025-07-26
+533,Abdurakhmanov Boburkhan,Sagdullayev Abzal,6-3 6-2,Masters League Season 2/2025,2025-07-26
+534,Razzakov Alisher,Rogozin Anton,6-4 7-6 (7/2),Masters League Season 2/2025,2025-07-27
+535,Usmonov Nazir,Ochildiyev Husniddin,6-4 4-6 6-4,Masters League Season 2/2025,2025-07-27
+536,Razzakov Alisher,Shamuratov Farrukh,6-2 6-2,Masters League Season 2/2025,2025-07-28
+537,Abdurakhmanov Boburkhan,Neklesov Igor,7-6 (7/4) 7-5,Masters League Season 2/2025,2025-07-29
+538,Razzakov Alisher,Ibragimov Murod,6-0 7-5,Masters League Season 2/2025,2025-07-29
+539,Sadibekov Bulat,Bakhromov Iskandar,3-6 7-5 6-4,Masters League Season 2/2025,2025-07-29
+540,Neklesov Igor,Zaretski Kir,6-1 6-1,Masters League Season 2/2025,2025-07-29
+541,Raimov Bakhodir,Pankratov Vladimir,3-6 6-2 [11/9],Masters League Season 2/2025,2025-07-30
+542,Bakhromov Iskandar,Karimkhodjaev Abdulaziz,6-7 (4/7) 7-6 (7/4) [10/7],Masters League Season 2/2025,2025-07-30
+543,Khaitbaev Dilshad,Ahrarov Izzat,7-6 (7/1) 6-2,Masters League Season 2/2025,2025-07-30
+544,Shamuratov Farrukh,Ibragimov Murod,6-4 7-6 [13/11],Masters League Season 2/2025,2025-07-30
+545,Kamilov Baxriddin,Vohidov Nodir,6-1 6-4,Masters League Season 2/2025,2025-07-30
+546,Khakimov Alisher,Medvedev Vladimir,6-1 4-6 7-6,Masters League Season 2/2025,2025-07-30
+547,Neklesov Igor,Mavlyutov Kamil,6-2 6-2,Masters League Season 2/2025,2025-07-30
+548,Razzakov Alisher,Shirinov Jahon,6-2 7-5,Masters League Season 2/2025,2025-07-31
+549,Xaleulin Ruslan,Abdullaev Sharof,6-1 6-3,Masters League Season 2/2025,2025-07-31
+550,Mirzoev Suren,Akhmadjonov Olimjon,6-3 4-6 [7/4],Masters League Season 2/2025,2025-07-31
+551,Pankratov Vladimir,Khidoyatov Takhir,2-6 6-4 6-3,Masters League Season 2/2025,2025-07-31
+552,Neklesov Igor,Khon Victor,6-2 6-2,Masters League Season 2/2025,2025-08-01
+553,Khakimov Alisher,Bakhromov Iskandar,6-3 1-6 6-1,Masters League Season 2/2025,2025-08-01
+554,Kurbanov Zafar,Juraev Mirazim,6-1 5-7 [10/8],Masters League Season 2/2025,2025-08-01
+555,Ashurmatov Bakhtiyor,Abdullaev Sharof,6-4 6-4,Masters League Season 2/2025,2025-08-02
+556,Larionov Svyatoslav,Kamilov Baxriddin,6-1 6-3,Masters League Season 2/2025,2025-08-02
+557,Razzakov Alisher,Xaleulin Ruslan,6-2 6-4,Masters League Season 2/2025,2025-08-02
+558,Sadibekov Bulat,Abdurakhmanov Boburkhan,0-6 6-4 6-4,Masters League Season 2/2025,2025-08-02
+559,Neklesov Igor,Savlev Andrey,6-1 6-1,Masters League Season 2/2025,2025-08-04
+560,Larionov Svyatoslav,Shamuratov Farrukh,6-2 4-6 [10/7],Masters League Season 2/2025,2025-08-04
+561,Sagdullayev Abzal,Khon Victor,6-4 6-4,Masters League Season 2/2025,2025-08-04
+562,Usmonov Nazir,Pankratov Vladimir,7-5 7-6 (7/0),Masters League Season 2/2025,2025-08-04
+563,Mirzoev Suren,Khidoyatov Takhir,3-6 6-3 [10/6],Masters League Season 2/2025,2025-08-05
+564,Maxamedkasimov Rustam,Isaboev Sarvar,6-4 4-6 [10/8],Masters League Season 2/2025,2025-08-05
+565,Raimov Bakhodir,Fetisov Artem,6-3 6-2,Masters League Season 2/2025,2025-08-05
+566,Akhmadjonov Olimjon,Juraev Mirazim,6-1 6-4,Masters League Season 2/2025,2025-08-05
+567,Ibragimov Murod,Kamilov Baxriddin,6-2 6-2,Masters League Season 2/2025,2025-08-05
+568,Khakimov Alisher,Nurmuratov Alisher,7-5 7-5,Masters League Season 2/2025,2025-08-06
+569,Kurbanov Zafar,Pankratov Vladimir,6-2 6-1,Masters League Season 2/2025,2025-08-06
+570,Mavlyutov Kamil,Sagdullayev Abzal,6-4 4-6 [10/7],Masters League Season 2/2025,2025-08-06
+571,Mirzoev Suren,Usmonov Nazir,6-4 6-4,Masters League Season 2/2025,2025-08-07
+572,Khidoyatov Takhir,Fetisov Artem,7-6 (7/5) 6-7 (5/7) [10/6],Masters League Season 2/2025,2025-08-07
+573,Sagdullayev Abzal,Pulatov Timur,6-0 6-4,Masters League Season 2/2025,2025-08-07
+574,Abdurakhmanov Boburkhan,Nurmuratov Alisher,6-2 2-6 [10/6],Masters League Season 2/2025,2025-08-07
+575,Kurbanov Zafar,Akhmadjonov Olimjon,6-3 6-2,Masters League Season 2/2025,2025-08-07
+576,Abdurakhmanov Boburkhan,Medvedev Vladimir,3-6 6-3 7-6,Masters League Season 2/2025,2025-08-07
+577,Shamuratov Farrukh,Kamilov Baxriddin,7-5 6-4,Masters League Season 2/2025,2025-08-07
+578,Khodyrev Egor,Medvedev Vladimir,1-6 6-4 7-6 (10/7),Masters League Season 2/2025,2025-08-08
+579,Neklesov Igor,Sagdullayev Abzal,6-2 6-4,Masters League Season 2/2025,2025-08-08
+580,Savlev Andrey,Zaretski Kir,6-2 6-4,Masters League Season 2/2025,2025-08-09
+581,Xaleulin Ruslan,Ashurmatov Bakhtiyor,6-0 6-0,Masters League Season 2/2025,2025-08-09
+582,Khakimov Alisher,Abdurakhmanov Boburkhan,2-6 6-3 [10/2],Masters League Season 2/2025,2025-08-09
+583,Shirinov Jahon,Kamilov Baxriddin,6-3 6-0,Masters League Season 2/2025,2025-08-09
+584,Shatursunov Shokhaydar,Sadibekov Bulat,5-7 6-0 6-4,Masters League Season 2/2025,2025-08-10
+585,Kurbanov Zafar,Fetisov Artem,6-1 6-1,Masters League Season 2/2025,2025-08-11
+586,Khodyrev Egor,Abdurakhmanov Boburkhan,7-6 (7/5) 7-6 (7/2),Masters League Season 2/2025,2025-08-11
+587,Akhmadjonov Olimjon,Usmonov Nazir,3-6 6-4 [10/8],Masters League Season 2/2025,2025-08-11
+588,Khon Victor,Savlev Andrey,6-2 6-0,Masters League Season 2/2025,2025-08-11
+589,Kurbanov Zafar,Ochildiyev Husniddin,6-2 6-4,Masters League Season 2/2025,2025-08-12
+590,Juraev Mirazim,Khidoyatov Takhir,2-6 6-4 6-1,Masters League Season 2/2025,2025-08-12
+591,Larionov Svyatoslav,Abduvakhidov Alisher,6-4 6-0,Masters League Season 2/2025,2025-08-12
+592,Mirzoev Suren,Azimov Bobur,6-4 7-6 (7/4),Masters League Season 2/2025,2025-08-12
+593,Shamuratov Farrukh,Abduvakhidov Alisher,6-0 3-6 [10/3],Masters League Season 2/2025,2025-08-12
+594,Xaleulin Ruslan,Ibragimov Murod,6-1 6-3,Masters League Season 2/2025,2025-08-12
+595,Usmonov Nazir,Fetisov Artem,6-4 7-5,Masters League Season 2/2025,2025-08-12
+596,Shatursunov Shokhaydar,Bakhromov Iskandar,6-2 6-4,Masters League Season 2/2025,2025-08-12
+597,Khodyrev Egor,Khakimov Alisher,6-2 6-3,Masters League Season 2/2025,2025-08-13
+598,Karimkhodjaev Abdulaziz,Nurmuratov Alisher,6-3 3-6 6-1,Masters League Season 2/2025,2025-08-13
+599,Hayitov Olimjon,T Otabek,6-1 6-1,Masters League Season 2/2025,2025-08-14
+600,Lim Mikhail,Khaitbaev Dilshad,6-1 1-6 [10/8],Masters League Season 2/2025,2025-08-14
+601,Shamuratov Farrukh,Abdullaev Sharof,6-3 2-6 [14/12],Masters League Season 2/2025,2025-08-14
+602,Abduvakhidov Alisher,Kamilov Baxriddin,7-6 (7/5) 7-5,Masters League Season 2/2025,2025-08-14
+603,Khakimov Alisher,Shatursunov Shokhaydar,2-6 7-6 (7/4) 6-3,Masters League Season 2/2025,2025-08-14
+604,Larionov Svyatoslav,Akhtamov Farrukh,6-1 6-3,Masters League Season 2/2025,2025-08-14
+605,Azimov Bobur,Pankratov Vladimir,7-5 6-2,Masters League Season 2/2025,2025-08-14
+606,Lim Mikhail,Ahrarov Izzat,7-5 7-6 (7/2),Masters League Season 2/2025,2025-08-15
+607,Mirzoev Suren,Juraev Mirazim,6-4 7-6 (7/5),Masters League Season 2/2025,2025-08-15
+608,Razzakov Alisher,Abduvakhidov Alisher,6-3 6-0,Masters League Season 2/2025,2025-08-15
+609,Fetisov Artem,Ochildiyev Husniddin,7-6 (7/3) 6-3,Masters League Season 2/2025,2025-08-15
+610,Razzakov Alisher,Kamilov Baxriddin,6-1 6-1,Masters League Season 2/2025,2025-08-16
+611,Hayitov Olimjon,Khon Victor,6-2 6-3,Masters League Season 2/2025,2025-08-16
+612,Larionov Svyatoslav,Razzakov Alisher,7-5 7-6 (7/5),Masters League Season 2/2025,2025-08-16
+613,Raimov Bakhodir,Kurbanov Zafar,2-6 6-1 [10/7],Masters League Season 2/2025,2025-08-18
+614,Juraev Mirazim,Pankratov Vladimir,6-7 (5/7) 6-1 [12/10],Masters League Season 2/2025,2025-08-18
+615,Khikmatov Shukhrat,Khakimov Alisher,0-6 6-2 6-4,Masters League Season 2/2025,2025-08-18
+616,Juraev Mirazim,Fetisov Artem,4-6 6-3 [11/9],Masters League Season 2/2025,2025-08-19
+617,Abduvakhidov Alisher,Akhtamov Farrukh,6-1 6-1,Masters League Season 2/2025,2025-08-19
+618,Kurbanov Zafar,Azimov Bobur,6-3 6-0,Masters League Season 2/2025,2025-08-19
+619,Abduvakhidov Alisher,Abdullaev Sharof,6-4 6-2,Masters League Season 2/2025,2025-08-19
+620,Khon Victor,Pulatov Timur,4-6 7-5 [10/7],Masters League Season 2/2025,2025-08-19
+621,Neklesov Igor,Hayitov Olimjon,6-4 7-6 (7/2),Masters League Season 2/2025,2025-08-20
+622,Rogozin Anton,Abduvakhidov Alisher,7-5 6-4,Masters League Season 2/2025,2025-08-20
+623,Mavlyutov Kamil,Savlev Andrey,6-4 6-2,Masters League Season 2/2025,2025-08-20
+624,Akhmadjonov Olimjon,Fetisov Artem,6-3 6-3,Masters League Season 2/2025,2025-08-20
+625,Khaitbaev Dilshad,Vohidov Nodir,6-2 7-6 [7/4],Masters League Season 2/2025,2025-08-20
+626,Abdurakhmanov Boburkhan,Shatursunov Shokhaydar,7-6 (8/6) 7-6 (7/1),Masters League Season 2/2025,2025-08-21
+627,Savlev Andrey,Pulatov Timur,5-7 7-5 [10/8],Masters League Season 2/2025,2025-08-21
+628,Mirzoev Suren,Pankratov Vladimir,6-0 1-6 6-1,Masters League Season 2/2025,2025-08-21
+629,Mavlyutov Kamil,Khon Victor,6-3 4-6 [11/9],Masters League Season 2/2025,2025-08-22
+630,Sagdullayev Abzal,Zaretski Kir,6-3 6-2,Masters League Season 2/2025,2025-08-22
+631,Vohidov Nodir,Maxamedkasimov Rustam,7-5 1-6 [10/7],Masters League Season 2/2025,2025-08-23
+632,Khikmatov Shukhrat,Nurmuratov Alisher,6-4 4-6 6-3,Masters League Season 2/2025,2025-08-23
+633,Ochildiyev Husniddin,Azimov Bobur,6-2 7-6 (7/2),Masters League Season 2/2025,2025-08-23
+634,Sadibekov Bulat,Medvedev Vladimir,6-2 7-6,Masters League Season 2/2025,2025-08-23
+635,Azimov Bobur,Usmonov Nazir,7-6 (9/7) 7-5,Masters League Season 2/2025,2025-08-25
+636,Abdurakhmanov Boburkhan,Bakhromov Iskandar,6-0 6-0,Masters League Season 2/2025,2025-08-25
+637,Kurbanov Zafar,Mirzoev Suren,2-6 6-2 6-0,Masters League Season 2/2025,2025-08-25
+638,Akhmadjonov Olimjon,Pankratov Vladimir,6-0 6-1,Masters League Season 2/2025,2025-08-25
+639,Mavlyutov Kamil,Hayitov Olimjon,3-6 6-3 [10/6],Masters League Season 2/2025,2025-08-26
+640,Juraev Mirazim,Usmonov Nazir,3-6 6-2 6-1,Masters League Season 2/2025,2025-08-26
+641,Abdurakhmanov Boburkhan,Karimkhodjaev Abdulaziz,6-2 3-6 [11/9],Masters League Season 2/2025,2025-08-27
+642,Akhmadjonov Olimjon,Azimov Bobur,6-3 6-2,Masters League Season 2/2025,2025-08-28
+643,Pankratov Vladimir,Ochildiyev Husniddin,4-6 7-5 6-3,Masters League Season 2/2025,2025-08-28
+644,Abdurakhmanov Boburkhan,Khikmatov Shukhrat,6-3 2-6 [10/7],Masters League Season 2/2025,2025-08-29
+645,Ochildiyev Husniddin,Juraev Mirazim,7-6 (8/6) 6-2,Masters League Season 2/2025,2025-08-29
+646,Khidoyatov Takhir,Akhmadjonov Olimjon,7-6 (7/2) 6-3,Masters League Season 2/2025,2025-08-29
+647,Shatursunov Shokhaydar,Karimkhodjaev Abdulaziz,2-6 6-4 10-8,Masters League Season 2/2025,2025-08-29
+648,Kamilov Baxriddin,Ashurmatov Bakhtiyor,6-3 1-6 10-6,Masters League Season 2/2025,2025-08-30
+649,Shamuratov Farrukh,Akhtamov Farrukh,3-6 6-4 [11/9],Masters League Season 2/2025,2025-08-30
+650,Juraev Mirazim,Raimov Bakhodir,4-6 6-4 [10/3],Masters League Season 2/2025,2025-08-30
+651,Akhtamov Farrukh,Abdullaev Sharof,6-4 6-1,Masters League Season 2/2025,2025-08-31
+652,Raimov Bakhodir,Usmonov Nazir,6-2 7-5,Masters League Season 2/2025,2025-09-01
+653,Akhmadjonov Olimjon,Ochildiyev Husniddin,1-6 6-2 [10/7],Masters League Season 2/2025,2025-09-01
+654,Karimkhodjaev Abdulaziz,Khodyrev Egor,6-1 7-5,Masters League Season 2/2025,2025-09-02
+655,Kurbanov Zafar,Usmonov Nazir,6-2 6-4,Masters League Season 2/2025,2025-09-02
+656,Juraev Mirazim,Azimov Bobur,7-6 (7/5) 7-6 (7/5),Masters League Season 2/2025,2025-09-02
+657,Ochildiyev Husniddin,Raimov Bakhodir,6-3 1-6 [11/9],Masters League Season 2/2025,2025-09-02
+658,Kamilov Baxriddin,Akhtamov Farrukh,4-6 7-5 [10/5],Masters League Season 2/2025,2025-09-02
+659,Niyazov Zarrux,Ivko Vladimir,6-4 6-4,Masters League Season 2/2025,2025-09-15
+660,Raimov Bakhodir,Azimov Bobur,6-3 6-3,Masters League Season 3/2025,2025-09-15
+661,Nurmuratov Alisher,Bakhromov Iskandar,6-2 7-6 [7/3],Masters League Season 3/2025,2025-09-15
+662,Khidoyatov Takhir,Khakimov Alisher,6-3 2-6 7-5,Masters League Season 3/2025,2025-09-15
+663,Usmonov Nazir,Khodyrev Egor,7-5 7-6 (7/2),Masters League Season 3/2025,2025-09-15
+664,Ivko Vladimir,Maxamedkasimov Rustam,4-6 6-3 [10/6],Masters League Season 3/2025,2025-09-16
+665,Xakimov Talib,Davronov Mirazizbek,6-0 6-0,Masters League Season 3/2025,2025-09-16
+666,Ochildiyev Husniddin,Sultanov Jamoliddin,6-1 6-7 (5/7) [10/8],Masters League Season 3/2025,2025-09-16
+667,Munimkhon Mumtozkhonov,Khodjabayev Sanjar,6-2 6-1,Masters League Season 3/2025,2025-09-17
+668,Rogozin Anton,Khaitbaev Dilshad,6-0 6-4,Masters League Season 3/2025,2025-09-17
+669,Niyazov Zarrux,Akhtamov Farrukh,7-6 (7/3) 6-3,Masters League Season 3/2025,2025-09-17
+670,Bukharov Ulugbek,Maxamedkasimov Rustam,6-4 2-6 [10/3],Masters League Season 3/2025,2025-09-17
+671,Khodyrev Egor,Juraev Mirazim,6-3 6-4,Masters League Season 3/2025,2025-09-17
+672,Kurbanov Zafar,Akhmadjonov Olimjon,6-3 6-0,Masters League Season 3/2025,2025-09-17
+673,Usmonov Nazir,Raimov Bakhodir,6-7 (2/7) 6-0 10-8,Masters League Season 3/2025,2025-09-18
+674,Mavlyutov Kamil,Dosmatov Iskandar,6-3 4-6 [10/8],Masters League Season 3/2025,2025-09-18
+675,Abdurakhmanov Boburkhan,Azimov Bobur,6-1 6-1,Masters League Season 3/2025,2025-09-18
+676,Rogozin Anton,Abduvakhidov Alisher,6-3 6-3,Masters League Season 3/2025,2025-09-18
+677,Abdurakhmanov Boburkhan,Khodyrev Egor,6-4 5-7 [10/7],Masters League Season 3/2025,2025-09-19
+678,Khidoyatov Takhir,Sultanov Jamoliddin,6-2 3-6 6-3,Masters League Season 3/2025,2025-09-19
+679,Nurmuratov Alisher,Khon Victor,6-1 6-1,Masters League Season 3/2025,2025-09-19
+680,Muhammadaliyev Muhtor,Mavlyutov Kamil,6-1 6-1,Masters League Season 3/2025,2025-09-19
+681,Abdullaev Sharof,Akhmadjonov Olimjon,6-0 7-6 (7/5),Masters League Season 3/2025,2025-09-19
+682,Sagdullayev Abzal,Yokubov Muhammadrahim,7-5 5-7 [10/3],Masters League Season 3/2025,2025-09-19
+683,Mumtozkhonov Munimkhon,Sagdullayev Abzal,7-6 (7/4) 7-5,Masters League Season 3/2025,2025-09-20
+684,Turabov Anvar,Mumtozkhonov Munimkhon,6-3 6-0,Masters League Season 3/2025,2025-09-20
+685,Raimov Bakhodir,Juraev Mirazim,6-3 6-3,Masters League Season 3/2025,2025-09-20
+686,Akhtamov Farrukh,Ahrarov Izzat,6-7 (5/7) 6-2 [10/7],Masters League Season 3/2025,2025-09-20
+687,Abdullaev Sharof,Beknazarov Botirbek,6-1 6-3,Masters League Season 3/2025,2025-09-20
+688,Muhammadaliyev Muhtor,Shatursunov Shokhaydar,6-3 5-7 [10/8],Masters League Season 3/2025,2025-09-20
+689,Razzoqov Davron,Ivko Vladimir,0-6 6-4 [10/7],Masters League Season 3/2025,2025-09-20
+690,Nurmuratov Alisher,Davronov Mirazizbek,6-0 6-0,Masters League Season 3/2025,2025-09-20
+691,Xakimov Talib,Savlev Andrey,7-5 6-4,Masters League Season 3/2025,2025-09-21
+692,Yokubov Muhammadrahim,Neklesov Igor,6-2 6-1,Masters League Season 3/2025,2025-09-21
+693,Usmonov Nazir,Ochildiyev Husniddin,6-4 7-6 (7/2),Masters League Season 3/2025,2025-09-21
+694,Khidoyatov Takhir,Khodyrev Egor,6-3 6-1,Masters League Season 3/2025,2025-09-22
+695,Fetisov Artem,Medvedev Vladimir,7-6 (7/1) 6-4,Masters League Season 3/2025,2025-09-22
+696,Razzoqov Davron,Maxamedkasimov Rustam,3-6 6-3 [10/5],Masters League Season 3/2025,2025-09-23
+697,Raimov Bakhodir,Khidoyatov Takhir,4-6 6-2 [10/4],Masters League Season 3/2025,2025-09-23
+698,Abdurakhmanov Boburkhan,Ochildiyev Husniddin,6-0 4-6 [10/2],Masters League Season 3/2025,2025-09-23
+699,Rogozin Anton,Shirinov Jahon,7-6 (7/5) 6-1,Masters League Season 3/2025,2025-09-23
+700,Gulyamov Saidahmad,Medvedev Vladimir,7-6 (10/8) 7-5,Masters League Season 3/2025,2025-09-23
+701,Mumtozkhonov Munimkhon,Neklesov Igor,6-4 7-6 (10/8),Masters League Season 3/2025,2025-09-24
+702,Shirinov Jahon,Ibragimov Murod,2-6 6-4 [10/3],Masters League Season 3/2025,2025-09-24
+703,Sagdullayev Abzal,Neklesov Igor,6-3 7-5,Masters League Season 3/2025,2025-09-24
+704,Raupov Ravshan,Hayitov Olimjon,3-6 6-3 [10/6],Masters League Season 3/2025,2025-09-24
+705,Rogozin Anton,Muminov Bahtiyar,6-0 6-4,Masters League Season 3/2025,2025-09-25
+706,Shodmonov Sherzod,Khan Pyotr,6-2 6-3,Masters League Season 3/2025,2025-09-25
+707,Gulyamov Saidahmad,Muhammadaliyev Muhtor,3-6 7-6 (7/5) [10/6],Masters League Season 3/2025,2025-09-25
+708,Fetisov Artem,Mavlyutov Kamil,7-5 6-2,Masters League Season 3/2025,2025-09-25
+709,Ivko Vladimir,Ahrarov Izzat,7-6 (7/3) 6-2,Masters League Season 3/2025,2025-09-26
+710,Turabov Anvar,Neklesov Igor,6-3 6-4,Masters League Season 3/2025,2025-09-26
+711,Nurmuratov Alisher,Raupov Ravshan,6-1 6-0,Masters League Season 3/2025,2025-09-26
+712,Khodyrev Egor,Ochildiyev Husniddin,6-3 3-6 [13/11],Masters League Season 3/2025,2025-09-27
+713,Khodjabayev Sanjar,Neklesov Igor,6-1 6-2,Masters League Season 3/2025,2025-09-27
+714,Mavlyutov Kamil,Shatursunov Shokhaydar,0-6 6-0 [10/6],Masters League Season 3/2025,2025-09-27
+715,Hayitov Olimjon,Xakimov Talib,6-2 6-4,Masters League Season 3/2025,2025-09-27
+716,Pankratov Vladimir,Sagdullayev Abzal,6-1 6-0,Masters League Season 3/2025,2025-09-28
+717,Larionov Svyatoslav,Rogozin Anton,6-4 1-6 [10/3],Masters League Season 3/2025,2025-09-29
+718,Hayitov Olimjon,Khon Victor,7-5 3-6 [12/10],Masters League Season 3/2025,2025-09-29
+719,Khakimov Alisher,Juraev Mirazim,6-4 3-6 6-4,Masters League Season 3/2025,2025-09-30
+720,Shodmonov Sherzod,Xakimov Talib,6-4 5-7 [10/7],Masters League Season 3/2025,2025-09-30
+721,Pankratov Vladimir,Yokubov Muhammadrahim,3-6 7-5 [10/2],Masters League Season 3/2025,2025-09-30
+722,Khodyrev Egor,Sultanov Jamoliddin,7-6 (8/6) 6-4,Masters League Season 3/2025,2025-10-01
+723,Yusupov Rustam,Mavlyutov Kamil,7-5 6-3,Masters League Season 3/2025,2025-10-01
+724,Nurmuratov Alisher,Savlev Andrey,6-1 6-0,Masters League Season 3/2025,2025-10-01
+725,Pulatov Timur,Davronov Mirazizbek,6-3 6-0,Masters League Season 3/2025,2025-10-01
+726,Ibragimov Murod,Muminov Bahtiyar,6-3 7-5,Masters League Season 3/2025,2025-10-01
+727,Ivko Vladimir,Abdullaev Sharof,6-2 3-6 [10/5],Masters League Season 3/2025,2025-10-02
+728,Bakhromov Iskandar,Savlev Andrey,6-2 6-1,Masters League Season 3/2025,2025-10-02
+729,Akhtamov Farrukh,Kurbanov Zafar,7-5 6-4,Masters League Season 3/2025,2025-10-02
+730,Lim Mikhail,Muminov Bahtiyar,6-7 (4/7) 6-4 [10/6],Masters League Season 3/2025,2025-10-03
+731,Xaleulin Ruslan,Ibragimov Murod,6-0 6-1,Masters League Season 3/2025,2025-10-03
+732,Khon Victor,Davronov Mirazizbek,6-0 6-0,Masters League Season 3/2025,2025-10-03
+733,Ivko Vladimir,Akhtamov Farrukh,6-3 6-4,Masters League Season 3/2025,2025-10-03
+734,Larionov Svyatoslav,Muminov Bahtiyar,6-1 6-0,Masters League Season 3/2025,2025-10-04
+735,Bakhromov Iskandar,Khon Victor,6-2 7-5,Masters League Season 3/2025,2025-10-04
+736,Ahrarov Izzat,Maxamedkasimov Rustam,3-6 6-2 [12/10],Masters League Season 3/2025,2025-10-05
+737,Xaleulin Ruslan,Shirinov Jahon,6-3 6-1,Masters League Season 3/2025,2025-10-05
+738,Abduvakhidov Alisher,Lim Mikhail,7-6 (7/4) 6-3,Masters League Season 3/2025,2025-10-05
+739,Khakimov Alisher,Khodyrev Egor,6-2 6-3,Masters League Season 3/2025,2025-10-06
+740,Gulyamov Saidahmad,Dosmatov Iskandar,6-2 6-3,Masters League Season 3/2025,2025-10-06
+741,Bakhromov Iskandar,Pulatov Timur,6-2 6-2,Masters League Season 3/2025,2025-10-07
+742,Xaleulin Ruslan,Rogozin Anton,6-4 6-3,Masters League Season 3/2025,2025-10-07
+743,Maxamedkasimov Rustam,Mirzoev Suren,7-5 6-3,Masters League Season 3/2025,2025-10-07
+744,Khidoyatov Takhir,Abdurakhmanov Boburkhan,6-3 1-6 [10/5],Masters League Season 3/2025,2025-10-07
+745,Usmonov Nazir,Juraev Mirazim,2-6 6-2 6-1,Masters League Season 3/2025,2025-10-08
+746,Kadirov Bakhrom,Khodyrev Egor,6-1 6-1,Masters League Season 3/2025,2025-10-08
+747,Bukharov Ulugbek,Ahrarov Izzat,6-3 6-0,Masters League Season 3/2025,2025-10-08
+748,Gulyamov Saidahmad,Shatursunov Shokhaydar,6-4 6-3,Masters League Season 3/2025,2025-10-08
+749,Medov Jak,Sagdullayev Abzal,6-2 6-2,Masters League Season 3/2025,2025-10-08
+750,Pankratov Vladimir,Neklesov Igor,6-2 6-3,Masters League Season 3/2025,2025-10-08
+751,Khakimov Alisher,Ochildiyev Husniddin,6-2 7-6 (7/3),Masters League Season 3/2025,2025-10-09
+752,Lim Mikhail,Ivko Vladimir,6-4 6-4,Masters League Season 3/2025,2025-10-09
+753,Pulatov Timur,Savlev Andrey,7-6 (9/7) 3-6 [10/8],Masters League Season 3/2025,2025-10-09
+754,Razzoqov Davron,Ahrarov Izzat,6-4 7-6 (7/5),Masters League Season 3/2025,2025-10-09
+755,Akhtamov Farrukh,Mirzoev Suren,2-6 6-1 6-0,Masters League Season 3/2025,2025-10-09
+756,Abdurakhmanov Boburkhan,Khakimov Alisher,7-6 (7/5) 5-7 [10/5],Masters League Season 3/2025,2025-10-09
+757,Pankratov Vladimir,Khodjabayev Sanjar,6-0 6-1,Masters League Season 3/2025,2025-10-10
+758,Bukharov Ulugbek,Akhtamov Farrukh,6-1 7-5,Masters League Season 3/2025,2025-10-10
+759,Yokubov Muhammadrahim,Nurmuratov Alisher,2-6 6-2 6-3,Masters League Season 3/2025,2025-10-10
+760,Turabov Anvar,Sagdullayev Abzal,6-2 6-2,Masters League Season 3/2025,2025-10-11
+761,Khidoyatov Takhir,Ochildiyev Husniddin,6-3 7-6 (7/5),Masters League Season 3/2025,2025-10-11
+762,Razzoqov Davron,Mirzoev Suren,6-1 3-6 7-6 (10/4),Masters League Season 3/2025,2025-10-12
+763,Bakhromov Iskandar,Xakimov Talib,6-3 6-1,Masters League Season 3/2025,2025-10-12
+764,Bakhromov Iskandar,Khan Pyotr,6-0 6-0,Masters League Season 3/2025,2025-10-12
+765,Pankratov Vladimir,Medov Jak,6-2 7-5,Masters League Season 3/2025,2025-10-12
+766,Gulyamov Saidahmad,Yusupov Rustam,7-6 (7/3) 6-3,Masters League Season 3/2025,2025-10-13
+767,Shodmonov Sherzod,Davronov Mirazizbek,6-1 6-0,Masters League Season 3/2025,2025-10-13
+768,Usmonov Nazir,Khidoyatov Takhir,3-6 6-0 [10/6],Masters League Season 3/2025,2025-10-13
+769,Shirinov Jahon,Khaitbaev Dilshad,6-1 6-2,Masters League Season 3/2025,2025-10-14
+770,Khidoyatov Takhir,Juraev Mirazim,6-3 6-1,Masters League Season 3/2025,2025-10-14
+771,Maxamedkasimov Rustam,Tadjiev Khamdam,6-2 6-3,Masters League Season 3/2025,2025-10-14
+772,Mirzoev Suren,Bukharov Ulugbek,1-6 6-3 6-3,Masters League Season 3/2025,2025-10-14
+773,Shodmonov Sherzod,Khon Victor,6-3 6-2,Masters League Season 3/2025,2025-10-15
+774,Khodyrev Egor,Mumtozkhonov Munimkhon,6-3 0-6 6-1,Masters League Season 3/2025,2025-10-15
+775,Gulyamov Saidahmad,Mavlyutov Kamil,6-2 6-4,Masters League Season 3/2025,2025-10-15
+776,Nurmuratov Alisher,Neklesov Igor,6-2 6-2,Masters League Season 3/2025,2025-10-16
+777,Abduvakhidov Alisher,Khaitbaev Dilshad,6-1 6-1,Masters League Season 3/2025,2025-10-16
+778,Rogozin Anton,Ibragimov Murod,6-4 6-4,Masters League Season 3/2025,2025-10-16
+779,Bakhromov Iskandar,Hayitov Olimjon,6-1 5-7 6-4,Masters League Season 3/2025,2025-10-17
+780,Hayitov Olimjon,Shodmonov Sherzod,6-1 1-6 6-2,Masters League Season 3/2025,2025-10-17
+781,Beknazarov Botirbek,Tadjiev Khamdam,6-3 1-6 [10/8],Masters League Season 3/2025,2025-10-17
+782,Yokubov Muhammadrahim,Medov Jak,2-6 7-5 6-4,Masters League Season 3/2025,2025-10-17
+783,Khon Victor,Pulatov Timur,6-1 3-6 [10/7],Masters League Season 3/2025,2025-10-18
+784,Abdullaev Sharof,Maxamedkasimov Rustam,6-3 4-6 [10/8],Masters League Season 3/2025,2025-10-18
+785,Savlev Andrey,Davronov Mirazizbek,6-2 6-1,Masters League Season 3/2025,2025-10-18
+786,Sagdullayev Abzal,Khodjabayev Sanjar,6-4 3-1,Masters League Season 3/2025,2025-10-18
+787,Tadjiev Khamdam,Ahrarov Izzat,6-2 6-3,Masters League Season 3/2025,2025-10-19
+788,Pankratov Vladimir,Turabov Anvar,6-3 7-6 (7/1),Masters League Season 3/2025,2025-10-19
+789,Khidoyatov Takhir,Mumtozkhonov Munimkhon,7-5 7-5,Masters League Season 3/2025,2025-10-19
+790,Kurbanov Zafar,Mirzoev Suren,6-3 6-2,Masters League Season 3/2025,2025-10-20
+791,Akhtamov Farrukh,Maxamedkasimov Rustam,1-6 6-4 10-5,Masters League Season 3/2025,2025-10-20
+792,Rogozin Anton,Lim Mikhail,6-2 6-3,Masters League Season 3/2025,2025-10-21
+793,Sultanov Jamoliddin,Juraev Mirazim,6-1 6-1,Masters League Season 3/2025,2025-10-21
+794,Fetisov Artem,Gulyamov Saidahmad,6-4 5-7 6-4,Masters League Season 3/2025,2025-10-21
+795,Khodyrev Egor,Raimov Bakhodir,6-2 6-3,Masters League Season 3/2025,2025-10-22
+796,Akhtamov Farrukh,Tadjiev Khamdam,1-6 6-1 10-5,Masters League Season 3/2025,2025-10-22
+797,Juraev Mirazim,Mumtozkhonov Munimkhon,7-6 (7/5) 6-3,Masters League Season 3/2025,2025-10-23
+798,Fetisov Artem,Dosmatov Iskandar,6-2 6-3,Masters League Season 3/2025,2025-10-23
+799,Mirzoev Suren,Abdullaev Sharof,6-2 6-4,Masters League Season 3/2025,2025-10-23
+800,Kadirov Bakhrom,Khidoyatov Takhir,7-5 3-6 [13/11],Masters League Season 3/2025,2025-10-23
+801,Usmonov Nazir,Sultanov Jamoliddin,7-5 6-2,Masters League Season 3/2025,2025-10-23
+802,Akhtamov Farrukh,Akhmadjonov Olimjon,6-2 6-0,Masters League Season 3/2025,2025-10-23
+803,Nurmuratov Alisher,Sagdullayev Abzal,6-3 6-1,Masters League Season 3/2025,2025-10-24
+804,Akhtamov Farrukh,Beknazarov Botirbek,6-3 6-1,Masters League Season 3/2025,2025-10-24
+805,Khon Victor,Savlev Andrey,5-7 6-2 [10/7],Masters League Season 3/2025,2025-10-24
+806,Hayitov Olimjon,Davronov Mirazizbek,6-0 6-1,Masters League Season 3/2025,2025-10-25
+807,Bukharov Ulugbek,Razzoqov Davron,6-1 6-4,Masters League Season 3/2025,2025-10-25
+808,Pankratov Vladimir,Rustamov Bozorboy,6-3 6-3,Masters League Season 3/2025,2025-10-26
+809,Xakimov Talib,Khon Victor,6-3 6-2,Masters League Season 3/2025,2025-10-26
+810,Juraev Mirazim,Ochildiyev Husniddin,1-6 6-4 7-5,Masters League Season 3/2025,2025-10-26
+811,Niyazov Zarrux,Mirzoev Suren,6-3 6-3,Masters League Season 3/2025,2025-10-27
+812,Razzoqov Davron,Akhtamov Farrukh,6-2 4-6 [10/6],Masters League Season 3/2025,2025-10-28
+813,Bukharov Ulugbek,Kurbanov Zafar,6-3 6-2,Masters League Season 3/2025,2025-10-29
+814,Hayitov Olimjon,Savlev Andrey,6-1 6-4,Masters League Season 3/2025,2025-10-29
+815,Akhmadjonov Olimjon,Tadjiev Khamdam,6-4 6-4,Masters League Season 3/2025,2025-10-29
+816,Sultanov Jamoliddin,Khakimov Alisher,6-3 7-6 (7/5),Masters League Season 3/2025,2025-10-29
+817,Kadirov Bakhrom,Ochildiyev Husniddin,6-0 6-1,Masters League Season 3/2025,2025-10-29
+818,Xakimov Talib,Pulatov Timur,6-7 (1/7) 7-5 [11/9],Masters League Season 3/2025,2025-10-29
+819,Pulatov Timur,Shodmonov Sherzod,3-6 6-2 [11/9],Masters League Season 3/2025,2025-10-29
+820,Abdurakhmanov Boburkhan,Juraev Mirazim,3-6 6-4 6-3,Masters League Season 3/2025,2025-10-30
+821,Bukharov Ulugbek,Tadjiev Khamdam,7-5 7-5,Masters League Season 3/2025,2025-10-30
+822,Kadirov Bakhrom,Khakimov Alisher,7-5 4-6 6-1,Masters League Season 3/2025,2025-10-30
+823,Razzoqov Davron,Akhmadjonov Olimjon,6-4 7-5,Masters League Season 3/2025,2025-10-30
+824,Bukharov Ulugbek,Akhmadjonov Olimjon,6-0 6-4,Masters League Season 3/2025,2025-10-31
+825,Medov Jak,Neklesov Igor,6-2 4-6 [11/9],Masters League Season 3/2025,2025-10-31
+826,Khakimov Alisher,Usmonov Nazir,6-3 6-2,Masters League Season 3/2025,2025-11-01
+827,Bukharov Ulugbek,Abdullaev Sharof,6-3 6-1,Masters League Season 3/2025,2025-11-01
+828,Muminov Bahtiyar,Shirinov Jahon,6-1 4-6 [10/8],Masters League Season 3/2025,2025-11-01
+829,Kadirov Bakhrom,Juraev Mirazim,6-3 6-2,Masters League Season 3/2025,2025-11-01
+830,Hayitov Olimjon,Pulatov Timur,6-2 6-2,Masters League Season 3/2025,2025-11-01
+831,Sagdullayev Abzal,Yokubov Muhammadrahim,6-1 2-6 [10/3],Masters League Season 4/2025,2025-11-07
+832,Gulyamov Saidahmad,Juraev Mirazim,6-4 4-6 6-3,Masters League Season 4/2025,2025-11-09
+833,Rogozin Anton,Shirinov Jahon,7-6 (7/3) 6-3,Masters League Season 4/2025,2025-11-09
+834,Pankratov Vladimir,Fetisov Artem,6-2 6-1,Masters League Season 4/2025,2025-11-11
+835,Ivko Vladimir,Maxamedkasimov Rustam,1-6 6-0 [10/4],Masters League Season 4/2025,2025-11-11
+836,Muhammadaliyev Muhtor,Juraev Mirazim,7-5 6-2,Masters League Season 4/2025,2025-11-11
+837,Dosmatov Iskandar,Mavlyutov Kamil,3-6 7-6 (7/3) [10/6],Masters League Season 4/2025,2025-11-12
+838,Sagdullayev Abzal,Sultanov Jamoliddin,4-6 7-5 [12/10],Masters League Season 4/2025,2025-11-12
+839,Khakimov Alisher,Juraev Mirazim,6-4 6-4,Masters League Season 4/2025,2025-11-12
+840,Zulpitdinov Abdushaid,Xakimov Talib,7-5 6-3,Masters League Season 4/2025,2025-11-13
+841,Abduvakhidov Alisher,Shirinov Jahon,6-4 7-6 (8/6),Masters League Season 4/2025,2025-11-13
+842,Shamuratov Farrukh,Akhtamov Farrukh,6-2 6-7 (5/7) [11/9],Masters League Season 4/2025,2025-11-13
+843,Fetisov Artem,Khodyrev Egor,7-6 (7/4) 6-3,Masters League Season 4/2025,2025-11-14
+844,Khodyrev Egor,Sultanov Jamoliddin,5-7 6-3 6-1,Masters League Season 4/2025,2025-11-15
+845,Muminov Karim,Dosmatov Iskandar,6-3 6-1,Masters League Season 4/2025,2025-11-15
+846,Hayitov Olimjon,Shodmonov Sherzod,6-1 6-4,Masters League Season 4/2025,2025-11-15
+847,Rogozin Anton,Abduvakhidov Alisher,6-2 7-6 (7/4),Masters League Season 4/2025,2025-11-15
+848,Pankratov Vladimir,Yokubov Muhammadrahim,6-4 6-1,Masters League Season 4/2025,2025-11-15
+849,Gulyamov Saidahmad,Khodyrev Egor,6-4 6-3,Masters League Season 4/2025,2025-11-16
+850,Muminov Karim,Juraev Mirodil,6-3 6-2,Masters League Season 4/2025,2025-11-16
+851,Rogozin Anton,Akhtamov Farrukh,6-1 6-1,Masters League Season 4/2025,2025-11-17
+852,Muhammadaliyev Muhtor,Khakimov Alisher,6-2 6-1,Masters League Season 4/2025,2025-11-17
+853,Dosmatov Iskandar,Xakimov Talib,6-1 6-1,Masters League Season 4/2025,2025-11-19
+854,Khakimov Alisher,Gulyamov Saidahmad,6-4 6-4,Masters League Season 4/2025,2025-11-20
+855,Khodyrev Egor,Sagdullayev Abzal,4-6 6-0 [10/5],Masters League Season 4/2025,2025-11-20
+856,Muhammadaliyev Muhtor,Sagdullayev Abzal,6-0 6-3,Masters League Season 4/2025,2025-11-21
+857,Khodyrev Egor,Pankratov Vladimir,6-0 6-4,Masters League Season 4/2025,2025-11-21
+858,Sultanov Jamoliddin,Fetisov Artem,6-3 7-6 (7/0),Masters League Season 4/2025,2025-11-21
+859,Rogozin Anton,Shamuratov Farrukh,6-3 6-3,Masters League Season 4/2025,2025-11-22
+860,Muminov Karim,Hayitov Olimjon,2-6 6-1 [10/8],Masters League Season 4/2025,2025-11-22
+861,Khakimov Alisher,Yokubov Muhammadrahim,6-7 (3/7) 6-1 7-6 (12/10),Masters League Season 4/2025,2025-11-22
+862,Khodyrev Egor,Juraev Mirazim,7-6 (7/4) 6-2,Masters League Season 4/2025,2025-11-23
+863,Muminov Karim,Mavlyutov Kamil,6-4 6-4,Masters League Season 4/2025,2025-11-23
+864,Kadirov Makhmud,Hayitov Olimjon,6-4 4-6 6-2,Masters League Season 4/2025,2025-11-26
+865,Khakimov Alisher,Sagdullayev Abzal,7-6 (7/5) 7-5,Masters League Season 4/2025,2025-11-27
+866,Mavlyutov Kamil,Xakimov Talib,6-4 2-6 [10/7],Masters League Season 4/2025,2025-11-27
+867,Dosmatov Iskandar,Kadirov Makhmud,6-2 6-4,Masters League Season 4/2025,2025-11-27
+868,Khodyrev Egor,Khakimov Alisher,7-5 6-3,Masters League Season 4/2025,2025-11-27
+869,Bukharov Ulugbek,Kamilov Baxriddin,4-6 6-1 6-2,Masters League Season 4/2025,2025-11-28
+870,Maxamedkasimov Rustam,Kurbanov Zafar,7-5 1-6 [11/9],Masters League Season 4/2025,2025-11-28
+871,Juraev Mirazim,Sagdullayev Abzal,6-2 6-2,Masters League Season 4/2025,2025-11-28
+872,Rogozin Anton,Kamilov Baxriddin,6-2 6-4,Masters League Season 4/2025,2025-11-30
+873,Turabov Anvar,Mavlyutov Kamil,6-3 6-4,Masters League Season 4/2025,2025-11-30
+874,Fetisov Artem,Sagdullayev Abzal,6-3 6-3,Masters League Season 4/2025,2025-12-01
+875,Abduvakhidov Alisher,Kamilov Baxriddin,6-3 6-3,Masters League Season 4/2025,2025-12-02
+876,Maxamedkasimov Rustam,Karimov Bobirbek,6-4 7-5,Masters League Season 4/2025,2025-12-02
+877,Fetisov Artem,Juraev Mirazim,6-3 6-3,Masters League Season 4/2025,2025-12-03
+878,Mirzoev Suren,Kurbanov Zafar,6-7 (3/7) 6-4 [10/6],Masters League Season 4/2025,2025-12-03
+879,Shirinov Jahon,Akhtamov Farrukh,7-5 7-5,Masters League Season 4/2025,2025-12-03
+880,Khodyrev Egor,Muhammadaliyev Muhtor,6-3 7-6 (7/4),Masters League Season 4/2025,2025-12-04
+881,Fetisov Artem,Gulyamov Saidahmad,6-3 6-2,Masters League Season 4/2025,2025-12-04
+882,Shirinov Jahon,Bukharov Ulugbek,3-6 7-5 [13/11],Masters League Season 4/2025,2025-12-04
+883,Pankratov Vladimir,Sagdullayev Abzal,6-3 6-3,Masters League Season 4/2025,2025-12-05
+884,Kamilov Baxriddin,Akhtamov Farrukh,1-6 6-4 6-3,Masters League Season 4/2025,2025-12-06
+885,Mavlyutov Kamil,Kadirov Makhmud,6-4 3-6 7-5,Masters League Season 4/2025,2025-12-06
+886,Khidoyatov Takhir,Mirzoev Suren,6-4 3-6 6-4,Masters League Season 4/2025,2025-12-06
+887,Gulyamov Saidahmad,Pankratov Vladimir,4-6 7-5 [10/6],Masters League Season 4/2025,2025-12-07
+888,Gulyamov Saidahmad,Yokubov Muhammadrahim,6-2 6-0,Masters League Season 4/2025,2025-12-07
+889,Dosmatov Iskandar,Hayitov Olimjon,6-0 6-1,Masters League Season 4/2025,2025-12-07
+890,Gulyamov Saidahmad,Sultanov Jamoliddin,6-2 7-5,Masters League Season 4/2025,2025-12-07
+891,Shirinov Jahon,Kamilov Baxriddin,7-6 (7/3) 6-4,Masters League Season 4/2025,2025-12-08
+892,Khodyrev Egor,Yokubov Muhammadrahim,6-4 6-2,Masters League Season 4/2025,2025-12-08
+893,Muhammadaliyev Muhtor,Fetisov Artem,2-6 6-4 6-4,Masters League Season 4/2025,2025-12-08
+894,Mirzoev Suren,Usmonov Nazir,6-2 7-6 (7/5),Masters League Season 4/2025,2025-12-09
+895,Khakimov Alisher,Sultanov Jamoliddin,8-7 (7/3),Masters League Season 4/2025,2025-12-10
+896,Rogozin Anton,Bukharov Ulugbek,8-5,Masters League Season 4/2025,2025-12-10
+897,Rogozin Anton,Khaitbaev Dilshad,8-2,Masters League Season 4/2025,2025-12-10
+898,Mirzoev Suren,Karimov Bobirbek,6-4 6-4,Masters League Season 4/2025,2025-12-10
+899,Mavlyutov Kamil,Zulpitdinov Abdushaid,6-3 7-6 (7/3),Masters League Season 4/2025,2025-12-10
+900,Xakimov Talib,Kadirov Makhmud,6-3 3-6 [10/8],Masters League Season 4/2025,2025-12-11
+901,Muminov Karim,Turabov Anvar,6-2 7-5,Masters League Season 4/2025,2025-12-12
+902,Muminov Karim,Zulpitdinov Abdushaid,6-4 6-0,Masters League Season 4/2025,2025-12-12
+903,Fetisov Artem,Khakimov Alisher,2-6 6-2 6-1,Masters League Season 4/2025,2025-12-12
+904,Kadirov Makhmud,Muminov Karim,4-6 6-2 [10/8],Masters League Season 4/2025,2025-12-13
+905,Maxamedkasimov Rustam,Khidoyatov Takhir,6-4 6-1,Masters League Season 4/2025,2025-12-13
+906,Shirinov Jahon,Shamuratov Farrukh,7-5 6-3,Masters League Season 4/2025,2025-12-14
+907,Gulyamov Saidahmad,Sagdullayev Abzal,6-2 7-5,Masters League Season 4/2025,2025-12-14
+908,Ivko Vladimir,Usmonov Nazir,6-2 6-1,Masters League Season 4/2025,2025-12-14
+909,Juraev Mirazim,Pankratov Vladimir,6-4 6-2,Masters League Season 4/2025,2025-12-16
+910,Maxamedkasimov Rustam,Mirzoev Suren,7-6 (7/3),Masters League Season 4/2025,2025-12-17
+911,Kadirov Makhmud,Zulpitdinov Abdushaid,6-4 6-2,Masters League Season 4/2025,2025-12-18
