@@ -651,3 +651,130 @@ def get_player_match_history(player_id, limit=10):
         })
 
     return match_history
+
+
+def get_player_opponents(player_id):
+    """Get all opponents the player has played against"""
+    opponents = db.session.query(Player).distinct() \
+        .join(Match, ((Player.id == Match.player1_id) | (Player.id == Match.player2_id))) \
+        .filter(
+        ((Match.player1_id == player_id) | (Match.player2_id == player_id)),
+        Player.id != player_id
+    ) \
+        .order_by(Player.last_name, Player.first_name) \
+        .all()
+
+    return opponents
+
+
+def get_player_seasons(player_id):
+    """Get all seasons the player has participated in"""
+    seasons = db.session.query(Season).distinct() \
+        .join(Division, Season.id == Division.season_id) \
+        .join(Match, Division.id == Match.division_id) \
+        .filter(
+        ((Match.player1_id == player_id) | (Match.player2_id == player_id))
+    ) \
+        .order_by(Season.year.desc()) \
+        .all()
+
+    return seasons
+
+
+def get_player_divisions(player_id):
+    """Get all divisions the player has played in"""
+    divisions = db.session.query(Division).distinct() \
+        .join(Match, Division.id == Match.division_id) \
+        .filter(
+        ((Match.player1_id == player_id) | (Match.player2_id == player_id))
+    ) \
+        .order_by(Division.priority) \
+        .all()
+
+    return divisions
+
+
+def calculate_h2h_stats(player1_id, player2_id):
+    """Calculate head-to-head statistics between two players"""
+    # Get all matches between the two players
+    matches = Match.query.filter(
+        ((Match.player1_id == player1_id) & (Match.player2_id == player2_id)) |
+        ((Match.player1_id == player2_id) & (Match.player2_id == player1_id))
+    ).all()
+
+    if not matches:
+        return None
+
+    player1_wins = 0
+    player2_wins = 0
+    total_sets_player1 = 0
+    total_sets_player2 = 0
+    total_games_player1 = 0
+    total_games_player2 = 0
+
+    for match in matches:
+        is_player1_match_player1 = match.player1_id == player1_id
+
+        if match.winner_id == player1_id:
+            player1_wins += 1
+        else:
+            player2_wins += 1
+
+        # Calculate set and game counts
+        if is_player1_match_player1:
+            sets_won = sum([
+                1 if match.set1_player1 > match.set1_player2 else 0,
+                1 if match.set2_player1 > match.set2_player2 else 0,
+                1 if match.set3_player1 and match.set3_player1 > match.set3_player2 else 0
+            ])
+            sets_lost = sum([
+                1 if match.set1_player1 < match.set1_player2 else 0,
+                1 if match.set2_player1 < match.set2_player2 else 0,
+                1 if match.set3_player1 and match.set3_player1 < match.set3_player2 else 0
+            ])
+            games_won = sum([
+                match.set1_player1 or 0,
+                match.set2_player1 or 0,
+                match.set3_player1 or 0
+            ])
+            games_lost = sum([
+                match.set1_player2 or 0,
+                match.set2_player2 or 0,
+                match.set3_player2 or 0
+            ])
+        else:
+            sets_won = sum([
+                1 if match.set1_player2 > match.set1_player1 else 0,
+                1 if match.set2_player2 > match.set2_player1 else 0,
+                1 if match.set3_player2 and match.set3_player2 > match.set3_player1 else 0
+            ])
+            sets_lost = sum([
+                1 if match.set1_player2 < match.set1_player1 else 0,
+                1 if match.set2_player2 < match.set2_player1 else 0,
+                1 if match.set3_player2 and match.set3_player2 < match.set3_player1 else 0
+            ])
+            games_won = sum([
+                match.set1_player2 or 0,
+                match.set2_player2 or 0,
+                match.set3_player2 or 0
+            ])
+            games_lost = sum([
+                match.set1_player1 or 0,
+                match.set2_player1 or 0,
+                match.set3_player1 or 0
+            ])
+
+        total_sets_player1 += sets_won
+        total_sets_player2 += sets_lost
+        total_games_player1 += games_won
+        total_games_player2 += games_lost
+
+    return {
+        'total_matches': len(matches),
+        'player1_wins': player1_wins,
+        'player2_wins': player2_wins,
+        'win_percentage': (player1_wins / len(matches) * 100) if matches else 0,
+        'sets': f"{total_sets_player1}-{total_sets_player2}",
+        'games': f"{total_games_player1}-{total_games_player2}",
+        'matches': matches[:10]  # First 10 matches for details
+    }
