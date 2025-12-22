@@ -154,6 +154,159 @@ def calculate_rankings(date):
 
     return rankings
 
+def import_matches_from_csv(file_path, batch_size=50):
+    """
+    Import matches from CSV file to database
+    """
+    imported_count = 0
+    skipped_count = 0
+    error_count = 0
+
+    existing_players = {}
+    for p in Player.query.all():
+        key = p.last_name.strip() + ' ' + p.first_name.strip()
+        existing_players[key] = p
+
+    with open(file_path, 'r', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile)
+
+        for i, row in enumerate(reader):
+            try:
+                # Parse data from row
+                winner_name = row.get('winner', '').strip()
+                loser_name = row.get('loser', '').strip()
+                score = row.get('score', '').strip()
+                season_name = row.get('season', '').strip()
+                date_str = row.get('date', '').strip()
+
+                # Skip rows with missing essential data
+                if not all([winner_name, loser_name, score, season_name, date_str]):
+                    print(f"Skipping row {i}: Missing essential data")
+                    skipped_count += 1
+                    continue
+
+                # Parse date
+                try:
+                    match_date = datetime.strptime(date_str, '%Y-%m-%d').date()
+                except ValueError:
+                    print(f"Skipping row {i}: Invalid date format: {date_str}")
+                    skipped_count += 1
+                    continue
+
+                if winner_name not in existing_players or loser_name not in existing_players:
+                    print(f"Skipping row {i}: Unknown player: {winner_name} vs {loser_name}")
+                    skipped_count += 1
+                    continue
+
+                # Get or create players
+                winner = existing_players[winner_name]
+                loser = existing_players[loser_name]
+
+                # Get season
+                season = get_season_by_raketo_name(season_name)
+                if not season:
+                    print(f"Skipping row {i}: Unknown season: {season_name}")
+                    skipped_count += 1
+                    continue
+
+
+                # Get division
+                divisions = get_common_divisions_in_season(winner.id, loser.id, season.id)
+                if len(divisions) == 0:
+                    divisions = [get_lowest_division_in_season(winner.id, loser.id, season.id)]
+                if len(divisions) == 0:
+                    print(f"Skipping row {i}: No common divisions in {season_name} for {winner_name} vs {loser_name}")
+                    skipped_count += 1
+                    continue
+
+
+                division = divisions[0]
+                for d in divisions:
+                    if division.priority < d.priority:
+                        division = d # select max priority division if there were several common ones
+
+                # Parse score
+                parsed_score = parse_score(score)
+                if not parsed_score:
+                    print(f"Skipping row {i}: Could not parse score: {score}")
+                    skipped_count += 1
+                    continue
+
+                # Create match record
+                match = Match(
+                    date_played=match_date,
+                    season_id=season.id,
+                    division_id=division.id,
+                    player1_id=winner.id,  # Winner is player1
+                    player2_id=loser.id,  # Loser is player2
+                    winner_id=winner.id,
+                )
+
+                # Set score based on parsed structure
+                sets = parsed_score['sets']
+                # Game in sets
+
+                # Set 1
+                if len(sets) > 0:
+                    match.set1_player1 = sets[0]['player1']  # Winner's games
+                    match.set1_player2 = sets[0]['player2']  # Loser's games
+                    if sets[0]['tiebreak']:
+                        match.tb1_player1 = sets[0]['tiebreak_score']['player1']
+                        match.tb1_player2 = sets[0]['tiebreak_score']['player2']
+
+                # Set 2
+                if len(sets) > 1:
+                    match.set2_player1 = sets[1]['player1']
+                    match.set2_player2 = sets[1]['player2']
+                    if sets[1]['tiebreak']:
+                        match.tb2_player1 = sets[1]['tiebreak_score']['player1']
+                        match.tb2_player2 = sets[1]['tiebreak_score']['player2']
+
+                # Set 3 (if exists and not royal tiebreak)
+                if len(sets) > 2 and not parsed_score['royal_tiebreak']:
+                    match.set3_player1 = sets[2]['player1']
+                    match.set3_player2 = sets[2]['player2']
+                    if sets[2]['tiebreak']:
+                        match.tb3_player1 = sets[2]['tiebreak_score']['player1']
+                        match.tb3_player2 = sets[2]['tiebreak_score']['player2']
+
+                # Royal tiebreak
+                if parsed_score['royal_tiebreak'] and parsed_score['royal_tiebreak_score']:
+                    match.royal_tiebreak_player1 = parsed_score['royal_tiebreak_score'][0]  # Winner's points
+                    match.royal_tiebreak_player2 = parsed_score['royal_tiebreak_score'][1]  # Loser's points
+
+                db.session.add(match)
+                imported_count += 1
+
+                # Commit in batches for performance
+                if imported_count % batch_size == 0:
+                    db.session.commit()
+                    print(f"Imported {imported_count} matches...")
+
+            except Exception as e:
+                error_count += 1
+                print(f"Error importing row {i}: {str(e)}")
+                print(f"Row data: {row}")
+                db.session.rollback()
+                continue
+
+        # Final commit
+        try:
+            db.session.commit()
+            print(f"\nImport completed!")
+            print(f"Successfully imported: {imported_count}")
+            print(f"Skipped: {skipped_count}")
+            print(f"Errors: {error_count}")
+        except Exception as e:
+            db.session.rollback()
+            print(f"Final commit failed: {str(e)}")
+
+    return {
+        'imported': imported_count,
+        'skipped': skipped_count,
+        'errors': error_count
+    }
+
 
 def reset_content():
     # must be invoked inside app context
@@ -393,158 +546,7 @@ def season_rules(season_id):
     return render_template('season_rules.html', season=season, season_info=season_info)
 
 
-def import_matches_from_csv(file_path, batch_size=50):
-    """
-    Import matches from CSV file to database
-    """
-    imported_count = 0
-    skipped_count = 0
-    error_count = 0
 
-    existing_players = {}
-    for p in Player.query.all():
-        key = p.last_name.strip() + ' ' + p.first_name.strip()
-        existing_players[key] = p
-
-    with open(file_path, 'r', encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile)
-
-        for i, row in enumerate(reader):
-            try:
-                # Parse data from row
-                winner_name = row.get('winner', '').strip()
-                loser_name = row.get('loser', '').strip()
-                score = row.get('score', '').strip()
-                season_name = row.get('season', '').strip()
-                date_str = row.get('date', '').strip()
-
-                # Skip rows with missing essential data
-                if not all([winner_name, loser_name, score, season_name, date_str]):
-                    print(f"Skipping row {i}: Missing essential data")
-                    skipped_count += 1
-                    continue
-
-                # Parse date
-                try:
-                    match_date = datetime.strptime(date_str, '%Y-%m-%d').date()
-                except ValueError:
-                    print(f"Skipping row {i}: Invalid date format: {date_str}")
-                    skipped_count += 1
-                    continue
-
-                if winner_name not in existing_players or loser_name not in existing_players:
-                    print(f"Skipping row {i}: Unknown player: {winner_name} vs {loser_name}")
-                    skipped_count += 1
-                    continue
-
-                # Get or create players
-                winner = existing_players[winner_name]
-                loser = existing_players[loser_name]
-
-                # Get season
-                season = get_season_by_raketo_name(season_name)
-                if not season:
-                    print(f"Skipping row {i}: Unknown season: {season_name}")
-                    skipped_count += 1
-                    continue
-
-
-                # Get division
-                divisions = get_common_divisions_in_season(winner.id, loser.id, season.id)
-                if len(divisions) == 0:
-                    divisions = [get_lowest_division_in_season(winner.id, loser.id, season.id)]
-                if len(divisions) == 0:
-                    print(f"Skipping row {i}: No common divisions in {season_name} for {winner_name} vs {loser_name}")
-                    skipped_count += 1
-                    continue
-
-
-                division = divisions[0]
-                for d in divisions:
-                    if division.priority < d.priority:
-                        division = d # select max priority division if there were several common ones
-
-                # Parse score
-                parsed_score = parse_score(score)
-                if not parsed_score:
-                    print(f"Skipping row {i}: Could not parse score: {score}")
-                    skipped_count += 1
-                    continue
-
-                # Create match record
-                match = Match(
-                    date_played=match_date,
-                    season_id=season.id,
-                    division_id=division.id,
-                    player1_id=winner.id,  # Winner is player1
-                    player2_id=loser.id,  # Loser is player2
-                    winner_id=winner.id,
-                )
-
-                # Set score based on parsed structure
-                sets = parsed_score['sets']
-                # Game in sets
-
-                # Set 1
-                if len(sets) > 0:
-                    match.set1_player1 = sets[0]['player1']  # Winner's games
-                    match.set1_player2 = sets[0]['player2']  # Loser's games
-                    if sets[0]['tiebreak']:
-                        match.tb1_player1 = sets[0]['tiebreak_score']['player1']
-                        match.tb1_player2 = sets[0]['tiebreak_score']['player2']
-
-                # Set 2
-                if len(sets) > 1:
-                    match.set2_player1 = sets[1]['player1']
-                    match.set2_player2 = sets[1]['player2']
-                    if sets[1]['tiebreak']:
-                        match.tb2_player1 = sets[1]['tiebreak_score']['player1']
-                        match.tb2_player2 = sets[1]['tiebreak_score']['player2']
-
-                # Set 3 (if exists and not royal tiebreak)
-                if len(sets) > 2 and not parsed_score['royal_tiebreak']:
-                    match.set3_player1 = sets[2]['player1']
-                    match.set3_player2 = sets[2]['player2']
-                    if sets[2]['tiebreak']:
-                        match.tb3_player1 = sets[2]['tiebreak_score']['player1']
-                        match.tb3_player2 = sets[2]['tiebreak_score']['player2']
-
-                # Royal tiebreak
-                if parsed_score['royal_tiebreak'] and parsed_score['royal_tiebreak_score']:
-                    match.royal_tiebreak_player1 = parsed_score['royal_tiebreak_score'][0]  # Winner's points
-                    match.royal_tiebreak_player2 = parsed_score['royal_tiebreak_score'][1]  # Loser's points
-
-                db.session.add(match)
-                imported_count += 1
-
-                # Commit in batches for performance
-                if imported_count % batch_size == 0:
-                    db.session.commit()
-                    print(f"Imported {imported_count} matches...")
-
-            except Exception as e:
-                error_count += 1
-                print(f"Error importing row {i}: {str(e)}")
-                print(f"Row data: {row}")
-                db.session.rollback()
-                continue
-
-        # Final commit
-        try:
-            db.session.commit()
-            print(f"\nImport completed!")
-            print(f"Successfully imported: {imported_count}")
-            print(f"Skipped: {skipped_count}")
-            print(f"Errors: {error_count}")
-        except Exception as e:
-            db.session.rollback()
-            print(f"Final commit failed: {str(e)}")
-
-    return {
-        'imported': imported_count,
-        'skipped': skipped_count,
-        'errors': error_count
-    }
 
 
 if __name__ == '__main__':

@@ -195,7 +195,8 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <p class="stat-label">Текущий (лучший) рейтинг</p>
-                <h2 class="stat-number">{{ current_ranking if current_ranking else '-' }} ({{ total_stats.career_high }})</h2>
+                <h2 class="stat-number">{{ current_ranking if current_ranking else '-' }} ({{
+                    total_stats.career_high if total_stats.career_high else '-'}})</h2>
 
 
 
