@@ -181,6 +181,25 @@ SEASONS_INFO = {
             'description': 'Большой турнир по олимпийской системе',
             'is_completed': False,
             'is_ranked': False,
+    },
+    11: {
+            'year': 2025,
+            'name': 'Women 1',
+            'date_start': '2025-04-05',
+            'date_end': '2025-05-18',
+            'cost': 130000,
+            'raketo_ref': '',
+            'prize_positions': [],
+            'prize_amount': 300000,
+            'lottery_minimum_matches': 7,
+            'lottery_amount': 200000,
+            'lottery_count': 0,
+            'relegations': {
+            },
+            'special_rules': [],
+            'description': 'Турнир для девушек',
+            'is_completed': True,
+            'is_ranked': False,
     }
 }
 

@@ -1829,6 +1829,220 @@
               "gender": "male"
             }
           ]
+        },
+        {
+          "name": "Women",
+          "priority": 300,
+          "results": [
+            {
+              "position": 1,
+              "match_count": 12,
+              "win_count": 9,
+              "tie_win_count": 0,
+              "set_diff": 7,
+              "game_diff": 40,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Polina",
+              "last_name": "Ptuhina",
+              "gender": "female"
+            },
+            {
+              "position": 2,
+              "match_count": 13,
+              "win_count": 7,
+              "tie_win_count": 0,
+              "set_diff": 2,
+              "game_diff": 12,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Irina",
+              "last_name": "Ormanova",
+              "gender": "female"
+            },
+            {
+              "position": 3,
+              "match_count": 12,
+              "win_count": 6,
+              "tie_win_count": 0,
+              "set_diff": 1,
+              "game_diff": 2,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Aleksandra",
+              "last_name": "Tkachenko",
+              "gender": "female"
+            },
+            {
+              "position": 4,
+              "match_count": 7,
+              "win_count": 5,
+              "tie_win_count": 0,
+              "set_diff": 2,
+              "game_diff": 13,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Marina",
+              "last_name": "Kozyaeva",
+              "gender": "female"
+            },
+            {
+              "position": 5,
+              "match_count": 5,
+              "win_count": 5,
+              "tie_win_count": 0,
+              "set_diff": 6,
+              "game_diff": 32,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Mera",
+              "last_name": "Seitova",
+              "gender": "female"
+            },
+            {
+              "position": 6,
+              "match_count": 4,
+              "win_count": 4,
+              "tie_win_count": 2,
+              "set_diff": 5,
+              "game_diff": 18,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Zilola",
+              "last_name": "Rasulova",
+              "gender": "female"
+            },
+            {
+              "position": 7,
+              "match_count": 7,
+              "win_count": 4,
+              "tie_win_count": 1,
+              "set_diff": 2,
+              "game_diff": 20,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Tamila",
+              "last_name": "Sditanova",
+              "gender": "female"
+            },
+            {
+              "position": 8,
+              "match_count": 7,
+              "win_count": 4,
+              "tie_win_count": 1,
+              "set_diff": 1,
+              "game_diff": 8,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Veronika",
+              "last_name": "Hushvakova",
+              "gender": "female"
+            },
+            {
+              "position": 9,
+              "match_count": 5,
+              "win_count": 4,
+              "tie_win_count": 0,
+              "set_diff": 3,
+              "game_diff": 13,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Kamila",
+              "last_name": "Erhodjaeva",
+              "gender": "female"
+            },
+            {
+              "position": 10,
+              "match_count": 7,
+              "win_count": 3,
+              "tie_win_count": 0,
+              "set_diff": -1,
+              "game_diff": -13,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Olesya",
+              "last_name": "Gruschak",
+              "gender": "female"
+            },
+            {
+              "position": 11,
+              "match_count": 6,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": -5,
+              "game_diff": -26,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Anastasiya",
+              "last_name": "Fakhrutdinova",
+              "gender": "female"
+            },
+            {
+              "position": 12,
+              "match_count": 4,
+              "win_count": 1,
+              "tie_win_count": 1,
+              "set_diff": -4,
+              "game_diff": -9,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Aleksandra",
+              "last_name": "Alieva",
+              "gender": "female"
+            },
+            {
+              "position": 13,
+              "match_count": 4,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": -2,
+              "game_diff": -12,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Lubov",
+              "last_name": "Smi",
+              "gender": "female"
+            },
+            {
+              "position": 14,
+              "match_count": 8,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -10,
+              "game_diff": -58,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Marina",
+              "last_name": "Kim",
+              "gender": "female"
+            },
+            {
+              "position": 15,
+              "match_count": 6,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -6,
+              "game_diff": -34,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Aliya",
+              "last_name": "Tadjieva",
+              "gender": "female"
+            },
+            {
+              "position": 16,
+              "match_count": 1,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -1,
+              "game_diff": -6,
+              "division_id": 40,
+              "relegation": "unchanged",
+              "first_name": "Irina",
+              "last_name": "Lee",
+              "gender": "female"
+            }
+          ]
         }
       ]
     },
@@ -5344,6 +5558,138 @@
               "first_name": "Andrey",
               "last_name": "Savlev",
               "gender": "male"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "name": "W1",
+      "date_start": "2025-04-05",
+      "date_end": "2025-05-18",
+      "is_ranked": 0,
+      "divisions": [
+        {
+          "name": "W1",
+          "priority": 300,
+          "results": [
+            {
+              "position": 1,
+              "match_count": 8,
+              "win_count": 7,
+              "tie_win_count": 0,
+              "set_diff": 6,
+              "game_diff": 30,
+              "division_id": 39.0,
+              "relegation": "unchanged",
+              "first_name": "Polina",
+              "last_name": "Ptuhina",
+              "gender": "female"
+            },
+            {
+              "position": 2,
+              "match_count": 5,
+              "win_count": 4,
+              "tie_win_count": 0,
+              "set_diff": 2,
+              "game_diff": 8,
+              "division_id": 39.0,
+              "relegation": "unchanged",
+              "first_name": "Aleksandra",
+              "last_name": "Tkachenko",
+              "gender": "female"
+            },
+            {
+              "position": 3,
+              "match_count": 4,
+              "win_count": 4,
+              "tie_win_count": 0,
+              "set_diff": 4,
+              "game_diff": 20,
+              "division_id": 39.0,
+              "relegation": "unchanged",
+              "first_name": "Tamila",
+              "last_name": "Sditanova",
+              "gender": "female"
+            },
+            {
+              "position": 4,
+              "match_count": 5,
+              "win_count": 3,
+              "tie_win_count": 0,
+              "set_diff": 3,
+              "game_diff": 6,
+              "division_id": 39.0,
+              "relegation": "unchanged",
+              "first_name": "Olesya",
+              "last_name": "Gruschak",
+              "gender": "female"
+            },
+            {
+              "position": 5,
+              "match_count": 5,
+              "win_count": 2,
+              "tie_win_count": 0,
+              "set_diff": -1,
+              "game_diff": -7,
+              "division_id": 39.0,
+              "relegation": "unchanged",
+              "first_name": "Aliya",
+              "last_name": "Tadjieva",
+              "gender": "female"
+            },
+            {
+              "position": 6,
+              "match_count": 5,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": -4,
+              "game_diff": -18,
+              "division_id": 39.0,
+              "relegation": "unchanged",
+              "first_name": "Marina",
+              "last_name": "Kim",
+              "gender": "female"
+            },
+            {
+              "position": 7,
+              "match_count": 3,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": -1,
+              "game_diff": -7,
+              "division_id": 39.0,
+              "relegation": "unchanged",
+              "first_name": "Veronika",
+              "last_name": "Hushvakova",
+              "gender": "female"
+            },
+            {
+              "position": 8,
+              "match_count": 7,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -8,
+              "game_diff": -29,
+              "division_id": 39.0,
+              "relegation": "unchanged",
+              "first_name": "Lyudmila",
+              "last_name": "Khegay",
+              "gender": "female"
+            },
+            {
+              "position": 9,
+              "match_count": 2,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -1,
+              "game_diff": -3,
+              "division_id": 39.0,
+              "relegation": "unchanged",
+              "first_name": "Aleksandra",
+              "last_name": "Alieva",
+              "gender": "female"
             }
           ]
         }

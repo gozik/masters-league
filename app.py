@@ -392,7 +392,7 @@ def show_results():
 
     results_data = [p.to_dict() for p in results]
 
-    seasons = Season.query.filter(Season.is_completed == True).order_by(Season.id.desc()).all()
+    seasons = Season.query.filter(Season.is_completed == True).order_by(Season.date_end.desc()).all()
 
     return render_template('results.html', results=results_data, seasons=seasons, selected_season_id=season_id,
                            divisions=divisions, selected_division_id=division_id)
@@ -560,7 +560,7 @@ def player_matches(player_id):
     # Calculate H2H statistics if opponent filter is applied
     h2h_stats = None
     if opponent_id:
-        opponent = Player.query.get(opponent_id)
+        opponent = db.session.get(Player, opponent_id)
         if opponent:
             h2h_stats = calculate_h2h_stats(player_id, opponent_id)
 
@@ -582,7 +582,8 @@ def player_matches(player_id):
             'score_summary': match.score_summary,
             'date': match.date_played,
             'division': match.division.name,
-            'season': match.division.season_ref.name
+            'season': match.division.season_ref.name,
+            'year': match.division.season_ref.year
         })
 
     # Get filter options

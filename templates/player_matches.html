@@ -558,12 +558,12 @@
 
             <div class="h2h-stat-card">
                 <p class="h2h-stat-number">{{ h2h_stats.sets }}</p>
-                <p class="h2h-stat-label">Сеты (П-В)</p>
+                <p class="h2h-stat-label">Сеты (W-L)</p>
             </div>
 
             <div class="h2h-stat-card">
                 <p class="h2h-stat-number">{{ h2h_stats.games }}</p>
-                <p class="h2h-stat-label">Геймы (П-В)</p>
+                <p class="h2h-stat-label">Геймы (W-L)</p>
             </div>
         </div>
 
@@ -610,7 +610,7 @@
                     </td>
                     <td>
                         <a href="{{ url_for('player_matches', player_id=player.id, season_id=match.match.division.season_id) }}">
-                            {{ match.season }}
+                            {{ match.year }}/{{ match.season }}
                         </a>
                     </td>
                 </tr>

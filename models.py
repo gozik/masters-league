@@ -525,6 +525,7 @@ def get_season_by_raketo_name(season_name):
                   'Amazing Masters Slam 3': 10,
                   'Amazing Open Slam': 10,
                   'Masters League Preseason 2025': 5,
+                  "Women's League Preseason 2025": 5,
                   'Masters League Season 1/2025': 6,
                   'Masters League Season 2/2025': 7,
                   'Masters League Season 3/2025': 8,
@@ -536,7 +537,8 @@ def get_season_by_raketo_name(season_name):
                   'Tashkent Masters League. Season 3': 3,
                   'Tashkent Masters League. Season 4': 4,
                   'Tashkent Open League': 3,
-                  'Tashkent Open League. Season 2': 4, }
+                  'Tashkent Open League. Season 2': 4,
+                  "Women's League Season 1/2025": 11,}
     if season_name in raketo_names:
         return Season.query.get(raketo_names[season_name])
 
