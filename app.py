@@ -2,7 +2,7 @@ from flask import render_template, request, current_app, jsonify
 from init import create_app
 from models import Player, League, Season, Division, Result, Ranking, get_last_result_before_date, get_current_ranking, \
     get_results, calculate_total_stats, get_season_by_raketo_name, get_common_divisions_in_season, \
-    get_lowest_division_in_season, parse_score, Match
+    get_lowest_division_in_season, parse_score, Match, get_player_match_history
 from data.seasons_data import init_seasons_data
 from extensions import db
 import json
@@ -502,7 +502,7 @@ def player_profile(player_id):
     total_stats = calculate_total_stats(player_id)
 
     # Get match history (last 10 matches)
-    match_history = get_player_match_history(player_id, limit=10)
+    match_history = get_player_match_history(player_id, limit=12)
 
     return render_template('player_profile.html',
                            player=player,
@@ -513,21 +513,55 @@ def player_profile(player_id):
                            match_history=match_history)
 
 
-def get_player_match_history(player_id, limit=10):
-    """Get player's match history with opponent details"""
-    matches = Match.query.filter(
+@app.route('/player/<int:player_id>/matches')
+def player_matches(player_id):
+    """Display all matches for a player with opponent filtering"""
+    player = db.get_or_404(Player, player_id)
+
+    # Get filter parameters
+    opponent_id = request.args.get('opponent_id', type=int)
+    season_id = request.args.get('season_id', type=int)
+    page = request.args.get('page', 1, type=int)
+    per_page = 50
+
+    # Build base query
+    base_query = Match.query.filter(
         ((Match.player1_id == player_id) | (Match.player2_id == player_id))
-    ) \
-        .join(Division, Match.division_id == Division.id) \
+    )
+
+    # Apply opponent filter
+    if opponent_id:
+        base_query = base_query.filter(
+            ((Match.player1_id == opponent_id) & (Match.player2_id == player_id)) |
+            ((Match.player1_id == player_id) & (Match.player2_id == opponent_id))
+        )
+
+    # Apply season filter
+    if season_id:
+        base_query = base_query.join(Division).filter(Division.season_id == season_id)
+    else:
+        base_query = base_query.join(Division)
+
+    # Join related tables and order
+    matches_query = base_query \
         .join(Season, Division.season_id == Season.id) \
         .options(
         db.joinedload(Match.player1),
         db.joinedload(Match.player2),
         db.joinedload(Match.division).joinedload(Division.season_ref)
     ) \
-        .order_by(Match.date_played.desc()) \
-        .limit(limit) \
-        .all()
+        .order_by(Match.date_played.desc())
+
+    # Paginate
+    pagination = matches_query.paginate(page=page, per_page=per_page, error_out=False)
+    matches = pagination.items
+
+    # Calculate H2H statistics if opponent filter is applied
+    h2h_stats = None
+    if opponent_id:
+        opponent = Player.query.get(opponent_id)
+        if opponent:
+            h2h_stats = calculate_h2h_stats(player_id, opponent_id)
 
     # Format match data
     match_history = []
@@ -536,12 +570,11 @@ def get_player_match_history(player_id, limit=10):
 
         if is_player1:
             opponent = match.player2
-            opponent_score = match.set1_player2
-            player_score = match.set1_player1
         else:
             opponent = match.player1
-            opponent_score = match.set1_player1
-            player_score = match.set1_player2
+
+        # Calculate game scores
+        player_score, opponent_score = calculate_match_scores(match, player_id)
 
         match_history.append({
             'match': match,
@@ -552,11 +585,180 @@ def get_player_match_history(player_id, limit=10):
             'score_summary': match.score_summary,
             'date': match.date_played,
             'division': match.division.name,
-            'season': match.division.season_ref.name,
-            'year': match.division.season_ref.year,
+            'season': match.division.season_ref.name
         })
 
-    return match_history
+    # Get filter options
+    opponents = get_player_opponents(player_id)
+    seasons = get_player_seasons(player_id)
+
+    return render_template('player_matches.html',
+                           player=player,
+                           match_history=match_history,
+                           pagination=pagination,
+                           h2h_stats=h2h_stats,
+                           opponents=opponents,
+                           seasons=seasons,
+                           selected_opponent_id=opponent_id,
+                           selected_season_id=season_id,
+                           )
+
+
+def calculate_h2h_stats(player1_id, player2_id):
+    """Calculate head-to-head statistics between two players"""
+    # Get all matches between the two players
+    matches = Match.query.filter(
+        ((Match.player1_id == player1_id) & (Match.player2_id == player2_id)) |
+        ((Match.player1_id == player2_id) & (Match.player2_id == player1_id))
+    ).all()
+
+    if not matches:
+        return None
+
+    player1_wins = 0
+    player2_wins = 0
+    total_sets_player1 = 0
+    total_sets_player2 = 0
+    total_games_player1 = 0
+    total_games_player2 = 0
+
+    for match in matches:
+        is_player1_match_player1 = match.player1_id == player1_id
+
+        if match.winner_id == player1_id:
+            player1_wins += 1
+        else:
+            player2_wins += 1
+
+        # Calculate set and game counts
+        if is_player1_match_player1:
+            sets_won = sum([
+                1 if match.set1_player1 > match.set1_player2 else 0,
+                1 if match.set2_player1 > match.set2_player2 else 0,
+                1 if match.set3_player1 and match.set3_player1 > match.set3_player2 else 0
+            ])
+            sets_lost = sum([
+                1 if match.set1_player1 < match.set1_player2 else 0,
+                1 if match.set2_player1 < match.set2_player2 else 0,
+                1 if match.set3_player1 and match.set3_player1 < match.set3_player2 else 0
+            ])
+            games_won = sum([
+                match.set1_player1 or 0,
+                match.set2_player1 or 0,
+                match.set3_player1 or 0
+            ])
+            games_lost = sum([
+                match.set1_player2 or 0,
+                match.set2_player2 or 0,
+                match.set3_player2 or 0
+            ])
+        else:
+            sets_won = sum([
+                1 if match.set1_player2 > match.set1_player1 else 0,
+                1 if match.set2_player2 > match.set2_player1 else 0,
+                1 if match.set3_player2 and match.set3_player2 > match.set3_player1 else 0
+            ])
+            sets_lost = sum([
+                1 if match.set1_player2 < match.set1_player1 else 0,
+                1 if match.set2_player2 < match.set2_player1 else 0,
+                1 if match.set3_player2 and match.set3_player2 < match.set3_player1 else 0
+            ])
+            games_won = sum([
+                match.set1_player2 or 0,
+                match.set2_player2 or 0,
+                match.set3_player2 or 0
+            ])
+            games_lost = sum([
+                match.set1_player1 or 0,
+                match.set2_player1 or 0,
+                match.set3_player1 or 0
+            ])
+
+        total_sets_player1 += sets_won
+        total_sets_player2 += sets_lost
+        total_games_player1 += games_won
+        total_games_player2 += games_lost
+
+    return {
+        'total_matches': len(matches),
+        'player1_wins': player1_wins,
+        'player2_wins': player2_wins,
+        'win_percentage': (player1_wins / len(matches) * 100) if matches else 0,
+        'sets': f"{total_sets_player1}-{total_sets_player2}",
+        'games': f"{total_games_player1}-{total_games_player2}",
+        'matches': matches[:10]  # First 10 matches for details
+    }
+
+
+def get_player_opponents(player_id):
+    """Get all opponents the player has played against"""
+    opponents = db.session.query(Player).distinct() \
+        .join(Match, ((Player.id == Match.player1_id) | (Player.id == Match.player2_id))) \
+        .filter(
+        ((Match.player1_id == player_id) | (Match.player2_id == player_id)),
+        Player.id != player_id
+    ) \
+        .order_by(Player.last_name, Player.first_name) \
+        .all()
+
+    return opponents
+
+
+def get_player_seasons(player_id):
+    """Get all seasons the player has participated in"""
+    seasons = db.session.query(Season).distinct() \
+        .join(Division, Season.id == Division.season_id) \
+        .join(Match, Division.id == Match.division_id) \
+        .filter(
+        ((Match.player1_id == player_id) | (Match.player2_id == player_id))
+    ) \
+        .order_by(Season.year.desc()) \
+        .all()
+
+    return seasons
+
+
+def get_player_divisions(player_id):
+    """Get all divisions the player has played in"""
+    divisions = db.session.query(Division).distinct() \
+        .join(Match, Division.id == Match.division_id) \
+        .filter(
+        ((Match.player1_id == player_id) | (Match.player2_id == player_id))
+    ) \
+        .order_by(Division.priority) \
+        .all()
+
+    return divisions
+
+
+def calculate_match_scores(match, player_id):
+    """Calculate total games for player and opponent in a match"""
+    is_player1 = match.player1_id == player_id
+
+    if is_player1:
+        player_score = sum([
+            match.set1_player1 or 0,
+            match.set2_player1 or 0,
+            match.set3_player1 or 0
+        ])
+        opponent_score = sum([
+            match.set1_player2 or 0,
+            match.set2_player2 or 0,
+            match.set3_player2 or 0
+        ])
+    else:
+        player_score = sum([
+            match.set1_player2 or 0,
+            match.set2_player2 or 0,
+            match.set3_player2 or 0
+        ])
+        opponent_score = sum([
+            match.set1_player1 or 0,
+            match.set2_player1 or 0,
+            match.set3_player1 or 0
+        ])
+
+    return player_score, opponent_score
 
 
 @app.route('/api/search-players')

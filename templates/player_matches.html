@@ -1,0 +1,661 @@
+{% extends "base.html" %}
+
+{% block title %}Матчи {{ player.first_name }} {{ player.last_name }}{% endblock %}
+
+{% block head %}
+    <style>
+
+        :root {
+            --primary-color: #3498db;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --light-gray: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+
+        }
+
+        .container-stats {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .player-header {
+            background: linear-gradient(135deg, var(--primary-color), #2980b9);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .player-name {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .player-gender {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin: 5px 0 0 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .stat-card {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+            margin: 5px 0 0 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .win-percentage {
+            color: var(--success-color);
+        }
+
+        .section {
+            padding: 20px 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin: 0 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--light-gray);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .promoted {
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .relegated {
+            color: var(--danger-color);
+            font-weight: bold;
+        }
+
+        .current-season {
+            background-color: #e8f5e8;
+        }
+
+        .match-result {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .win {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .loss {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .division-change {
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .up-arrow {
+            color: var(--success-color);
+        }
+
+        .down-arrow {
+            color: var(--danger-color);
+        }
+
+        .no-change {
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .player-name {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 15px;
+            }
+        }
+
+        /* Match History Specific Styles */
+        .match-opponent {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .opponent-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #3498db;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .opponent-name {
+            font-weight: 500;
+        }
+
+        .score-display {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .win-score {
+            color: var(--success-color);
+        }
+
+        .loss-score {
+            color: var(--danger-color);
+        }
+
+        .match-details {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .view-all-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9em;
+        }
+
+        .view-all-btn:hover {
+            background: #2980b9;
+            color: white;
+            text-decoration: none;
+        }
+
+        .match-status {
+            font-size: 0.8em;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 5px;
+        }
+
+        .completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .tournament-info {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .player-name {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+    /* Add these styles to your existing CSS */
+    .filters-container {
+        background: var(--light-gray);
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border: 1px solid var(--border-color);
+    }
+
+    .filter-form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        align-items: end;
+    }
+
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filter-label {
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: #555;
+        font-size: 0.9em;
+    }
+
+    .filter-select, .filter-input {
+        padding: 8px 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .filter-buttons {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .filter-btn {
+        background: var(--primary-color);
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .filter-btn:hover {
+        background: #2980b9;
+    }
+
+    .clear-btn {
+        background: #6c757d;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 14px;
+        display: inline-block;
+    }
+
+    .clear-btn:hover {
+        background: #5a6268;
+        color: white;
+    }
+
+    .h2h-stats {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 4px solid var(--primary-color);
+    }
+
+    .h2h-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--border-color);
+    }
+
+    .h2h-title {
+        font-size: 1.3em;
+        color: var(--primary-color);
+        margin: 0;
+    }
+
+    .h2h-summary {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .h2h-stat-card {
+        background: white;
+        padding: 15px;
+        border-radius: 6px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .h2h-stat-number {
+        font-size: 2em;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin: 0;
+    }
+
+    .h2h-stat-label {
+        font-size: 0.85em;
+        color: #666;
+        margin-top: 5px;
+    }
+
+    .win-count {
+        color: var(--success-color);
+    }
+
+    .loss-count {
+        color: var(--danger-color);
+    }
+
+    .h2h-matches {
+        margin-top: 20px;
+    }
+
+    .h2h-match-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid var(--border-color);
+        background: white;
+        border-radius: 4px;
+        margin-bottom: 5px;
+    }
+
+    .h2h-match-date {
+        color: #666;
+        font-size: 0.9em;
+        min-width: 100px;
+    }
+
+    .h2h-match-score {
+        font-family: 'Courier New', monospace;
+        font-weight: bold;
+        padding: 2px 8px;
+        border-radius: 3px;
+        background: var(--light-gray);
+    }
+
+    .h2h-match-winner {
+        color: var(--success-color);
+    }
+
+    .h2h-match-loser {
+        color: var(--danger-color);
+    }
+
+    .no-results {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+    }
+
+    .results-count {
+        font-size: 0.9em;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .filter-form {
+            grid-template-columns: 1fr;
+        }
+
+        .filter-buttons {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .filter-btn, .clear-btn {
+            width: 100%;
+            text-align: center;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-stats">
+    <div class="player-header">
+        <h1 class="player-name">Матчи: {{ player.first_name }} {{ player.last_name }}</h1>
+        <p style="opacity: 0.9; margin-top: 10px;">
+            <a href="{{ url_for('player_profile', player_id=player.id) }}" style="color: white; text-decoration: underline;">
+                ← Назад к профилю
+            </a>
+        </p>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-container">
+        <form method="GET" class="filter-form">
+            <div class="filter-group">
+                <label class="filter-label">Соперник</label>
+                <select name="opponent_id" class="filter-select">
+                    <option value="">Все соперники</option>
+                    {% for opponent in opponents %}
+                    <option value="{{ opponent.id }}" {% if opponent.id == selected_opponent_id %}selected{% endif %}>
+                        {{ opponent.first_name }} {{ opponent.last_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Сезон</label>
+                <select name="season_id" class="filter-select">
+                    <option value="">Все сезоны</option>
+                    {% for season in seasons %}
+                    <option value="{{ season.id }}" {% if season.id == selected_season_id %}selected{% endif %}>
+                        {{ season.year }} - {{ season.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-buttons">
+                <button type="submit" class="filter-btn">Применить фильтры</button>
+                <a href="{{ url_for('player_matches', player_id=player.id) }}" class="clear-btn">Сбросить</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- H2H Statistics (only shown when opponent is selected) -->
+    {% if h2h_stats %}
+    <div class="h2h-stats">
+        <div class="h2h-header">
+            <h2 class="h2h-title">Статистика встреч</h2>
+            {% if selected_opponent_id %}
+            {% set opponent = opponents|selectattr('id', 'equalto', selected_opponent_id)|first %}
+            <span>vs {{ opponent.first_name }} {{ opponent.last_name }}</span>
+            {% endif %}
+        </div>
+
+        <div class="h2h-summary">
+            <div class="h2h-stat-card">
+                <p class="h2h-stat-number">{{ h2h_stats.total_matches }}</p>
+                <p class="h2h-stat-label">Всего матчей</p>
+            </div>
+
+            <div class="h2h-stat-card">
+                <p class="h2h-stat-number win-count">{{ h2h_stats.player1_wins }}-{{ h2h_stats.player2_wins }}</p>
+                <p class="h2h-stat-label">Победы-Поражения</p>
+            </div>
+
+            <div class="h2h-stat-card">
+                <p class="h2h-stat-number">{{ h2h_stats.win_percentage|round(1) }}%</p>
+                <p class="h2h-stat-label">Процент побед</p>
+            </div>
+
+            <div class="h2h-stat-card">
+                <p class="h2h-stat-number">{{ h2h_stats.sets }}</p>
+                <p class="h2h-stat-label">Сеты (П-В)</p>
+            </div>
+
+            <div class="h2h-stat-card">
+                <p class="h2h-stat-number">{{ h2h_stats.games }}</p>
+                <p class="h2h-stat-label">Геймы (П-В)</p>
+            </div>
+        </div>
+
+
+    </div>
+    {% endif %}
+
+    <!-- Match Results -->
+    <div class="section">
+        <h2 class="section-title">
+            Результаты матчей
+            {% if match_history %}
+            <span class="results-count">{{ pagination.total }} матч(ей) найдено</span>
+            {% endif %}
+        </h2>
+
+        {% if match_history %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Соперник</th>
+                    <th>Результат</th>
+                    <th>Счет</th>
+                    <th>Сезон</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for match in match_history %}
+                <tr>
+                    <td>{{ match.date.strftime('%d.%m.%Y') }}</td>
+                    <td>
+                        <a href="{{ url_for('player_matches', player_id=player.id, opponent_id=match.opponent.id) }}">
+                            {{ match.opponent.first_name }} {{ match.opponent.last_name }}
+                        </a>
+                    </td>
+                    <td>
+                        <span class="match-result {% if match.is_winner %}win{% else %}loss{% endif %}">
+                            {% if match.is_winner %}Победа{% else %}Поражение{% endif %}
+                        </span>
+                    </td>
+                    <td>
+                        {{ match.score_summary }}
+                    </td>
+                    <td>
+                        <a href="{{ url_for('player_matches', player_id=player.id, season_id=match.match.division.season_id) }}">
+                            {{ match.season }}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Pagination -->
+        <div class="pagination" style="margin-top: 20px; text-align: center;">
+            {% if pagination.has_prev %}
+                <a href="{{ url_for('player_matches', player_id=player.id,
+                           page=pagination.prev_num,
+                           opponent_id=selected_opponent_id,
+                           season_id=selected_season_id,
+                           division_id=selected_division_id) }}"
+                   class="view-all-btn">
+                    ← Назад
+                </a>
+            {% endif %}
+
+            <span style="margin: 0 20px;">
+                Страница {{ pagination.page }} из {{ pagination.pages }}
+            </span>
+
+            {% if pagination.has_next %}
+                <a href="{{ url_for('player_matches', player_id=player.id,
+                           page=pagination.next_num,
+                           opponent_id=selected_opponent_id,
+                           season_id=selected_season_id,
+                           division_id=selected_division_id) }}"
+                   class="view-all-btn">
+                    Вперед →
+                </a>
+            {% endif %}
+        </div>
+
+        {% else %}
+        <div class="no-results">
+            <p style="font-size: 1.1em;">Матчи не найдены</p>
+            <p>Попробуйте изменить параметры фильтрации</p>
+            <a href="{{ url_for('player_matches', player_id=player.id) }}" class="view-all-btn" style="margin-top: 10px;">
+                Сбросить фильтры
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

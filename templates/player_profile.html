@@ -323,7 +323,11 @@
                 <h2 class="stat-number win-percentage">{{ total_stats.win_percentage|round(1) }}%</h2>
 
             </div>
+
+
         </div>
+
+
 
         <!-- Season Results -->
         <div class="section">
@@ -373,6 +377,14 @@
             <h2 class="section-title">
                 Последние матчи
             </h2>
+
+        <div class="section">
+            {% for match in match_history %}
+                <span class="match-result {% if match.is_winner %}win{% else %}loss{% endif %}">
+                    {% if match.is_winner %}W{% else %}L{% endif %}
+                </span>
+            {% endfor %}
+        </div>
 
             {% if match_history %}
             <table>
@@ -426,7 +438,7 @@
             </table>
 
             <div style="text-align: center; margin-top: 20px;">
-                <a href="{{ url_for('player_profile', player_id=player.id) }}" class="view-all-btn">
+                <a href="{{ url_for('player_matches', player_id=player.id) }}" class="view-all-btn">
                     Все матчи
                 </a>
             </div>

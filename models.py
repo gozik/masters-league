@@ -606,3 +606,48 @@ def get_lowest_division_in_season(player1_id, player2_id, season_id):
 
         return max_d
 
+
+def get_player_match_history(player_id, limit=10):
+    """Get player's match history with opponent details"""
+    matches = Match.query.filter(
+        ((Match.player1_id == player_id) | (Match.player2_id == player_id))
+    ) \
+        .join(Division, Match.division_id == Division.id) \
+        .join(Season, Division.season_id == Season.id) \
+        .options(
+        db.joinedload(Match.player1),
+        db.joinedload(Match.player2),
+        db.joinedload(Match.division).joinedload(Division.season_ref)
+    ) \
+        .order_by(Match.date_played.desc()) \
+        .limit(limit) \
+        .all()
+
+    # Format match data
+    match_history = []
+    for match in matches:
+        is_player1 = match.player1_id == player_id
+
+        if is_player1:
+            opponent = match.player2
+            opponent_score = match.set1_player2
+            player_score = match.set1_player1
+        else:
+            opponent = match.player1
+            opponent_score = match.set1_player1
+            player_score = match.set1_player2
+
+        match_history.append({
+            'match': match,
+            'opponent': opponent,
+            'is_winner': match.winner_id == player_id,
+            'player_score': player_score,
+            'opponent_score': opponent_score,
+            'score_summary': match.score_summary,
+            'date': match.date_played,
+            'division': match.division.name,
+            'season': match.division.season_ref.name,
+            'year': match.division.season_ref.year,
+        })
+
+    return match_history
