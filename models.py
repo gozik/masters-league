@@ -579,4 +579,30 @@ def get_common_divisions_in_season(player1_id, player2_id, season_id):
 
     return common_divisions
 
+def get_lowest_division_in_season(player1_id, player2_id, season_id):
+    player1_divisions = Division.query \
+        .join(Result, Division.id == Result.division_id) \
+        .filter(
+        Result.player_id == player1_id,
+        Division.season_id == season_id
+    ) \
+        .all()
+
+    # Get divisions where player2 played in the season
+    player2_divisions = Division.query \
+        .join(Result, Division.id == Result.division_id) \
+        .filter(
+        Result.player_id == player2_id,
+        Division.season_id == season_id
+    ) \
+        .all()
+
+    max_priority = 0
+    if len(player1_divisions) > 0 and len(player2_divisions)>0: # both players should have at least 1 result in season
+        for d in player1_divisions:
+            if d.priority > max_priority:
+                max_d = d
+                max_priority = d.priority
+
+        return max_d
 

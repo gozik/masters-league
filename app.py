@@ -1,7 +1,8 @@
 from flask import render_template, request, current_app, jsonify
 from init import create_app
 from models import Player, League, Season, Division, Result, Ranking, get_last_result_before_date, get_current_ranking, \
-    get_results, calculate_total_stats, get_season_by_raketo_name, get_common_divisions_in_season, parse_score, Match
+    get_results, calculate_total_stats, get_season_by_raketo_name, get_common_divisions_in_season, \
+    get_lowest_division_in_season, parse_score, Match
 from data.seasons_data import init_seasons_data
 from extensions import db
 import json
@@ -450,6 +451,8 @@ def import_matches_from_csv(file_path, batch_size=50):
 
                 # Get division
                 divisions = get_common_divisions_in_season(winner.id, loser.id, season.id)
+                if len(divisions) == 0:
+                    divisions = [get_lowest_division_in_season(winner.id, loser.id, season.id)]
                 if len(divisions) == 0:
                     print(f"Skipping row {i}: No common divisions in {season_name} for {winner_name} vs {loser_name}")
                     skipped_count += 1
