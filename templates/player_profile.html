@@ -181,6 +181,110 @@
                 padding: 15px;
             }
         }
+
+        /* Match History Specific Styles */
+        .match-opponent {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .opponent-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #3498db;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .opponent-name {
+            font-weight: 500;
+        }
+
+        .score-display {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .win-score {
+            color: var(--success-color);
+        }
+
+        .loss-score {
+            color: var(--danger-color);
+        }
+
+        .match-details {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .view-all-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9em;
+        }
+
+        .view-all-btn:hover {
+            background: #2980b9;
+            color: white;
+            text-decoration: none;
+        }
+
+        .match-status {
+            font-size: 0.8em;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 5px;
+        }
+
+        .completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .tournament-info {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .player-name {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
     </style>
 {% endblock %}
 
@@ -261,5 +365,76 @@
                 </tbody>
             </table>
         </div>
+
+
+        <!-- Match History -->
+    <div class="container-stats">
+        <div class="section">
+            <h2 class="section-title">
+                Последние матчи
+            </h2>
+
+            {% if match_history %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Соперник</th>
+                        <th>Результат</th>
+                        <th>Счет</th>
+                        <th>Турнир</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for match in match_history %}
+                    <tr>
+                        <td>{{ match.date.strftime('%d.%m.%Y') }}</td>
+                        <td>
+                            <div class="match-opponent">
+                                <!--
+                                <div class="opponent-avatar">
+                                    {{ match.opponent.first_name[0] }}{{ match.opponent.last_name[0] }}
+                                </div>
+                                -->
+                                <div>
+                                    <a href="{{ url_for('player_profile', player_id=match.opponent.id) }}" class="opponent-name">
+                                        {{ match.opponent.first_name }} {{ match.opponent.last_name }}
+                                    </a>
+
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="match-result {% if match.is_winner %}win{% else %}loss{% endif %}">
+                                {% if match.is_winner %}W{% else %}L{% endif %}
+                            </span>
+                        </td>
+                        <td>
+                            <div class="score-display {% if match.is_winner %}win-score{% else %}loss-score{% endif %}">
+                                {{ match.score_summary }}
+                            </div>
+                        </td>
+                        <td>
+                            {{ match.division }}
+                            <div class="match-details">
+                                {{ match.year }}/{{ match.season }}
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="{{ url_for('player_profile', player_id=player.id) }}" class="view-all-btn">
+                    Все матчи
+                </a>
+            </div>
+
+            {% else %}
+            <div style="text-align: center; padding: 40px; color: #666;">
+                <p style="font-size: 1.1em;">Нет данных о матчах</p>
+            </div>
+            {% endif %}
     </div>
 {% endblock %}
