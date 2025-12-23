@@ -7,7 +7,7 @@ import json
 from io import StringIO
 from app import input_data_from_json, delete_all, reset_content
 from extensions import db
-from models import League, Season, Division, Player, Result, Ranking
+from models import League, Season, Division, Player, Result, Ranking, Match
 
 
 def test_input_data_from_json(client, app):
@@ -97,9 +97,10 @@ def test_content_reset(client, app):
         reset_content()
 
         assert League.query.count() == 1
-        assert Season.query.count() == 10
-        assert Division.query.count() == 30
-        assert Player.query.count() == 108
-        assert Result.query.count() == 295
-        assert Ranking.query.count() == 389
+        assert Season.query.count() == 11
+        assert Division.query.count() == 40
+        assert Player.query.count() == 135
+        assert Result.query.count() == 412
+        assert Ranking.query.count() == 481
+        assert Match.query.count() == 993
 
