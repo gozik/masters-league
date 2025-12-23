@@ -469,9 +469,12 @@ def show_regulations():
 
     seasons = Season.query.filter(Season.is_completed == True).order_by(Season.id.desc()).all()
 
-    current_season = Season.query.filter_by(year=current_year, name=current_name).order_by(Season.id.desc()).first()
+    current_season = None
+    if current_name:
+        current_season = Season.query.filter_by(year=current_year, name=current_name).order_by(Season.id.desc()).first()
 
-    return render_template('regulations.html', seasons=seasons, current_season=current_season)
+
+    return render_template('regulations.html', seasons=seasons, current_season=current_season, year=current_year)
 
 
 @app.route('/faq')
