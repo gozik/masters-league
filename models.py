@@ -42,7 +42,49 @@ class Player(db.Model):
 
     @property
     def current_ranking(self):
-        return get_current_ranking(self.id)
+        return self.get_current_ranking()
+
+    def calculate_total_stats(self):
+        """Calculate total wins, games, and other statistics"""
+        total_wins = sum(result.win_count for result in self.results)
+        total_matches = sum(result.match_count for result in self.results)
+        total_seasons = len(set(result.division_ref.season_id for result in self.results if result.division_ref))
+        if self.rankings:
+            career_high = min(ranking.position for ranking in self.rankings)
+        else:
+            career_high = None
+
+        return {
+            'total_wins': total_wins,
+            'total_matches': total_matches,
+            'win_percentage': (total_wins / total_matches * 100) if total_matches > 0 else 0,
+            'total_seasons': total_seasons,
+            'career_high': career_high
+        }
+
+    def get_current_ranking(self):
+        """Get player's current ranking"""
+        latest_season = Season.query.filter(Season.is_completed == True, Season.is_ranked == True) \
+            .order_by(Season.date_end.desc()).first()
+
+        if not latest_season:
+            return None
+
+        actual_date = latest_season.date_end
+
+        ranking = Ranking.query.filter_by(actual_date=actual_date).filter_by(player_id=self.id).order_by(
+            'position').first()
+
+        if ranking:
+            return ranking.position
+        return None
+        # wrong logic for players, without actual result
+        # should be ACTUAL RANKING -> get_result(player_id)
+
+    def get_results(self):
+        """Get all season results for the player"""
+        return Result.query.filter_by(player_id=self.id).join(Division).join(Season) \
+            .order_by(Season.date_end.desc()).all()
 
 
     def __repr__(self):
@@ -304,7 +346,8 @@ class Ranking(db.Model):
             'last_name': self.player_ref.last_name,
             'position': self.position,
             'actual_date': self.actual_date,
-            'last_result_string': f'{self.last_result_ref.division_ref.name}: {self.last_result_ref.position} {relegation_arrow}',
+            'last_result_string':
+                f'{self.last_result_ref.division_ref.name}: {self.last_result_ref.position} {relegation_arrow}',
             'last_season_id': self.actual_season_id,
             'last_relegation': self.last_result_ref.relegation,
             'last_relegation_arrow': relegation_arrow,
@@ -415,53 +458,6 @@ def get_last_result_before_date(player_id, target_date, filter_seasons, expire_d
         r = r.filter(Season.date_end >= cutoff_date)
 
     return r.order_by(Season.date_end.desc(), Division.priority).first()
-
-
-def get_current_ranking(player_id):
-    """Get player's current ranking"""
-    latest_season = Season.query.filter(Season.is_completed == True, Season.is_ranked == True) \
-        .order_by(Season.date_end.desc()).first()
-
-    if not latest_season:
-        return
-
-    actual_date = latest_season.date_end
-
-    ranking = Ranking.query.filter_by(actual_date=actual_date).filter_by(player_id=player_id).order_by('position').first()
-
-    if ranking:
-        return ranking.position
-    return None
-    # wrong logic for players, without actual result
-    # should be ACTUAL RANKING -> get_result(player_id)
-
-
-def get_results(player_id):
-    """Get all season results for the player"""
-    return Result.query.filter_by(player_id=player_id).join(Division).join(Season) \
-        .order_by(Season.date_end.desc()).all()
-
-
-def calculate_total_stats(player_id):
-    """Calculate total wins, games, and other statistics"""
-    results = Result.query.filter_by(player_id=player_id).all()
-    rankings = Ranking.query.filter_by(player_id=player_id).all()
-
-    total_wins = sum(result.win_count for result in results)
-    total_matches = sum(result.match_count for result in results)
-    total_seasons = len(set(result.division_ref.season_id for result in results if result.division_ref))
-    if rankings:
-        career_high = min(ranking.position for ranking in rankings)
-    else:
-        career_high = None
-
-    return {
-        'total_wins': total_wins,
-        'total_matches': total_matches,
-        'win_percentage': (total_wins / total_matches * 100) if total_matches > 0 else 0,
-        'total_seasons': total_seasons,
-        'career_high': career_high
-    }
 
 
 def parse_score(score_string):
@@ -599,13 +595,13 @@ def get_lowest_division_in_season(player1_id, player2_id, season_id):
     ) \
         .all()
 
+    max_d = None
     max_priority = 0
     if len(player1_divisions) > 0 and len(player2_divisions)>0: # both players should have at least 1 result in season
         for d in player1_divisions:
             if d.priority > max_priority:
                 max_d = d
                 max_priority = d.priority
-
         return max_d
 
 

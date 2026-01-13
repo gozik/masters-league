@@ -1,8 +1,9 @@
 from flask import render_template, request, current_app, jsonify
 from init import create_app
-from models import Player, League, Season, Division, Result, Ranking, get_last_result_before_date, get_current_ranking, \
-    get_results, calculate_total_stats, get_season_by_raketo_name, get_common_divisions_in_season, \
-    get_lowest_division_in_season, parse_score, Match, get_player_match_history, get_player_opponents, \
+from models import Player, League, Season, Division, Result, Ranking, \
+    get_last_result_before_date, get_season_by_raketo_name, get_common_divisions_in_season, \
+    get_lowest_division_in_season, parse_score, \
+    Match, get_player_match_history, get_player_opponents, \
     get_player_seasons, calculate_h2h_stats
 from data.seasons_data import init_seasons_data
 from extensions import db
@@ -10,7 +11,6 @@ import json
 from datetime import datetime
 import os
 import csv
-
 
 app = create_app()
 
@@ -156,6 +156,7 @@ def calculate_rankings(date):
 
     return rankings
 
+
 def import_matches_from_csv(file_path, batch_size=50):
     """
     Import matches from CSV file to database
@@ -211,7 +212,6 @@ def import_matches_from_csv(file_path, batch_size=50):
                     skipped_count += 1
                     continue
 
-
                 # Get division
                 divisions = get_common_divisions_in_season(winner.id, loser.id, season.id)
                 if len(divisions) == 0:
@@ -221,11 +221,10 @@ def import_matches_from_csv(file_path, batch_size=50):
                     skipped_count += 1
                     continue
 
-
                 division = divisions[0]
                 for d in divisions:
                     if division.priority < d.priority:
-                        division = d # select max priority division if there were several common ones
+                        division = d  # select max priority division if there were several common ones
 
                 # Parse score
                 parsed_score = parse_score(score)
@@ -473,7 +472,6 @@ def show_regulations():
     if current_name:
         current_season = Season.query.filter_by(year=current_year, name=current_name).order_by(Season.id.desc()).first()
 
-
     return render_template('regulations.html', seasons=seasons, current_season=current_season, year=current_year)
 
 
@@ -497,15 +495,15 @@ def player_profile(player_id):
     player = db.get_or_404(Player, player_id)
 
     # Get current ranking
-    current_ranking = get_current_ranking(player_id)
+    current_ranking = player.get_current_ranking()
 
     # Get season results
-    season_results = get_results(player_id)
+    season_results = player.get_results()
 
     # Calculate total statistics
-    total_stats = calculate_total_stats(player_id)
+    total_stats = player.calculate_total_stats()
 
-    # Get match history (last 10 matches)
+    # Get match history (last N matches)
     match_history = get_player_match_history(player_id, limit=12)
 
     return render_template('player_profile.html',
@@ -577,7 +575,6 @@ def player_matches(player_id):
         else:
             opponent = match.player1
 
-
         match_history.append({
             'match': match,
             'opponent': opponent,
@@ -640,9 +637,6 @@ def season_rules(season_id):
     season_info = season.to_dict()
 
     return render_template('season_rules.html', season=season, season_info=season_info)
-
-
-
 
 
 if __name__ == '__main__':
