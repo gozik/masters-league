@@ -743,12 +743,12 @@ def calculate_h2h_stats(player1_id, player2_id):
         else:
             sets_won = sum([
                 1 if match.set1_player2 > match.set1_player1 else 0,
-                1 if match.set2_player2 > match.set2_player1 else 0,
+                1 if match.set2_player2 and if match.set2_player2 > match.set2_player1 else 0,
                 1 if match.set3_player2 and match.set3_player2 > match.set3_player1 else 0
             ])
             sets_lost = sum([
                 1 if match.set1_player2 < match.set1_player1 else 0,
-                1 if match.set2_player2 < match.set2_player1 else 0,
+                1 if match.set2_player2 and match.set2_player2 < match.set2_player1 else 0,
                 1 if match.set3_player2 and match.set3_player2 < match.set3_player1 else 0
             ])
             games_won = sum([
