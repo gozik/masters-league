@@ -606,11 +606,17 @@ def player_matches(player_id):
         else:
             opponent = match.player1
 
+        is_winner = match.winner_id == player_id
+        if is_winner:
+            score_summary = match.score_summary
+        else:
+            score_summary = match.score_summary_loser
+
         match_history.append({
             'match': match,
             'opponent': opponent,
-            'is_winner': match.winner_id == player_id,
-            'score_summary': match.score_summary,
+            'is_winner': is_winner,
+            'score_summary': score_summary,
             'date': match.date_played,
             'division': match.division.name,
             'season': match.division.season_ref.name,

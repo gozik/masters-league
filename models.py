@@ -410,6 +410,7 @@ class Match(db.Model):
     def __repr__(self):
         return f'<Match {self.player1_id} vs {self.player2_id} on {self.date_played}>'
 
+
     @property
     def score_summary(self):
         scores = []
@@ -441,6 +442,40 @@ class Match(db.Model):
 
         return " ".join(scores)
 
+    @property
+    def score_summary_loser(self):
+        """
+        Inverted score string with score summary from loser perspective.
+        :return: str
+        """
+        scores = []
+
+        # Set 1
+        if self.set1_player1 is not None and self.set1_player2 is not None:
+            set1_score = f"{self.set1_player2}-{self.set1_player1}"
+            if self.tb1_player1 and self.tb1_player2:
+                set1_score += f"({min(self.tb1_player1, self.tb1_player2)})"
+            scores.append(set1_score)
+
+        # Set 2
+        if self.set2_player1 is not None and self.set2_player2 is not None:
+            set2_score = f"{self.set2_player2}-{self.set2_player1}"
+            if self.tb2_player1 and self.tb2_player2:
+                set2_score += f"({min(self.tb2_player1, self.tb2_player2)})"
+            scores.append(set2_score)
+
+        # Set 3
+        if self.set3_player1 is not None and self.set3_player2 is not None:
+            set3_score = f"{self.set3_player2}-{self.set3_player1}"
+            if self.tb3_player1 and self.tb3_player2:
+                set3_score += f"({min(self.tb3_player1, self.tb3_player2)})"
+            scores.append(set3_score)
+
+        # Royal Tiebreak
+        if self.royal_tiebreak_player1 is not None and self.royal_tiebreak_player2 is not None:
+            scores.append(f" [{self.royal_tiebreak_player2}-{self.royal_tiebreak_player1}]")
+
+        return " ".join(scores)
 
 def get_last_result_before_date(player_id, target_date, filter_seasons, expire_days=None):
     """Get the latest result for a player before a specific date using season dates"""
@@ -636,13 +671,19 @@ def get_player_match_history(player_id, limit=10):
             opponent_score = match.set1_player1
             player_score = match.set1_player2
 
+        is_winner = match.winner_id == player_id
+        if is_winner:
+            score_summary = match.score_summary
+        else:
+            score_summary = match.score_summary_loser
+
         match_history.append({
             'match': match,
             'opponent': opponent,
-            'is_winner': match.winner_id == player_id,
+            'is_winner': is_winner,
             'player_score': player_score,
             'opponent_score': opponent_score,
-            'score_summary': match.score_summary,
+            'score_summary': score_summary,
             'date': match.date_played,
             'division': match.division.name,
             'season': match.division.season_ref.name,
