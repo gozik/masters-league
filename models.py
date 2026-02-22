@@ -41,8 +41,8 @@ class Player(db.Model):
         }
 
     @property
-    def current_ranking(self):
-        return self.get_current_ranking()
+    def current_position(self):
+        return self.get_current_position()
 
     def calculate_total_stats(self):
         """Calculate total wins, games, and other statistics"""
@@ -62,8 +62,8 @@ class Player(db.Model):
             'career_high': career_high
         }
 
+
     def get_current_ranking(self):
-        """Get player's current ranking"""
         latest_season = Season.query.filter(Season.is_completed == True, Season.is_ranked == True) \
             .order_by(Season.date_end.desc()).first()
 
@@ -75,11 +75,17 @@ class Player(db.Model):
         ranking = Ranking.query.filter_by(actual_date=actual_date).filter_by(player_id=self.id).order_by(
             'position').first()
 
+        return ranking
+    # wrong logic for players, without actual result
+    # should be ACTUAL RANKING -> get_result(player_id)
+
+    def get_current_position(self):
+        """Get player's current ranking"""
+        ranking = self.get_current_ranking()
+
         if ranking:
             return ranking.position
         return None
-        # wrong logic for players, without actual result
-        # should be ACTUAL RANKING -> get_result(player_id)
 
     def get_results(self):
         """Get all season results for the player"""

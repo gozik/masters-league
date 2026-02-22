@@ -496,7 +496,7 @@ def player_profile(player_id):
     player = db.get_or_404(Player, player_id)
 
     # Get current ranking
-    current_ranking = player.get_current_ranking()
+    current_ranking = player.get_current_position()
 
     # Get season results
     season_results = player.get_results()
@@ -621,7 +621,7 @@ def search_players():
             'id': p.id,
             'first_name': p.first_name,
             'last_name': p.last_name,
-            'current_rating': p.current_ranking or '-'
+            'current_rating': p.current_position or '-'
         } for p in players]
 
         return jsonify(results)
