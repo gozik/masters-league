@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from sqlalchemy import Enum, CheckConstraint
+from sqlalchemy import Enum, CheckConstraint, func
 from extensions import db
 
 
@@ -64,20 +64,11 @@ class Player(db.Model):
 
 
     def get_current_ranking(self):
-        latest_season = Season.query.filter(Season.is_completed == True, Season.is_ranked == True) \
-            .order_by(Season.date_end.desc()).first()
-
-        if not latest_season:
-            return None
-
-        actual_date = latest_season.date_end
+        actual_date = db.session.query(func.max(Ranking.actual_date)).scalar()
 
         ranking = Ranking.query.filter_by(actual_date=actual_date).filter_by(player_id=self.id).order_by(
             'position').first()
-
         return ranking
-    # wrong logic for players, without actual result
-    # should be ACTUAL RANKING -> get_result(player_id)
 
     def get_current_position(self):
         """Get player's current ranking"""
