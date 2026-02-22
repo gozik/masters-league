@@ -301,10 +301,8 @@
                 <p class="stat-label">Текущий (лучший) рейтинг</p>
                 <h2 class="stat-number">{{ current_ranking if current_ranking else '-' }} ({{
                     total_stats.career_high if total_stats.career_high else '-'}})</h2>
-
-
-
             </div>
+
 
             <div class="stat-card">
                 <p class="stat-label">Сыграно сезонов</p>
@@ -313,15 +311,13 @@
             </div>
 
             <div class="stat-card">
-                <p class="stat-label">Всего Побед/Матчей</p>
-                <h2 class="stat-number">{{ total_stats.total_wins }}/{{ total_stats.total_matches }}</h2>
-
+                    <p class="stat-label">Всего Побед/Матчей</p>
+                    <h2 class="stat-number">{{ total_stats.total_wins }}/{{ total_stats.total_matches }}</h2>
             </div>
 
             <div class="stat-card">
                 <p class="stat-label">Процент побед</p>
                 <h2 class="stat-number win-percentage">{{ total_stats.win_percentage|round(1) }}%</h2>
-
             </div>
 
 

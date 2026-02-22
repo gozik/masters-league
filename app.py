@@ -415,15 +415,16 @@ def show_season_application():
             player_name = player_str.partition(' ')[2]
             player_surname = player_str.partition(' ')[0]
 
-            player_dict = {'player_name': player_str, 'raketo_rating': raketo_rating, 'wildcard': wildcard}
-            player_dict['player_id'] = 0
+            player_dict = {'player_name': player_str, 'raketo_rating': raketo_rating, 'wildcard': wildcard,
+                           'player_id': 0}
 
             player = Player.query.filter(
                 (Player.first_name == player_name) & (Player.last_name == player_surname)).first()
             if player:
+                player_dict['player_id'] = player.id
+
                 ranking = Ranking.query.filter(Ranking.player_id == player.id).order_by(
                     Ranking.actual_date.desc()).first()
-                player_dict['player_id'] = player.id
                 if ranking:
                     player_dict['ranking'] = ranking.to_dict()['position']
                     player_dict['qualification'] = ranking.to_dict()['new_division']
