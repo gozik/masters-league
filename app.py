@@ -6,6 +6,7 @@ from models import Player, League, Season, Division, Result, Ranking, \
     Match, get_player_match_history, get_player_opponents, \
     get_player_seasons, calculate_h2h_stats
 from data.seasons_data import init_seasons_data
+from sqlalchemy import or_
 from extensions import db
 import json
 from datetime import datetime
@@ -640,12 +641,25 @@ def search_players():
         return jsonify([])
 
     try:
+        search_terms = query.strip().split()
 
-        # Search in database - adjust based on your Player model
-        players = Player.query.filter(
-            (Player.first_name.ilike(f'%{query}%')) |
-            (Player.last_name.ilike(f'%{query}%'))
-        ).limit(10).all()
+        if len(search_terms) == 1:
+            players = Player.query.filter(
+                (Player.first_name.ilike(f'%{query}%')) |
+                (Player.last_name.ilike(f'%{query}%'))
+            ).limit(10).all()
+        else:
+            # Multi-term search - combine first and last name
+            players = Player.query.filter(
+                or_(
+                    # Search for first term in first name and second term in last name
+                    (Player.first_name.ilike(f'%{search_terms[0]}%') &
+                     Player.last_name.ilike(f'%{search_terms[1]}%')),
+                    # Reverse order
+                    (Player.first_name.ilike(f'%{search_terms[1]}%') &
+                     Player.last_name.ilike(f'%{search_terms[0]}%'))
+                )
+            ).limit(10).all()
 
         results = [{
             'id': p.id,
