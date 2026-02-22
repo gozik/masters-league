@@ -335,6 +335,10 @@ class Ranking(db.Model):
     def __repr__(self):
         return f'<{self.position}: {self.player_ref}>'
 
+    def get_new_division(self):
+        return self.last_result_ref.get_new_division()
+
+
     def to_dict(self):
         relegation_arrow = ''
         if self.last_result_ref.relegation == 'promoted':
@@ -362,7 +366,7 @@ class Ranking(db.Model):
             'last_result_date': self.last_result_ref.division_ref.season_ref.date_end,
             'player_id': self.player_id,
             'new_priority': self.last_result_ref.calc_new_priority(),
-            'new_division': self.last_result_ref.get_new_division(),
+            'new_division': self.get_new_division(),
         }
 
 

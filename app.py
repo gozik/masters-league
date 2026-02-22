@@ -495,8 +495,14 @@ def player_profile(player_id):
     """Display player profile with statistics and history"""
     player = db.get_or_404(Player, player_id)
 
-    # Get current ranking
-    current_ranking = player.get_current_position()
+    # Get current position
+    current_position = player.get_current_position()
+
+    # Get current division
+    if player.get_current_ranking():
+        new_division = player.get_current_ranking().get_new_division()
+    else:
+        new_division = None
 
     # Get season results
     season_results = player.get_results()
@@ -509,7 +515,8 @@ def player_profile(player_id):
 
     return render_template('player_profile.html',
                            player=player,
-                           current_ranking=current_ranking,
+                           new_division=new_division,
+                           current_position=current_position,
                            season_results=season_results,
                            division_history=season_results,
                            total_stats=total_stats,
