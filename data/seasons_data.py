@@ -209,7 +209,7 @@ SEASONS_INFO = {
             'registration_start': '2026-02-21',
             'registration_end': '2026-03-20',
             'cost': 250000,
-            'raketo_ref': '',
+            'raketo_ref': 'https://raketo.app.link/k6FLXXGKV0b',
             'prize_positions': [],
             'prize_amount': 500000,
             'lottery_minimum_matches': 7,
