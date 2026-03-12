@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Заявка Season 3/2025 - Tashkent Masters League{% endblock %}
+{% block title %}Заявка - Tashkent Masters League{% endblock %}
 
 {% block head %}
 <style>
@@ -21,7 +21,7 @@
 <h1 class="mb-4">Заявка на сезон 3/2025. Игроков: {% if division_name %} {{ selected_player_count }} из {% endif %} {{ count }}</h1>
 
 <div class="mb-4">
-    <a href="https://raketo.app.link/XdJwhhziuWb" class="btn btn-primary btn-lg me-md-3">
+    <a href="{{season_ref}}" class="btn btn-primary btn-lg me-md-3">
         <i class="bi bi-pencil-square me-2"></i>Зарегистрироваться в Raketo
     </a>
 </div>
@@ -62,6 +62,7 @@
                 'qualification': `${player.qualification}`,
                 'raketo_rating': `${player.raketo_rating}`,
                 'wildcard': `${player.wildcard}`,
+                'wish': `${player.wish}`,
             };
 
         });
@@ -80,10 +81,11 @@
                         );
                     }
                 },
-                { id: 'ranking', name: 'Рейтинг'},
-                { id: 'qualification', name: 'Квалификация'},
                 { id: 'raketo_rating', name: 'Raketo'},
+                { id: 'ranking', name: 'Рейтинг'},
+                { id: 'qualification', name: 'Дивизион по рейтингу'},
                 { id: 'wildcard', name: 'Wildcard'},
+                { id: 'wish', name: 'Желаемый дивизион'},
 
             ],
             data: players,

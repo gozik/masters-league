@@ -423,9 +423,25 @@ def show_results():
 @app.route('/application')
 def show_season_application():
     """Display players in season application"""
+    current_year = current_app.config.get('ACTIVE_SEASON_YEAR')
+    current_name = current_app.config.get('ACTIVE_SEASON_NAME')
+
+    seasons = Season.query.filter(Season.is_completed == True).order_by(Season.id.desc()).all()
+
+    current_season = None
+    if current_name:
+        current_season = Season.query.filter_by(year=current_year, name=current_name).order_by(Season.id.desc()).first()
+        raketo_ref = current_season.raketo_ref
+    else:
+        raketo_ref = ''
+
+
+
     division_name = request.args.get('division_name', type=str)
 
-    with open('data/application_list_season254.csv') as f:
+    application_path = current_app.config.get('APPLICATION_CSV')
+
+    with open(application_path) as f:
         csv_reader = csv.DictReader(f)
 
         players = []
@@ -434,12 +450,13 @@ def show_season_application():
             player_str = row['Player']
             raketo_rating = row['Rating']
             wildcard = row['Wildcard']
+            wish = row['Wish']
 
             player_name = player_str.partition(' ')[2]
             player_surname = player_str.partition(' ')[0]
 
             player_dict = {'player_name': player_str, 'raketo_rating': raketo_rating, 'wildcard': wildcard,
-                           'player_id': 0}
+                           'player_id': 0, 'wish': wish}
 
             player = Player.query.filter(
                 (Player.first_name == player_name) & (Player.last_name == player_surname)).first()
@@ -479,10 +496,10 @@ def show_season_application():
 
     selected_player_count = len(players)
 
-    divisions = ['M1', 'M2', 'M3', 'M4']
+    divisions = ['SemiPro', 'M1', 'M2', 'M3', 'M4', 'M5']
 
     return render_template('application.html', players=players, count=players_count, division_name=division_name,
-                           divisions=divisions, selected_player_count=selected_player_count)
+                           divisions=divisions, selected_player_count=selected_player_count, season_ref=raketo_ref)
 
 
 @app.route('/regulations')

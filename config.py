@@ -20,7 +20,7 @@ class Config:
     DEBUG = _env_bool("DEBUG", False)
 
     # control file-based behavior (optional)
-    APPLICATION_CSV = os.getenv("APPLICATION_CSV", "data/application_list_season254.csv")
+    APPLICATION_CSV = os.getenv("APPLICATION_CSV", "data/application_list_season261.csv")
     ACTUAL_RESULTS_JSON = os.getenv("ACTUAL_RESULTS_JSON", "data/actual_results.json")
 
     ACTIVE_SEASON_YEAR = 2026
