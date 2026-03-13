@@ -1,6 +1,6 @@
 Player,Rating,Wish,Wildcard
 Rogozin Anton,5.007,SemiPro,SemiPro
-Khikmatov Shukhrat,3.142,M2,M3
+Khikmatov Shukhrat,3.142,M2,M4
 Khidoyatov Takhir,3.497,M1,
 Kadirov Makhmud,2.979,M3,
 Mirzoev Suren,3.671,M1,
@@ -8,20 +8,20 @@ Khon Victor,2.518,M5,M5
 Gulyamov Saidahmad,3.892,M2,
 Fayzutdinov Akmal,3.304,M2,M3
 Shodmonov Sherzod,2.776,M3,
-Azimov Bobur,3.218,M2,M3
+Azimov Bobur,3.218,M2,
 Yokubov Muhammadrahim,3.382,M4,
 Nosirjonov Behzod,3.041,M4,M5
 Neklesov Igor,2.644,M5,
 Beknazarov Botirbek,3.727,M2,
 Sadibekov Bulat,3.059,M3,
-Pak Igor,3.338,M3,M3
-Kaschey Artyom,3.856,M2,M2
+Pak Igor,3.338,M3,M4
+Kaschey Artyom,3.856,M2,M3
 Kamilov Baxriddin,3.677,M1,
 Fetisov Artem,3.577,M2,
 Alimatov Burxon,3.852,M1,
 Akhtamov Farrukh,3.718,M1,
 Muminov Karim,3.353,M3,
-Lim Mikhail,3.773,M2,
+Lim Mikhail,3.773,M2,M2
 Khodyrev Egor,3.570,M2,
 Nurmuratov Alisher,2.925,M3,
 Khaitbaev Dilshad,3.627,M2,
@@ -48,7 +48,6 @@ Sultanov Jamoliddin,3.344,M3,
 Larionov Svyatoslav,4.868,SemiPro,SemiPro
 Matkurbanov Bahtiyor,3.600,M3,
 Mavlyutov Kamil,3.023,M3,
-Kozimjonov Sultonbek,3.160,M2,
 Medvedev Vladimir,2.970,M3,M4
 Hayitov Olimjon,2.775,M5,M5
 Muminov Bahtiyar,3.877,M1,
@@ -69,3 +68,7 @@ Isaboev Sarvar,4.076,M2,
 Karimov Bobirbek,3.303,M2,
 Tadjiev Khamdam,3.681,M2,
 Kurbanov Zafar,3.714,M2,
+Rasulova Zilola,3.955,M2,M3
+Askarova Madina,3.691,M2,M3
+Erhodjaeva Kamila,4.361,M2,M3
+Utkelbayeva Ranay,3.724,M3,M4

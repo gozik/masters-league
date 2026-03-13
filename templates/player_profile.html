@@ -384,7 +384,7 @@
             </h2>
 
         <div class="section">
-            {% for match in match_history %}
+            {% for match in match_history|reverse %}
                 <span class="match-result {% if match.is_winner %}win{% else %}loss{% endif %}">
                     {% if match.is_winner %}W{% else %}L{% endif %}
                 </span>

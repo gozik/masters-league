@@ -468,6 +468,8 @@ def show_season_application():
                 if ranking:
                     player_dict['ranking'] = ranking.to_dict()['position']
                     player_dict['qualification'] = ranking.to_dict()['new_division']
+                else:
+                    player_dict['qualification'] = 'NEW'
 
             else:
                 player_dict['qualification'] = 'NEW'
