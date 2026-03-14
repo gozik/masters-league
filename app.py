@@ -486,6 +486,11 @@ def show_season_application():
             if player_dict['wildcard'] != '':
                 player_dict['division'] = player_dict['wildcard']
 
+            if player_dict['division'] == player_dict['wish']:
+                player_dict['q'] = 0
+            else:
+                player_dict['q'] = 1
+
             players.append(player_dict)
 
     players_count = len(players)
@@ -494,14 +499,36 @@ def show_season_application():
         players = [player for player in players if player['division'].startswith(division_name)]
 
     players = sorted(players, key=lambda plr: (
-        plr['division'], plr['ranking'] if 'ranking' in plr else (1000 - float(plr['raketo_rating']))))
+        plr['division'], -plr['q'], plr['ranking'] if 'ranking' in plr else (1000 - float(plr['raketo_rating']))))
 
     selected_player_count = len(players)
 
     divisions = ['SemiPro', 'M1', 'M2', 'M3', 'M4', 'M5']
 
+    division_notes = {
+        'SemiPro': ['Общая группа до 12 участников', 'Открыта заявка для юниоров 16-18 лет, тренеров и бывших про'],
+        'M1': ['Общая группа 11 участников', 'Добор 4 участников по итогам квалификаций', '+2 участника по итогам 5 недель'],
+        'M2': ['Две группы по 10 участников',
+               'Квалификация: 4 наверх, добор 8 снизу',
+               'Быстрый перевод топ-1 по итогам 5 недель',],
+        'M3': ['Две группы по 10 участников',
+               'Квалификация: 8 наверх, добор 7 снизу',
+               'Быстрый перевод топ-1 по итогам 5 недель', ],
+        'M4': ['Общая группа 11 участников',
+               'Квалификация: 7 наверх, добор 2 снизу',
+               'Быстрый перевод топ-2 по итогам 5 недель', ],
+        'M5': ['Общая группа 9 участников',
+               'Квалификация: 2 наверх',
+               'Быстрый перевод топ-1 по итогам 5 недель', ],
+    }
+
+    selected_notes = []
+    if division_name in division_notes:
+        selected_notes = division_notes[division_name]
+
     return render_template('application.html', players=players, count=players_count, division_name=division_name,
-                           divisions=divisions, selected_player_count=selected_player_count, season_ref=raketo_ref)
+                           divisions=divisions, selected_player_count=selected_player_count, season_ref=raketo_ref,
+                           selected_notes=selected_notes)
 
 
 @app.route('/regulations')

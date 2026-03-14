@@ -44,6 +44,15 @@
     </div>
 </div>
 
+<div>
+    <ul>
+    {% for note in selected_notes %}
+    <li>{{ note }}</li>
+    {% endfor %}
+    </ul>
+</div>
+
+
 <div id="players-table"></div>
 
 {% endblock %}
@@ -62,7 +71,7 @@
                 'qualification': `${player.qualification}`,
                 'raketo_rating': `${player.raketo_rating}`,
                 'wildcard': `${player.wildcard}`,
-                'wish': `${player.wish}`,
+                'q': player.q == 1 ? 'Да' : 'Нет'
             };
 
         });
@@ -85,10 +94,10 @@
                 { id: 'ranking', name: 'Рейтинг'},
                 { id: 'qualification', name: 'Дивизион по рейтингу'},
                 { id: 'wildcard', name: 'Wildcard'},
-                { id: 'wish', name: 'Желаемый дивизион'},
+                { id: 'q', name: 'Участвует в квалификации'},
 
             ],
-            data: players,
+            data: formattedRankings,
             search: true,
             pagination: {
                 limit: 100
