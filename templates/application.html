@@ -18,7 +18,10 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Заявка на сезон Oltin Garros 2026. Игроков: {% if division_name %} {{ selected_player_count }} из {% endif %} {{ count }}</h1>
+<h1 class="mb-4">Oltin Garros 2026</h1>
+<h2 class="mb-4">Список заявившихся</h2>
+
+
 
 <div class="mb-4">
     <a href="{{season_ref}}" class="btn btn-primary btn-lg me-md-3">
@@ -43,6 +46,8 @@
         {% endfor %}
     </div>
 </div>
+
+<h3 class="mb-4">Игроков: {% if division_name %} {{ selected_player_count }} из {% endif %} {{ count }}</h3>
 
 <div>
     <ul>
