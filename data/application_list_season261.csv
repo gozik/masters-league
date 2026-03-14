@@ -1,6 +1,6 @@
 Player,Rating,Wish,Wildcard
 Rogozin Anton,5.007,SemiPro,SemiPro
-Khikmatov Shukhrat,3.142,M2,M4
+Khikmatov Shukhrat,3.142,M2,
 Khidoyatov Takhir,3.497,M1,
 Kadirov Makhmud,2.979,M3,
 Mirzoev Suren,3.671,M1,
@@ -38,7 +38,7 @@ Zulpitdinov Abdushaid,2.831,M4,
 Xaleulin Ruslan,4.566,SemiPro,SemiPro
 Shirinov Jahon,4.387,M1,
 Razzakov Alisher,5.066,SemiPro,SemiPro
-Tsoy Stanislav,3.793,M2,
+Tsoy Stanislav,3.793,M3,M4
 Umar Dilshod,3.052,M5,M5
 Juraev Mirazim,3.164,M3,
 Akhmadjonov Olimjon,3.517,M3,
@@ -72,3 +72,7 @@ Rasulova Zilola,3.955,M2,M3
 Askarova Madina,3.691,M2,M3
 Erhodjaeva Kamila,4.361,M2,M3
 Utkelbayeva Ranay,3.724,M3,M4
+Kadirov Bakhrom,3.791,M2,
+Pulatov Timur,2.643,M5,M5
+Mumtozkhonov Munimkhon,3.244,M4,
+Bukharov Ulugbek,3.975,M1,
