@@ -224,7 +224,7 @@ SEASONS_INFO = {
     },
     13: {
             'year': 2026,
-            'name': 'A Championship, Bog‘iston',
+            'name': 'The Championship, Chilladon',
             'date_start': '2026-05-30',
             'date_end': '2026-08-07',
             'registration_start': '2026-04-30',
