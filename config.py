@@ -24,4 +24,4 @@ class Config:
     ACTUAL_RESULTS_JSON = os.getenv("ACTUAL_RESULTS_JSON", "data/actual_results.json")
 
     ACTIVE_SEASON_YEAR = 2026
-    ACTIVE_SEASON_NAME = None
+    ACTIVE_SEASON_NAME = 'Oltin Garros'
