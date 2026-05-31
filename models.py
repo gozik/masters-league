@@ -4,6 +4,8 @@ from extensions import db
 
 
 def get_division_name(priority):
+    if priority <= 50:
+        return 'SemiPro'
     if priority <= 110:
         return 'M1'
     elif priority <= 120:
@@ -282,6 +284,8 @@ class Result(db.Model):
             new_priority = prev_priority - 10
             if new_priority == 200:
                 new_priority = 150
+            if new_priority == 100:
+                new_priority = 50
         elif relegation == 'relegated':
             new_priority = prev_priority + 10
         elif relegation == 'double promoted':
@@ -570,7 +574,8 @@ def get_season_by_raketo_name(season_name):
                   'Tashkent Masters League. Season 4': 4,
                   'Tashkent Open League': 3,
                   'Tashkent Open League. Season 2': 4,
-                  "Women's League Season 1/2025": 11,}
+                  "Women's League Season 1/2025": 11,
+                  'Oltin Garros': 12}
     if season_name in raketo_names:
         return Season.query.get(raketo_names[season_name])
 

@@ -5694,6 +5694,1109 @@
           ]
         }
       ]
+    },
+    {
+      "year": 2026,
+      "name": "Oltin Garros",
+      "date_start": "2026-03-21",
+      "date_end": "2026-05-29",
+      "is_ranked": 1,
+      "divisions": [
+        {
+          "name": "SemiPro",
+          "priority": 50,
+          "results": [
+            {
+              "position": 1,
+              "match_count": 6,
+              "win_count": 6,
+              "tie_win_count": 0,
+              "set_diff": 11,
+              "game_diff": 30,
+              "relegation": "unchanged",
+              "first_name": "Arslan",
+              "last_name": "Aliev"
+            },
+            {
+              "position": 2,
+              "match_count": 7,
+              "win_count": 5,
+              "tie_win_count": 0,
+              "set_diff": 7,
+              "game_diff": 25,
+              "relegation": "unchanged",
+              "first_name": "Anton",
+              "last_name": "Rogozin"
+            },
+            {
+              "position": 3,
+              "match_count": 5,
+              "win_count": 3,
+              "tie_win_count": 1,
+              "set_diff": 1,
+              "game_diff": 0,
+              "relegation": "unchanged",
+              "first_name": "Alisher",
+              "last_name": "Razzakov"
+            },
+            {
+              "position": 4,
+              "match_count": 6,
+              "win_count": 3,
+              "tie_win_count": 0,
+              "set_diff": 2,
+              "game_diff": 12,
+              "relegation": "unchanged",
+              "first_name": "Svyatoslav",
+              "last_name": "Larionov"
+            },
+            {
+              "position": 5,
+              "match_count": 7,
+              "win_count": 2,
+              "tie_win_count": 0,
+              "set_diff": -7,
+              "game_diff": -24,
+              "relegation": "unchanged",
+              "first_name": "Yasmina",
+              "last_name": "Fatihova"
+            },
+            {
+              "position": 6,
+              "match_count": 4,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": -4,
+              "game_diff": -9,
+              "relegation": "unchanged",
+              "first_name": "Ruslan",
+              "last_name": "Xaleulin"
+            },
+            {
+              "position": 7,
+              "match_count": 3,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": -2,
+              "game_diff": -6,
+              "relegation": "unchanged",
+              "first_name": "Valeriya",
+              "last_name": "Bichurina"
+            },
+            {
+              "position": 8,
+              "match_count": 4,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -8,
+              "game_diff": -28,
+              "relegation": "relegated",
+              "first_name": "Ruben",
+              "last_name": "Beglayryan"
+            }
+          ]
+        },
+        {
+          "name": "M1",
+          "priority": 110,
+          "results": [
+            {
+              "position": 1,
+              "match_count": 9,
+              "win_count": 6,
+              "tie_win_count": 0,
+              "set_diff": 5,
+              "game_diff": 13,
+              "relegation": "promoted",
+              "first_name": "Jahon",
+              "last_name": "Shirinov"
+            },
+            {
+              "position": 2,
+              "match_count": 6,
+              "win_count": 5,
+              "tie_win_count": 1,
+              "set_diff": 7,
+              "game_diff": 26,
+              "relegation": "unchanged",
+              "first_name": "Vladimir",
+              "last_name": "Ivko"
+            },
+            {
+              "position": 3,
+              "match_count": 6,
+              "win_count": 5,
+              "tie_win_count": 0,
+              "set_diff": 6,
+              "game_diff": 19,
+              "relegation": "unchanged",
+              "first_name": "Alisher",
+              "last_name": "Abduvakhidov"
+            },
+            {
+              "position": 6,
+              "match_count": 6,
+              "win_count": 4,
+              "tie_win_count": 2,
+              "set_diff": 2,
+              "game_diff": 21,
+              "relegation": "unchanged",
+              "first_name": "Murod",
+              "last_name": "Ibragimov"
+            },
+            {
+              "position": 4,
+              "match_count": 9,
+              "win_count": 4,
+              "tie_win_count": 1,
+              "set_diff": -2,
+              "game_diff": 1,
+              "relegation": "unchanged",
+              "first_name": "Baxriddin",
+              "last_name": "Kamilov"
+            },
+            {
+              "position": 5,
+              "match_count": 9,
+              "win_count": 4,
+              "tie_win_count": 0,
+              "set_diff": -3,
+              "game_diff": -8,
+              "relegation": "unchanged",
+              "first_name": "Farrukh",
+              "last_name": "Akhtamov"
+            },
+            {
+              "position": 7,
+              "match_count": 6,
+              "win_count": 3,
+              "tie_win_count": 0,
+              "set_diff": 2,
+              "game_diff": 0,
+              "relegation": "relegated",
+              "first_name": "Zarrux",
+              "last_name": "Niyazov"
+            },
+            {
+              "position": 8,
+              "match_count": 7,
+              "win_count": 2,
+              "tie_win_count": 0,
+              "set_diff": -7,
+              "game_diff": -41,
+              "relegation": "relegated",
+              "first_name": "Suren",
+              "last_name": "Mirzoev"
+            },
+            {
+              "position": 9,
+              "match_count": 3,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -4,
+              "game_diff": -13,
+              "relegation": "relegated",
+              "first_name": "Humoyun",
+              "last_name": "Malikov"
+            },
+            {
+              "position": 10,
+              "match_count": 3,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -4,
+              "game_diff": -13,
+              "relegation": "relegated",
+              "first_name": "Bahtiyar",
+              "last_name": "Muminov"
+            },
+            {
+              "position": 11,
+              "match_count": 2,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -2,
+              "game_diff": -5,
+              "relegation": "relegated",
+              "first_name": "Ulugbek",
+              "last_name": "Bukharov"
+            }
+          ]
+        },
+        {
+          "name": "M2a",
+          "priority": 120,
+          "results": [
+            {
+              "position": 1,
+              "match_count": 9,
+              "win_count": 7,
+              "tie_win_count": 0,
+              "set_diff": 10,
+              "game_diff": 34,
+              "relegation": "promoted",
+              "first_name": "Burxon",
+              "last_name": "Alimatov"
+            },
+            {
+              "position": 2,
+              "match_count": 9,
+              "win_count": 6,
+              "tie_win_count": 1,
+              "set_diff": 2,
+              "game_diff": -3,
+              "relegation": "promoted",
+              "first_name": "Davron",
+              "last_name": "Razzoqov"
+            },
+            {
+              "position": 3,
+              "match_count": 8,
+              "win_count": 6,
+              "tie_win_count": 0,
+              "set_diff": 8,
+              "game_diff": 27,
+              "relegation": "promoted",
+              "first_name": "Artyom",
+              "last_name": "Kaschey"
+            },
+            {
+              "position": 4,
+              "match_count": 5,
+              "win_count": 5,
+              "tie_win_count": 0,
+              "set_diff": 8,
+              "game_diff": 23,
+              "relegation": "unchanged",
+              "first_name": "Mikhail",
+              "last_name": "Lim"
+            },
+            {
+              "position": 5,
+              "match_count": 5,
+              "win_count": 2,
+              "tie_win_count": 2,
+              "set_diff": -3,
+              "game_diff": -7,
+              "relegation": "unchanged",
+              "first_name": "Sharof",
+              "last_name": "Abdullaev"
+            },
+            {
+              "position": 6,
+              "match_count": 6,
+              "win_count": 2,
+              "tie_win_count": 1,
+              "set_diff": 2,
+              "game_diff": 5,
+              "relegation": "unchanged",
+              "first_name": "Akmal",
+              "last_name": "Fayzutdinov"
+            },
+            {
+              "position": 7,
+              "match_count": 3,
+              "win_count": 2,
+              "tie_win_count": 1,
+              "set_diff": -2,
+              "game_diff": -8,
+              "relegation": "unchanged",
+              "first_name": "Vladimir",
+              "last_name": "Abduraimov"
+            },
+            {
+              "position": 8,
+              "match_count": 9,
+              "win_count": 2,
+              "tie_win_count": 0,
+              "set_diff": -8,
+              "game_diff": -22,
+              "relegation": "unchanged",
+              "first_name": "Takhir",
+              "last_name": "Khidoyatov"
+            },
+            {
+              "position": 9,
+              "match_count": 7,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": -4,
+              "game_diff": -7,
+              "relegation": "relegated",
+              "first_name": "Saidahmad",
+              "last_name": "Gulyamov"
+            },
+            {
+              "position": 10,
+              "match_count": 4,
+              "win_count": 1,
+              "tie_win_count": 1,
+              "set_diff": -8,
+              "game_diff": -33,
+              "relegation": "relegated",
+              "first_name": "Bakhodir",
+              "last_name": "Raimov"
+            },
+            {
+              "position": 11,
+              "match_count": 3,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -5,
+              "game_diff": -9,
+              "relegation": "relegated",
+              "first_name": "Nodir",
+              "last_name": "Vohidov"
+            },
+            {
+              "position": 12,
+              "match_count": 0,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": 0,
+              "game_diff": 0,
+              "relegation": "relegated",
+              "first_name": "Bakhtiyor",
+              "last_name": "Ashurmatov"
+            }
+          ]
+        },
+        {
+          "name": "M2b",
+          "priority": 120,
+          "results": [
+            {
+              "position": 1,
+              "match_count": 6,
+              "win_count": 5,
+              "tie_win_count": 0,
+              "set_diff": 9,
+              "game_diff": 33,
+              "relegation": "promoted",
+              "first_name": "Hasanboy",
+              "last_name": "Shamsitdinov"
+            },
+            {
+              "position": 2,
+              "match_count": 4,
+              "win_count": 4,
+              "tie_win_count": 1,
+              "set_diff": 6,
+              "game_diff": 20,
+              "relegation": "promoted",
+              "first_name": "Khamdam",
+              "last_name": "Tadjiev"
+            },
+            {
+              "position": 3,
+              "match_count": 8,
+              "win_count": 4,
+              "tie_win_count": 0,
+              "set_diff": 1,
+              "game_diff": -8,
+              "relegation": "unchanged",
+              "first_name": "Rustam",
+              "last_name": "Maxamedkasimov"
+            },
+            {
+              "position": 4,
+              "match_count": 5,
+              "win_count": 3,
+              "tie_win_count": 1,
+              "set_diff": 1,
+              "game_diff": -4,
+              "relegation": "unchanged",
+              "first_name": "Zafar",
+              "last_name": "Kurbanov"
+            },
+            {
+              "position": 5,
+              "match_count": 6,
+              "win_count": 3,
+              "tie_win_count": 0,
+              "set_diff": 5,
+              "game_diff": 15,
+              "relegation": "unchanged",
+              "first_name": "Madina",
+              "last_name": "Askarova"
+            },
+            {
+              "position": 6,
+              "match_count": 4,
+              "win_count": 3,
+              "tie_win_count": 0,
+              "set_diff": 1,
+              "game_diff": 10,
+              "relegation": "unchanged",
+              "first_name": "Bakhrom",
+              "last_name": "Kadirov"
+            },
+            {
+              "position": 7,
+              "match_count": 3,
+              "win_count": 3,
+              "tie_win_count": 0,
+              "set_diff": 3,
+              "game_diff": 11,
+              "relegation": "unchanged",
+              "first_name": "Botirbek",
+              "last_name": "Beknazarov"
+            },
+            {
+              "position": 8,
+              "match_count": 4,
+              "win_count": 2,
+              "tie_win_count": 0,
+              "set_diff": 0,
+              "game_diff": -4,
+              "relegation": "relegated",
+              "first_name": "Dilshad",
+              "last_name": "Khaitbaev"
+            },
+            {
+              "position": 9,
+              "match_count": 4,
+              "win_count": 1,
+              "tie_win_count": 1,
+              "set_diff": -4,
+              "game_diff": -8,
+              "relegation": "relegated",
+              "first_name": "Danil",
+              "last_name": "Popov"
+            },
+            {
+              "position": 10,
+              "match_count": 10,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": -16,
+              "game_diff": -58,
+              "relegation": "relegated",
+              "first_name": "Egor",
+              "last_name": "Khodyrev"
+            },
+            {
+              "position": 11,
+              "match_count": 8,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -14,
+              "game_diff": -38,
+              "relegation": "relegated",
+              "first_name": "Artem",
+              "last_name": "Fetisov"
+            },
+            {
+              "position": 0,
+              "match_count": 4,
+              "win_count": 4,
+              "tie_win_count": 0,
+              "set_diff": 8,
+              "game_diff": 31,
+              "relegation": "fast promoted",
+              "first_name": "Bahtiyar",
+              "last_name": "Muminov"
+            }
+          ]
+        },
+        {
+          "name": "M3a",
+          "priority": 130,
+          "results": [
+            {
+              "position": 1,
+              "match_count": 7,
+              "win_count": 7,
+              "tie_win_count": 0,
+              "set_diff": 11,
+              "game_diff": 29,
+              "relegation": "promoted",
+              "first_name": "Mirazim",
+              "last_name": "Juraev"
+            },
+            {
+              "position": 2,
+              "match_count": 7,
+              "win_count": 6,
+              "tie_win_count": 1,
+              "set_diff": 9,
+              "game_diff": 40,
+              "relegation": "promoted",
+              "first_name": "Jamoliddin",
+              "last_name": "Sultanov"
+            },
+            {
+              "position": 3,
+              "match_count": 9,
+              "win_count": 6,
+              "tie_win_count": 0,
+              "set_diff": 9,
+              "game_diff": 28,
+              "relegation": "promoted",
+              "first_name": "Vladimir",
+              "last_name": "Pankratov"
+            },
+            {
+              "position": 4,
+              "match_count": 3,
+              "win_count": 2,
+              "tie_win_count": 0,
+              "set_diff": 1,
+              "game_diff": 7,
+              "relegation": "unchanged",
+              "first_name": "Bobirbek",
+              "last_name": "Karimov"
+            },
+            {
+              "position": 5,
+              "match_count": 5,
+              "win_count": 1,
+              "tie_win_count": 1,
+              "set_diff": -6,
+              "game_diff": -16,
+              "relegation": "unchanged",
+              "first_name": "Shukhrat",
+              "last_name": "Khikmatov"
+            },
+            {
+              "position": 6,
+              "match_count": 2,
+              "win_count": 1,
+              "tie_win_count": 1,
+              "set_diff": -1,
+              "game_diff": -6,
+              "relegation": "unchanged",
+              "first_name": "Saidsulton",
+              "last_name": "Gulyamov"
+            },
+            {
+              "position": 7,
+              "match_count": 7,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": -7,
+              "game_diff": -21,
+              "relegation": "unchanged",
+              "first_name": "Bulat",
+              "last_name": "Sadibekov"
+            },
+            {
+              "position": 8,
+              "match_count": 1,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": 1,
+              "game_diff": 1,
+              "relegation": "unchanged",
+              "first_name": "Kamila",
+              "last_name": "Erhodjaeva"
+            },
+            {
+              "position": 9,
+              "match_count": 4,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -8,
+              "game_diff": -34,
+              "relegation": "relegated",
+              "first_name": "Makhmud",
+              "last_name": "Kadirov"
+            },
+            {
+              "position": 10,
+              "match_count": 3,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -5,
+              "game_diff": -16,
+              "relegation": "relegated",
+              "first_name": "Munimkhon",
+              "last_name": "Mumtozkhonov"
+            },
+            {
+              "position": 11,
+              "match_count": 2,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -4,
+              "game_diff": -12,
+              "relegation": "relegated",
+              "first_name": "Ruslan",
+              "last_name": "Bakhteev"
+            }
+          ]
+        },
+        {
+          "name": "M3b",
+          "priority": 130,
+          "results": [
+            {
+              "position": 1,
+              "match_count": 10,
+              "win_count": 9,
+              "tie_win_count": 0,
+              "set_diff": 14,
+              "game_diff": 54,
+              "relegation": "promoted",
+              "first_name": "Jahongir",
+              "last_name": "Mansuriy"
+            },
+            {
+              "position": 2,
+              "match_count": 10,
+              "win_count": 7,
+              "tie_win_count": 0,
+              "set_diff": 6,
+              "game_diff": 38,
+              "relegation": "promoted",
+              "first_name": "Bozorboy",
+              "last_name": "Rustamov"
+            },
+            {
+              "position": 3,
+              "match_count": 7,
+              "win_count": 4,
+              "tie_win_count": 1,
+              "set_diff": 4,
+              "game_diff": 23,
+              "relegation": "promoted",
+              "first_name": "Zilola",
+              "last_name": "Rasulova"
+            },
+            {
+              "position": 4,
+              "match_count": 5,
+              "win_count": 4,
+              "tie_win_count": 0,
+              "set_diff": 5,
+              "game_diff": 17,
+              "relegation": "unchanged",
+              "first_name": "Sarvar",
+              "last_name": "Isaboev"
+            },
+            {
+              "position": 5,
+              "match_count": 5,
+              "win_count": 3,
+              "tie_win_count": 1,
+              "set_diff": 3,
+              "game_diff": 13,
+              "relegation": "unchanged",
+              "first_name": "Olimjon",
+              "last_name": "Akhmadjonov"
+            },
+            {
+              "position": 6,
+              "match_count": 5,
+              "win_count": 3,
+              "tie_win_count": 1,
+              "set_diff": 1,
+              "game_diff": -5,
+              "relegation": "unchanged",
+              "first_name": "Igor",
+              "last_name": "Pak"
+            },
+            {
+              "position": 7,
+              "match_count": 10,
+              "win_count": 3,
+              "tie_win_count": 0,
+              "set_diff": -9,
+              "game_diff": -35,
+              "relegation": "unchanged",
+              "first_name": "Bobur",
+              "last_name": "Azimov"
+            },
+            {
+              "position": 8,
+              "match_count": 5,
+              "win_count": 2,
+              "tie_win_count": 0,
+              "set_diff": 2,
+              "game_diff": -1,
+              "relegation": "unchanged",
+              "first_name": "Nazir",
+              "last_name": "Usmonov"
+            },
+            {
+              "position": 9,
+              "match_count": 6,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": 1,
+              "game_diff": -7,
+              "relegation": "relegated",
+              "first_name": "Olimjon",
+              "last_name": "Hayitov"
+            },
+            {
+              "position": 10,
+              "match_count": 5,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": 1,
+              "game_diff": -5,
+              "relegation": "relegated",
+              "first_name": "Karim",
+              "last_name": "Muminov"
+            },
+            {
+              "position": 11,
+              "match_count": 5,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": 0,
+              "game_diff": -9,
+              "relegation": "relegated",
+              "first_name": "Iskandar",
+              "last_name": "Dosmatov"
+            },
+            {
+              "position": 12,
+              "match_count": 1,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": 0,
+              "game_diff": -2,
+              "relegation": "relegated",
+              "first_name": "Vladimir",
+              "last_name": "Medvedev"
+            }
+          ]
+        },
+        {
+          "name": "M4",
+          "priority": 140,
+          "results": [
+            {
+              "position": 1,
+              "match_count": 13,
+              "win_count": 10,
+              "tie_win_count": 0,
+              "set_diff": 16,
+              "game_diff": 50,
+              "relegation": "promoted",
+              "first_name": "Alisher",
+              "last_name": "Nurmuratov"
+            },
+            {
+              "position": 2,
+              "match_count": 7,
+              "win_count": 6,
+              "tie_win_count": 0,
+              "set_diff": 8,
+              "game_diff": 19,
+              "relegation": "promoted",
+              "first_name": "Bahtiyor",
+              "last_name": "Matkurbanov"
+            },
+            {
+              "position": 3,
+              "match_count": 10,
+              "win_count": 5,
+              "tie_win_count": 0,
+              "set_diff": 2,
+              "game_diff": 13,
+              "relegation": "unchanged",
+              "first_name": "Kamil",
+              "last_name": "Mavlyutov"
+            },
+            {
+              "position": 4,
+              "match_count": 10,
+              "win_count": 3,
+              "tie_win_count": 2,
+              "set_diff": -7,
+              "game_diff": -30,
+              "relegation": "unchanged",
+              "first_name": "Stanislav",
+              "last_name": "Tsoy"
+            },
+            {
+              "position": 5,
+              "match_count": 6,
+              "win_count": 3,
+              "tie_win_count": 1,
+              "set_diff": 0,
+              "game_diff": 2,
+              "relegation": "unchanged",
+              "first_name": "Sergei",
+              "last_name": "Levtsov"
+            },
+            {
+              "position": 6,
+              "match_count": 8,
+              "win_count": 3,
+              "tie_win_count": 0,
+              "set_diff": -4,
+              "game_diff": -8,
+              "relegation": "unchanged",
+              "first_name": "Igor",
+              "last_name": "Neklesov"
+            },
+            {
+              "position": 7,
+              "match_count": 5,
+              "win_count": 2,
+              "tie_win_count": 0,
+              "set_diff": -1,
+              "game_diff": -2,
+              "relegation": "unchanged",
+              "first_name": "Iskandar",
+              "last_name": "Bakhromov"
+            },
+            {
+              "position": 8,
+              "match_count": 4,
+              "win_count": 2,
+              "tie_win_count": 0,
+              "set_diff": -2,
+              "game_diff": -9,
+              "relegation": "unchanged",
+              "first_name": "Ranay",
+              "last_name": "Utkelbayeva"
+            },
+            {
+              "position": 9,
+              "match_count": 7,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": -11,
+              "game_diff": -45,
+              "relegation": "unchanged",
+              "first_name": "Victor",
+              "last_name": "Khon"
+            },
+            {
+              "position": 10,
+              "match_count": 4,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -7,
+              "game_diff": -19,
+              "relegation": "relegated",
+              "first_name": "Abdushaid",
+              "last_name": "Zulpitdinov"
+            },
+            {
+              "position": 11,
+              "match_count": 3,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -6,
+              "game_diff": -24,
+              "relegation": "relegated",
+              "first_name": "Abzal",
+              "last_name": "Sagdullayev"
+            },
+            {
+              "position": 12,
+              "match_count": 1,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -2,
+              "game_diff": -4,
+              "relegation": "relegated",
+              "first_name": "Muhammadrahim",
+              "last_name": "Yokubov"
+            },
+            {
+              "position": 13,
+              "match_count": 1,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -2,
+              "game_diff": -7,
+              "relegation": "relegated",
+              "first_name": "Behzod",
+              "last_name": "Nosirjonov"
+            },
+            {
+              "position": 0,
+              "match_count": 8,
+              "win_count": 6,
+              "tie_win_count": 0,
+              "set_diff": 8,
+              "game_diff": 39,
+              "relegation": "fast promoted",
+              "first_name": "Shukhrat",
+              "last_name": "Khikmatov"
+            },
+            {
+              "position": 0,
+              "match_count": 7,
+              "win_count": 6,
+              "tie_win_count": 0,
+              "set_diff": 8,
+              "game_diff": 25,
+              "relegation": "fast promoted",
+              "first_name": "Bobur",
+              "last_name": "Azimov"
+            }
+          ]
+        },
+        {
+          "name": "M5",
+          "priority": 150,
+          "results": [
+            {
+              "position": 1,
+              "match_count": 7,
+              "win_count": 7,
+              "tie_win_count": 0,
+              "set_diff": 13,
+              "game_diff": 48,
+              "relegation": "promoted",
+              "first_name": "Salohiddin",
+              "last_name": "Kharabaev"
+            },
+            {
+              "position": 2,
+              "match_count": 7,
+              "win_count": 5,
+              "tie_win_count": 1,
+              "set_diff": 5,
+              "game_diff": 29,
+              "relegation": "promoted",
+              "first_name": "Sarvarzafarovich",
+              "last_name": "Nazarov"
+            },
+            {
+              "position": 3,
+              "match_count": 7,
+              "win_count": 5,
+              "tie_win_count": 1,
+              "set_diff": 4,
+              "game_diff": 2,
+              "relegation": "unchanged",
+              "first_name": "Jasurbek",
+              "last_name": "Narzullaev"
+            },
+            {
+              "position": 4,
+              "match_count": 8,
+              "win_count": 5,
+              "tie_win_count": 0,
+              "set_diff": 3,
+              "game_diff": 15,
+              "relegation": "unchanged",
+              "first_name": "Diyor",
+              "last_name": "Ortikov"
+            },
+            {
+              "position": 5,
+              "match_count": 5,
+              "win_count": 3,
+              "tie_win_count": 1,
+              "set_diff": 2,
+              "game_diff": 9,
+              "relegation": "unchanged",
+              "first_name": "Sherzod",
+              "last_name": "Shodmonov"
+            },
+            {
+              "position": 6,
+              "match_count": 10,
+              "win_count": 3,
+              "tie_win_count": 0,
+              "set_diff": -9,
+              "game_diff": -42,
+              "relegation": "unchanged",
+              "first_name": "Jakhongir",
+              "last_name": "Usmonov"
+            },
+            {
+              "position": 7,
+              "match_count": 6,
+              "win_count": 2,
+              "tie_win_count": 0,
+              "set_diff": -2,
+              "game_diff": -5,
+              "relegation": "unchanged",
+              "first_name": "Timur",
+              "last_name": "Pulatov"
+            },
+            {
+              "position": 8,
+              "match_count": 7,
+              "win_count": 1,
+              "tie_win_count": 0,
+              "set_diff": -10,
+              "game_diff": -35,
+              "relegation": "unchanged",
+              "first_name": "Dilshod",
+              "last_name": "Umar"
+            },
+            {
+              "position": 9,
+              "match_count": 8,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -15,
+              "game_diff": -56,
+              "relegation": "unchanged",
+              "first_name": "Pyotr",
+              "last_name": "Khan"
+            },
+            {
+              "position": 10,
+              "match_count": 2,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": -1,
+              "game_diff": -6,
+              "relegation": "unchanged",
+              "first_name": "Mashkhur",
+              "last_name": "Akhtamov"
+            },
+            {
+              "position": 11,
+              "match_count": 0,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": 0,
+              "game_diff": 0,
+              "relegation": "unchanged",
+              "first_name": "Aleksandr",
+              "last_name": "Klimachèv"
+            },
+            {
+              "position": 12,
+              "match_count": 0,
+              "win_count": 0,
+              "tie_win_count": 0,
+              "set_diff": 0,
+              "game_diff": 0,
+              "relegation": "unchanged",
+              "first_name": "Ravshan",
+              "last_name": "Raupov"
+            },
+            {
+              "position": 0,
+              "match_count": 5,
+              "win_count": 5,
+              "tie_win_count": 0,
+              "set_diff": 10,
+              "game_diff": 41,
+              "relegation": "fast promoted",
+              "first_name": "Igor",
+              "last_name": "Neklesov"
+            },
+            {
+              "position": 0,
+              "match_count": 5,
+              "win_count": 3,
+              "tie_win_count": 0,
+              "set_diff": 0,
+              "game_diff": 0,
+              "relegation": "fast promoted",
+              "first_name": "Victor",
+              "last_name": "Khon"
+            }
+          ]
+        }
+      ]
+
     }
   ]
 }
