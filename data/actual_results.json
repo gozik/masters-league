@@ -5759,7 +5759,8 @@
               "game_diff": -24,
               "relegation": "unchanged",
               "first_name": "Yasmina",
-              "last_name": "Fatihova"
+              "last_name": "Fatihova",
+              "gender": "female"
             },
             {
               "position": 6,
@@ -5781,7 +5782,8 @@
               "game_diff": -6,
               "relegation": "unchanged",
               "first_name": "Valeriya",
-              "last_name": "Bichurina"
+              "last_name": "Bichurina",
+              "gender": "female"
             },
             {
               "position": 8,
@@ -6118,7 +6120,8 @@
               "game_diff": 15,
               "relegation": "unchanged",
               "first_name": "Madina",
-              "last_name": "Askarova"
+              "last_name": "Askarova",
+              "gender": "female"
             },
             {
               "position": 6,
@@ -6289,7 +6292,8 @@
               "game_diff": 1,
               "relegation": "unchanged",
               "first_name": "Kamila",
-              "last_name": "Erhodjaeva"
+              "last_name": "Erhodjaeva",
+              "gender": "female"
             },
             {
               "position": 9,
@@ -6554,7 +6558,8 @@
               "game_diff": -9,
               "relegation": "unchanged",
               "first_name": "Ranay",
-              "last_name": "Utkelbayeva"
+              "last_name": "Utkelbayeva",
+              "gender": "female"
             },
             {
               "position": 9,
@@ -6758,7 +6763,7 @@
               "game_diff": 0,
               "relegation": "unchanged",
               "first_name": "Aleksandr",
-              "last_name": "Klimachèv"
+              "last_name": "Klimachëv"
             },
             {
               "position": 12,
