@@ -232,7 +232,7 @@ SEASONS_INFO = {
     },
     13: {
             'year': 2026,
-            'name': 'Chiladon',
+            'name': 'Chilladon',
             'date_start': '2026-06-06',
             'date_end': '2026-08-14',
             'registration_start': '2026-05-06',
