@@ -500,7 +500,7 @@ def show_season_application():
 
     selected_player_count = len(players)
 
-    divisions = ['M1', 'M2', 'M3', 'M4', 'M5']
+    divisions = [ 'M1', 'M2', 'M3', 'M4', 'M5']
 
     division_notes = {
         'M1': ['Общая группа 12 участников', 'Добор 2 участников по итогам квалификаций', '+1 участник по итогам 5 недель'],
