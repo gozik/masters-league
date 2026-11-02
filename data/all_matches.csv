@@ -999,7 +999,7 @@
 3,Rogozin Anton,Beglayryan Ruben,6-4 6-0,Oltin Garros,2026-03-23
 4,Askarova Madina,Isaboev Sarvar,6-1 6-3,Oltin Garros,2026-03-23
 5,Abdullaev Sharof,Razzoqov Davron,6-4 6-4,Oltin Garros,2026-03-23
-6,Nazarov Sarvarzafarovich,Khan Pyotr,6-1 6-0,Oltin Garros,2026-03-23
+6,Nazarov Sarvarz,Khan Pyotr,6-1 6-0,Oltin Garros,2026-03-23
 7,Akhtamov Farrukh,Vohidov Nodir,7-5 7-6 (8/6),Oltin Garros,2026-03-23
 8,Sultanov Jamoliddin,Tsoy Stanislav,6-0 6-0,Oltin Garros,2026-03-24
 9,Rustamov Bozorboy,Azimov Bobur,6-1 6-3,Oltin Garros,2026-03-24
@@ -1045,7 +1045,7 @@
 49,Niyazov Zarrux,Kamilov Baxriddin,7-5 6-4,Oltin Garros,2026-04-01
 50,Kaschey Artyom,Vohidov Nodir,6-3 7-6 (7/4),Oltin Garros,2026-04-01
 51,Kurbanov Zafar,Fetisov Artem,7-6 (8/6) 6-4,Oltin Garros,2026-04-01
-52,Neklesov Igor,Nazarov Sarvarzafarovich,7-5 6-1,Oltin Garros,2026-04-01
+52,Neklesov Igor,Nazarov Sarvarz,7-5 6-1,Oltin Garros,2026-04-01
 53,Khikmatov Shukhrat,Azimov Bobur,6-2 4-6 6-4,Oltin Garros,2026-04-02
 54,Aliev Arslan,Rogozin Anton,6-3 7-5,Oltin Garros,2026-04-02
 55,Kadirov Bakhrom,Khaitbaev Dilshad,6-3 6-2,Oltin Garros,2026-04-02
@@ -1093,7 +1093,7 @@
 97,Utkelbayeva Ranay,Khikmatov Shukhrat,4-6 7-6 (7/5) [10/7],Oltin Garros,2026-04-10
 98,Fatihova Yasmina,Beglayryan Ruben,6-3 6-1,Oltin Garros,2026-04-10
 99,Aliev Arslan,Bichurina Valeriya,6-3 6-4,Oltin Garros,2026-04-10
-100,Nazarov Sarvarzafarovich,Khon Victor,6-3 7-5,Oltin Garros,2026-04-11
+100,Nazarov Sarvarz,Khon Victor,6-3 7-5,Oltin Garros,2026-04-11
 101,Juraev Mirazim,Sadibekov Bulat,4-6 6-1 [10/8],Oltin Garros,2026-04-11
 102,Pulatov Timur,Umar Dilshod,6-1 6-4,Oltin Garros,2026-04-11
 103,Pankratov Vladimir,Kadirov Makhmud,6-1 7-5,Oltin Garros,2026-04-11
@@ -1115,7 +1115,7 @@
 119,Alimatov Burxon,Razzoqov Davron,6-4 6-2,Oltin Garros,2026-04-14
 120,Nurmuratov Alisher,Zulpitdinov Abdushaid,7-6 (7/2) 6-2,Oltin Garros,2026-04-15
 121,Mansuriy Jahongir,Hayitov Olimjon,6-0 7-5,Oltin Garros,2026-04-15
-122,Kharabaev Salohiddin,Nazarov Sarvarzafarovich,6-4,Oltin Garros,2026-04-15
+122,Kharabaev Salohiddin,Nazarov Sarvarz,6-4,Oltin Garros,2026-04-15
 123,Hayitov Olimjon,Dosmatov Iskandar,6-4 6-2,Oltin Garros,2026-04-16
 124,Muminov Bahtiyar,Fetisov Artem,6-1 6-3,Oltin Garros,2026-04-16
 125,Razzakov Alisher,Fatihova Yasmina,6-1 6-2,Oltin Garros,2026-04-16
@@ -1263,11 +1263,11 @@
 267,Larionov Svyatoslav,Fatihova Yasmina,6-1 6-1,Oltin Garros,2026-05-23
 268,Azimov Bobur,Muminov Karim,7-6 (7/3) 1-6 [10/8],Oltin Garros,2026-05-24
 269,Askarova Madina,Fetisov Artem,6-3 6-3,Oltin Garros,2026-05-24
-270,Nazarov Sarvarzafarovich,Usmonov Jakhongir,6-2 6-2,Oltin Garros,2026-05-24
+270,Nazarov Sarvarz,Usmonov Jakhongir,6-2 6-2,Oltin Garros,2026-05-24
 1,Isaboev Sarvar,Azimov Bobur,6-2 6-1,Oltin Garros,2026-05-26
 2,Abduvakhidov Alisher,Akhtamov Farrukh,6-3 7-5,Oltin Garros,2026-05-26
 3,Shirinov Jahon,Muminov Bahtiyar,7-6 (10/8) 5-7 7-6 (12/10),Oltin Garros,2026-05-26
-4,Nazarov Sarvarzafarovich,Narzullaev Jasurbek,6-2 6-0,Oltin Garros,2026-05-26
+4,Nazarov Sarvarz,Narzullaev Jasurbek,6-2 6-0,Oltin Garros,2026-05-26
 271,Maxamedkasimov Rustam,Khodyrev Egor,6-2 7-6 (7/4),Oltin Garros,2026-05-26
 272,Lim Mikhail,Kaschey Artyom,6-3 6-3,Oltin Garros,2026-05-26
 273,Pulatov Timur,Usmonov Jakhongir,6-3 6-3,Oltin Garros,2026-05-26
@@ -1278,7 +1278,7 @@
 278,Razzoqov Davron,Vohidov Nodir,6-4 2-6 [10/7],Oltin Garros,2026-05-28
 279,Ibragimov Murod,Akhtamov Farrukh,6-3 6-1,Oltin Garros,2026-05-29
 280,Tadjiev Khamdam,Maxamedkasimov Rustam,6-7 (5/7) 6-4 [10/7],Oltin Garros,2026-05-29
-281,Nazarov Sarvarzafarovich,Pulatov Timur,6-0 6-3,Oltin Garros,2026-05-29
+281,Nazarov Sarvarz,Pulatov Timur,6-0 6-3,Oltin Garros,2026-05-29
 282,Shamsitdinov Hasanboy,Askarova Madina,6-3 6-4,Oltin Garros,2026-05-29
 283,Ortikov Diyor,Usmonov Jakhongir,6-3 6-2,Oltin Garros,2026-05-29
 284,Akhmadjonov Olimjon,Hayitov Olimjon,6-0 6-0,Oltin Garros,2026-05-29
@@ -1320,7 +1320,7 @@
 29,Saidov Tigran,Rajabboev Rajabboy,4-6 6-3 [10/8],Chilladon,2026-06-12
 30,Ivko Vladimir,Khodyrev Egor,6-1 7-5,Chilladon,2026-06-12
 31,Ibragimov Sarvar,Neklesov Igor,6-2 6-2,Chilladon,2026-06-13
-32,Nazarov Sarvarzafarovich,Kharabaev Salohiddin,6-2 6-2,Chilladon,2026-06-13
+32,Nazarov Sarvarz,Kharabaev Salohiddin,6-2 6-2,Chilladon,2026-06-13
 33,Mirzoev Suren,Rustamov Bozorboy,6-1 6-2,Chilladon,2026-06-13
 34,Gulyamov Saidahmad,Khikmatov Jamal,6-4 6-4,Chilladon,2026-06-13
 35,Kim Petr,Tsoy Stanislav,6-4 6-1,Chilladon,2026-06-13
@@ -1369,7 +1369,7 @@
 78,Rogozin Anton,Larionov Svyatoslav,7-5 2-6 [12/10],Chilladon,2026-06-20
 79,Madaliev Khurshidbek,Dosmatov Iskandar,6-2 6-3,Chilladon,2026-06-21
 80,Karimov Saidaziz,Levtsov Sergei,6-2 6-4,Chilladon,2026-06-21
-81,Nazarov Sarvarzafarovich,Neklesov Igor,6-3 3-6 [10/4],Chilladon,2026-06-21
+81,Nazarov Sarvarz,Neklesov Igor,6-3 3-6 [10/4],Chilladon,2026-06-21
 82,Pulatov Timur,Khusniddinov Nodir,6-4 3-6 [10/5],Chilladon,2026-06-22
 83,Sultanov Jamoliddin,Rustamov Bozorboy,7-6 (7/4) 6-2,Chilladon,2026-06-22
 84,Kamilov Baxriddin,Alimatov Burxon,6-1 6-2,Chilladon,2026-06-22
@@ -1441,7 +1441,7 @@
 150,Usmonov Jakhongir,Loloshvili Tengiz,4-6 6-3 [10/5],Chilladon,2026-07-04
 151,Khikmatov Shukhrat,Saidov Tigran,6-3 6-2,Chilladon,2026-07-04
 152,Xaqnazarov Bobur,Akbarov Abubakir,6-3 6-2,Chilladon,2026-07-05
-153,Nazarov Sarvarzafarovich,Tsoy Stanislav,6-3 6-2,Chilladon,2026-07-05
+153,Nazarov Sarvarz,Tsoy Stanislav,6-3 6-2,Chilladon,2026-07-05
 154,Dosmatov Iskandar,Khon Victor,6-3 4-6 [10/8],Chilladon,2026-07-05
 155,Usmonov Jakhongir,Fayziev Davron,6-2 4-6 [10/7],Chilladon,2026-07-05
 156,Baranov Demetri,Madaliev Khurshidbek,6-2 4-7 [10/5],Chilladon,2026-07-05
@@ -1474,7 +1474,7 @@
 183,Dadayev Davron,Khusniddinov Nodir,4-6 6-4 [10/6],Chilladon,2026-07-11
 184,Sayfullin Ilnur,Umar Dilshod,6-0 6-2,Chilladon,2026-07-11
 185,Shamuratov Farrukh,Kamilov Baxriddin,6-4 6-1,Chilladon,2026-07-11
-186,Nazarov Sarvarzafarovich,Narzullaev Jasurbek,6-4 6-4,Chilladon,2026-07-11
+186,Nazarov Sarvarz,Narzullaev Jasurbek,6-4 6-4,Chilladon,2026-07-11
 187,Shamuratov Farrukh,Niyazov Zarrux,1-6 6-3 [12/10],Chilladon,2026-07-12
 188,Fayziev Davron,Umar Dilshod,3-6 6-4 6-1,Chilladon,2026-07-12
 189,Ibragimov Murod,Shirinov Jahon,2-6 6-2 [11/9],Chilladon,2026-07-12
@@ -1496,7 +1496,7 @@
 205,Neklesov Igor,Hayitov Olimjon,6-3 6-2,Chilladon,2026-07-16
 206,Fetisov Artem,Zakirov Raxmatjon,6-4 6-1,Chilladon,2026-07-16
 207,Raxmatullaevich Dilshod,Umar Dilshod,6-3 6-2,Chilladon,2026-07-16
-208,Nazarov Sarvarzafarovich,Salomov Bakhtiyor,6-3 6-3,Chilladon,2026-07-17
+208,Nazarov Sarvarz,Salomov Bakhtiyor,6-3 6-3,Chilladon,2026-07-17
 209,Khushova Feruza,Raxmatullaevich Dilshod,6-1 6-1,Chilladon,2026-07-17
 210,Azimov Bobur,Abdurakhmanov Boburkhan,6-2 6-3,Chilladon,2026-07-17
 211,Ivko Vladimir,Juraev Mirazim,7-5 7-5,Chilladon,2026-07-17
@@ -1506,7 +1506,7 @@
 215,Sayfullin Ilnur,Savlev Andrey,6-2 6-4,Chilladon,2026-07-18
 216,Halikov Otabek,Saidov Tigran,6-1 6-2,Chilladon,2026-07-18
 217,Isaboev Sarvar,Sultanov Jamoliddin,2-6 6-2 7-5,Chilladon,2026-07-18
-218,Nazarov Sarvarzafarovich,Xaqnazarov Bobur,6-7 (5/7) 6-2 [10/8],Chilladon,2026-07-19
+218,Nazarov Sarvarz,Xaqnazarov Bobur,6-7 (5/7) 6-2 [10/8],Chilladon,2026-07-19
 219,Pulatov Timur,Fayziev Davron,6-2 6-3,Chilladon,2026-07-19
 220,Baranov Demetri,Kadirov Makhmud,6-4 6-1,Chilladon,2026-07-20
 221,Sataev Muzaffar,Nizamov Abdulaziz,6-1 7-6 (7/5),Chilladon,2026-07-20
@@ -1534,7 +1534,7 @@
 243,Raxmatullaevich Dilshod,Sayfullin Ilnur,6-4 2-6 [11/9],Chilladon,2026-07-25
 244,Gulyamov Saidahmad,Levtsov Sergei,6-4 5-7 [10/3],Chilladon,2026-07-25
 245,Karimov Saidaziz,Khakimov Alisher,5-7 6-1 6-4,Chilladon,2026-07-25
-246,Nazarov Sarvarzafarovich,Ibragimov Sarvar,7-5 6-3,Chilladon,2026-07-25
+246,Nazarov Sarvarz,Ibragimov Sarvar,7-5 6-3,Chilladon,2026-07-25
 247,Raxmatullaevich Dilshod,Usmonov Jakhongir,6-1 6-1,Chilladon,2026-07-26
 248,Akhtamov Farrukh,Niyazov Zarrux,6-3 6-2,Chilladon,2026-07-26
 249,Tsoy Stanislav,Narzullaev Jasurbek,6-0 6-0,Chilladon,2026-07-26
@@ -1557,7 +1557,7 @@
 266,Levtsov Sergei,Azimov Bobur,6-3 6-1,Chilladon,2026-07-30
 267,Karimov Saidaziz,Karimov Bobirbek,7-6 (7/5) 6-2,Chilladon,2026-07-30
 268,Neklesov Igor,Xaqnazarov Bobur,3-6 6-2 6-0,Chilladon,2026-07-31
-269,Nazarov Sarvarzafarovich,Mavlyutov Kamil,6-3 6-2,Chilladon,2026-07-31
+269,Nazarov Sarvarz,Mavlyutov Kamil,6-3 6-2,Chilladon,2026-07-31
 270,Maxamedkasimov Rustam,Shukrullaev Shahriyor,6-3 6-4,Chilladon,2026-07-31
 271,Ibragimov Murod,Kamilov Baxriddin,6-3 6-2,Chilladon,2026-07-31
 272,Nazarov Sarvar,Khusniddinov Nodir,6-4 5-7 [10/2],Chilladon,2026-08-01
@@ -1623,3 +1623,351 @@
 332,Savlev Andrey,Akbarov Abubakir,6-3 6-2,Chilladon,2026-08-14
 333,Razzoqov Davron,Alimatov Burxon,6-4 5-7 7-6 (7/4),Chilladon,2026-08-14
 334,Sayfullin Ilnur,Tsoy Igor,6-2 6-0,Chilladon,2026-08-14
+0,Rogozin Anton,Shirinov Jahon,6-2 5-7 [10/6],Uz Open,2026-08-26
+1,Khusniddinov Nodir,Raxmatullayevich Dilshod,7-6 (7/3) 6-4,Uz Open,2026-08-26
+2,Yu Abduhakim,Khudaykulov Rustam,6-2 6-7 (7/9) [10/3],Uz Open,2026-08-26
+3,Sinotaeva Arina,Moroz Yulianna,6-3 6-2,Uz Open,2026-08-26
+4,Muhammadaliyev Muhtor,Raimov Bakhodir,6-4 6-4,Uz Open,2026-08-26
+5,Akbarov Abubakir,Khan Pyotr,6-2 6-1,Uz Open,2026-08-26
+6,Levtsov Sergei,Azimov Bobur,5-7 6-2 [10/2],Uz Open,2026-08-26
+7,Bobodostov Lazizbek,Loloshvili Tengiz,2-6 7-5 [10/6],Uz Open,2026-08-26
+8,Davletyarov Azamat,Abdulazizov Ergash,7-5 6-0,Uz Open,2026-08-26
+9,Khan Pyotr,Khudaykulov Rustam,6-2 6-4,Uz Open,2026-08-26
+10,Fayziev Davron,Dadayev Davron,6-4 3-6 [10/8],Uz Open,2026-08-26
+11,Utkelbayeva Ranay,Neklesov Igor,4-6 7-5 [10/5],Uz Open,2026-08-27
+12,Abdazov Abdulaziz,Alieva Aleksandra,6-1 6-1,Uz Open,2026-08-27
+13,Saidahmedov Abdulloh,Aliev Akhrorjon,6-2 6-2,Uz Open,2026-08-27
+14,Sultanov Jamoliddin,Kaschey Artyom,6-7 (3/7) 7-5 [10/7],Uz Open,2026-08-27
+15,Abduvakhidov Alisher,Rogozin Anton,6-3 6-3,Uz Open,2026-08-27
+16,Ahrarov Izzat,Kadirov Bakhrom,7-6 (7/5) 6-1,Uz Open,2026-08-27
+17,Pak Igor,Khikmatov Shukhrat,6-3 3-6 [10/6],Uz Open,2026-08-27
+18,Xaqnazarov Bobur,Karimkhodjaev Abdulaziz,7-6 (7/0) 7-5,Uz Open,2026-08-27
+19,Sayfullin Ilnur,Narzullaev Jasurbek,6-2 6-2,Uz Open,2026-08-27
+20,Abdurakhmanov Boburkhan,Bakhromov Iskandar,6-1 6-1,Uz Open,2026-08-27
+21,Tsoy Igor,Xalilov Bekzod,6-4 1-6 6-1,Uz Open,2026-08-28
+22,Ahrarov Izzat,Mirzoev Suren,6-1 6-0,Uz Open,2026-08-29
+23,Saidahmedov Abdulloh,Sayfullin Ilnur,7-5 1-6 [10/8],Uz Open,2026-08-29
+24,Moroz Yulianna,Khan Pyotr,6-1 5-7 [10/7],Uz Open,2026-08-29
+25,Korchiev Nodirbek,Isaboev Sarvar,6-1 6-2,Uz Open,2026-08-29
+26,Abdazov Abdulaziz,Saidov Mirlaziz,4-6 6-4 [10/8],Uz Open,2026-08-29
+27,Ahrarov Izzat,Muhammadaliyev Muhtor,6-2 3-6 6-3,Uz Open,2026-08-30
+28,Saidov Tigran,Mavlyutov Kamil,4-6 6-4 [16/14],Uz Open,2026-08-31
+29,Dadayev Davron,Moroz Yulianna,7-5 6-0,Uz Open,2026-08-31
+30,Shirinov Jahon,Kamilov Baxriddin,4-6 6-4 [10/5],Uz Open,2026-08-31
+31,Halikov Otabek,Karimov Bobirbek,3-6 6-3 [11/9],Uz Open,2026-08-31
+32,Pulatov Timur,Khusniddinov Nodir,6-0 6-0,Uz Open,2026-09-01
+33,Ivko Vladimir,Kaschey Artyom,7-5 6-3,Uz Open,2026-09-01
+34,Sayfullin Ilnur,Sotvoldiev Abbos,7-6 (7/2) 6-0,Uz Open,2026-09-01
+35,Nurmuratov Alisher,Sadibekov Bulat,3-6 6-1 6-3,Uz Open,2026-09-01
+36,Khaitbaev Dilshad,Pankratov Vladimir,7-5 6-4,Uz Open,2026-09-01
+37,Muhitdinov Firdavs,Juraev Mirazim,6-3 6-3,Uz Open,2026-09-01
+38,Pak Igor,Levtsov Sergei,6-2 6-3,Uz Open,2026-09-01
+39,Savlev Andrey,Zulpitdinov Abdushaid,4-6 6-4 [10/7],Uz Open,2026-09-01
+40,Dadayev Davron,Khan Pyotr,6-4 6-3,Uz Open,2026-09-01
+41,Loloshvili Tengiz,Moroz Yulianna,7-6 (7/5) 1-6 [10/5],Uz Open,2026-09-01
+42,Abdurakhmanov Boburkhan,Baranov Demetri,6-0 6-0,Uz Open,2026-09-01
+43,Xaqnazarov Bobur,Ibragimov Sarvar,7-6 (7/0) 6-4,Uz Open,2026-09-01
+44,Kiro Altman,Khushvaktova Gulirukh,6-2 6-2,Uz Open,2026-09-01
+45,Abdazov Abdulaziz,Mavlyutov Kamil,6-3 6-3,Uz Open,2026-09-01
+46,Maxamedkasimov Rustam,Razzoqov Davron,6-4 3-6 [12/10],Uz Open,2026-09-01
+47,Malikov Humoyun,Karimov Saidaziz,6-3 6-1,Uz Open,2026-09-01
+48,Zakirov Raxmatjon,Mansuriy Jahongir,7-5 6-4,Uz Open,2026-09-02
+49,Shirinov Jahon,Akhtamov Farrukh,6-4 6-4,Uz Open,2026-09-02
+50,Karimkhodjaev Abdulaziz,Neklesov Igor,6-4 6-2,Uz Open,2026-09-02
+51,Bobodostov Lazizbek,Tsoy Igor,7-6 (7/0) 6-3,Uz Open,2026-09-02
+52,Fayziev Davron,Kuchkarov Ramz,6-1 7-5,Uz Open,2026-09-02
+53,Khusniddinov Nodir,Narzullaev Jasurbek,6-4 5-7 [10/7],Uz Open,2026-09-02
+54,Dadayev Davron,Loloshvili Tengiz,6-1 6-1,Uz Open,2026-09-03
+55,Niyazov Zarrux,Alimatov Burxon,6-0 6-1,Uz Open,2026-09-03
+56,Khikmatov Shukhrat,Azimov Bobur,7-5 1-6 [11/9],Uz Open,2026-09-03
+57,Shodmonov Sherzod,Lunin Roman,6-4 6-3,Uz Open,2026-09-03
+58,Boronov Bahodir,Shatursunov Shokhaydar,6-4,Uz Open,2026-09-03
+59,Khidoyatov Takhir,Tadjiev Khamdam,7-5 6-3,Uz Open,2026-09-03
+60,Rustamov Bozorboy,Kurbanov Zafar,6-2 6-1,Uz Open,2026-09-03
+61,Khushvaktova Gulirukh,Abdulazizov Ergash,6-4 6-3,Uz Open,2026-09-03
+62,Davletyarov Azamat,Sinotaeva Arina,7-5 7-6 (7/3),Uz Open,2026-09-03
+63,Ivko Vladimir,Ahrarov Izzat,7-5 6-4,Uz Open,2026-09-04
+64,N Dzhalil,Rogozin Anton,6-3 6-3,Uz Open,2026-09-04
+65,Rustamov Bozorboy,Kadirov Bakhrom,6-3 7-5,Uz Open,2026-09-04
+66,Dadayev Davron,Kuchkarov Ramz,6-1 6-1,Uz Open,2026-09-04
+67,Ibragimov Murod,Akhtamov Farrukh,6-1 7-5,Uz Open,2026-09-04
+68,Gulyamov Saidahmad,Khakimov Alisher,4-6 6-4 6-4,Uz Open,2026-09-04
+69,Narzullaev Jasurbek,Aliev Akhrorjon,7-5 6-3,Uz Open,2026-09-04
+70,Saidov Tigran,Utkelbayeva Ranay,4-6 6-3 [10/7],Uz Open,2026-09-05
+71,Islamov Savlat,Musashaykhov Abbos,6-1 6-2,Uz Open,2026-09-05
+72,Saidov Mirlaziz,Pulatov Timur,6-2 6-1,Uz Open,2026-09-05
+73,Saidahmedov Abdulloh,Alieva Aleksandra,6-3,Uz Open,2026-09-05
+74,Dadayev Davron,Umarov Arslonbek,6-1 7-5,Uz Open,2026-09-05
+75,Niyazov Zarrux,Sultanov Jamoliddin,6-1 6-0,Uz Open,2026-09-05
+76,Sayfullin Ilnur,Khusniddinov Nodir,6-3 6-4,Uz Open,2026-09-05
+77,Abdulazizov Ergash,Khudaykulov Rustam,6-3 7-5,Uz Open,2026-09-05
+78,Khon Victor,Boronov Bahodir,6-3 6-7 (3/7) [10/7],Uz Open,2026-09-05
+79,Moroz Yulianna,Kuchkarov Ramz,6-1 6-1,Uz Open,2026-09-05
+80,Muhitdinov Firdavs,Nurmuratov Alisher,6-4 6-1,Uz Open,2026-09-05
+81,Malikov Humoyun,Khidoyatov Takhir,7-5 6-2,Uz Open,2026-09-05
+82,Karimkhodjaev Abdulaziz,Baranov Demetri,6-1 4-6 [10/5],Uz Open,2026-09-05
+83,Khikmatov Shukhrat,Sadibekov Bulat,0-6 6-4 6-2,Uz Open,2026-09-05
+84,Nazarov Sarvarz,Sataev Muzaffar,6-1 7-5,Uz Open,2026-09-05
+85,Aliev Akhrorjon,Lunin Roman,3-6 6-1 6-3,Uz Open,2026-09-06
+86,Davletyarov Azamat,Fayziev Davron,6-2 6-4,Uz Open,2026-09-06
+87,Halikov Otabek,Gulyamov Saidahmad,6-2 6-3,Uz Open,2026-09-06
+88,Saidahmedov Abdulloh,Boronov Bahodir,6-1 7-5,Uz Open,2026-09-07
+89,Mirzoev Suren,Rustamov Bozorboy,6-4 6-4,Uz Open,2026-09-07
+90,Kiro Altman,Fayziev Davron,6-1 6-2,Uz Open,2026-09-07
+91,Saidov Mirlaziz,Saidahmedov Abdulloh,6-4 4-6 [10/6],Uz Open,2026-09-08
+92,Abdurakhmanov Boburkhan,Sadibekov Bulat,6-1 7-5,Uz Open,2026-09-08
+93,Alimatov Burxon,Sultanov Jamoliddin,7-5 7-5,Uz Open,2026-09-08
+94,Kadirov Makhmud,Shodmonov Sherzod,8-3,Uz Open,2026-09-08
+95,Narzullaev Jasurbek,Bobodostov Lazizbek,6-1 6-4,Uz Open,2026-09-08
+96,Ahrarov Izzat,Kaschey Artyom,6-1 7-5,Uz Open,2026-09-09
+97,N Dzhalil,Kamilov Baxriddin,6-2 6-2,Uz Open,2026-09-09
+98,Umarov Arslonbek,Kuchkarov Ramz,6-1 6-3,Uz Open,2026-09-09
+99,Kadirov Bakhrom,Mirzoev Suren,6-4 6-3,Uz Open,2026-09-09
+100,Miraxatov Miraziz,Usmonov Jakhongir,6-1 6-4,Uz Open,2026-09-09
+101,Miraxatov Miraziz,Akbarov Abubakir,7-5 6-1,Uz Open,2026-09-09
+102,Niyazov Zarrux,Akhtamov Farrukh,6-1 4-6 6-1,Uz Open,2026-09-09
+103,Juraev Mirazim,Xaqnazarov Bobur,6-2 7-6 (13/11),Uz Open,2026-09-10
+104,Matkurbanov Bahtiyor,Nazarov Sarvarz,6-3 2-6 [10/8],Uz Open,2026-09-10
+105,Khusniddinov Nodir,Aliev Akhrorjon,6-1 6-7 (4/7) 6-4,Uz Open,2026-09-10
+106,N Dzhalil,Niyazov Zarrux,6-3 3-6 6-2,Uz Open,2026-09-10
+107,Abdurakhmanov Boburkhan,Saidov Tigran,7-6 (7/3) 6-2,Uz Open,2026-09-10
+108,Tadjiev Khamdam,Ahrarov Izzat,6-2 6-4,Uz Open,2026-09-10
+109,Sayfullin Ilnur,Kiro Altman,6-3 6-3,Uz Open,2026-09-10
+110,Khon Victor,Abdazov Abdulaziz,7-6 (7/2) 6-7 (3/7) [12/10],Uz Open,2026-09-10
+111,Moroz Yulianna,Umarov Arslonbek,5-7 6-3 [10/6],Uz Open,2026-09-10
+112,Davletyarov Azamat,Narzullaev Jasurbek,1-6 6-4 [10/8],Uz Open,2026-09-10
+113,Gulyamov Saidahmad,Pankratov Vladimir,5-7 6-3 7-5,Uz Open,2026-09-11
+114,Boronov Bahodir,Saidov Mirlaziz,6-2 6-4,Uz Open,2026-09-11
+115,Korchiev Nodirbek,Maxamedkasimov Rustam,6-4 6-0,Uz Open,2026-09-11
+116,Rogozin Anton,Korchiev Nodirbek,7-5 6-1,Uz Open,2026-09-09
+117,Khushvaktova Gulirukh,Kuchkarov Ramz,6-0 6-3,Uz Open,2026-09-11
+118,Ivko Vladimir,Halikov Otabek,7-6 (7/5) 6-2,Uz Open,2026-09-12
+119,Khudaykulov Rustam,Loloshvili Tengiz,6-4 6-4,Uz Open,2026-09-12
+120,Khusniddinov Nodir,Fayziev Davron,7-6 (10/8) 6-2,Uz Open,2026-09-12
+121,Mavlyutov Kamil,Khon Victor,6-2 2-6 [10/5],Uz Open,2026-09-12
+122,Islamov Savlat,Hayitov Olimjon,6-3 6-4,Uz Open,2026-09-12
+123,Kadirov Bakhrom,Pankratov Vladimir,6-1 6-3,Uz Open,2026-09-12
+124,Rogozin Anton,Niyazov Zarrux,7-5 6-3,Uz Open,2026-09-12
+125,Savlev Andrey,Kadirov Makhmud,2-6 6-3 6-4,Uz Open,2026-09-12
+126,Khidoyatov Takhir,Karimov Saidaziz,7-6 (7/3) 6-3,Uz Open,2026-09-12
+127,Davletyarov Azamat,Bobodostov Lazizbek,7-5 7-5,Uz Open,2026-09-12
+128,Khakimov Alisher,Mansuriy Jahongir,2-6 6-1 7-6 (7/4),Uz Open,2026-09-12
+129,Eshmurodau Rustam,Khan Pyotr,6-7 (4/7) 7-5 [10/5],Uz Open,2026-09-13
+130,Sayfullin Ilnur,Fayziev Davron,6-2 6-1,Uz Open,2026-09-13
+131,Utkelbayeva Ranay,Mavlyutov Kamil,6-1 6-4,Uz Open,2026-09-13
+132,Mansuriy Jahongir,Pankratov Vladimir,6-1 6-3,Uz Open,2026-09-13
+133,Khusniddinov Nodir,Dadayev Davron,6-3 7-6 (7/2),Uz Open,2026-09-13
+134,Neklesov Igor,Mavlyutov Kamil,6-3 6-3,Uz Open,2026-09-14
+135,Boronov Bahodir,Hayitov Olimjon,7-6 (7/3) 6-2,Uz Open,2026-09-14
+136,Narzullaev Jasurbek,Dadayev Davron,4-6 6-3 [10/6],Uz Open,2026-09-14
+137,N Dzhalil,Akhtamov Farrukh,6-4 6-3,Uz Open,2026-09-14
+138,Akbarov Abubakir,Tsoy Igor,3-6 7-6 (7/5) 6-3,Uz Open,2026-09-15
+139,Baranov Demetri,Mavlyutov Kamil,7-6 (12/10) 4-6 [11/9],Uz Open,2026-09-15
+140,Mansuriy Jahongir,Mirzoev Suren,7-5 1-6 [10/5],Uz Open,2026-09-16
+141,N Dzhalil,Korchiev Nodirbek,7-5 6-4,Uz Open,2026-09-16
+142,Razzoqov Davron,Sultanov Jamoliddin,5-7 6-4 [10/6],Uz Open,2026-09-16
+143,Narzullaev Jasurbek,Fayziev Davron,6-3 6-4,Uz Open,2026-09-16
+144,Davletyarov Azamat,Aliev Akhrorjon,6-2 4-6 [10/3],Uz Open,2026-09-16
+145,Abdazov Abdulaziz,Ibragimov Sarvar,3-6 7-5 [10/7],Uz Open,2026-09-16
+146,Xaqnazarov Bobur,Sataev Muzaffar,6-4 6-7 (5/7) 6-3,Uz Open,2026-09-17
+147,Lunin Roman,Bobodostov Lazizbek,6-2 5-7 6-3,Uz Open,2026-09-17
+148,Miraxatov Miraziz,Khusniddinov Nodir,6-3 4-6 [11/9],Uz Open,2026-09-17
+149,Hayitov Olimjon,Saidov Mirlaziz,7-6 (7/3) 6-1,Uz Open,2026-09-17
+150,Akbarov Abubakir,Eshmurodau Rustam,6-1 6-1,Uz Open,2026-09-17
+151,Islamov Savlat,Mavlyutov Kamil,6-3 6-1,Uz Open,2026-09-17
+152,Abdazov Abdulaziz,Karimkhodjaev Abdulaziz,6-2 7-6 (7/1),Uz Open,2026-09-17
+153,Gulamov Sherzod,Khon Victor,6-1 6-3,Uz Open,2026-09-17
+154,Ivko Vladimir,Maxamedkasimov Rustam,6-3 3-6 [10/6],Uz Open,2026-09-18
+155,Islamov Savlat,Neklesov Igor,6-2 6-1,Uz Open,2026-09-18
+156,N Dzhalil,Shirinov Jahon,7-5 6-2,Uz Open,2026-09-18
+157,Khakimov Alisher,Pankratov Vladimir,6-4 6-3,Uz Open,2026-09-18
+158,Kaschey Artyom,Karimov Saidaziz,6-2 6-3,Uz Open,2026-09-18
+159,Aliev Akhrorjon,Fayziev Davron,6-3 6-3,Uz Open,2026-09-18
+160,Abdurakhmanov Boburkhan,Xaqnazarov Bobur,6-4 7-5,Uz Open,2026-09-18
+161,Saidov Mirlaziz,Alieva Aleksandra,6-1 6-0,Uz Open,2026-09-19
+162,Saidahmedov Abdulloh,Pulatov Timur,6-1 6-4,Uz Open,2026-09-19
+163,Sotvoldiev Abbos,Raxmatullayevich Dilshod,7-6 (7/4) 6-4,Uz Open,2026-09-19
+164,Neklesov Igor,Khon Victor,7-6 (7/5) 7-6 (7/1),Uz Open,2026-09-19
+165,Akbarov Abubakir,Sinotaeva Arina,6-4 6-4,Uz Open,2026-09-19
+166,Sotvoldiev Abbos,Davletyarov Azamat,4-6 7-5 7-5,Uz Open,2026-09-19
+167,Juraev Mirazim,Nazarov Sarvarz,7-5 5-7 6-2,Uz Open,2026-09-19
+168,Fayziev Davron,Bobodostov Lazizbek,6-4 7-5,Uz Open,2026-09-20
+169,Kuchkarov Ramz,Khudaykulov Rustam,3-6 6-4 [10/7],Uz Open,2026-09-20
+170,Usmonov Jakhongir,Eshmurodau Rustam,1-6 6-3 [10/8],Uz Open,2026-09-20
+171,Abdazov Abdulaziz,Gulamov Sherzod,6-4 7-5,Uz Open,2026-09-20
+172,Raxmatullayevich Dilshod,Bobodostov Lazizbek,6-2 7-6 (7/2),Uz Open,2026-09-21
+173,Davletyarov Azamat,Lunin Roman,6-0 6-0,Uz Open,2026-09-21
+174,Narzullaev Jasurbek,Raxmatullayevich Dilshod,7-5 5-7 6-4,Uz Open,2026-09-21
+175,Miraxatov Miraziz,Fayziev Davron,6-1 6-2,Uz Open,2026-09-21
+176,Khaitbaev Dilshad,Zakirov Raxmatjon,6-2 6-4,Uz Open,2026-09-22
+177,Khudaykulov Rustam,Tsoy Igor,6-3 3-6 [10/3],Uz Open,2026-09-22
+178,Aliev Akhrorjon,Raxmatullayevich Dilshod,6-3 7-6 (8/6),Uz Open,2026-09-22
+179,Saidov Mirlaziz,Savlev Andrey,6-2 2-6 7-6 (7/2),Uz Open,2026-09-22
+180,Akbarov Abubakir,Yu Abduhakim,6-4 2-6 [10/4],Uz Open,2026-09-22
+181,Baranov Demetri,Khon Victor,6-4 6-4,Uz Open,2026-09-22
+182,Sinotaeva Arina,Kuchkarov Ramz,6-3 6-1,Uz Open,2026-09-22
+183,Kaschey Artyom,Sultanov Jamoliddin,7-6 (7/5) 6-3,Uz Open,2026-09-23
+184,Karimov Bobirbek,Muhammadaliyev Muhtor,4-6 6-3 [10/6],Uz Open,2026-09-23
+185,Abdazov Abdulaziz,Neklesov Igor,2-6 7-5 6-4,Uz Open,2026-09-24
+186,Khan Pyotr,Abdulazizov Ergash,6-3 6-4,Uz Open,2026-09-24
+187,Sotvoldiev Abbos,Miraxatov Miraziz,7-6 4-6 [10/8],Uz Open,2026-09-24
+188,Rustamov Bozorboy,Mansuriy Jahongir,7-5 6-3,Uz Open,2026-09-24
+189,Saidahmedov Abdulloh,Hayitov Olimjon,7-6 (7/5) 6-4,Uz Open,2026-09-24
+190,Juraev Mirazim,Sataev Muzaffar,6-3 6-2,Uz Open,2026-09-24
+191,Sinotaeva Arina,Loloshvili Tengiz,6-4 6-3,Uz Open,2026-09-25
+192,Islamov Savlat,Bakhromov Iskandar,6-4 6-2,Uz Open,2026-09-25
+193,Maxamedkasimov Rustam,Sultanov Jamoliddin,6-3 1-6 6-2,Uz Open,2026-09-25
+194,Karimkhodjaev Abdulaziz,Mavlyutov Kamil,6-2 7-6 (7/2),Uz Open,2026-09-25
+195,Isaboev Sarvar,Khidoyatov Takhir,6-2 7-6 (7/5),Uz Open,2026-09-25
+196,Khusniddinov Nodir,Davletyarov Azamat,6-4 7-5,Uz Open,2026-09-25
+197,Abdurakhmanov Boburkhan,Nazarov Sarvarz,6-4 3-6 6-2,Uz Open,2026-09-26
+198,Rustamov Bozorboy,Muhammadaliyev Muhtor,6-2 4-6 [10/5],Uz Open,2026-09-26
+199,Khushvaktova Gulirukh,Loloshvili Tengiz,6-4 7-6 (7/2),Uz Open,2026-09-26
+200,Islamov Savlat,Khon Victor,6-2 6-1,Uz Open,2026-09-26
+201,Abdazov Abdulaziz,Baranov Demetri,6-7 (5/7) 6-1 6-1,Uz Open,2026-09-26
+202,Davletyarov Azamat,Dadayev Davron,6-2 6-1,Uz Open,2026-09-26
+203,T Otabek,Eshmurodau Rustam,6-4 1-6 [12/10],Uz Open,2026-09-27
+204,Raxmatullayevich Dilshod,Fayziev Davron,6-1 6-3,Uz Open,2026-09-27
+205,Usmonov Jakhongir,Sinotaeva Arina,7-5 6-7 (7/9) [10/6],Uz Open,2026-09-27
+206,Gulamov Sherzod,Mavlyutov Kamil,6-3 6-2,Uz Open,2026-09-27
+207,Savlev Andrey,Pulatov Timur,6-3 6-3,Uz Open,2026-09-28
+208,Muhitdinov Firdavs,Kurbanov Zafar,2-6 6-2 6-2,Uz Open,2026-09-28
+209,Akbarov Abubakir,Kuchkarov Ramz,7-6 (7/4) 7-6 (8/6),Uz Open,2026-09-28
+210,Sinotaeva Arina,Khan Pyotr,6-2 6-4,Uz Open,2026-09-28
+211,Loloshvili Tengiz,Tsoy Igor,7-6 (7/4) 6-0,Uz Open,2026-09-29
+212,Muhitdinov Firdavs,Pankratov Vladimir,6-3 7-5,Uz Open,2026-09-29
+213,Boronov Bahodir,Savlev Andrey,6-4 2-6 [10/6],Uz Open,2026-09-29
+214,Levtsov Sergei,Sadibekov Bulat,6-3 2-6 6-2,Uz Open,2026-09-29
+215,Khon Victor,Bakhromov Iskandar,6-3 7-5,Uz Open,2026-09-29
+216,Khan Pyotr,Usmonov Jakhongir,6-4 4-6 [10/7],Uz Open,2026-09-29
+217,Narzullaev Jasurbek,Davletyarov Azamat,7-6 (7/4) 6-3,Uz Open,2026-09-29
+218,Kadirov Makhmud,Raxmatullayevich Dilshod,4-6 6-0 6-4,Uz Open,2026-09-30
+219,Utkelbayeva Ranay,Abdazov Abdulaziz,6-4 6-4,Uz Open,2026-09-30
+220,Gulamov Sherzod,Karimkhodjaev Abdulaziz,7-5 6-0,Uz Open,2026-10-01
+221,Sayfullin Ilnur,Khusniddinov Nodir,6-1 6-1,Uz Open,2026-10-01
+222,Rustamov Bozorboy,Zakirov Raxmatjon,6-1 6-3,Uz Open,2026-10-01
+223,Moroz Yulianna,Usmonov Jakhongir,6-2 6-4,Uz Open,2026-10-01
+224,Khidoyatov Takhir,Rasulova Zilola,6-7 (5/7) 6-2 [10/1],Uz Open,2026-10-01
+225,Utkelbayeva Ranay,Khon Victor,6-4 6-2,Uz Open,2026-10-01
+226,Kadirov Makhmud,Kiro Altman,6-4 5-7 [10/8],Uz Open,2026-10-02
+227,Dadayev Davron,Fayziev Davron,6-4 6-4,Uz Open,2026-10-02
+228,Karimov Bobirbek,Abdurakhmanov Boburkhan,7-5 6-0,Uz Open,2026-10-02
+229,Sataev Muzaffar,Sadibekov Bulat,6-3 7-5,Uz Open,2026-10-03
+230,Sotvoldiev Abbos,Fayziev Davron,6-2 6-2,Uz Open,2026-10-03
+231,Saidahmedov Abdulloh,Shatursunov Shokhaydar,6-3 6-4,Uz Open,2026-10-03
+232,Levtsov Sergei,Juraev Mirazim,5-7 6-0 [10/7],Uz Open,2026-10-03
+233,Abdazov Abdulaziz,Bakhromov Iskandar,6-2 6-4,Uz Open,2026-10-03
+234,Kiro Altman,Dadayev Davron,6-3 6-4,Uz Open,2026-10-03
+235,Nazarov Sarvarz,Xaqnazarov Bobur,7-5 6-7 (3/7) [10/6],Uz Open,2026-10-03
+236,Akbarov Abubakir,Moroz Yulianna,7-6 (7/5) 7-6 (7/5),Uz Open,2026-10-04
+237,Rogozin Anton,Ibragimov Murod,6-3 6-4,Uz Open,2026-10-04
+238,Gulamov Sherzod,Neklesov Igor,2-6 6-1 6-0,Uz Open,2026-10-04
+239,Hayitov Olimjon,Davletyarov Azamat,6-2 3-6 [10/6],Uz Open,2026-10-04
+240,Sinotaeva Arina,Eshmurodau Rustam,6-3 6-1,Uz Open,2026-10-04
+241,Karimkhodjaev Abdulaziz,Khon Victor,6-1 7-5,Uz Open,2026-10-04
+242,Rogozin Anton,Kamilov Baxriddin,5-7 6-2 6-2,Uz Open,2026-10-04
+243,Akbarov Abubakir,Khan Pyotr,6-3 6-1,Uz Open,2026-10-04
+244,Sataev Muzaffar,Saidov Tigran,7-6 (7/3) 7-6 (7/3),Uz Open,2026-10-05
+245,Saidahmedov Abdulloh,Savlev Andrey,7-5 6-2,Uz Open,2026-10-06
+246,Halikov Otabek,Khidoyatov Takhir,7-5 3-6 [10/8],Uz Open,2026-10-06
+247,Rogozin Anton,Malikov Humoyun,7-5 6-0,Uz Open,2026-10-06
+248,Karimov Bobirbek,Gulyamov Saidahmad,6-3 6-3,Uz Open,2026-10-06
+249,Pulatov Timur,Narzullaev Jasurbek,7-5 7-5,Uz Open,2026-10-07
+250,Karimkhodjaev Abdulaziz,Saidov Mirlaziz,6-3 6-2,Uz Open,2026-10-07
+251,Rogozin Anton,Akhtamov Farrukh,6-0 6-4,Uz Open,2026-10-08
+252,Ibragimov Murod,Kamilov Baxriddin,7-5 6-3,Uz Open,2026-10-08
+253,Sotvoldiev Abbos,Zulpitdinov Abdushaid,6-3 6-2,Uz Open,2026-10-08
+254,Karimov Bobirbek,Pak Igor,6-2 6-4,Uz Open,2026-10-08
+255,Sinotaeva Arina,Abdulazizov Ergash,6-3 6-2,Uz Open,2026-10-08
+256,Xaqnazarov Bobur,Saidov Tigran,6-3 2-6 6-2,Uz Open,2026-10-09
+257,Rustamov Bozorboy,Abdurakhmanov Boburkhan,7-5 6-0,Uz Open,2026-10-09
+258,Muhammadaliyev Muhtor,Zakirov Raxmatjon,6-3 7-5,Uz Open,2026-10-10
+259,Neklesov Igor,Saidov Mirlaziz,6-3 4-6 6-1,Uz Open,2026-10-10
+260,Eshmurodau Rustam,Khudaykulov Rustam,6-2 6-3,Uz Open,2026-10-10
+261,Sayfullin Ilnur,Shatursunov Shokhaydar,7-5 4-2,Uz Open,2026-10-10
+262,Isaboev Sarvar,Alimatov Burxon,6-7 (1/7) 6-2 [10/7],Uz Open,2026-10-10
+263,Sinotaeva Arina,Zubareva Nadejda,6-2 6-3,Uz Open,2026-10-10
+264,Khan Pyotr,Kuchkarov Ramz,9-7,Uz Open,2026-10-10
+265,Sotvoldiev Abbos,Kadirov Makhmud,6-2 4-6 [10/8],Uz Open,2026-10-11
+266,Saidov Mirlaziz,Mavlyutov Kamil,6-7 (4/7) 6-2 [10/8],Uz Open,2026-10-11
+267,Zulpitdinov Abdushaid,Kiro Altman,6-3 2-6 [10/3],Uz Open,2026-10-12
+268,Khan Pyotr,Tsoy Igor,6-3 5-7 [11/9],Uz Open,2026-10-13
+269,Akbarov Abubakir,Khushvaktova Gulirukh,7-5 7-5,Uz Open,2026-10-13
+270,Kurbanov Zafar,Pankratov Vladimir,6-7 (8/10) 6-1 6-4,Uz Open,2026-10-14
+271,Sadibekov Bulat,Saidov Tigran,6-0 4-6 [10/4],Uz Open,2026-10-14
+272,Sadibekov Bulat,Xaqnazarov Bobur,6-4 4-6 [10/6],Uz Open,2026-10-14
+273,Yu Abduhakim,Khan Pyotr,8-2,Uz Open,2026-10-14
+274,Zakirov Raxmatjon,Matkurbanov Bahtiyor,7-6 (7/2) 7-6 (7/2),Uz Open,2026-10-14
+275,Isaboev Sarvar,Rasulova Zilola,6-0 6-2,Uz Open,2026-10-14
+276,Neklesov Igor,Utkelbayeva Ranay,1-6 6-1 6-2,Uz Open,2026-10-14
+277,Eshmurodau Rustam,Loloshvili Tengiz,6-3 6-1,Uz Open,2026-10-15
+278,Kaschey Artyom,Tadjiev Khamdam,6-4 6-3,Uz Open,2026-10-15
+279,Akbarov Abubakir,Loloshvili Tengiz,6-3 6-3,Uz Open,2026-10-16
+280,Kadirov Makhmud,Fayziev Davron,6-4 7-5,Uz Open,2026-10-16
+281,Muhammadaliyev Muhtor,Pankratov Vladimir,6-1 6-0,Uz Open,2026-10-16
+282,Miraxatov Miraziz,Kiro Altman,6-1 6-4,Uz Open,2026-10-16
+283,Abdurakhmanov Boburkhan,Matkurbanov Bahtiyor,7-5 7-5,Uz Open,2026-10-16
+284,Khan Pyotr,Xalilov Bekzod,6-2 6-0,Uz Open,2026-10-17
+285,Eshmurodau Rustam,Abdulazizov Ergash,6-3 6-1,Uz Open,2026-10-17
+286,Khidoyatov Takhir,Kaschey Artyom,6-2 6-3,Uz Open,2026-10-17
+287,Musashaykhov Abbos,Davletyarov Azamat,6-2 6-1,Uz Open,2026-10-17
+288,Kadirov Bakhrom,Pak Igor,6-3 6-4,Uz Open,2026-10-17
+289,Yu Abduhakim,Moroz Yulianna,6-4 6-4,Uz Open,2026-10-17
+290,Ivko Vladimir,Isaboev Sarvar,6-1 6-3,Uz Open,2026-10-17
+291,Savlev Andrey,Khusniddinov Nodir,6-4 6-2,Uz Open,2026-10-17
+292,Juraev Mirazim,Sadibekov Bulat,5-7 6-4 [11/9],Uz Open,2026-10-18
+293,Yu Abduhakim,Kuchkarov Ramz,8-2,Uz Open,2026-10-18
+294,Khusniddinov Nodir,Narzullaev Jasurbek,6-1 6-2,Uz Open,2026-10-18
+295,Nazarov Sarvarz,Sataev Muzaffar,6-3 4-6 [10/6],Uz Open,2026-10-19
+296,Loloshvili Tengiz,Khan Pyotr,6-3 3-6 [10/7],Uz Open,2026-10-20
+297,Eshmurodau Rustam,Kuchkarov Ramz,7-5 6-3,Uz Open,2026-10-20
+298,Hayitov Olimjon,Savlev Andrey,7-5 6-3,Uz Open,2026-10-20
+299,Khan Pyotr,Umarov Arslonbek,6-2 6-3,Uz Open,2026-10-20
+300,Abdurakhmanov Boburkhan,Zakirov Raxmatjon,6-2 6-3,Uz Open,2026-10-20
+301,Ivko Vladimir,Sultanov Jamoliddin,6-3 3-0,Uz Open,2026-10-21
+302,Boronov Bahodir,Sayfullin Ilnur,6-4 4-6 [7/4],Uz Open,2026-10-21
+303,Matkurbanov Bahtiyor,Pankratov Vladimir,6-3 6-3,Uz Open,2026-10-21
+304,Kaschey Artyom,Isaboev Sarvar,6-4 6-2,Uz Open,2026-10-21
+305,Miraxatov Miraziz,Aliev Akhrorjon,6-3 6-3,Uz Open,2026-10-21
+306,Islamov Savlat,Sadibekov Bulat,6-2 6-2,Uz Open,2026-10-22
+307,Kuchkarov Ramz,Loloshvili Tengiz,7-6 (7/3) 6-2,Uz Open,2026-10-22
+308,Abdurakhmanov Boburkhan,Gulyamov Saidahmad,6-1 6-4,Uz Open,2026-10-22
+309,Dadayev Davron,Zulpitdinov Abdushaid,6-3 2-6 [10/7],Uz Open,2026-10-22
+310,Khushvaktova Gulirukh,Khan Pyotr,3-6 6-3 6-4,Uz Open,2026-10-22
+311,Khon Victor,Saidov Mirlaziz,6-2 6-2,Uz Open,2026-10-22
+312,Eshmurodau Rustam,Tsoy Igor,6-0 6-2,Uz Open,2026-10-23
+313,Yu Abduhakim,Usmonov Jakhongir,6-3 6-3,Uz Open,2026-10-23
+314,Khidoyatov Takhir,Maxamedkasimov Rustam,6-2 0-6 7-6 (7/3),Uz Open,2026-10-23
+315,Raimov Bakhodir,Pankratov Vladimir,7-5 6-2,Uz Open,2026-10-23
+316,Neklesov Igor,Bakhromov Iskandar,6-4 6-2,Uz Open,2026-10-24
+317,Savlev Andrey,Narzullaev Jasurbek,6-1 6-0,Uz Open,2026-10-24
+318,Yu Abduhakim,Sinotaeva Arina,6-4 6-3,Uz Open,2026-10-24
+319,Khushvaktova Gulirukh,Khudaykulov Rustam,6-4 6-0,Uz Open,2026-10-24
+320,Yu Abduhakim,Eshmurodau Rustam,7-6 (7/5) 2-0,Uz Open,2026-10-25
+321,Zubareva Nadejda,Moroz Yulianna,6-3 1-6 [10/5],Uz Open,2026-10-25
+322,Mavlyutov Kamil,Bakhromov Iskandar,6-4 1-6 [10/7],Uz Open,2026-10-25
+323,Abdurakhmanov Boburkhan,Kurbanov Zafar,6-2 6-2,Uz Open,2026-10-25
+324,T Otabek,Khan Pyotr,8-5,Uz Open,2026-10-25
+325,Yu Abduhakim,Abdulazizov Ergash,6-1 6-4,Uz Open,2026-10-26
+326,Hayitov Olimjon,Sayfullin Ilnur,6-3 6-4,Uz Open,2026-10-27
+327,Boronov Bahodir,Khusniddinov Nodir,6-3 6-3,Uz Open,2026-10-27
+328,Kaschey Artyom,Maxamedkasimov Rustam,2-6 7-5 [10/8],Uz Open,2026-10-27
+329,Abduvakhidov Alisher,Kamilov Baxriddin,6-2 6-2,Uz Open,2026-10-27
+330,Saidahmedov Abdulloh,Musashaykhov Abbos,6-3 6-3,Uz Open,2026-10-28
+331,Kadirov Bakhrom,Abdurakhmanov Boburkhan,7-6 (7/3) 6-2,Uz Open,2026-10-28
+332,Mavlyutov Kamil,Ibragimov Sarvar,6-2 4-6 [8/6],Uz Open,2026-10-28
+333,Hayitov Olimjon,Khusniddinov Nodir,6-3 6-4,Uz Open,2026-10-29
+334,Abduvakhidov Alisher,Niyazov Zarrux,6-3 6-4,Uz Open,2026-10-29
+335,Khushvaktova Gulirukh,Tsoy Igor,6-2 6-0,Uz Open,2026-10-29
+336,Davletyarov Azamat,Sayfullin Ilnur,7-6 (7/5) 4-4,Uz Open,2026-10-29
+337,Sinotaeva Arina,Khudaykulov Rustam,6-0 7-5,Uz Open,2026-10-30
+338,Zubareva Nadejda,Khan Pyotr,4-6 7-5 [10/5],Uz Open,2026-10-30
+339,Abdurakhmanov Boburkhan,Pankratov Vladimir,6-0 6-4,Uz Open,2026-10-30
+340,Davletyarov Azamat,Alieva Aleksandra,8-4,Uz Open,2026-10-31
+341,Eshmurodau Rustam,Moroz Yulianna,6-1 6-1,Uz Open,2026-10-31
+342,Kadirov Makhmud,Aliev Akhrorjon,6-3 6-1,Uz Open,2026-10-31
+343,Baranov Demetri,Utkelbayeva Ranay,6-2 6-1,Uz Open,2026-10-31
+344,Yu Abduhakim,Khushvaktova Gulirukh,7-5 6-2,Uz Open,2026-10-31
+345,Khusniddinov Nodir,Shatursunov Shokhaydar,6-0 2-6 6-1,Uz Open,2026-11-01
+346,Hayitov Olimjon,Shatursunov Shokhaydar,6-4 2-1,Uz Open,2026-11-01
+347,Karimov Bobirbek,Matkurbanov Bahtiyor,6-4 3-6 [12/10],Uz Open,2026-09-30
