@@ -7,15 +7,23 @@ def get_division_name(priority):
     if priority <= 50:
         return 'SemiPro'
     if priority <= 110:
-        return 'M1'
+        return 'M10'
+    if priority <= 115:
+        return 'M15'
     elif priority <= 120:
-        return 'M2'
+        return 'M20'
+    elif priority <= 125:
+        return 'M25'
     elif priority <= 130:
-        return 'M3'
+        return 'M30'
+    elif priority <= 135:
+        return 'M35'
     elif priority <= 140:
-        return 'M4'
+        return 'M40'
+    elif priority <= 145:
+        return 'M45'
     elif priority <= 150:
-        return 'M5'
+        return 'M50'
     elif priority <= 210:
         return 'O1'
     return 'O2'
@@ -280,16 +288,24 @@ class Result(db.Model):
         relegation = self.relegation
         prev_priority = self.division_ref.priority
 
+        step = 10
+
         if relegation == 'promoted' or relegation == 'fast promoted':
-            new_priority = prev_priority - 10
+            if self.division_ref.name in ['M15', 'M20', 'M35', 'M40', 'M45', 'M50']:
+                step = 5
+
+            new_priority = prev_priority - step
             if new_priority == 200:
                 new_priority = 150
             if new_priority == 100:
                 new_priority = 50
         elif relegation == 'relegated':
-            new_priority = prev_priority + 10
+            if self.division_ref.name in ['M10', 'M15', 'M30', 'M35', 'M40', 'M45']:
+                step = 5
+
+            new_priority = prev_priority + step
         elif relegation == 'double promoted':
-            new_priority = prev_priority - 20
+            new_priority = prev_priority - 2*step
         else:
             new_priority = prev_priority
 
