@@ -593,7 +593,8 @@ def get_season_by_raketo_name(season_name):
                   "Women's League Season 1/2025": 11,
                   'Oltin Garros': 12,
                   'Chilladon. The Championship': 13,
-                  'Chilladon': 13}
+                  'Chilladon': 13,
+                  'Uz Open': 14}
     if season_name in raketo_names:
         return Season.query.get(raketo_names[season_name])
 
